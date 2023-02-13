@@ -5,11 +5,11 @@ import { Image, View, SafeAreaView, Text } from 'react-native';
 import { ICONS, IMAGES, COLORS, FONTS } from '../themes/Themes';
 import normalize from '../utils/helpers/normalize';
 export default function Splash(props) {
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     props.navigation.navigate('Login');
-  //   }, 2500);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      props.navigation.navigate('Introduction');
+    }, 2500);
+  }, []);
 
   return (
     <>

@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Splash from '../screens/Splash';
+import Introduction from '../screens/auth/Introduction';
 
 
 
@@ -20,6 +21,7 @@ export default function StackNavigator() {
       {
         
         Splash: Splash,
+        Introduction : Introduction
         
         
       }

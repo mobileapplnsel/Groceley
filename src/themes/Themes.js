@@ -31,6 +31,7 @@ export const ICONS = {
   // barcodebox: require('../assets/icons/Barcode_box.png'),
   // barcodeline: require('../assets/icons/Barcode_line.png'),
   // downchevron: require('../assets/icons/Downchevron.png'),
+   bed: require('../assets/icons/bed.png'),
 };
 
 export const FONTS = {
@@ -42,6 +43,8 @@ export const FONTS = {
   // TrumpGothicPro: 'TrumpGothicPro',
   // TrebuchetMS: 'Trebuchet MS',
   // TrebuchetMSBold: 'Trebuchet MS Bold',
+   PlayfairDisplayBlack: 'PlayfairDisplay-Black',
+   RubikBold: 'Rubik-Bold'
 };
 
 export const COLORS = {
