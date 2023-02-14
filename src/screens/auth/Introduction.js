@@ -134,16 +134,7 @@ export default function Introduction(props) {
                         <TouchableOpacity
 
 
-                            onPress={() =>
-
-
-
-
-
-                                submitform()
-
-                            }
-
+                            
                             style={{
 
                                 height: normalize(40),
