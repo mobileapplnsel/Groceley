@@ -132,7 +132,7 @@ export default function Introduction(props) {
 
 
                         <TouchableOpacity
-
+                             onPress={()=> props.navigation.navigate("Registration")}
 
                             
                             style={{

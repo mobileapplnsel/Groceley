@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Splash from '../screens/Splash';
 import Introduction from '../screens/auth/Introduction';
-
+import Registration from '../screens/auth/Registration';
 
 
 import { useSelector } from 'react-redux';
@@ -21,8 +21,8 @@ export default function StackNavigator() {
       {
         
         Splash: Splash,
-        Introduction : Introduction
-        
+        Introduction : Introduction,
+        Registration: Registration
         
       }
      
