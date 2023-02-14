@@ -33,10 +33,11 @@ var status = '';
 export default function Registration(props) {
 
   
-  const [oldpassword, setOldpassword] = useState('');
-  const [newpassword, setNewpassword] = useState('');
+  const [name, setName] = useState('');
+  const [mobilenumber, setMobileNumber] = useState('');
+  const [emailaddress, setEmailaddress] = useState('');
+  const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
-  const [userId, setUserId] = useState('');
   const isFocused = useIsFocused();
 
 
@@ -75,21 +76,13 @@ export default function Registration(props) {
 
 <View style={{
    flex: 1,
-   backgroundColor: '#1F3365'
+   backgroundColor: 'white'
 }}>
 
 
 
 
-<View style={{
-  
-  width: '100%',
-  height: normalize(230),
-  backgroundColor: "#1F3365",
-  
-  marginRight: normalize(10),
-  
-}} />
+
 
 
                 <Image
@@ -139,31 +132,57 @@ export default function Registration(props) {
 
                   
                   <TextInputItem
-                    value={oldpassword}
-                    onChangeText={_ => setOldpassword(_)}
+                    value={name}
+                    onChangeText={_ => setName(_)}
                     marginTop={normalize(40)}
                     keyboardType={'email-address'}
                     fontSize={normalize(14)}
                     width={normalize(250)}
-                    placeholder={'Old Password'}
+                    placeholder={'Name'}
                     borderRadius={normalize(30)}
                     backgroundColor={'#D3D3D3'}
                    
                   />
 
 <TextInputItem
-                    value={newpassword}
-                    onChangeText={_ => setNewpassword(_)}
+                    value={mobilenumber}
+                    onChangeText={_ => setMobileNumber(_)}
                     marginTop={normalize(10)}
                     keyboardType={'email-address'}
                     fontSize={normalize(14)}
                     width={normalize(250)}
-                    placeholder={'New Password'}
+                    placeholder={'Mobile Number'}
                     borderRadius={normalize(30)}
                     backgroundColor={'#D3D3D3'}
                    
                   />
                   <TextInputItem
+                    value={emailaddress}
+                    onChangeText={_ => setEmailaddress(_)}
+                    marginTop={normalize(10)}
+                    keyboardType={'email-address'}
+                    fontSize={normalize(14)}
+                    width={normalize(250)}
+                    placeholder={'Email Address'}
+                    borderRadius={normalize(30)}
+                    backgroundColor={'#D3D3D3'}
+                   
+                  />
+                  
+                  <TextInputItem
+                    value={choosepassword}
+                    onChangeText={_ => setChoosepassword(_)}
+                    marginTop={normalize(10)}
+                    keyboardType={'email-address'}
+                    fontSize={normalize(14)}
+                    width={normalize(250)}
+                    placeholder={'Choose Password'}
+                    borderRadius={normalize(30)}
+                    backgroundColor={'#D3D3D3'}
+                   
+                  />
+
+<TextInputItem
                     value={confirmpassword}
                     onChangeText={_ => setConfirmpassword(_)}
                     marginTop={normalize(10)}
@@ -175,66 +194,35 @@ export default function Registration(props) {
                     backgroundColor={'#D3D3D3'}
                    
                   />
-                  
-                 
- {/* <TouchableOpacity
-              style={{
-                flexDirection: 'row',
-                
-              }}
-            //   onPress={() => {
-            //     setShow(!show);
-            //     Keyboard.dismiss()
-            //   }}
-            >
-              <TextInputItem
-                isText={true}
-               
-                marginTop={normalize(5)}
-                paddingRight={normalize(15)}
-                height={normalize(45)}
-                color={COLORS.lightBlack}
-                
-              />
-              <View
-                style={{
-                  position: 'absolute',
-                  height: '100%',
-                  right: normalize(10),
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  paddingHorizontal: normalize(15),
-                }}
-              >
-                <Image
-                  source={ICONS.downchevron}
-                  style={{
-                    height: normalize(15),
-                    width: normalize(15),
-                    marginTop: normalize(17),
-                    position: 'absolute',
-                    right: 2,
-                    top: 5
-                  }}
-                  resizeMode="contain"
-                />
-              </View>
-            </TouchableOpacity> */}
+
+
+ <TouchableOpacity
+ 
+ style={{
+    height: normalize(35),
+    width: normalize(100),
+    marginTop: normalize(20),
+    backgroundColor: '#D80000',
+    alignSelf: 'center',
+    borderRadius: normalize(20)
+ }}
+ >
+<Text
+style={{
+    color: 'white',
+    textAlign: 'center',
+    marginTop: normalize(9),
+    fontSize: normalize(10),
+    fontWeight: '800'
+}}
+>REGISTER</Text>
+
+
+ </TouchableOpacity>
                   
                    
 
 
-                    <View style={{
-                        marginTop: normalize(30),
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        marginTop: normalize(2)
-                    }}>
-
-             
-
-
-</View>
                    
                   
                 </View>
