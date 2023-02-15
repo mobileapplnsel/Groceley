@@ -156,7 +156,7 @@ export default function Registration(props) {
                 value={mobilenumber}
                 onChangeText={_ => setMobileNumber(_)}
                 marginTop={normalize(10)}
-                keyboardType={'email-address'}
+                keyboardType={'numeric'}
                 fontSize={normalize(14)}
                 width={normalize(250)}
                 placeholder={'Mobile Number'}
