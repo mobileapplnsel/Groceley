@@ -211,72 +211,145 @@ export default function Registration(props) {
               </TouchableOpacity>
 
 
-             
+
 
             </View>
 
 
             <View style={{
               flexDirection: 'row',
-             
+
             }}>
 
-            <View
-                                        style={{
-                                            width: '25%',
-                                            height: normalize(1),
-                                            backgroundColor: '#D9D9D9',
-                                            
-                                            marginLeft: normalize(30),
-                                           marginTop: normalize(30)
-                                        }}
+              <View
+                style={{
+                  width: '25%',
+                  height: normalize(1),
+                  backgroundColor: '#D9D9D9',
 
-                                    />
+                  marginLeft: normalize(30),
+                  marginTop: normalize(30)
+                }}
 
-                                    <Text
-                                     style={{
-                                      
-                                      fontSize: normalize(11),
-                                      color: '#1D1D1B',
-                                      
-                                      marginLeft: normalize(5),
-                                     marginTop: normalize(22),
-                                     fontWeight: '700'
-                                  }}
-                                    >or Register with</Text>
+              />
 
-                                    <View
-                                        style={{
-                                            width: '25%',
-                                            height: normalize(1),
-                                            backgroundColor: '#D9D9D9',
-                                            
-                                            marginRight: normalize(30),
-                                            marginLeft: normalize(5),
-                                           marginTop: normalize(30)
-                                        }}
+              <Text
+                style={{
 
-                                    />
+                  fontSize: normalize(11),
+                  color: '#1D1D1B',
+
+                  marginLeft: normalize(5),
+                  marginTop: normalize(22),
+                  fontWeight: '700'
+                }}
+              >or Register with</Text>
+
+              <View
+                style={{
+                  width: '25%',
+                  height: normalize(1),
+                  backgroundColor: '#D9D9D9',
+
+                  marginRight: normalize(30),
+                  marginLeft: normalize(5),
+                  marginTop: normalize(30)
+                }}
+
+              />
 
 
 
-</View>
+            </View>
 
-<View style={{
-  marginTop: normalize(20)
-}}>
+            <View style={{
+              marginTop: normalize(20),
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
 
-<Image
+              <Image
                 source={ICONS.facebook}
                 style={{
-                  height: normalize(50),
-                  width: normalize(50),
+                  height: normalize(40),
+                  width: normalize(40),
                   alignSelf: 'center',
                 }}
                 resizeMode={'contain'}
               ></Image>
 
-</View>
+              <View
+
+                style={{
+                  height: normalize(40),
+                  width: normalize(40),
+                  borderRadius: normalize(20),
+                  backgroundColor: '#E31C23',
+                  justifyContent: 'center',
+                  marginLeft: normalize(10)
+                }}>
+
+
+                <Image
+                  source={ICONS.google}
+                  style={{
+                    height: normalize(20),
+                    width: normalize(20),
+                    alignSelf: 'center',
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+
+
+              </View>
+
+
+
+            </View>
+
+
+            <View style={{
+              marginTop: normalize(5),
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+
+<Text
+                style={{
+
+                  fontSize: normalize(11),
+                  color: '#1D1D1B',
+
+                  marginLeft: normalize(5),
+                  marginTop: normalize(22),
+                  fontWeight: '700'
+                }}
+              >Already have an account ? </Text>
+            
+
+
+            <Text
+                style={{
+
+                  fontSize: normalize(11),
+                  color: '#E31C23',
+
+                 
+                  marginTop: normalize(22),
+                  fontWeight: '700'
+                }}
+              >Click here to login</Text>
+
+
+             
+
+
+
+            </View>
+
+
 
 
           </ScrollView>

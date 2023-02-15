@@ -34,6 +34,7 @@ export const ICONS = {
    bed: require('../assets/icons/bed.png'),
    home: require('../assets/icons/home.png'),
    facebook: require('../assets/icons/facebook.png'),
+   google: require('../assets/icons/google.png'),
 };
 
 export const FONTS = {

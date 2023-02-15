@@ -140,8 +140,8 @@ export default function Introduction(props) {
                                 height: normalize(40),
                                 width: normalize(130),
                                 backgroundColor: 'white',
-                                marginTop: normalize(280),
-                                marginBottom: normalize(20),
+                                marginTop: normalize(270),
+                               
                                 alignSelf: 'center',
                                 borderRadius: normalize(25),
 
@@ -151,7 +151,7 @@ export default function Introduction(props) {
                             <Text
                                 style={{
                                     alignSelf: 'center',
-                                    color: 'black'
+                                    color: 'black',
                                 }}
                             >GET STARTED</Text>
                         </TouchableOpacity>
