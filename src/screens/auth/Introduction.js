@@ -140,8 +140,8 @@ export default function Introduction(props) {
                                 height: normalize(40),
                                 width: normalize(130),
                                 backgroundColor: 'white',
-                                marginTop: normalize(300),
-                                marginBottom: normalize(10),
+                                marginTop: normalize(280),
+                                marginBottom: normalize(20),
                                 alignSelf: 'center',
                                 borderRadius: normalize(25),
 

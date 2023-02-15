@@ -32,6 +32,7 @@ export const ICONS = {
   // barcodeline: require('../assets/icons/Barcode_line.png'),
   // downchevron: require('../assets/icons/Downchevron.png'),
    bed: require('../assets/icons/bed.png'),
+   home: require('../assets/icons/home.png'),
 };
 
 export const FONTS = {
