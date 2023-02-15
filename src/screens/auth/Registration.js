@@ -76,10 +76,27 @@ export default function Registration(props) {
 
 
 
+          <Image
+                source={ICONS.ellipse2}
+                style={{
+                  height: normalize(38),
+                  width: normalize(40),
+                  alignSelf: 'flex-start',
+                }}
+                resizeMode={'contain'}
+            />
 
 
-
-
+<Image
+                source={ICONS.ellipse3}
+                style={{
+                  height: normalize(70),
+                  width: normalize(70),
+                  marginLeft:normalize(-20),
+                  alignSelf: 'flex-start',
+                }}
+                resizeMode={'contain'}
+            />
 
 
 
@@ -89,7 +106,7 @@ export default function Registration(props) {
             <View
               style={{
 
-
+                marginTop: normalize(-60),
                 alignSelf: 'center'
               }}>
 
@@ -109,8 +126,8 @@ export default function Registration(props) {
               </Image>
               <Text
                 style={{
-                  fontSize: normalize(18),
-
+                  fontSize: normalize(14),
+                  letterSpacing: 3,
                   fontWeight: '700',
                   textAlign: 'center',
                   marginTop: normalize(10),
@@ -124,7 +141,7 @@ export default function Registration(props) {
               <TextInputItem
                 value={name}
                 onChangeText={_ => setName(_)}
-                marginTop={normalize(40)}
+                marginTop={normalize(10)}
                 keyboardType={'email-address'}
                 fontSize={normalize(14)}
                 width={normalize(250)}
@@ -313,7 +330,8 @@ export default function Registration(props) {
               marginTop: normalize(5),
               flexDirection: 'row',
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              marginBottom: normalize(20),
             }}>
 
 <Text
@@ -324,9 +342,10 @@ export default function Registration(props) {
 
                   marginLeft: normalize(5),
                   marginTop: normalize(22),
+                 
                   fontWeight: '700'
                 }}
-              >Already have an account ? </Text>
+              >Already Have An Account ? </Text>
             
 
 
@@ -340,7 +359,7 @@ export default function Registration(props) {
                   marginTop: normalize(22),
                   fontWeight: '700'
                 }}
-              >Click here to login</Text>
+              >Click Here To Login</Text>
 
 
              
@@ -348,6 +367,30 @@ export default function Registration(props) {
 
 
             </View>
+
+            <Image
+                source={ICONS.ellipse}
+                style={{
+                  height: normalize(60),
+                  width: normalize(60),
+                  alignSelf: 'flex-end',
+                  marginRight: normalize(-15),
+                  marginTop: normalize(-60)
+                }}
+                resizeMode={'contain'}
+            />
+
+<Image
+                source={ICONS.ellipse4}
+                style={{
+                  height: normalize(60),
+                  width: normalize(60),
+                  alignSelf: 'flex-end',
+                  marginRight: normalize(-15),
+                 
+                }}
+                resizeMode={'contain'}
+            />
 
 
 

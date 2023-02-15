@@ -35,6 +35,10 @@ export const ICONS = {
    home: require('../assets/icons/home.png'),
    facebook: require('../assets/icons/facebook.png'),
    google: require('../assets/icons/google.png'),
+   ellipse: require('../assets/icons/ellipse.png'),
+   ellipse2: require('../assets/icons/ellipse2.png'),
+   ellipse3: require('../assets/icons/ellipse3.png'),
+   ellipse4: require('../assets/icons/ellipse4.png'),
 };
 
 export const FONTS = {
