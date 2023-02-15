@@ -173,6 +173,7 @@ TextInputItem.propTypes = {
   onFocus: PropTypes.func,
   onFocusOut: PropTypes.func,
   returnKeyType: PropTypes.string,
+  secureTextEntry: PropTypes.any,
 };
 
 TextInputItem.defaultProps = {
@@ -218,5 +219,6 @@ TextInputItem.defaultProps = {
   textInputWidth: normalize(200),
   colorGreenVisible: true,
   returnKeyType: 'default',
-  borderColor: 'black'
+  borderColor: 'black',
+  secureTextEntry: true
 };

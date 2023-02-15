@@ -10,8 +10,7 @@ import {
   Image,
   ImageBackground,
   StatusBar,
-  Alert,
-  TextInput
+  Alert
 } from 'react-native';
 
 
@@ -31,7 +30,7 @@ import constants from '../../utils/helpers/constants';
 
 
 var status = '';
-export default function Registration(props) {
+export default function Login(props) {
 
 
   const [name, setName] = useState('');
@@ -135,86 +134,40 @@ export default function Registration(props) {
                   color: 'black',
 
                 }}>
-                REGISTER
+                LOGIN
               </Text>
 
 
               <TextInputItem
                 value={name}
                 onChangeText={_ => setName(_)}
-                marginTop={normalize(10)}
+                marginTop={normalize(30)}
                 keyboardType={'email-address'}
                 fontSize={normalize(14)}
                 width={normalize(250)}
-                placeholder={'Name'}
+                placeholder={'Enter Username / Mobile number'}
                 borderRadius={normalize(30)}
                 backgroundColor={'#D3D3D3'}
 
               />
+
+             
+             
 
               <TextInputItem
-                value={mobilenumber}
-                onChangeText={_ => setMobileNumber(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'Mobile Number'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-              <TextInputItem
-                value={emailaddress}
-                onChangeText={_ => setEmailaddress(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'Email Address'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-
-              <TextInput
                 value={choosepassword}
-                secureTextEntry={true}
-                placeholder={'Choose Password'}
                 onChangeText={_ => setChoosepassword(_)}
-                style={{
-                marginTop: normalize(10),
-                
-                fontSize: normalize(14),
-                width: normalize(250),
-               
-                
-                borderRadius : normalize(30),
-                backgroundColor: '#D3D3D3',
-                paddingLeft: normalize(10)
-                }}
-                keyboardType={"default"}
-              />
-
-              <TextInput
-                value={confirmpassword}
-                secureTextEntry={true}
-                placeholder={'Confirm Password'}
-                onChangeText={_ => setConfirmpassword(_)}
-                style={{
-                  marginTop: normalize(10),
-                  
-                  fontSize: normalize(14),
-                  width: normalize(250),
-                 
-                  
-                  borderRadius : normalize(30),
-                  backgroundColor: '#D3D3D3',
-                  paddingLeft: normalize(10)
-                  }}
-                  keyboardType={"default"}
+                marginTop={normalize(10)}
+                keyboardType={'email-address'}
+                fontSize={normalize(14)}
+                width={normalize(250)}
+                placeholder={'Choose Password'}
+                borderRadius={normalize(30)}
+                backgroundColor={'#D3D3D3'}
 
               />
+
+             
 
 
               <TouchableOpacity
@@ -236,7 +189,7 @@ export default function Registration(props) {
                     fontSize: normalize(10),
                     fontWeight: '800'
                   }}
-                >REGISTER</Text>
+                >LOGIN</Text>
 
 
               </TouchableOpacity>
@@ -274,7 +227,7 @@ export default function Registration(props) {
                   marginTop: normalize(22),
                   fontWeight: '700'
                 }}
-              >or Register with</Text>
+              >or Login with</Text>
 
               <View
                 style={{
@@ -361,7 +314,7 @@ export default function Registration(props) {
                 }}
               >Already Have An Account ? </Text>
             
-<TouchableOpacity onPress={()=> props.navigation.navigate("Login")}>
+
 
             <Text
                 style={{
@@ -375,7 +328,7 @@ export default function Registration(props) {
                 }}
               >Click Here To Login</Text>
 
-</TouchableOpacity>
+
              
 
 
