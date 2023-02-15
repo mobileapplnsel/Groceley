@@ -258,8 +258,25 @@ export default function Registration(props) {
 
                                     />
 
+
+
 </View>
 
+<View style={{
+  marginTop: normalize(20)
+}}>
+
+<Image
+                source={ICONS.facebook}
+                style={{
+                  height: normalize(50),
+                  width: normalize(50),
+                  alignSelf: 'center',
+                }}
+                resizeMode={'contain'}
+              ></Image>
+
+</View>
 
 
           </ScrollView>

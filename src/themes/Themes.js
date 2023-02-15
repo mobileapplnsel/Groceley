@@ -33,6 +33,7 @@ export const ICONS = {
   // downchevron: require('../assets/icons/Downchevron.png'),
    bed: require('../assets/icons/bed.png'),
    home: require('../assets/icons/home.png'),
+   facebook: require('../assets/icons/facebook.png'),
 };
 
 export const FONTS = {
