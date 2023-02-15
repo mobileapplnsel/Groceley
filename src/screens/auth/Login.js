@@ -10,7 +10,8 @@ import {
   Image,
   ImageBackground,
   StatusBar,
-  Alert
+  Alert,
+  TextInput
 } from 'react-native';
 
 
@@ -154,17 +155,23 @@ export default function Login(props) {
              
              
 
-              <TextInputItem
+<TextInput
                 value={choosepassword}
-                onChangeText={_ => setChoosepassword(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
+                secureTextEntry={true}
                 placeholder={'Choose Password'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
+                onChangeText={_ => setChoosepassword(_)}
+                style={{
+                marginTop: normalize(10),
+                
+                fontSize: normalize(14),
+                width: normalize(250),
+               
+                
+                borderRadius : normalize(30),
+                backgroundColor: '#D3D3D3',
+                paddingLeft: normalize(10)
+                }}
+                keyboardType={"default"}
               />
 
              
@@ -202,7 +209,8 @@ export default function Login(props) {
 
             <View style={{
               flexDirection: 'row',
-
+              justifyContent: 'center',
+              alignItems: 'center'
             }}>
 
               <View
@@ -224,7 +232,7 @@ export default function Login(props) {
                   color: '#1D1D1B',
 
                   marginLeft: normalize(5),
-                  marginTop: normalize(22),
+                  marginTop: normalize(25),
                   fontWeight: '700'
                 }}
               >or Login with</Text>
@@ -296,8 +304,7 @@ export default function Login(props) {
             <View style={{
               marginTop: normalize(5),
               flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
+              marginLeft: normalize(50),
               marginBottom: normalize(20),
             }}>
 
@@ -307,12 +314,12 @@ export default function Login(props) {
                   fontSize: normalize(11),
                   color: '#1D1D1B',
 
-                  marginLeft: normalize(5),
+                  textAlign: 'left',
                   marginTop: normalize(22),
                  
                   fontWeight: '700'
                 }}
-              >Already Have An Account ? </Text>
+              >Forgot Your Password ?</Text>
             
 
 
@@ -322,13 +329,56 @@ export default function Login(props) {
                   fontSize: normalize(11),
                   color: '#E31C23',
 
-                 
+                  marginLeft: normalize(2),
                   marginTop: normalize(22),
                   fontWeight: '700'
                 }}
-              >Click Here To Login</Text>
+              >Click Here</Text>
 
 
+             
+
+
+
+            </View>
+
+
+
+            <View style={{
+             
+              flexDirection: 'row',
+              marginLeft: normalize(50),
+              marginBottom: normalize(20),
+            }}>
+
+<Text
+                style={{
+
+                  fontSize: normalize(11),
+                  color: '#1D1D1B',
+
+                  
+                 
+                 
+                  fontWeight: '700'
+                }}
+              >Don’t have an account ? </Text>
+            
+
+<TouchableOpacity onPress={()=> props.navigation.navigate("Registration")}>
+            <Text
+                style={{
+
+                  fontSize: normalize(11),
+                  color: '#E31C23',
+
+                  
+                  
+                  fontWeight: '700'
+                }}
+              > Click Here To Register</Text>
+
+</TouchableOpacity>
              
 
 
@@ -342,7 +392,7 @@ export default function Login(props) {
                   width: normalize(60),
                   alignSelf: 'flex-end',
                   marginRight: normalize(-17),
-                  marginTop: normalize(-60)
+                  marginTop: normalize(-20)
                 }}
                 resizeMode={'contain'}
             />
