@@ -31,7 +31,7 @@ import constants from '../../utils/helpers/constants';
 
 
 var status = '';
-export default function Login(props) {
+export default function ForgotPassword(props) {
 
 
   const [name, setName] = useState('');
@@ -322,7 +322,7 @@ export default function Login(props) {
               >Forgot Your Password ?</Text>
             
 
-
+<TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword")}>
             <Text
                 style={{
 
@@ -335,7 +335,7 @@ export default function Login(props) {
                 }}
               >Click Here</Text>
 
-
+</TouchableOpacity>
              
 
 
@@ -384,7 +384,14 @@ export default function Login(props) {
 
 
             </View>
-
+            <View style={{
+    height: '20.5%',
+    width: '100%',
+  position: 'absolute',
+   bottom: 0,
+ 
+   
+}}>
             <Image
                 source={ICONS.ellipse}
                 style={{
@@ -392,7 +399,7 @@ export default function Login(props) {
                   width: normalize(60),
                   alignSelf: 'flex-end',
                   marginRight: normalize(-17),
-                  marginTop: normalize(-20)
+                  //marginTop: normalize(-20)
                 }}
                 resizeMode={'contain'}
             />
@@ -400,7 +407,7 @@ export default function Login(props) {
 <Image
                 source={ICONS.ellipse4}
                 style={{
-                  height: normalize(60),
+                  height: normalize(76),
                   width: normalize(60),
                   alignSelf: 'flex-end',
                   marginRight: normalize(-15),
@@ -409,7 +416,7 @@ export default function Login(props) {
                 resizeMode={'contain'}
             />
 
-
+</View>
 
 
           {/* </ScrollView> */}
