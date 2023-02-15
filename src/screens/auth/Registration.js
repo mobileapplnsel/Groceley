@@ -374,7 +374,7 @@ export default function Registration(props) {
                   height: normalize(60),
                   width: normalize(60),
                   alignSelf: 'flex-end',
-                  marginRight: normalize(-15),
+                  marginRight: normalize(-17),
                   marginTop: normalize(-60)
                 }}
                 resizeMode={'contain'}
