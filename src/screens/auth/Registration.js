@@ -364,7 +364,7 @@ export default function Registration(props) {
 <TouchableOpacity onPress={()=> props.navigation.navigate("Login")}>
 
             <Text
-                style={{
+                style={{ 
 
                   fontSize: normalize(11),
                   color: '#E31C23',
