@@ -13,7 +13,7 @@ import Store from './src/redux/store';
  
  LogBox.ignoreAllLogs();
  
- const AjantaHandloom = () => {
+ const Groceley = () => {
    // const dispatch = useDispatch()
    // useEffect(() => {
    //     setTimeout(() => {
@@ -27,4 +27,4 @@ import Store from './src/redux/store';
    );
  };
  
- AppRegistry.registerComponent(appName, () =>  AjantaHandloom);
+ AppRegistry.registerComponent(appName, () => Groceley );

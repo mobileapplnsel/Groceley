@@ -39,6 +39,8 @@ export const ICONS = {
    ellipse2: require('../assets/icons/ellipse2.png'),
    ellipse3: require('../assets/icons/ellipse3.png'),
    ellipse4: require('../assets/icons/ellipse4.png'),
+   logo: require('../assets/icons/logo.png'),
+   Splash_image: require('../assets/icons/Splash_image.png'),
 };
 
 export const FONTS = {

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, View, SafeAreaView, Text } from 'react-native';
+import { Image, View, SafeAreaView, Text, ImageBackground } from 'react-native';
 
 
 import { ICONS, IMAGES, COLORS, FONTS } from '../themes/Themes';
@@ -7,7 +7,7 @@ import normalize from '../utils/helpers/normalize';
 export default function Splash(props) {
   useEffect(() => {
     setTimeout(() => {
-      props.navigation.navigate('Introduction');
+     // props.navigation.navigate('Introduction');
     }, 2500);
   }, []);
 
@@ -19,8 +19,8 @@ export default function Splash(props) {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-          <Image
-            source={IMAGES.logo}
+          <ImageBackground
+            source={ICONS.Splash_image}
             resizeMode="cover"
             style={{
             
@@ -30,7 +30,25 @@ export default function Splash(props) {
              
              
             }}
-          />
+
+          >
+
+           <Image
+           
+           
+           source={ICONS.logo}
+            resizeMode="contain"
+            style={{
+            
+              width: '50%',
+              height: '50%',
+              alignSelf: 'center',
+              marginTop: normalize(140)
+             
+            }}/>
+
+
+          </ImageBackground>
         </View>
         
       </SafeAreaView>
