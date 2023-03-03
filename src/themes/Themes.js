@@ -41,6 +41,8 @@ export const ICONS = {
    ellipse4: require('../assets/icons/ellipse4.png'),
    logo: require('../assets/icons/logo.png'),
    Splash_image: require('../assets/icons/Splash_image.png'),
+   arrow: require('../assets/icons/arrow.png'),
+   intro: require('../assets/icons/intro.png'),
 };
 
 export const FONTS = {

@@ -7,8 +7,8 @@ import normalize from '../utils/helpers/normalize';
 export default function Splash(props) {
   useEffect(() => {
     setTimeout(() => {
-     // props.navigation.navigate('Introduction');
-    }, 2500);
+     props.navigation.navigate('Introduction');
+    }, 3000);
   }, []);
 
   return (

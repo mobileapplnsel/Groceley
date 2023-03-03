@@ -31,7 +31,7 @@ import constants from '../../utils/helpers/constants';
 
 
 var status = '';
-export default function ForgotPassword(props) {
+export default function Introduction(props) {
 
 
   const [name, setName] = useState('');
