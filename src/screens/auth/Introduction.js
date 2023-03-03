@@ -214,7 +214,27 @@ export default function Introduction(props) {
 
                         </TouchableOpacity>
 
+                        <Image
+                            source={ICONS.intro}
+                            style={{
+                                height: normalize(250),
+                                width: normalize(250),
+                                alignSelf: 'center',
+                                marginTop: normalize(20)
+                            }}
+                            resizeMode={'contain'}
+                        ></Image>
 
+<Image
+                            source={ICONS.logo}
+                            style={{
+                                height: normalize(150),
+                                width: normalize(150),
+                                alignSelf: 'center',
+                                marginTop: normalize(-30)
+                            }}
+                            resizeMode={'contain'}
+                        ></Image>
 
 
                     </View>
