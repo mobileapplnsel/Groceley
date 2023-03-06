@@ -116,7 +116,9 @@ export default function Introduction(props) {
                         style={{
 
                             marginTop: normalize(-60),
-                            alignSelf: 'center'
+                            alignSelf: 'center',
+                            marginLeft: normalize(10),
+                            marginRight: normalize(10)
                         }}>
 
 
@@ -220,7 +222,7 @@ export default function Introduction(props) {
                                 height: normalize(250),
                                 width: normalize(250),
                                 alignSelf: 'center',
-                                marginTop: normalize(20)
+                                marginTop: normalize(5)
                             }}
                             resizeMode={'contain'}
                         ></Image>
@@ -228,10 +230,10 @@ export default function Introduction(props) {
 <Image
                             source={ICONS.logo}
                             style={{
-                                height: normalize(150),
+                                height: normalize(120),
                                 width: normalize(150),
                                 alignSelf: 'center',
-                                marginTop: normalize(-30)
+                                marginTop: normalize(-40)
                             }}
                             resizeMode={'contain'}
                         ></Image>
