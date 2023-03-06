@@ -26,12 +26,12 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
-
+import OTPInputView from '@twotalltotems/react-native-otp-input'
 
 
 
 var status = '';
-export default function Login(props) {
+export default function Otppage(props) {
 
 
     const [name, setName] = useState('');
@@ -39,6 +39,7 @@ export default function Login(props) {
     const [emailaddress, setEmailaddress] = useState('');
     const [choosepassword, setChoosepassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
+    const [sendotp, setSendotp] = useState(0);
     const isFocused = useIsFocused();
 
 
@@ -75,34 +76,31 @@ export default function Login(props) {
 
 
 
-                   
-<Image
-                source={ICONS.ellipse}
-                style={{
-                  height: normalize(80),
-                  width: normalize(80),
-                  marginRight: normalize(-15),
-                  marginTop: normalize(-5),
-                  
-                  alignSelf: 'flex-end',
-                  position: 'relative'
-                }}
-                resizeMode={'contain'}
-            />
+                    <Image
+                        source={ICONS.ellipse2}
+                        style={{
+                            height: normalize(38),
+                            width: normalize(40),
+                            alignSelf: 'flex-start',
+                        }}
+                        resizeMode={'contain'}
+                    />
 
-<Image
-                source={ICONS.ellipse2}
-                style={{
-                  height: normalize(50),
-                  width: normalize(50),
-                  alignSelf: 'flex-end',
-                  marginRight: normalize(-10),
-                  alignSelf: 'flex-end',
-                  position: 'relative',
-                  top: -6
-                }}
-                resizeMode={'contain'}
-            />
+
+                    <Image
+                        source={ICONS.ellipse3}
+                        style={{
+                            height: normalize(70),
+                            width: normalize(70),
+                            marginLeft: normalize(-20),
+                            alignSelf: 'flex-start',
+                        }}
+                        resizeMode={'contain'}
+                    />
+
+
+
+
 
 
                     <View
@@ -114,9 +112,9 @@ export default function Login(props) {
 
 
                         <Image
-                            source={ICONS.logo1}
+                            source={ICONS.home}
                             style={{
-                                height: normalize(100),
+                                height: normalize(50),
                                 width: normalize(50),
                                 alignSelf: 'center',
                             }}
@@ -136,41 +134,63 @@ export default function Login(props) {
                                 color: 'black',
 
                             }}>
-                            FORGOT PASSWORD
+                            ENTER OTP
                         </Text>
 
-                        <View style={{
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <TextInputItem
-                                value={name}
-                                onChangeText={_ => setName(_)}
-                                marginTop={normalize(40)}
-                                alignSelf={'center'}
-                                keyboardType={'email-address'}
-                                fontSize={normalize(14)}
-                                width={normalize(250)}
-                                placeholder={'Enter Username'}
-                                borderRadius={normalize(30)}
-                                backgroundColor={'#D3D3D3'}
+                       
+                        {/* <OTPInputView
+    style={{width: '80%', height: 200}}
+    pinCount={4}
+    
+    autoFocusOnLoad
+    codeInputFieldStyle={{ 
+      color: 'red',
+      borderColor: 'black',
+      borderRadius: normalize(5),
+      marginLeft: normalize(15),
+     marginTop: normalize(10)
+    }}
+    codeInputHighlightStyle={{
+      color: 'red',
+      borderColor: 'red',
+    }}
+    onCodeFilled = {(value) => {
+        console.log(`Code is ${value}, you are good to go!`)
+    }}
+/> */}
 
-                            />
+<OTPInputView
+    style={{width: '80%', height: 200}}
+   pinCount={4}
+    // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+   // onCodeChanged = {setValue}
+    autoFocusOnLoad
+    codeInputFieldStyle={{ 
+      color: '#69BE53',
+      borderColor: 'black',
+      borderRadius: normalize(5),
+      marginLeft: normalize(15),
+     marginTop: normalize(10)
+    }}
+    codeInputHighlightStyle={{
+      color: '#69BE53',
+      borderColor: '#69BE53',
+    }}
+    onCodeFilled = {(value) => {
+       props.navigation.navigate("Login")
+    }}
+/>
 
-                        </View>
 
 
 
-
-
-
-                        <TouchableOpacity onPress={()=> props.navigation.navigate("Otppage")}
+                        <TouchableOpacity onPress={()=> props.navigation.navigate("ResetPassword")}
 
                             style={{
                                 height: normalize(35),
                                 width: normalize(100),
                                 marginTop: normalize(20),
-                                backgroundColor: '#69BE53',
+                                backgroundColor: '#D80000',
                                 alignSelf: 'center',
                                 borderRadius: normalize(20)
                             }}
@@ -213,9 +233,8 @@ export default function Login(props) {
    
 }}>
 
-                
 
-                  
+                   
 </View>
 
 
@@ -231,4 +250,3 @@ export default function Login(props) {
 
     );
 }
-
