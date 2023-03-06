@@ -114,7 +114,7 @@ export default function Login(props) {
             <View
               style={{
 
-                marginTop: normalize(-60),
+                marginTop: normalize(-20),
                 alignSelf: 'center'
               }}>
 
@@ -309,7 +309,7 @@ export default function Login(props) {
 
 
             <View style={{
-              marginTop: normalize(5),
+              //marginTop: normalize(5),
               flexDirection: 'row',
               marginLeft: normalize(50),
               marginBottom: normalize(20),
@@ -322,7 +322,7 @@ export default function Login(props) {
                   color: '#1D1D1B',
 
                   textAlign: 'left',
-                  marginTop: normalize(22),
+                  marginTop: normalize(15),
                  
                   fontWeight: '700'
                 }}
@@ -337,7 +337,7 @@ export default function Login(props) {
                   color: '#FF6205',
 
                   marginLeft: normalize(2),
-                  marginTop: normalize(22),
+                  marginTop: normalize(15),
                   fontWeight: '700'
                 }}
               >Click Here</Text>
@@ -355,7 +355,7 @@ export default function Login(props) {
              
               flexDirection: 'row',
               marginLeft: normalize(50),
-              marginBottom: normalize(20),
+              marginBottom: normalize(10),
             }}>
 
 <Text
