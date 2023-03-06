@@ -77,30 +77,32 @@ export default function Otppage(props) {
 
 
                     <Image
-                        source={ICONS.ellipse2}
-                        style={{
-                            height: normalize(38),
-                            width: normalize(40),
-                            alignSelf: 'flex-start',
-                        }}
-                        resizeMode={'contain'}
-                    />
+                source={ICONS.ellipse}
+                style={{
+                  height: normalize(80),
+                  width: normalize(80),
+                  marginRight: normalize(-15),
+                  marginTop: normalize(-5),
+                  
+                  alignSelf: 'flex-end',
+                  position: 'relative'
+                }}
+                resizeMode={'contain'}
+            />
 
-
-                    <Image
-                        source={ICONS.ellipse3}
-                        style={{
-                            height: normalize(70),
-                            width: normalize(70),
-                            marginLeft: normalize(-20),
-                            alignSelf: 'flex-start',
-                        }}
-                        resizeMode={'contain'}
-                    />
-
-
-
-
+<Image
+                source={ICONS.ellipse2}
+                style={{
+                  height: normalize(50),
+                  width: normalize(50),
+                  alignSelf: 'flex-end',
+                  marginRight: normalize(-10),
+                  alignSelf: 'flex-end',
+                  position: 'relative',
+                  top: -6
+                }}
+                resizeMode={'contain'}
+            />
 
 
                     <View
@@ -176,9 +178,9 @@ export default function Otppage(props) {
       color: '#69BE53',
       borderColor: '#69BE53',
     }}
-    onCodeFilled = {(value) => {
-       props.navigation.navigate("Login")
-    }}
+    // onCodeFilled = {(value) => {
+    //    props.navigation.navigate("Login")
+    // }}
 />
 
 
@@ -190,7 +192,7 @@ export default function Otppage(props) {
                                 height: normalize(35),
                                 width: normalize(100),
                                 marginTop: normalize(20),
-                                backgroundColor: '#D80000',
+                                backgroundColor: '#69BE53',
                                 alignSelf: 'center',
                                 borderRadius: normalize(20)
                             }}
