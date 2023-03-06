@@ -28,7 +28,8 @@ export default function StackNavigator() {
         Registration: Registration,
         Login: Login,
         ForgotPassword : ForgotPassword,
-        Home : Home
+        Home : Home,
+        
       }
      
 

@@ -184,7 +184,7 @@ export default function Login(props) {
              
 
 
-              <TouchableOpacity onPress={()=> props.navigation.navigate("Home")}
+              <TouchableOpacity onPress={()=> props.navigation.navigate("Registration")}
 
                 style={{
                   height: normalize(35),
@@ -242,7 +242,7 @@ export default function Login(props) {
                   marginTop: normalize(25),
                   fontWeight: '700'
                 }}
-              >or Login with</Text>
+              >Or Login with</Text>
 
               <View
                 style={{
