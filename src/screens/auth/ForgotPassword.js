@@ -75,31 +75,34 @@ export default function Login(props) {
 
 
 
-                    <Image
-                        source={ICONS.ellipse2}
-                        style={{
-                            height: normalize(38),
-                            width: normalize(40),
-                            alignSelf: 'flex-start',
-                        }}
-                        resizeMode={'contain'}
-                    />
+                   
+<Image
+                source={ICONS.ellipse}
+                style={{
+                  height: normalize(80),
+                  width: normalize(80),
+                  marginRight: normalize(-15),
+                  marginTop: normalize(-5),
+                  
+                  alignSelf: 'flex-end',
+                  position: 'relative'
+                }}
+                resizeMode={'contain'}
+            />
 
-
-                    <Image
-                        source={ICONS.ellipse3}
-                        style={{
-                            height: normalize(70),
-                            width: normalize(70),
-                            marginLeft: normalize(-20),
-                            alignSelf: 'flex-start',
-                        }}
-                        resizeMode={'contain'}
-                    />
-
-
-
-
+<Image
+                source={ICONS.ellipse2}
+                style={{
+                  height: normalize(50),
+                  width: normalize(50),
+                  alignSelf: 'flex-end',
+                  marginRight: normalize(-10),
+                  alignSelf: 'flex-end',
+                  position: 'relative',
+                  top: -6
+                }}
+                resizeMode={'contain'}
+            />
 
 
                     <View
@@ -111,9 +114,9 @@ export default function Login(props) {
 
 
                         <Image
-                            source={ICONS.home}
+                            source={ICONS.logo1}
                             style={{
-                                height: normalize(50),
+                                height: normalize(100),
                                 width: normalize(50),
                                 alignSelf: 'center',
                             }}
@@ -143,7 +146,7 @@ export default function Login(props) {
                             <TextInputItem
                                 value={name}
                                 onChangeText={_ => setName(_)}
-                                marginTop={normalize(100)}
+                                marginTop={normalize(40)}
                                 alignSelf={'center'}
                                 keyboardType={'email-address'}
                                 fontSize={normalize(14)}
@@ -167,7 +170,7 @@ export default function Login(props) {
                                 height: normalize(35),
                                 width: normalize(100),
                                 marginTop: normalize(20),
-                                backgroundColor: '#D80000',
+                                backgroundColor: '#69BE53',
                                 alignSelf: 'center',
                                 borderRadius: normalize(20)
                             }}
@@ -210,30 +213,9 @@ export default function Login(props) {
    
 }}>
 
-                    <Image
-                        source={ICONS.ellipse}
-                        style={{
-                            height: normalize(65),
-                            width: normalize(65),
-                            alignSelf: 'flex-end',
-                            marginRight: normalize(-17),
-                            
-                        }}
-                        resizeMode={'contain'}
-                    />
+                
 
-                    <Image
-                        source={ICONS.ellipse4}
-                        style={{
-                            height: normalize(66),
-                            width: normalize(65),
-                            alignSelf: 'flex-end',
-                            marginRight: normalize(-15),
-                            
-
-                        }}
-                        resizeMode={'contain'}
-                    />
+                  
 </View>
 
 
