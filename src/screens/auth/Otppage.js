@@ -186,7 +186,7 @@ export default function Otppage(props) {
 
 
 
-                        <TouchableOpacity onPress={()=> props.navigation.navigate("ResetPassword")}
+                        <TouchableOpacity onPress={()=> props.navigation.navigate("Reset_Password")}
 
                             style={{
                                 height: normalize(35),
