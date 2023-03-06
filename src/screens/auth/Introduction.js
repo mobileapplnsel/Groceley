@@ -176,7 +176,7 @@ export default function Introduction(props) {
                         </View>
 
 
-                        <TouchableOpacity
+                        <TouchableOpacity onPress = {()=> props.navigation.navigate("Home")}
 
                             style={{
                                 height: normalize(35),
@@ -186,7 +186,8 @@ export default function Introduction(props) {
                                 alignSelf: 'flex-start',
                                 borderRadius: normalize(20),
                                 flexDirection: 'row',
-                                justifyContent: 'space-evenly'
+                                justifyContent: 'space-evenly',
+                               
                             }}
                         >
                             <Text

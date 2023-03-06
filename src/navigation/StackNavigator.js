@@ -8,6 +8,7 @@ import Introduction from '../screens/auth/Introduction';
 import Registration from '../screens/auth/Registration';
 import Login from '../screens/auth/Login';
 import ForgotPassword from '../screens/auth/ForgotPassword';
+import Home from '../screens/main/Home';
 
 
 import { useSelector } from 'react-redux';
@@ -27,7 +28,7 @@ export default function StackNavigator() {
         Registration: Registration,
         Login: Login,
         ForgotPassword : ForgotPassword,
-        
+        Home : Home
       }
      
 
