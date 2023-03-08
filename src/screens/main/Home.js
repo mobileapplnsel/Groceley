@@ -30,7 +30,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
-
+import CarouselCards from '../../components/CarouselCards'
+import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 
 var status = '';
 export default function Home(props) {
@@ -261,9 +262,17 @@ Delivery In 10 minutes
                 ></Image>
 
 </TouchableOpacity>
+
           
 
-            <View>
+           <View style={{
+            justifyContent: 'center',
+           
+           }}>
+
+            <CarouselCards />
+
+            </View>
               {/* <FlatList
                 data={DATA}
                 renderItem={renderItem1}
@@ -285,7 +294,7 @@ Delivery In 10 minutes
 
               /> */}
 
-            </View>
+          
 
             <Text style={{
               color: "#767676",
