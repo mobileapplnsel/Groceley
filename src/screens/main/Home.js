@@ -119,6 +119,45 @@ export default function Home(props) {
 
   ]
 
+  const DATA3 = [{
+    id: "0",
+    pic: ICONS.bread,
+    description: "Hovis Farmhouse Wholemeal",
+    quantity: '400g',
+    discounted_price: '90',
+    real_price: '80'
+  },
+
+  {
+    id: "1",
+    pic: ICONS.milk,
+    description: "Hovis Farmhouse Wholemeal",
+    quantity: '450g',
+    discounted_price: '50',
+    real_price: '40'
+  },
+
+  {
+    id: "2",
+    pic: ICONS.cornflakes,
+    description: "Amul Moti Homogenized Toned Milk",
+    quantity: '400g',
+    discounted_price: '70',
+    real_price: '50'
+  },
+
+  {
+    id: "3",
+    
+    pic: ICONS.cornflakes2,
+    description: "Kellogg's Corn Flakes Cereal",
+    quantity: '400g',
+    discounted_price: '90',
+    real_price: '80'
+  }
+
+
+  ]
 
 
 
@@ -522,6 +561,48 @@ Delivery In 10 minutes
                   marginLeft: normalize(12),
                   marginTop: normalize(15)
                   
+
+
+
+                }}
+
+
+              />
+<View style={{
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginRight: normalize(10)
+}}>
+            <Text style={{
+              color: "#3F3F3F",
+              fontFamily: FONTS.RubikBold,
+              fontSize: normalize(14),
+              marginLeft: normalize(30),
+              marginTop: normalize(20)
+            }}>Dairy & Frozen Foods</Text>
+
+<Text style={{
+              color: "#69BE53",
+              fontFamily: FONTS.RubikBold,
+              fontSize: normalize(14),
+              marginLeft: normalize(30),
+              marginTop: normalize(20)
+            }}>See All</Text>
+</View>
+
+<FlatList
+                data={DATA3}
+                renderItem={renderItem2}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+
+                horizontal={true}
+                style={{
+
+
+                  marginLeft: normalize(12),
+                  marginTop: normalize(15),
+                  marginBottom: normalize(20)
 
 
 
