@@ -31,6 +31,8 @@ export const ICONS = {
    carouseltwo: require('../assets/icons/carouseltwo.png'),
    bread: require('../assets/icons/bread.png'),
    milk: require('../assets/icons/milk.png'),
+   cornflakes: require('../assets/icons/cornflakes.png'),
+   cornflakes2: require('../assets/icons/cornflakes2.png'),
 
 };
 

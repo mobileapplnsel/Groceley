@@ -48,30 +48,78 @@ export default function Home(props) {
 
 
 
-//   const DATA = [{
-//     id: "0",
-//     categories: "Bedcovers",
-//     pic: ICONS.bedcover
-//   },
+  const DATA = [{
+    id: "0",
+    discountrate: "25%",
+   
+  },
 
-//   {
-//     id: "1",
-//     categories: "Bedsheets",
-//     pic: ICONS.bedsheet
+  {
+    id: "1",
+    discountrate: "50%",
+   
+
+  },
+
+  {
+    id: "2",
+    discountrate: '75%',
+    
+
+  },
+
+  {
+    id: "3",
+    discountrate: '80%',
+   
+
+  }
 
 
-//   },
-
-//   {
-//     id: "2",
-//     categories: 'Blankets',
-//     pic: ICONS.blanket
-
-//   }
+  ]
 
 
+  const DATA2 = [{
+    id: "0",
+    pic: ICONS.bread,
+    description: "Hovis Farmhouse Wholemeal",
+    quantity: '400g',
+    discounted_price: '90',
+    real_price: '80'
+  },
 
-//   ]
+  {
+    id: "1",
+    pic: ICONS.milk,
+    description: "Hovis Farmhouse Wholemeal",
+    quantity: '450g',
+    discounted_price: '50',
+    real_price: '40'
+  },
+
+  {
+    id: "2",
+    pic: ICONS.cornflakes,
+    description: "Amul Moti Homogenized Toned Milk",
+    quantity: '400g',
+    discounted_price: '70',
+    real_price: '50'
+  },
+
+  {
+    id: "3",
+    
+    pic: ICONS.cornflakes2,
+    description: "Kellogg's Corn Flakes Cereal",
+    quantity: '400g',
+    discounted_price: '90',
+    real_price: '80'
+  }
+
+
+  ]
+
+
 
 
 
@@ -94,39 +142,149 @@ props.navigation.navigate("Productlisting")
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(145),
-        width: normalize(130),
-        backgroundColor: item.id % 2 == '0' ? '#F6F6F6' : '#FFF3F4',
+        height: normalize(90),
+        width: normalize(80),
+        backgroundColor: item.id % 2 == '0' ? '#F36E35' : '#69BE53',
 
-        marginLeft: normalize(10),
-        borderRadius: normalize(15)
+        marginLeft: normalize(7),
+        borderRadius: normalize(15),
+        justifyContent: 'center',
+        alignItems: 'center'
       }}>
-
-      <Image
-        source={item.pic}
+        <Text
         style={{
-          height: normalize(100),
-          width: normalize(80),
-          alignSelf: 'center',
-          marginTop: normalize(20),
-          marginRight: normalize(5),
-          borderRadius: normalize(25)
+          color: 'white',
+          fontSize: normalize(10),
+          fontWeight: '600',
+          
+          alignSelf: 'center'
         }}
-        resizeMode={'contain'}
-      ></Image>
+      >MIN
+      </Text>
+      
 
+
+      <Text
+        style={{
+          color: 'white',
+          fontSize: normalize(15),
+          fontWeight: '700',
+          marginTop: normalize(5),
+          alignSelf: 'center'
+        }}
+      >{item.discountrate}
+      </Text>
+
+
+      <Text
+        style={{
+          color: 'white',
+          fontSize: normalize(10),
+          fontWeight: '600',
+          marginTop: normalize(5),
+          alignSelf: 'center'
+        }}
+      >OFF
+      </Text>
+
+
+    </TouchableOpacity>
+  );
+
+  const renderItem2 = ({ item, index }) => (
+    <TouchableOpacity
+      onPress={(item) => selectItem(item)}
+      style={{
+
+        height: normalize(170),
+        width: normalize(120),
+        backgroundColor: '#F0F0F0' ,
+
+        marginLeft: normalize(7),
+        borderRadius: normalize(15),
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        
+        <Image
+                  source={item.pic}
+                  style={{
+                    height: normalize(60),
+                    width: normalize(60),
+                    
+                    marginLeft: normalize(20)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
 
 
       <Text
         style={{
           color: 'black',
           fontSize: normalize(10),
-          fontWeight: '600',
+          
           marginTop: normalize(5),
           alignSelf: 'center'
         }}
-      >{item.categories}
+      >{item.description}
       </Text>
+
+
+      <Text
+        style={{
+          color: 'black',
+          fontSize: normalize(10),
+          marginLeft: normalize(10),
+          marginTop: normalize(5),
+          alignSelf: 'flex-start'
+                }}
+      >{item.quantity}
+      </Text>
+
+    <View style={{
+  flexDirection: 'row',
+  alignSelf: 'flex-start',
+  marginLeft: normalize(10),
+  marginTop: normalize(10)
+}}>
+      <Text
+        style={{
+          
+          fontSize: normalize(10),
+          color: '#A9A9A9',
+          
+          
+                }}
+      >{'\u20B9'} {item.discounted_price}
+      </Text>
+    <View style={{
+  height: normalize(1),
+  width: '10%',
+  backgroundColor: '#A9A9A9',
+  marginTop: normalize(5),
+  position: 'absolute'
+}}/>
+     </View>
+
+     <View style={{
+  flexDirection: 'row',
+  alignSelf: 'flex-start',
+  marginLeft: normalize(10),
+}}>
+      <Text
+        style={{
+          
+          fontSize: normalize(10),
+          color: 'black',
+          
+          
+                }}
+      >{'\u20B9'} {item.real_price}
+      </Text>
+   
+     </View>
+
+     
 
 
     </TouchableOpacity>
@@ -273,7 +431,7 @@ Delivery In 10 minutes
             <CarouselCards />
 
             </View>
-              {/* <FlatList
+              <FlatList
                 data={DATA}
                 renderItem={renderItem1}
                 keyExtractor={item => item.id}
@@ -283,68 +441,62 @@ Delivery In 10 minutes
                 style={{
 
 
-                  marginLeft: normalize(25),
+                  marginLeft: normalize(12),
 
-                  marginTop: normalize(20),
+                  
 
 
 
                 }}
 
 
-              /> */}
+              />
 
           
-
+<View style={{
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginRight: normalize(10)
+}}>
             <Text style={{
-              color: "#767676",
+              color: "#3F3F3F",
               fontFamily: FONTS.RubikBold,
-              fontSize: normalize(12),
+              fontSize: normalize(14),
               marginLeft: normalize(30),
               marginTop: normalize(20)
-            }}>Make Your</Text>
+            }}>Breakfast & Bakery</Text>
 
-            <Text style={{
-              color: "#767676",
+<Text style={{
+              color: "#69BE53",
               fontFamily: FONTS.RubikBold,
-              fontSize: normalize(13),
-              fontWeight: '700',
-              marginLeft: normalize(30)
-            }}>Room Stylish</Text>
+              fontSize: normalize(14),
+              marginLeft: normalize(30),
+              marginTop: normalize(20)
+            }}>See All</Text>
+</View>
+           
 
 
-            <View>
-              <ImageBackground
+<FlatList
+                data={DATA2}
+                renderItem={renderItem2}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
 
-                source={ICONS.bed}
+                horizontal={true}
                 style={{
-                  height: normalize(80),
-                  width: '92%',
-                  marginTop: normalize(15),
-                  marginLeft: normalize(30),
-                  marginBottom: normalize(20)
+
+
+                  marginLeft: normalize(12),
+                  marginTop: normalize(15)
+                  
+
+
+
                 }}
-                imageStyle={{ borderRadius: normalize(10) }}
-                resizeMode={'cover'}
-
-              >
-
-                <Text style={{
-                  color: 'white',
-                  fontWeight: '700',
-                  textAlign: 'center',
-                  marginTop: normalize(30),
-                  marginLeft: normalize(-20)
-                }}>THE
-                  ULTIMATE PLEASURE
-                  OF SLEEPING</Text>
 
 
-
-
-              </ImageBackground>
-
-            </View>
+              />
 
 
 

@@ -39,15 +39,15 @@ const CarouselCards = () => {
           height: normalize(10),
           borderRadius: normalize(5),
           marginHorizontal: -5,
-          marginTop: normalize(-5),
-          backgroundColor:"#E31C23",
+          marginTop: normalize(-8),
+          backgroundColor:"#F36E35",
           justifyContent: 'center',
           //marginHorizontal: normalize(-5)
         }}
         inactiveDotOpacity={0.4}
         inactiveDotStyle={{
 
-          backgroundColor: "#909090",
+          backgroundColor: "#515151",
 
         }}
       
