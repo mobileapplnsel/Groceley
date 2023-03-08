@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: ITEM_WIDTH,
-    height: normalize(120),
+    height: normalize(110),
   },
   
 

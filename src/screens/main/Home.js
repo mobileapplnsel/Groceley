@@ -465,7 +465,7 @@ Delivery In 10 minutes
            
             </View>
 
-            <View style={{
+            <TouchableOpacity style={{
   flexDirection: 'row',
   justifyContent: 'center',
   marginTop: normalize(-10)
@@ -504,7 +504,7 @@ Delivery In 10 minutes
                   
                 ></Image>
 
-</View>
+</TouchableOpacity>
 
 <TouchableOpacity style={{
   flexDirection: 'row',
