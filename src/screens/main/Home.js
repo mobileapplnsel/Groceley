@@ -156,9 +156,9 @@ props.navigation.navigate("Productlisting")
             <View style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginTop: normalize(10),
+              marginTop: normalize(20),
               marginRight: normalize(10),
-              height: normalize(50)
+              height: normalize(40)
             }}>
 
               <TouchableOpacity
@@ -176,14 +176,23 @@ props.navigation.navigate("Productlisting")
                 <Image
                   source={ICONS.menu}
                   style={{
-                    height: normalize(15),
-                    width: normalize(15),
-                    marginTop: normalize(15),
+                    height: normalize(20),
+                    width: normalize(20),
+                    
                     marginLeft: normalize(20)
                   }}
                   resizeMode={'contain'}
                 ></Image>
               </TouchableOpacity>
+
+              <Text style={{
+                color: 'black',
+                fontSize: normalize(14),
+                fontWeight: '600'
+
+              }}>
+Delivery In 10 minutes
+              </Text>
 
 
               <TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
@@ -214,26 +223,45 @@ props.navigation.navigate("Productlisting")
            
             </View>
 
+<TouchableOpacity style={{
+  flexDirection: 'row',
+  justifyContent: 'center'
+}}>
 
-
+            <TextInput
+                                value={name}
+                                onChangeText={_ => setName(_)}
+                                marginTop={normalize(5)}
+                                alignSelf={'center'}
+                                keyboardType={'email-address'}
+                                fontSize={normalize(14)}
+                                width={normalize(290)}
+                                placeholder={'Search For Products'}
+                                placeholderTextColor={'#3F3F3F'}
+                                borderRadius={normalize(30)}
+                                borderWidth={normalize(1)}
+                                borderColor={'#DADADA'}
+                                style={{
+                                  paddingHorizontal: normalize(20)
+                                }}
+                            />
             
+            <Image
+                  source={ICONS.search}
+                  style={{
+                    height: normalize(20),
+                    width: normalize(18),
+                    marginTop: normalize(7),
+                    position: 'absolute',
+                    right: 35,
+                    bottom: 18
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'black'}
+                ></Image>
 
-
-            <Text style={{
-              color: "#767676",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(12),
-              marginLeft: normalize(30),
-              marginTop: normalize(-20)
-            }}>Explore</Text>
-
-            <Text style={{
-              color: "#767676",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(13),
-              fontWeight: '700',
-              marginLeft: normalize(30)
-            }}>Product Categories</Text>
+</TouchableOpacity>
+          
 
             <View>
               {/* <FlatList

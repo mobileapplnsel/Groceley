@@ -24,6 +24,14 @@ export const ICONS = {
    logo1: require('../assets/icons/logo1.png'),
    user: require('../assets/icons/user.png'),
    camera: require('../assets/icons/camera.png'),
+   menu: require('../assets/icons/menu.png'),
+   location: require('../assets/icons/location.png'),
+   search: require('../assets/icons/search.png'),
+   carouselone: require('../assets/icons/carouselone.png'),
+   carouseltwo: require('../assets/icons/carouseltwo.png'),
+   bread: require('../assets/icons/bread.png'),
+   milk: require('../assets/icons/milk.png'),
+
 };
 
 export const FONTS = {

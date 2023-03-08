@@ -73,7 +73,7 @@ export default function Introduction(props) {
 
 
 
-                    {/* <ScrollView showsVerticalScrollIndicator={false} bounces={false} > */}
+                    <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
 
 
 
@@ -252,7 +252,7 @@ export default function Introduction(props) {
                    
                    
 
-                    {/* </ScrollView> */}
+                    </ScrollView>
                 </KeyboardAvoidingView>
 
             </SafeAreaView>
