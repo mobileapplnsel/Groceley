@@ -7,6 +7,8 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Dimensions,
+
   Image,
   ImageBackground,
   StatusBar,
@@ -26,7 +28,11 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
+import ImagePicker from 'react-native-image-crop-picker';
 
+import Modal from 'react-native-modal';
+
+const { width, height } = Dimensions.get('screen');
 
 
 
@@ -37,16 +43,141 @@ export default function Profile(props) {
   const [name, setName] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [emailaddress, setEmailaddress] = useState('');
-  const [address, setAddress] = useState('');
-  
+  const [pickerVisial, setPickerVisial] = useState(false);
+  const [filePath, setFilePath] = useState('');
   const isFocused = useIsFocused();
 
 
 
 
+  const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            title: 'Camera Permission',
+            message:
+              'Cool Photo App needs access to your camera ' +
+              'so you can take awesome pictures.',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          },
+        );
+
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('You can use the camera');
+        } else {
+          console.log('Camera permission denied');
+          setPickerVisial(false);
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+  };
+  const requestExternalWritePermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'External Storage Write Permission',
+            message: 'App needs write permission',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          },
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('You can use the camera');
+        } else {
+          console.log('Camera permission denied');
+          setPickerVisial(false);
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+  };
+
+  async function openPickerModal() {
+    setPickerVisial(true);
+    // setCoverPic(false)
+    let isCameraPermitted = await requestCameraPermission();
+    let isStoragePermitted = await requestExternalWritePermission();
+  }
 
 
+  function openGallery() {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      let imageObj = image;
+      imageObj = {
+        name: 'ProfilePic',
+        type: image.mime,
+        uri: image.path,
+      };
+      console.log('SidyImage', imageObj.uri);
+        setFilePath(imageObj.uri);
+        setPickerVisial(false);
+    //   if (!coverPic) {
+    //     setFilePath(imageObj.uri);
+    //     setPickerVisial(false);
+    //     updateDataBio(imageObj);
+    //   }
+    //   else {
+    //     // let arr = []
+    //     // arr.push(imageObj)
+    //     // setImageData(arr)
+    //     if (imageData.length == 0) {
+    //       addDataImages(imageObj)
+    //     }
+    //     else {
+    //       updateDataImages(imageObj)
+    //     }
 
+    //     setPickerVisial(false);
+    //   }
+
+    });
+  }
+
+
+  function openCamera() {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      let imageObj = image;
+      imageObj = {
+        name: 'ProfilePic',
+        type: image.mime,
+        uri: image.path,
+      };
+      setFilePath(imageObj.uri);
+      setPickerVisial(false);
+    //   if (!coverPic) {
+    //     setFilePath(imageObj.uri);
+    //     setPickerVisial(false);
+    //     updateDataBio(imageObj);
+    //   }
+    //   else {
+    //     if (imageData.length == 0) {
+    //       addDataImages(imageObj)
+    //     }
+    //     else {
+    //       updateDataImages(imageObj)
+    //     }
+    //     setPickerVisial(false);
+    //   }
+    });
+  }
 
 
 
@@ -75,7 +206,58 @@ export default function Profile(props) {
 
           <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
 
-
+          <Modal
+          isVisible={pickerVisial}
+          style={{
+            width: width,
+            height: height,
+          }}>
+          <View
+            style={{
+              height: normalize(140),
+              width: '90%',
+              backgroundColor: '#F9F9F9',
+              borderRadius: normalize(10),
+            }}>
+            
+            <TouchableOpacity onPress={openCamera}>
+              <Text
+                style={{
+                  fontFamily: FONTS.PlayfairDisplayBlack,
+                  color: 'black',
+                  fontSize: normalize(14),
+                  marginTop: normalize(20),
+                  marginLeft: normalize(15),
+                }}>
+                Take photo...
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={openGallery}>
+              <Text
+                style={{
+                    fontFamily: FONTS.PlayfairDisplayBlack,
+                    color: 'black',
+                  fontSize: normalize(14),
+                  marginTop: normalize(20),
+                  marginLeft: normalize(15),
+                }}>
+                Choose from Library
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setPickerVisial(false)}>
+              <Text
+                style={{
+                    fontFamily: FONTS.PlayfairDisplayBlack,
+                    color: 'black',
+                  fontSize: normalize(14),
+                  marginTop: normalize(20),
+                  marginLeft: normalize(15),
+                }}>
+                Cancel
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
 
           <Image
                 source={ICONS.ellipse}
@@ -119,7 +301,7 @@ export default function Profile(props) {
               }}>
 
 
-<TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
+<TouchableOpacity onPress = {openPickerModal}
                 style={{
                   width: normalize(90),
                   height: normalize(90),
@@ -142,6 +324,13 @@ export default function Profile(props) {
                   tintColor= {'white'}
                 ></Image>
 
+                <TouchableOpacity onPress={openPickerModal}
+                
+               style={{position: 'absolute',
+               bottom: 15,
+               right: 22}} 
+                >
+
 <Image
                   source={ICONS.camera}
                   style={{
@@ -149,13 +338,14 @@ export default function Profile(props) {
                     width: normalize(17),
                     marginTop: normalize(20),
                     alignSelf: 'center',
-                    position: 'absolute',
-                    bottom: 15,
-                    right: 22
+                    
                   }}
                   resizeMode={'contain'}
                   tintColor= {'white'}
                 ></Image>
+
+</TouchableOpacity>
+
 
 
               </TouchableOpacity>
