@@ -33,7 +33,7 @@ export const ICONS = {
    milk: require('../assets/icons/milk.png'),
    cornflakes: require('../assets/icons/cornflakes.png'),
    cornflakes2: require('../assets/icons/cornflakes2.png'),
-
+   downward_arrow: require('../assets/icons/downward_arrow.png'),
 };
 
 export const FONTS = {

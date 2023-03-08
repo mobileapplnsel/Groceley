@@ -415,6 +415,8 @@ props.navigation.navigate("Productlisting")
                 ></Image>
               </TouchableOpacity>
 
+
+<View>
               <Text style={{
                 color: 'black',
                 fontSize: normalize(14),
@@ -425,12 +427,22 @@ Delivery In 10 minutes
               </Text>
 
 
+
+
+
+              </View>
+
+
+
+
+
               <TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
                 style={{
                   width: normalize(30),
                   height: normalize(30),
                   borderRadius: normalize(15),
-                  backgroundColor: '#F36E35'
+                  backgroundColor: '#F36E35',
+                  marginTop: normalize(-5)
                 }}
 
               >
@@ -453,6 +465,47 @@ Delivery In 10 minutes
            
             </View>
 
+            <View style={{
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginTop: normalize(-10)
+}}>
+<Image
+                  source={ICONS.location}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                   
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  
+                ></Image>
+
+
+<Text style={{
+              color: "#515151",
+              
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              
+            }}>SDF Building, GP Block, Sector v</Text>
+
+<Image
+                  source={ICONS.downward_arrow}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    marginLeft: normalize(10),
+                    marginTop: normalize(3),
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  
+                ></Image>
+
+</View>
+
 <TouchableOpacity style={{
   flexDirection: 'row',
   justifyContent: 'center'
@@ -461,7 +514,7 @@ Delivery In 10 minutes
             <TextInput
                                 value={name}
                                 onChangeText={_ => setName(_)}
-                                marginTop={normalize(5)}
+                                marginTop={normalize(15)}
                                 alignSelf={'center'}
                                 keyboardType={'email-address'}
                                 fontSize={normalize(14)}
