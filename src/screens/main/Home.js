@@ -156,7 +156,8 @@ props.navigation.navigate("Productlisting")
             <View style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-
+              marginTop: normalize(10),
+              marginRight: normalize(10),
               height: normalize(50)
             }}>
 
@@ -185,57 +186,37 @@ props.navigation.navigate("Productlisting")
               </TouchableOpacity>
 
 
-              <View style={{
-                flexDirection: 'row',
+              <TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
+                style={{
+                  width: normalize(30),
+                  height: normalize(30),
+                  borderRadius: normalize(15),
+                  backgroundColor: '#F36E35'
+                }}
 
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginRight: normalize(5)
-              }}>
+              >
                 <Image
-                  source={ICONS.search}
+                  source={ICONS.user}
                   style={{
                     height: normalize(15),
                     width: normalize(15),
-                    marginLeft: normalize(2)
-
-
+                    marginTop: normalize(7),
+                    alignSelf: 'center'
                   }}
                   resizeMode={'contain'}
+                  tintColor= {'white'}
                 ></Image>
+              </TouchableOpacity>
 
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("Cart")
-}>
-                <Image
-                  source={ICONS.bag}
-                  style={{
-                    height: normalize(20),
-                    width: normalize(20),
 
-                    marginLeft: normalize(20)
-                  }}
-                  resizeMode={'contain'}
-                ></Image>
 
-</TouchableOpacity>
-
-              </View>
+           
             </View>
 
 
 
-            <View style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              //padding: 20,
-              height: normalize(200),
-            }}
-            >
             
-
-
-            </View>
 
 
             <Text style={{

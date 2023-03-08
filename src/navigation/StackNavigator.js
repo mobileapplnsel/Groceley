@@ -12,6 +12,7 @@ import Home from '../screens/main/Home';
 import Otppage from '../screens/auth/Otppage';
 import Reset_Password from '../screens/auth/Reset_Password';
 import { useSelector } from 'react-redux';
+import Profile from '../screens/main/Profile';
 const Stack = createStackNavigator();
 
 export default function StackNavigator() {
@@ -30,7 +31,8 @@ export default function StackNavigator() {
         ForgotPassword : ForgotPassword,
         Home : Home,
         Otppage : Otppage,
-        Reset_Password: Reset_Password
+        Reset_Password: Reset_Password,
+        Profile: Profile
       }
      
 

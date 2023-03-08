@@ -22,6 +22,8 @@ export const ICONS = {
    notifications: require('../assets/icons/notifications.png'),
    cart: require('../assets/icons/cart.png'),
    logo1: require('../assets/icons/logo1.png'),
+   user: require('../assets/icons/user.png'),
+   camera: require('../assets/icons/camera.png'),
 };
 
 export const FONTS = {
