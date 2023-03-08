@@ -196,7 +196,7 @@ props.navigation.navigate("Productlisting")
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(170),
+        height: normalize(180),
         width: normalize(120),
         backgroundColor: '#F0F0F0' ,
 
@@ -211,7 +211,7 @@ props.navigation.navigate("Productlisting")
                   style={{
                     height: normalize(60),
                     width: normalize(60),
-                    
+                    marginTop: normalize(5),
                     marginLeft: normalize(20)
                   }}
                   resizeMode={'contain'}
@@ -222,9 +222,9 @@ props.navigation.navigate("Productlisting")
         style={{
           color: 'black',
           fontSize: normalize(10),
-          
+          marginLeft: normalize(10),
           marginTop: normalize(5),
-          alignSelf: 'center'
+          alignSelf: 'flex-start'
         }}
       >{item.description}
       </Text>
@@ -268,9 +268,10 @@ props.navigation.navigate("Productlisting")
 
      <View style={{
   flexDirection: 'row',
-  alignSelf: 'flex-start',
+ justifyContent: 'center',
   marginLeft: normalize(10),
 }}>
+  <View>
       <Text
         style={{
           
@@ -281,7 +282,38 @@ props.navigation.navigate("Productlisting")
                 }}
       >{'\u20B9'} {item.real_price}
       </Text>
-   
+      </View>
+
+
+
+<TouchableOpacity style={{
+  height: normalize(30),
+  width: normalize(50),
+  backgroundColor: 'white',
+  borderWidth: normalize(2),
+  borderColor: '#69BE53',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: normalize(5),
+  marginLeft: normalize(30),
+  marginEnd: normalize(10),
+  marginTop: normalize(-10)
+}}>
+      <Text
+        style={{
+          
+          fontSize: normalize(10),
+          color: '#69BE53',
+          alignSelf: 'center'
+          
+                }}
+      >ADD
+      </Text>
+      </TouchableOpacity>
+
+
+
+
      </View>
 
      
