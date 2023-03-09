@@ -351,7 +351,7 @@ export default function DrawerMenuAdminexpanded(props) {
         <SafeAreaView
           style={{
             flex: 0.45,
-          backgroundColor: '#FFF3F4',
+          backgroundColor: 'white',
             height: '80%',
             width: '60%',
             alignSelf: 'flex-start',
@@ -374,8 +374,37 @@ export default function DrawerMenuAdminexpanded(props) {
 
               <View style={{
                
-                marginLeft: normalize(30)
+                marginLeft: normalize(30),
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                marginLeft: normalize(10)
               }}>
+
+<TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
+                style={{
+                  width: normalize(30),
+                  height: normalize(30),
+                  borderRadius: normalize(15),
+                  backgroundColor: '#F36E35',
+                 
+                }}
+
+              >
+                <Image
+                  source={ICONS.user}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    marginTop: normalize(7),
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'white'}
+                ></Image>
+              </TouchableOpacity>
+
+              <View>
                 <Text style={{
                   color: 'white',
                   fontSize: normalize(16),
@@ -383,6 +412,7 @@ export default function DrawerMenuAdminexpanded(props) {
                   marginLeft: normalize(10)
 
                 }}>Username</Text>
+                </View>
                 {/* <Text style={{
                 color: 'white',
                 fontSize: normalize(10),
@@ -465,9 +495,9 @@ export default function DrawerMenuAdminexpanded(props) {
                   style={{
                     height: normalize(18),
                     width: normalize(18),
-                    tintColor: '#767676'
+                    tintColor: 'black'
                   }}
-                  tintColor='#767676'
+                  tintColor='black'
                 />
                 <Text
                   style={{
@@ -550,9 +580,9 @@ export default function DrawerMenuAdminexpanded(props) {
                     style={{
                       height: normalize(18),
                       width: normalize(18),
-                      tintColor: '#767676'
+                      tintColor: 'black'
                     }}
-                    tintColor= '#767676'
+                    tintColor= 'black'
                   />
                   <Text
                     style={{
@@ -584,9 +614,9 @@ export default function DrawerMenuAdminexpanded(props) {
                     style={{
                       height: normalize(18),
                       width: normalize(18),
-                      tintColor: '#767676'
+                      tintColor: 'black'
                     }}
-                    tintColor='#767676'
+                    tintColor='black'
                   />
 
                   <Text
@@ -619,10 +649,10 @@ export default function DrawerMenuAdminexpanded(props) {
                     style={{
                       height: normalize(18),
                       width: normalize(18),
-                      tintColor: '#767676'
+                      tintColor: 'black'
                      
                     }}
-                      tintColor= '#767676'
+                      tintColor= 'black'
                   
                   />
                   <Text
@@ -658,10 +688,10 @@ export default function DrawerMenuAdminexpanded(props) {
                     style={{
                       height: normalize(18),
                       width: normalize(18),
-                      tintColor: '#767676'
+                      tintColor: 'black'
                     
                     }}
-                    tintColor='#767676'
+                    tintColor='black'
                   />
                   <Text
                     style={{
@@ -679,7 +709,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                navigation.navigate('Profile');
+               // navigation.navigate('Profile');
                 }}>
                 <View
                   style={{
@@ -687,15 +717,15 @@ export default function DrawerMenuAdminexpanded(props) {
                     marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.user1}
+                    source={ICONS.wallet}
                     resizeMode="contain"
                     style={{
                       height: normalize(18),
                       width: normalize(18),
-                    tintColor:'#767676'
+                      tintColor: 'black'
                    
                     }}
-                    tintColor='#767676'
+                    tintColor='black'
                   />
                   <Text
                     style={{
@@ -704,7 +734,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
                       marginLeft: normalize(10),
                     }}>
-                    My Profile
+                    Wallet
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -762,9 +792,9 @@ export default function DrawerMenuAdminexpanded(props) {
                     style={{
                       height: normalize(20),
                       width: normalize(20),
-                      tintColor: '#767676',
+                      tintColor: 'black',
                     }}
-                    tintColor='#767676'
+                    tintColor='black'
                   />
                   <Text
                     style={{

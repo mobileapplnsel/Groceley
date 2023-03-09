@@ -38,6 +38,7 @@ export const ICONS = {
    change_password: require('../assets/icons/change_password.png'),
    user1: require('../assets/icons/user1.png'),
    rightarrow: require('../assets/icons/right-arrow.png'),
+   wallet: require('../assets/icons/wallet.png'),
 };
 
 export const FONTS = {
