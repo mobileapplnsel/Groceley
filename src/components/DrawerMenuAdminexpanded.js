@@ -679,7 +679,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                  //  navigation.navigate('Payslip');
+                navigation.navigate('Profile');
                 }}>
                 <View
                   style={{

@@ -14,6 +14,7 @@ import Reset_Password from '../screens/auth/Reset_Password';
 import { useSelector } from 'react-redux';
 import Profile from '../screens/main/Profile';
 import ChangePassword from '../screens/auth/ChangePassword';
+import Productlist from '../screens/main/Productlist';
 
 const Stack = createStackNavigator();
 
@@ -35,7 +36,8 @@ export default function StackNavigator() {
         Otppage : Otppage,
         Reset_Password: Reset_Password,
         Profile: Profile,
-        ChangePassword: ChangePassword
+        ChangePassword: ChangePassword,
+        Productlist : Productlist
       }
      
 
