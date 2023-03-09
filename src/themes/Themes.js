@@ -34,6 +34,10 @@ export const ICONS = {
    cornflakes: require('../assets/icons/cornflakes.png'),
    cornflakes2: require('../assets/icons/cornflakes2.png'),
    downward_arrow: require('../assets/icons/downward_arrow.png'),
+   order: require('../assets/icons/order.png'),
+   change_password: require('../assets/icons/change_password.png'),
+   user1: require('../assets/icons/user1.png'),
+   rightarrow: require('../assets/icons/right-arrow.png'),
 };
 
 export const FONTS = {

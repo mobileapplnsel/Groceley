@@ -4,7 +4,7 @@ import { COLORS, FONTS, ICONS } from '../themes/Themes';
 import normalize from '../utils/helpers/normalize';
 import data from './data'
 export const SLIDER_WIDTH = Dimensions.get('window').width 
-export const ITEM_WIDTH = Math.round(SLIDER_WIDTH)
+export const ITEM_WIDTH = Math.round(SLIDER_WIDTH) * 1.02
 
 const CarouselCardItem = ({ item, index }) => {
   return (
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: ITEM_WIDTH,
-    height: normalize(110),
+    height: normalize(120),
   },
   
 

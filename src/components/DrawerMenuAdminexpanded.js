@@ -350,7 +350,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
         <SafeAreaView
           style={{
-            flex: 0.40,
+            flex: 0.45,
           backgroundColor: '#FFF3F4',
             height: '80%',
             width: '60%',
@@ -363,7 +363,7 @@ export default function DrawerMenuAdminexpanded(props) {
             <View
               style={{
                 height: (Platform.OS == 'android') ? normalize(50) : normalize(120),
-            backgroundColor: '#E75480',
+            backgroundColor: '#69BE53',
         
             borderRadius: normalize(5),
                 flexDirection: 'row',
@@ -379,7 +379,9 @@ export default function DrawerMenuAdminexpanded(props) {
                 <Text style={{
                   color: 'white',
                   fontSize: normalize(16),
-                  alignSelf: 'center'
+                  alignSelf: 'center',
+                  marginLeft: normalize(10)
+
                 }}>Username</Text>
                 {/* <Text style={{
                 color: 'white',
@@ -458,11 +460,11 @@ export default function DrawerMenuAdminexpanded(props) {
                   marginLeft: normalize(2)
                 }}>
                 <Image
-                  source={ICONS.dot}
+                  source={ICONS.home}
                   resizeMode="contain"
                   style={{
-                    height: normalize(20),
-                    width: normalize(20),
+                    height: normalize(18),
+                    width: normalize(18),
                     tintColor: '#767676'
                   }}
                   tintColor='#767676'
@@ -540,14 +542,14 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(15),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.dot}
+                    source={ICONS.cart}
                     resizeMode="contain"
                     style={{
-                      height: normalize(20),
-                      width: normalize(20),
+                      height: normalize(18),
+                      width: normalize(18),
                       tintColor: '#767676'
                     }}
                     tintColor= '#767676'
@@ -574,14 +576,14 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(15),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.dot}
+                    source={ICONS.order}
                     resizeMode="contain"
                     style={{
-                      height: normalize(20),
-                      width: normalize(20),
+                      height: normalize(18),
+                      width: normalize(18),
                       tintColor: '#767676'
                     }}
                     tintColor='#767676'
@@ -604,19 +606,19 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                  //navigation.navigate('Reimbursement');
+                  navigation.navigate('ChangePassword');
                 }}>
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(10),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.dot}
+                    source={ICONS.change_password}
                     resizeMode="contain"
                     style={{
-                      height: normalize(20),
-                      width: normalize(20),
+                      height: normalize(18),
+                      width: normalize(18),
                       tintColor: '#767676'
                      
                     }}
@@ -648,14 +650,14 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(15),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.dot}
+                    source={ICONS.notifications}
                     resizeMode="contain"
                     style={{
-                      height: normalize(20),
-                      width: normalize(20),
+                      height: normalize(18),
+                      width: normalize(18),
                       tintColor: '#767676'
                     
                     }}
@@ -682,14 +684,14 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(15),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.dot}
+                    source={ICONS.user1}
                     resizeMode="contain"
                     style={{
-                      height: normalize(20),
-                      width: normalize(20),
+                      height: normalize(18),
+                      width: normalize(18),
                     tintColor:'#767676'
                    
                     }}
@@ -752,10 +754,10 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(15),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.dot}
+                    source={ICONS.rightarrow}
                     resizeMode="contain"
                     style={{
                       height: normalize(20),
@@ -774,6 +776,15 @@ export default function DrawerMenuAdminexpanded(props) {
                     Sign Out
                   </Text>
                 </View>
+                <View
+              style={{
+                height: normalize(2),
+            backgroundColor: '#69BE53',
+            marginTop: normalize(12)
+            
+               
+                
+              }}></View>
               </TouchableOpacity>
 
 

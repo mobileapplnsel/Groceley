@@ -31,7 +31,7 @@ import constants from '../../utils/helpers/constants';
 
 
 var status = '';
-export default function ForgotPassword(props) {
+export default function ChangePassword(props) {
 
 
     const [name, setName] = useState('');
@@ -71,7 +71,7 @@ export default function ForgotPassword(props) {
 
 
 
-                    {/* <ScrollView showsVerticalScrollIndicator={false} bounces={false} > */}
+                    <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
 
 
 
@@ -159,12 +159,48 @@ export default function ForgotPassword(props) {
 
                         </View>
 
+                        <TextInput
+                value={choosepassword}
+                secureTextEntry={true}
+                placeholder={'Choose Password'}
+                onChangeText={_ => setChoosepassword(_)}
+                style={{
+                marginTop: normalize(10),
+                
+                fontSize: normalize(14),
+                width: normalize(250),
+               
+                
+                borderRadius : normalize(30),
+                backgroundColor: '#D3D3D3',
+                paddingLeft: normalize(10)
+                }}
+                keyboardType={"default"}
+              />
+
+<TextInput
+                value={confirmpassword}
+                secureTextEntry={true}
+                placeholder={'Confirm Password'}
+                onChangeText={_ => setConfirmpassword(_)}
+                
+                style={{
+                marginTop: normalize(10),
+                
+                fontSize: normalize(14),
+                width: normalize(250),
+               
+                
+                borderRadius : normalize(30),
+                backgroundColor: '#D3D3D3',
+                paddingLeft: normalize(10)
+                }}
+                keyboardType={"default"}
+              />
 
 
 
-
-
-                        <TouchableOpacity onPress={()=> props.navigation.navigate("Otppage")}
+                        <TouchableOpacity onPress={()=> props.navigation.navigate("Login")}
 
                             style={{
                                 height: normalize(35),
@@ -220,7 +256,7 @@ export default function ForgotPassword(props) {
 
 
 
-                    {/* </ScrollView> */}
+                    </ScrollView>
              
 
             </SafeAreaView>
