@@ -93,7 +93,7 @@ export default function Productlist(props) {
   {
     id: "1",
     pic: ICONS.milk,
-    description: "Hovis Farmhouse Wholemeal",
+    description: "Amul Moti Homogenized Toned Milk",
     quantity: '450g',
     discounted_price: '50',
     real_price: '40',
@@ -103,7 +103,7 @@ export default function Productlist(props) {
   {
     id: "2",
     pic: ICONS.cornflakes,
-    description: "Amul Moti Homogenized Toned Milk",
+    description: "Kellogg's Corn Flakes Cereal",
     quantity: '400g',
     discounted_price: '70',
     real_price: '50',
