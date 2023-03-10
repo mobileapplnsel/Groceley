@@ -639,7 +639,7 @@ Delivery In 10 minutes
               marginTop: normalize(20)
             }}>Dairy & Frozen Foods</Text>
 
-<TouchableOpacity>
+<TouchableOpacity onPress={()=>props.navigation.navigate("Productlist")}>
 <Text style={{
               color: "#69BE53",
               fontFamily: FONTS.RubikBold,
