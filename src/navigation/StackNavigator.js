@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import Profile from '../screens/main/Profile';
 import ChangePassword from '../screens/auth/ChangePassword';
 import Productlist from '../screens/main/Productlist';
+import Discountpage from '../screens/main/Discountpage';
 
 const Stack = createStackNavigator();
 
@@ -37,7 +38,8 @@ export default function StackNavigator() {
         Reset_Password: Reset_Password,
         Profile: Profile,
         ChangePassword: ChangePassword,
-        Productlist : Productlist
+        Productlist : Productlist,
+        Discountpage: Discountpage
       }
      
 

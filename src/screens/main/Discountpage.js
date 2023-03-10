@@ -35,7 +35,7 @@ import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 
 
 var status = '';
-export default function Home(props) {
+export default function Discountpage(props) {
 
 
   const [name, setName] = useState('');
@@ -86,25 +86,28 @@ export default function Home(props) {
     description: "Hovis Farmhouse Wholemeal",
     quantity: '400g',
     discounted_price: '90',
-    real_price: '80'
+    real_price: '80',
+    discountrate: '25%'
   },
 
   {
     id: "1",
     pic: ICONS.milk,
-    description: "Hovis Farmhouse Wholemeal",
+    description: "Amul Moti Homogenized Toned Milk",
     quantity: '450g',
     discounted_price: '50',
-    real_price: '40'
+    real_price: '40',
+    discountrate: '40%'
   },
 
   {
     id: "2",
     pic: ICONS.cornflakes,
-    description: "Amul Moti Homogenized Toned Milk",
+    description: "Kellogg's Corn Flakes Cereal",
     quantity: '400g',
     discounted_price: '70',
-    real_price: '50'
+    real_price: '50',
+    discountrate: '30%'
   },
 
   {
@@ -114,7 +117,8 @@ export default function Home(props) {
     description: "Kellogg's Corn Flakes Cereal",
     quantity: '400g',
     discounted_price: '90',
-    real_price: '80'
+    real_price: '80',
+    discountrate: '35%'
   }
 
 
@@ -168,13 +172,6 @@ export default function Home(props) {
 props.navigation.navigate("Productlisting")
  }
 
- function selectItem2(item){
-
-  
-  props.navigation.navigate("Discountpage",{
-    discount_rate: item.discountrate
-  })
-   }
 
 
 
@@ -186,7 +183,7 @@ props.navigation.navigate("Productlisting")
 
   const renderItem1 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem2(item)}
+      onPress={(item) => selectItem(item)}
       style={{
 
         height: normalize(90),
@@ -243,16 +240,36 @@ props.navigation.navigate("Productlisting")
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(180),
-        width: normalize(120),
+        height: normalize(195),
+        width: normalize(140),
         backgroundColor: '#F0F0F0' ,
-
+       
         marginLeft: normalize(7),
         borderRadius: normalize(15),
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: normalize(10)
       }}>
         
+       {item.discountrate !== '0' ? ( <View style={{
+            height: normalize(16),
+            width: normalize(50),
+            backgroundColor: '#F36E35',
+            alignSelf: 'flex-start',
+            marginLeft: normalize(10),
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: normalize(5)
+        }}>
+            <Text
+            style={{
+                color: 'white',
+                fontSize: normalize(10)
+
+            }}>{item.discountrate} OFF</Text>
+        </View>
+       ) : (null)}
+       
         <Image
                   source={item.pic}
                   style={{
@@ -316,7 +333,7 @@ props.navigation.navigate("Productlisting")
      <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
-  marginLeft: normalize(10),
+  marginLeft: normalize(-10),
 }}>
   <View>
       <Text
@@ -424,15 +441,21 @@ props.navigation.navigate("Productlisting")
               </TouchableOpacity>
 
 
-<View>
+<View style={{
+    alignSelf: 'flex-start',
+    marginRight: normalize(97),
+    //backgroundColor: 'red',
+    width: '40%',
+    
+}}>
               <Text style={{
                 color: 'black',
                 fontSize: normalize(14),
-                fontWeight: '600'
+                fontWeight: '600',
+               
 
               }}>
-Delivery In 10 minutes
-              </Text>
+Special Offers              </Text>
 
 
 
@@ -473,46 +496,26 @@ Delivery In 10 minutes
            
             </View>
 
-            <TouchableOpacity style={{
-  flexDirection: 'row',
-  justifyContent: 'center',
-  marginTop: normalize(-10)
+           
+
+<View style={{
+    alignSelf: 'flex-start',
+    marginLeft: normalize(60),
+   // backgroundColor: 'red',
+    width: '40%',
+    marginTop: normalize(-15)
 }}>
-<Image
-                  source={ICONS.location}
-                  style={{
-                    height: normalize(15),
-                    width: normalize(15),
-                   
-                    alignSelf: 'center'
-                  }}
-                  resizeMode={'contain'}
-                  
-                ></Image>
-
-
 <Text style={{
               color: "#515151",
               
-              fontSize: normalize(12),
-              marginLeft: normalize(10),
+              fontSize: normalize(10),
               
-            }}>SDF Building, GP Block, Sector v</Text>
+              
+            }}>530 Products</Text>
 
-<Image
-                  source={ICONS.downward_arrow}
-                  style={{
-                    height: normalize(10),
-                    width: normalize(10),
-                    marginLeft: normalize(10),
-                    marginTop: normalize(3),
-                    alignSelf: 'center'
-                  }}
-                  resizeMode={'contain'}
-                  
-                ></Image>
+</View>
 
-</TouchableOpacity>
+
 
 <TouchableOpacity style={{
   flexDirection: 'row',
@@ -555,37 +558,11 @@ Delivery In 10 minutes
 
           
 
-           <View style={{
-            justifyContent: 'center',
-           
-           }}>
-
-            <CarouselCards />
-
-            </View>
-              <FlatList
-                data={DATA}
-                renderItem={renderItem1}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-
-                  
-
-
-
-                }}
-
-
-              />
+          
+              
 
           
-<View style={{
+{/* <View style={{
   flexDirection: 'row',
   justifyContent: 'space-between',
   marginRight: normalize(10)
@@ -646,7 +623,7 @@ Delivery In 10 minutes
               marginTop: normalize(20)
             }}>Dairy & Frozen Foods</Text>
 
-<TouchableOpacity onPress={()=>props.navigation.navigate("Productlist")}>
+<TouchableOpacity>
 <Text style={{
               color: "#69BE53",
               fontFamily: FONTS.RubikBold,
@@ -675,8 +652,61 @@ Delivery In 10 minutes
 
                 }}
 
+              /> */}
 
-              />
+
+
+
+<View style={{
+                                flexDirection: 'row',
+                                flex: 1,
+                                
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                               
+                            }}>
+                                <FlatList
+                                    data={DATA2}
+                                    renderItem={renderItem2}
+                                    keyExtractor={item => item.id}
+                                    showsHorizontalScrollIndicator={false}
+
+
+                                    style={{
+
+
+                                        marginLeft: normalize(5),
+                                        marginTop: normalize(10),
+                                        
+
+                                        width: '50%'
+
+                                    }}
+
+
+                                />
+                                <FlatList
+                                    data={DATA2}
+                                    renderItem={renderItem2}
+                                    keyExtractor={item => item.id}
+                                    showsHorizontalScrollIndicator={false}
+
+
+                                    style={{
+
+
+                                        marginTop: normalize(10),
+                                        marginRight: normalize(8),
+                                        
+                                        width: '50%'
+
+
+
+                                    }}
+
+
+                                />
+                            </View>
 
 
 
