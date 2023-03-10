@@ -165,7 +165,9 @@ export default function Home(props) {
 
  function selectItem(item){
   
-props.navigation.navigate("Productlisting")
+props.navigation.navigate("Productdetails" , {
+  img: item.pic
+})
  }
 
  function selectItem2(item){
@@ -368,7 +370,136 @@ props.navigation.navigate("Productlisting")
 
     </TouchableOpacity>
   );
+  const renderItem3 = ({ item, index }) => (
+    <TouchableOpacity
+      onPress={(item) => selectItem(item)}
+      style={{
 
+        height: normalize(180),
+        width: normalize(120),
+        backgroundColor: '#F0F0F0' ,
+
+        marginLeft: normalize(7),
+        borderRadius: normalize(15),
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        
+        <Image
+                  source={item.pic}
+                  style={{
+                    height: normalize(60),
+                    width: normalize(60),
+                    marginTop: normalize(5),
+                    marginLeft: normalize(20)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+
+
+      <Text
+        style={{
+          color: 'black',
+          fontSize: normalize(10),
+          marginLeft: normalize(10),
+          marginTop: normalize(5),
+          alignSelf: 'flex-start'
+        }}
+      >{item.description}
+      </Text>
+
+
+      <Text
+        style={{
+          color: 'black',
+          fontSize: normalize(10),
+          marginLeft: normalize(10),
+          marginTop: normalize(5),
+          alignSelf: 'flex-start'
+                }}
+      >{item.quantity}
+      </Text>
+
+    <View style={{
+  flexDirection: 'row',
+  alignSelf: 'flex-start',
+  marginLeft: normalize(10),
+  marginTop: normalize(10)
+}}>
+      <Text
+        style={{
+          
+          fontSize: normalize(10),
+          color: '#A9A9A9',
+          
+          
+                }}
+      >{'\u20B9'} {item.discounted_price}
+      </Text>
+    <View style={{
+  height: normalize(1),
+  width: '10%',
+  backgroundColor: '#A9A9A9',
+  marginTop: normalize(5),
+  position: 'absolute'
+}}/>
+     </View>
+
+     <View style={{
+  flexDirection: 'row',
+ justifyContent: 'center',
+  marginLeft: normalize(10),
+}}>
+  <View>
+      <Text
+        style={{
+          
+          fontSize: normalize(10),
+          color: 'black',
+          fontWeight: '600'
+          
+                }}
+      >{'\u20B9'} {item.real_price}
+      </Text>
+      </View>
+
+
+
+<TouchableOpacity style={{
+  height: normalize(30),
+  width: normalize(50),
+  backgroundColor: 'white',
+  borderWidth: normalize(2),
+  borderColor: '#69BE53',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: normalize(5),
+  marginLeft: normalize(30),
+  marginEnd: normalize(10),
+  marginTop: normalize(-10)
+}}>
+      <Text
+        style={{
+          
+          fontSize: normalize(10),
+          color: '#69BE53',
+          alignSelf: 'center'
+          
+                }}
+      >ADD
+      </Text>
+      </TouchableOpacity>
+
+
+
+
+     </View>
+
+     
+
+
+    </TouchableOpacity>
+  );
   return (
 
 
@@ -659,7 +790,7 @@ Delivery In 10 minutes
 
 <FlatList
                 data={DATA3}
-                renderItem={renderItem2}
+                renderItem={renderItem3}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
 

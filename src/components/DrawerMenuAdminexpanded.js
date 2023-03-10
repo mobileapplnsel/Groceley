@@ -426,35 +426,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
 
 
-              <TouchableOpacity
-                style={{
-                  marginTop: normalize(10),
-                  width: normalize(55),
-                  height: normalize(50),
-
-
-                }}
-
-                onPress={() => {
-                  onBackdropPress()
-                  setShow1(false)
-                }
-                }>
-                <Image
-                  source={ICONS.left_arrow}
-                  resizeMode="contain"
-                  style={{
-                    marginTop: normalize(10),
-                    //  marginLeft: normalize(50),
-                    height: normalize(20),
-                    width: normalize(20),
-                    alignSelf: 'center',
-                    tintColor: 'white'
-
-                  }}
-                  tintColor='white'
-                />
-              </TouchableOpacity>
+              
 
 
 

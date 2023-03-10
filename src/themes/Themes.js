@@ -39,6 +39,7 @@ export const ICONS = {
    user1: require('../assets/icons/user1.png'),
    rightarrow: require('../assets/icons/right-arrow.png'),
    wallet: require('../assets/icons/wallet.png'),
+   left_arrow: require('../assets/icons/left_arrow.png'),
 };
 
 export const FONTS = {
