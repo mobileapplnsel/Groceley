@@ -276,7 +276,7 @@ props.navigation.navigate("Productlisting")
                     height: normalize(60),
                     width: normalize(60),
                     marginTop: normalize(5),
-                    marginLeft: normalize(20)
+                    
                   }}
                   resizeMode={'contain'}
                 ></Image>

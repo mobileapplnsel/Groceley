@@ -260,14 +260,16 @@ props.navigation.navigate("Productdetails" , {
                   style={{
                     height: normalize(60),
                     width: normalize(60),
+                    alignSelf: 'center',
                     marginTop: normalize(5),
-                    marginLeft: normalize(20)
+                    //marginLeft: normalize(20)
                   }}
                   resizeMode={'contain'}
                 ></Image>
 
 
       <Text
+      numberOfLines={2}
         style={{
           color: 'black',
           fontSize: normalize(10),
@@ -391,13 +393,14 @@ props.navigation.navigate("Productdetails" , {
                     height: normalize(60),
                     width: normalize(60),
                     marginTop: normalize(5),
-                    marginLeft: normalize(20)
+                   
                   }}
                   resizeMode={'contain'}
                 ></Image>
 
 
       <Text
+      numberOfLines={2}
         style={{
           color: 'black',
           fontSize: normalize(10),
