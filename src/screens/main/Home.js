@@ -310,9 +310,9 @@ props.navigation.navigate("Productdetails" , {
       </Text>
     <View style={{
   height: normalize(1),
-  width: '10%',
+  width: '20%',
   backgroundColor: '#A9A9A9',
-  marginTop: normalize(5),
+  marginTop: normalize(7),
   position: 'absolute'
 }}/>
      </View>
@@ -441,9 +441,9 @@ props.navigation.navigate("Productdetails" , {
       </Text>
     <View style={{
   height: normalize(1),
-  width: '10%',
+  width: '20%',
   backgroundColor: '#A9A9A9',
-  marginTop: normalize(5),
+  marginTop: normalize(7),
   position: 'absolute'
 }}/>
      </View>
