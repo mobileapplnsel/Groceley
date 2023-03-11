@@ -47,7 +47,7 @@ export default function Productdetails(props) {
     const [productselect1, setProductselect1] = useState(0);
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
-
+    const [itemselected, setItemselected] = useState(0);
 
 
 
@@ -114,33 +114,14 @@ export default function Productdetails(props) {
     
       ]
 
+function favourite(){
+    setItemselected(1)
+}
 
+function favourite1(){
+    setItemselected(0)
+}
       
-        const ShareExample = async () => {
-          try {
-            const result = await Share.share({
-                message: 'https://www.google.com',
-                url:
-                'https://www.google.com',
-              title:
-                'https://www.google.com',
-            });
-            if (result.action === Share.sharedAction) {
-              if (result.activityType) {
-                // shared with activity type of result.activityType
-              } else {
-                // shared
-              }
-            } else if (result.action === Share.dismissedAction) {
-              // dismissed
-            }
-          } catch (error) {
-            Alert.alert(error.message);
-          }
-        
-
-    }
-    
 
     function submit1(){
 
@@ -478,7 +459,11 @@ export default function Productdetails(props) {
                                     ></Image>
 
 
-                                    <TouchableOpacity onPress={()=>ShareExample()}
+                                    
+   
+               {itemselected == 0 ?   (   
+                
+                <TouchableOpacity onPress={()=>favourite()}
                                     style={{
                                         height: normalize(30),
                                         width: normalize(30),
@@ -490,17 +475,56 @@ export default function Productdetails(props) {
 
                                     }}
                                     
-                                    />
-   
-   <Image
+                                    >
+                
+                
+                <Image
                                         source={ICONS.favourities}
                                         style={{
-                                            height: normalize(15),
-                                            width: normalize(15),
+                                            height: normalize(18),
+                                            width: normalize(18),
                                             alignSelf: 'center',
                                             
                                             position: 'absolute',
-                                            top:15,
+                                            top:5,
+                                            right:20,
+                                            tintColor: 'white',
+                                           
+                                            
+                                        }}
+                                        resizeMode={'contain'}
+                                        tintColor= {'white'}
+                                    ></Image> 
+                                    
+                                    </TouchableOpacity>
+                                    ) : (
+
+
+                                        <TouchableOpacity onPress={()=>favourite1()}
+                                    style={{
+                                        height: normalize(30),
+                                        width: normalize(30),
+                                       
+                                        
+                                        
+                                        marginRight: normalize(10),
+                                        marginTop: normalize(5)
+
+                                    }}
+                                    
+                                    >
+
+
+ <Image
+                                        source={ICONS.favourities}
+                                        style={{
+                                            height: normalize(18),
+                                            
+                                            width: normalize(18),
+                                            alignSelf: 'center',
+                                            
+                                            position: 'absolute',
+                                            top:5,
                                             right:20,
                                             tintColor: '#E10808'
                                         }}
@@ -508,6 +532,9 @@ export default function Productdetails(props) {
                                         tintColor= {'#E10808'}
                                     ></Image>
 
+                                    </TouchableOpacity>
+
+                                    )}
 
 
 </View>
@@ -515,7 +542,7 @@ export default function Productdetails(props) {
 
                                     
                                     <Image
-                                        source={{uri: props?.route?.params?.img}}
+                                        source={ICONS.cornflakes}
                                         style={{
                                             height: normalize(190),
                                             width: normalize(150),

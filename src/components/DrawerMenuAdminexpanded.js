@@ -350,12 +350,12 @@ export default function DrawerMenuAdminexpanded(props) {
 
         <SafeAreaView
           style={{
-            flex: 0.45,
+            flex: 1,
           backgroundColor: 'white',
             height: '80%',
-            width: '60%',
+            width: '70%',
             alignSelf: 'flex-start',
-            marginTop: normalize(-225),
+            //marginTop: normalize(-10),
             borderRadius: normalize(5)
           }}>
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -459,7 +459,7 @@ export default function DrawerMenuAdminexpanded(props) {
               }
                 style={{
                   flexDirection: 'row',
-                  marginLeft: normalize(2)
+                  marginLeft: normalize(2),
                 }}>
                 <Image
                   source={ICONS.home}
@@ -544,7 +544,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(20),
+                    marginTop: normalize(30),
                   }}>
                   <Image
                     source={ICONS.cart}
@@ -578,7 +578,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(20),
+                    marginTop: normalize(30),
                   }}>
                   <Image
                     source={ICONS.order}
@@ -613,7 +613,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(20),
+                    marginTop: normalize(30),
                   }}>
                   <Image
                     source={ICONS.change_password}
@@ -652,7 +652,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(20),
+                    marginTop: normalize(30),
                   }}>
                   <Image
                     source={ICONS.notifications}
@@ -686,7 +686,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(20),
+                    marginTop: normalize(30),
                   }}>
                   <Image
                     source={ICONS.wallet}
@@ -756,7 +756,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(20),
+                    marginTop: normalize(30),
                   }}>
                   <Image
                     source={ICONS.rightarrow}
@@ -780,9 +780,9 @@ export default function DrawerMenuAdminexpanded(props) {
                 </View>
                 <View
               style={{
-                height: normalize(2),
+                height: normalize(1),
             backgroundColor: '#69BE53',
-            marginTop: normalize(12)
+            marginTop: normalize(40)
             
                
                 
@@ -792,16 +792,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
             </View>
 
-            <View
-              style={{
-                marginTop: normalize(20),
-                height: normalize(1),
-                width: '90%',
-                backgroundColor: 'white',
-                marginLeft: normalize(10),
-                marginBottom: normalize(150)
-              }}
-            />
+           
             {/* <Loader visible={AuthReducer?.status == 'Auth/logoutRequest'} /> */}
           </ScrollView>
         </SafeAreaView>
