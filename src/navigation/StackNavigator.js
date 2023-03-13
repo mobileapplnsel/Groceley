@@ -17,6 +17,7 @@ import ChangePassword from '../screens/auth/ChangePassword';
 import Productlist from '../screens/main/Productlist';
 import Discountpage from '../screens/main/Discountpage';
 import Productdetails from '../screens/main/Productdetails';
+import Notification from '../screens/main/Notification';
 
 
 const Stack = createStackNavigator();
@@ -42,7 +43,8 @@ export default function StackNavigator() {
         ChangePassword: ChangePassword,
         Productlist : Productlist,
         Discountpage: Discountpage,
-        Productdetails: Productdetails
+        Productdetails: Productdetails,
+        Notification: Notification
       }
      
 

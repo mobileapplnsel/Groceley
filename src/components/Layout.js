@@ -35,8 +35,8 @@ export default function Layout(props) {
     },
     {
       icon: ICONS.notifications,
-      name: 'Notifications',
-      link: 'Notifications',
+      name: 'Notification',
+      link: 'Notification',
     },
     {
         icon: ICONS.cart,
