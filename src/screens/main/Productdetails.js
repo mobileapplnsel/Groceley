@@ -785,14 +785,28 @@ style={{
                 <View style={{
                                         height: normalize(30),
                                         width: normalize(120),
-                                        backgroundColor: '#E31C23',
+                                        backgroundColor: '#69BE53',
                                         borderRadius: normalize(20),
                                         justifyContent: 'center',
                                         alignItems: 'center',
-                                        
+                                        flexDirection: 'row',
+
                                         marginTop: normalize(10)
 
                                     }}>
+                                         <Image
+                source={ICONS.cart1}
+                style={{
+                    height: normalize(18),
+                    width: normalize(18),
+                    alignSelf: 'center',
+                   
+                    marginRight: normalize(10),
+                    borderRadius: normalize(25)
+                }}
+                resizeMode={'contain'}
+            ></Image>
+
                                         <Text
                                         style={{
                                             fontSize: normalize(12),
@@ -800,12 +814,12 @@ style={{
                                             color: 'white'
                                         }}
                                         >
-                                            Add To Cart
+                                         Go To Cart
                                         </Text>
 
                                     </View>
 
-                <View style={{
+                {/* <View style={{
                                         height: normalize(30),
                                         width: normalize(120),
                                         backgroundColor: '#222222',
@@ -826,7 +840,7 @@ style={{
                                             Buy Now
                                         </Text>
 
-                                    </View>
+                                    </View> */}
 
 
                                     </View>

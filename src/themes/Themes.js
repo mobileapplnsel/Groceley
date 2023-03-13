@@ -42,6 +42,7 @@ export const ICONS = {
    left_arrow: require('../assets/icons/left_arrow.png'),
    star: require('../assets/icons/star.png'),
    heart: require('../assets/icons/heart.png'),
+   cart1: require('../assets/icons/cart1.png'),
 
 };
 
