@@ -91,28 +91,45 @@ export default function Productdetails(props) {
 
     const DATA2 = [{
         id: "0",
-        categories: "Bedcovers",
-        pic: ICONS.cornflakes
+        pic: ICONS.bread,
+        description: "Hovis Farmhouse Wholemeal",
+        quantity: '400g',
+        discounted_price: '90',
+        real_price: '80'
       },
     
       {
         id: "1",
-        categories: "Bedsheets",
-        pic: ICONS.cornflakes
-    
-    
+        pic: ICONS.milk,
+        description: "Hovis Farmhouse Wholemeal",
+        quantity: '450g',
+        discounted_price: '50',
+        real_price: '40'
       },
     
       {
         id: "2",
-        categories: 'Blankets',
-        pic: ICONS.cornflakes
+        pic: ICONS.cornflakes,
+        description: "Amul Moti Homogenized Toned Milk",
+        quantity: '400g',
+        discounted_price: '70',
+        real_price: '50'
+      },
     
+      {
+        id: "3",
+        
+        pic: ICONS.cornflakes2,
+        description: "Kellogg's Corn Flakes Cereal",
+        quantity: '400g',
+        discounted_price: '90',
+        real_price: '80'
       }
     
     
-    
       ]
+
+      
 
 function favourite(){
     setItemselected(1)
@@ -203,47 +220,138 @@ function favourite1(){
 
     const renderItem2 = ({ item, index }) => (
         <TouchableOpacity
-          //onPress={(item) => selectItem(item)}
+          onPress={(item) => selectItem(item)}
           style={{
     
-            height: normalize(145),
-            width: normalize(130),
-            backgroundColor: item.id % 2 == '0' ? '#F6F6F6' : '#FFF3F4',
+            height: normalize(180),
+            width: normalize(120),
+            backgroundColor: '#F0F0F0' ,
     
-            marginLeft: normalize(10),
+            marginLeft: normalize(7),
             borderRadius: normalize(15),
-            
+            justifyContent: 'center',
+            alignItems: 'center'
           }}>
+            
+            <Image
+                      source={item.pic}
+                      style={{
+                        height: normalize(60),
+                        width: normalize(60),
+                        alignSelf: 'center',
+                        marginTop: normalize(5),
+                        //marginLeft: normalize(20)
+                      }}
+                      resizeMode={'contain'}
+                    ></Image>
     
-          <Image
-            source={item.pic}
+    
+          <Text
+          numberOfLines={2}
             style={{
-              height: normalize(100),
-              width: normalize(80),
-              alignSelf: 'center',
-              marginTop: normalize(20),
-              marginRight: normalize(5),
-              borderRadius: normalize(25)
+              color: 'black',
+              fontSize: normalize(10),
+              marginLeft: normalize(10),
+              marginTop: normalize(5),
+              alignSelf: 'flex-start'
             }}
-            resizeMode={'contain'}
-          ></Image>
-    
+          >{item.description}
+          </Text>
     
     
           <Text
             style={{
               color: 'black',
               fontSize: normalize(10),
-              fontWeight: '600',
+              marginLeft: normalize(10),
               marginTop: normalize(5),
-              alignSelf: 'center'
-            }}
-          >{item.categories}
+              alignSelf: 'flex-start'
+                    }}
+          >{item.quantity}
           </Text>
+    
+        <View style={{
+      flexDirection: 'row',
+      alignSelf: 'flex-start',
+      marginLeft: normalize(10),
+      marginTop: normalize(10)
+    }}>
+          <Text
+            style={{
+              
+              fontSize: normalize(10),
+              color: '#A9A9A9',
+              
+              
+                    }}
+          >{'\u20B9'} {item.discounted_price}
+          </Text>
+        <View style={{
+      height: normalize(1),
+      width: '20%',
+      backgroundColor: '#A9A9A9',
+      marginTop: normalize(7),
+      position: 'absolute'
+    }}/>
+         </View>
+    
+         <View style={{
+      flexDirection: 'row',
+     justifyContent: 'center',
+      marginLeft: normalize(10),
+    }}>
+      <View>
+          <Text
+            style={{
+              
+              fontSize: normalize(10),
+              color: 'black',
+              fontWeight: '600'
+              
+                    }}
+          >{'\u20B9'} {item.real_price}
+          </Text>
+          </View>
+    
+    
+    
+    <TouchableOpacity style={{
+      height: normalize(30),
+      width: normalize(50),
+      backgroundColor: 'white',
+      borderWidth: normalize(2),
+      borderColor: '#69BE53',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: normalize(5),
+      marginLeft: normalize(30),
+      marginEnd: normalize(10),
+      marginTop: normalize(-10)
+    }}>
+          <Text
+            style={{
+              
+              fontSize: normalize(10),
+              color: '#69BE53',
+              alignSelf: 'center'
+              
+                    }}
+          >ADD
+          </Text>
+          </TouchableOpacity>
+    
+    
+    
+    
+         </View>
+    
+         
     
     
         </TouchableOpacity>
       );
+
+   
     
 
 
@@ -279,143 +387,9 @@ function favourite1(){
 
 
 
-                            {/* <View style={{
-                                // flexDirection: 'row',
-
-                                // justifyContent: 'space-around',
-
-
-                            }}> */}
-                                
-
-                                {/* <View>
-<TouchableOpacity 
-         onPress={()=> submit1()}
-        
-        style={{
-
-            height: normalize(70),
-            width: '80%',
-            backgroundColor: '#F6F6F6' ,//'#FFF3F4',
-            marginVertical: normalize(5),
-            marginLeft: normalize(20),
-            borderRadius: normalize(5),
-            marginRight: normalize(10),
-            borderWidth: productselect1==1  ? normalize(1) : normalize(0),
-            borderColor: 'red'
-        }}>
-
-
-
-
-
-            <Image
-                source={ICONS.cornflakes}
-                style={{
-                    height: normalize(100),
-                    width: normalize(40),
-                    alignSelf: 'center',
-                    marginTop: normalize(-20),
-                    marginRight: normalize(5),
-                    borderRadius: normalize(25)
-                }}
-                resizeMode={'contain'}
-            ></Image>
-
-
-
-
-
-
-        </TouchableOpacity>
-
-
-
-        <TouchableOpacity 
-         onPress={()=> submit2()}
-        
-        style={{
-
-            height: normalize(70),
-            width: '80%',
-            backgroundColor: '#F6F6F6' ,//'#FFF3F4',
-            marginVertical: normalize(5),
-            marginLeft: normalize(20),
-            borderRadius: normalize(5),
-            marginRight: normalize(10),
-            borderWidth: productselect2==1  ? normalize(1) : normalize(0),
-            borderColor: 'red'
-        }}>
-
-
-
-
-
-            <Image
-                source={ICONS.cornflakes}
-                style={{
-                    height: normalize(100),
-                    width: normalize(40),
-                    alignSelf: 'center',
-                    marginTop: normalize(-20),
-                    marginRight: normalize(5),
-                    borderRadius: normalize(25)
-                }}
-                resizeMode={'contain'}
-            ></Image>
-
-
-
-
-
-
-        </TouchableOpacity>
-
-
-        <TouchableOpacity 
-         onPress={()=> submit3()}
-        
-        style={{
-
-            height: normalize(70),
-            width: '80%',
-            backgroundColor: '#F6F6F6' ,//'#FFF3F4',
-            marginVertical: normalize(5),
-            marginLeft: normalize(20),
-            borderRadius: normalize(5),
-            marginRight: normalize(10),
-            borderWidth: productselect3==1  ? normalize(1) : normalize(0),
-            borderColor: 'red'
-        }}>
-
-
-
-
-
-            <Image
-                source={ICONS.cornflakes}
-                style={{
-                    height: normalize(100),
-                    width: normalize(40),
-                    alignSelf: 'center',
-                    marginTop: normalize(-20),
-                    marginRight: normalize(5),
-                    borderRadius: normalize(25)
-                }}
-                resizeMode={'contain'}
-            ></Image>
-
-
-
-
-
-
-        </TouchableOpacity>
-
-        </View> */}
-
+                            
                                 <View style={{
-                                    height: normalize(240),
+                                    height: normalize(200),
                                     width: '100%',
                                     backgroundColor: '#FFF2F0',
                                     marginRight: normalize(10),
@@ -544,10 +518,10 @@ function favourite1(){
                                     <Image
                                         source={ICONS.cornflakes}
                                         style={{
-                                            height: normalize(190),
-                                            width: normalize(150),
+                                            height: normalize(160),
+                                            width: normalize(140),
                                             alignSelf: 'center',
-                                           
+                                            
                                             marginLeft: normalize(10),
                                             borderRadius: normalize(25)
                                         }}
@@ -791,7 +765,7 @@ style={{
                                         alignItems: 'center',
                                         flexDirection: 'row',
 
-                                        marginTop: normalize(10)
+                                       
 
                                     }}>
                                          <Image
@@ -819,29 +793,7 @@ style={{
 
                                     </View>
 
-                {/* <View style={{
-                                        height: normalize(30),
-                                        width: normalize(120),
-                                        backgroundColor: '#222222',
-                                        borderRadius: normalize(20),
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                         marginLeft: normalize(10),
-                                        marginTop: normalize(10)
-
-                                    }}>
-                                        <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            fontWeight: '700',
-                                            color: 'white'
-                                        }}
-                                        >
-                                            Buy Now
-                                        </Text>
-
-                                    </View> */}
-
+                
 
                                     </View>
 
@@ -851,15 +803,7 @@ style={{
               fontSize: normalize(12),
               marginLeft: normalize(30),
               marginTop: normalize(10)
-            }}>Explore</Text>
-
-            <Text style={{
-              color: "#767676",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(13),
-              fontWeight: '700',
-              marginLeft: normalize(30)
-            }}>Recent Categories</Text>
+            }}>Toping for you</Text>
 
 
 <View>
@@ -873,7 +817,7 @@ style={{
                 style={{
 
 
-                  marginLeft: normalize(25),
+                  marginLeft: normalize(20),
 
                   marginTop: normalize(20),
                   marginBottom: normalize(20)
