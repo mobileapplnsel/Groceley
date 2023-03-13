@@ -233,6 +233,7 @@ function favourite1(){
             alignItems: 'center'
           }}>
             
+            <View >
             <Image
                       source={item.pic}
                       style={{
@@ -244,8 +245,9 @@ function favourite1(){
                       }}
                       resizeMode={'contain'}
                     ></Image>
+                    </View>
     
-    
+    <>
           <Text
           numberOfLines={2}
             style={{
@@ -345,7 +347,7 @@ function favourite1(){
     
          </View>
     
-         
+         </>
     
     
         </TouchableOpacity>
@@ -819,7 +821,7 @@ style={{
 
                   marginLeft: normalize(20),
 
-                  marginTop: normalize(20),
+                  marginTop: normalize(10),
                   marginBottom: normalize(20)
 
 
