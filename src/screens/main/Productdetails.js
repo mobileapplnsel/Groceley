@@ -754,145 +754,26 @@ style={{
 >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum diam neque, sed vehicula turpis vestibulum quis.</Text>
                             </View>
 
-                            <View style={{
-                        flexDirection: "row",
-                        marginLeft: normalize(20),
-                        marginTop: normalize(10)
-                    }}>
-
-<Text
-                        style={{
-                            fontSize: normalize(12),
-                            color: "#222222",
-                            fontWeight: '700',
-                    
-                        }}
-                    >Quantity</Text>
-
-                    <View style={{
-                        height: normalize(20),
-                        width: normalize(70),
-                        backgroundColor: '#575757',
-                        marginLeft: normalize(10),
-                       
-                        borderRadius: normalize(15)
-                    }}>
-                     <View
-                     
-                     style={{
-                        width: '95%',
-                        height: normalize(20),
-                        flexDirection: 'row',
-                     
-                        justifyContent: 'space-between'
-                     }}
-                     >
-
-                        <TouchableOpacity
-                        style={{
-                            alignSelf: 'center',
-                            marginLeft: normalize(2),
-                            height: normalize(20),
-                            width: normalize(20),
-                            
-                            justifyContent: 'center'
-               }}
-                        
-                        >
-
-<Image
-                    source={ICONS.cornflakes}
-                    style={{
-                        height: normalize(8),
-                        width: normalize(8),
-                        alignSelf: 'center',
-                        
-                   
-                       
-                        tintColor: 'white',
-                    }}
-                    resizeMode={'contain'}
-                ></Image>
-
-</TouchableOpacity>
-
-                        <Text
-                        style={{
-                            color: 'white',
+                      
+                        <Text style={{
+                            fontFamily: FONTS.Hind,
+                            color: '#646464',
                             fontSize: normalize(10),
+                            marginLeft: normalize(20),
+                            marginTop: normalize(10)
+                        }}> TOTAL PRICE</Text>
+     <Text style={{
+                            fontFamily: FONTS.Hind,
+                            color: 'black',
+                            fontSize: normalize(14),
+                            marginLeft: normalize(25),
                             fontWeight: '700',
-                            textAlign: 'center',
+                            marginTop: normalize(5)
+                        }}>{'\u20B9'}160</Text>
 
-                            marginTop: normalize(2)
-                        }}
-                        
-                        >1</Text>
-    <TouchableOpacity
-                        style={{
-                            alignSelf: 'center',
-                            marginLeft: normalize(2),
-                            height: normalize(20),
-                            width: normalize(20),
-                            justifyContent: 'center'
-               }}
-                        
-                        >
-<Image
-                    source={ICONS.downward_arrow}
-                    style={{
-                        height: normalize(8),
-                        width: normalize(8),
-                        alignSelf: 'center',
+
+
                       
-                   
-                       
-                        tintColor: 'white',
-                    }}
-                    resizeMode={'contain'}
-                ></Image>
-</TouchableOpacity>
-                        
-
-                        {/* <Image
-                    source={ICONS.upbutton}
-                    style={{
-                        height: normalize(8),
-                        width: normalize(8),
-                        alignSelf: 'flex-start',
-                      
-                        marginLeft: normalize(10),
-                       
-                        tintColor: 'white',
-                    }}
-                    resizeMode={'contain'}
-                ></Image>
-<Image
-                    source={ICONS.downbutton}
-                    style={{
-                        height: normalize(8),
-                        width: normalize(8),
-                        alignSelf: 'flex-start',
-                      
-                        marginLeft: normalize(10),
-                        borderRadius: normalize(25),
-                        tintColor: 'white',
-                    }}
-                    resizeMode={'contain'}
-                ></Image> */}
-
-
-
-
-
-                        
-                     </View>
-
-
-                     
-
-                    </View>
-                </View>
-
                 <View style={{
                     flexDirection: 'row',
                     justifyContent: 'flex-start',
