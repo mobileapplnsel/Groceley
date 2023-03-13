@@ -442,7 +442,7 @@ function favourite1(){
                                     
                                     />
    
-   <Image
+   {/* <Image
                                         source={ICONS.left_arrow}
                                         style={{
                                             height: normalize(15),
@@ -456,7 +456,7 @@ function favourite1(){
                                         }}
                                         resizeMode={'contain'}
                                         tintColor= {'black'}
-                                    ></Image>
+                                    ></Image> */}
 
 
                                     
@@ -479,21 +479,21 @@ function favourite1(){
                 
                 
                 <Image
-                                        source={ICONS.favourities}
+                                        source={ICONS.heart}
                                         style={{
-                                            height: normalize(18),
-                                            width: normalize(18),
+                                            height: normalize(15),
+                                            width: normalize(15),
                                             alignSelf: 'center',
                                             
                                             position: 'absolute',
-                                            top:5,
-                                            right:20,
-                                            tintColor: 'white',
+                                            top:20,
+                                            right:40,
+                                            tintColor: 'black',
                                            
                                             
                                         }}
                                         resizeMode={'contain'}
-                                        tintColor= {'white'}
+                                        tintColor= {'black'}
                                     ></Image> 
                                     
                                     </TouchableOpacity>
@@ -518,14 +518,14 @@ function favourite1(){
  <Image
                                         source={ICONS.favourities}
                                         style={{
-                                            height: normalize(18),
-                                            
-                                            width: normalize(18),
+                                            height: normalize(15),
+                                            width: normalize(15),
                                             alignSelf: 'center',
                                             
                                             position: 'absolute',
-                                            top:5,
-                                            right:20,
+                                            top:20,
+                                            right:40,
+                                            
                                             tintColor: '#E10808'
                                         }}
                                         resizeMode={'contain'}
@@ -568,7 +568,7 @@ function favourite1(){
                                         
                                         position: 'absolute',
                                         elevation: 3,
-                                        bottom: -10,
+                                        bottom: -15,
                                         left: 30
 
                                     }}>
@@ -603,7 +603,7 @@ function favourite1(){
                                     <View style={{
                                         height: normalize(30),
                                         width: normalize(60),
-                                        backgroundColor: 'white',
+                                        backgroundColor: '#F36E35',
                                         borderRadius: normalize(20),
                                         justifyContent: 'space-evenly',
                                         alignItems: 'center',
@@ -614,7 +614,7 @@ function favourite1(){
                                         
                                         position: 'absolute',
                                         elevation: 3,
-                                        bottom: -10,
+                                        bottom: -15,
                                         right: 30
 
                                     }}>
@@ -622,7 +622,7 @@ function favourite1(){
                                         style={{
                                             fontSize: normalize(12),
                                             
-                                            color: 'black'
+                                            color: 'white'
                                         }}
                                         >
                                             -
@@ -632,7 +632,7 @@ function favourite1(){
                                         style={{
                                             fontSize: normalize(12),
                                             
-                                            color: 'black'
+                                            color: 'white'
                                         }}
                                         >
                                             02
@@ -642,7 +642,7 @@ function favourite1(){
                                         style={{
                                             fontSize: normalize(12),
                                             
-                                            color: 'black'
+                                            color: 'white'
                                         }}
                                         >
                                             +
@@ -657,22 +657,22 @@ function favourite1(){
 
                             <View style={{
                                 marginLeft: normalize(20),
-                                marginTop: normalize(10)
+                                marginTop: normalize(30)
                             }}>
                                 <Text
                                     style={{
                                         color: '#222222',
                                         fontSize: normalize(16),
                                         fontWeight: '600',
-                                        
+                                        fontStyle: FONTS.Hind,
                                         textAlign: 'left',
 
                                     }}
-                                >King Size Bedsheet 108×108
+                                >Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits
                                 </Text>
 
 
-                                <View style={{
+                                {/* <View style={{
                                     flexDirection: 'row'
                                 }}>
 
@@ -739,16 +739,16 @@ function favourite1(){
 
 
 
-                                </View>
+                                </View> */}
 <Text
 style={{
-    color: '#575757',
+    color: '#646464',
                                             fontSize: normalize(12),
                                             width: '85%',
-                                        //     fontWeight: '600',
+                                           fontWeight: '300',
                                             marginTop: normalize(10),
                                             alignSelf: 'flex-start',
-                                            fontWeight: '700', 
+                                           fontStyle: FONTS.Hind
 }}
 
 >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum diam neque, sed vehicula turpis vestibulum quis.</Text>
