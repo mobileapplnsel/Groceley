@@ -184,7 +184,7 @@ export default function Notification(props)
 
 
                 <View style={{
-                    height: normalize(50),
+                    height: normalize(60),
                     width: normalize(50),
                     backgroundColor: 'white',
                     justifyContent: 'center',
