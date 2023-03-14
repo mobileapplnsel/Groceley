@@ -803,7 +803,7 @@ style={{
               color: "#767676",
               fontFamily: FONTS.RubikBold,
               fontSize: normalize(12),
-              marginLeft: normalize(30),
+              marginLeft: normalize(20),
               marginTop: normalize(10)
             }}>Toping for you</Text>
 
@@ -819,7 +819,7 @@ style={{
                 style={{
 
 
-                  marginLeft: normalize(20),
+                  marginLeft: normalize(10),
 
                   marginTop: normalize(10),
                   marginBottom: normalize(20)
@@ -833,7 +833,14 @@ style={{
             </View>
 
 
+            <View style={{
+            justifyContent: 'center',
+            marginTop: normalize(-20)
+           }}>
 
+            <CarouselCards />
+
+            </View>
 
 
                         </ScrollView>
