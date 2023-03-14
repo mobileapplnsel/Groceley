@@ -45,8 +45,8 @@ export default function Notification(props)
     const DATA = [{
         id: "0",
         categories: "Bedcovers",
-        pic: ICONS.bedcover,
-        description: "King Size Bed Sheet (with pillow cover) is Dispatched",
+        pic: ICONS.bread,
+        description: "Your order Hovis Farmhouse Wholemeal has been dispatched",
         realprice: "4999",
         discountedprice: "1690",
         quantity:1 
@@ -56,8 +56,8 @@ export default function Notification(props)
     {
         id: "1",
         categories: "Bedsheets",
-        pic: ICONS.bedcover,
-        description: "King Size Bed Sheet (with pillow cover) is Shipped",
+        pic: ICONS.cornflakes,
+        description: "Your order Kellogg's Corn Flakes Cereal is shipped",
 
         realprice: "4999",
         discountedprice: "1690",
@@ -69,13 +69,35 @@ export default function Notification(props)
     {
         id: "2",
         categories: 'Blankets',
-        pic: ICONS.bedcover,
-        description: "King Size Bed Sheet (with pillow cover) is in-Transit",
+        pic: ICONS.milk,
+        description: "Your order Amul Moti Homogenized Toned Milk is in-Transit",
+        realprice: "4999",
+        discountedprice: "1690",
+        quantity:1 
+
+    },
+
+    {
+        id: "3",
+        categories: 'Blankets',
+        pic: ICONS.cornflakes2,
+        description: "Your order Kellogg's Corn Flakes Cereal will be delivered today",
+        realprice: "4999",
+        discountedprice: "1690",
+        quantity:1 
+
+    },
+    {
+        id: "4",
+        categories: 'Blankets',
+        pic: ICONS.milk,
+        description: "Your ordered Amul Moti Homogenized Toned Milk on 14/12/2023",
         realprice: "4999",
         discountedprice: "1690",
         quantity:1 
 
     }
+
 
 
 
@@ -130,11 +152,12 @@ export default function Notification(props)
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     const renderItem1 = ({ item, index }) => (
+        <>
         <View style={{
 
-            height: normalize(130),
-            width: '90%',
-            backgroundColor: item.id % 2 == '0' ? '#F6F6F6' : '#FFF3F4',
+            height: normalize(60),
+            width: '93%',
+            
             marginVertical: normalize(5),
             marginLeft: normalize(10),
             borderRadius: normalize(15)
@@ -161,20 +184,20 @@ export default function Notification(props)
 
 
                 <View style={{
-                    height: normalize(110),
-                    width: normalize(90),
+                    height: normalize(50),
+                    width: normalize(50),
                     backgroundColor: 'white',
                     justifyContent: 'center',
                     alignItems: 'center',
                     marginLeft: normalize(10),
                     borderRadius: normalize(5),
-                    marginTop: normalize(-12)
+                    
                 }}>
                     <Image
                         source={item.pic}
                         style={{
-                            height: normalize(100),
-                            width: normalize(80),
+                            height: normalize(80),
+                            width: normalize(40),
                             alignSelf: 'center',
                           
                             marginRight: normalize(5),
@@ -186,14 +209,15 @@ export default function Notification(props)
                 </View>
 
                 <View style={{
-                    width: '50%',
+                    width: '70%',
                     marginLeft: normalize(10)
                 }}>
                     <Text
+                    numberOfLines={3}
                         style={{
                             fontSize: normalize(12),
-                            color: "#222222",
-                            marginTop:20,
+                            color: "black",
+                            marginTop: normalize(10),
                             fontWeight:'600'
                         }}
                     >{item.description}</Text>
@@ -219,6 +243,15 @@ export default function Notification(props)
 
 
         </View>
+
+        <View
+        style={{
+            height: normalize(1),
+            width: '95%',
+            backgroundColor: '#69BE53'
+        }}
+        />
+        </>
     );
 
     const renderItem2 = ({ item, index }) => (
@@ -366,72 +399,86 @@ export default function Notification(props)
 
 
                         <View style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: normalize(20),
+              marginRight: normalize(10),
+              height: normalize(40)
+            }}>
 
-                            height: normalize(50)
-                        }}>
+              <TouchableOpacity
+                style={{
+                  width: '20%',
+                  height: '90%',
 
-                            <TouchableOpacity
-                                style={{
-                                    width: '20%',
-                                    height: '90%',
+                }}
 
-                                }}
+                onPress={() => {
 
-                                onPress={() => {
+                  setModalVisible(!modalVisible)
 
-                                    setModalVisible(!modalVisible)
-
-                                }}>
-                                <Image
-                                    source={ICONS.menu}
-                                    style={{
-                                        height: normalize(15),
-                                        width: normalize(15),
-                                        marginTop: normalize(15),
-                                        marginLeft: normalize(20)
-                                    }}
-                                    resizeMode={'contain'}
-                                ></Image>
-                            </TouchableOpacity>
-
-
-                            <View style={{
-                                flexDirection: 'row',
-
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                marginRight: normalize(5)
-                            }}>
-                                <Image
-                                    source={ICONS.search}
-                                    style={{
-                                        height: normalize(15),
-                                        width: normalize(15),
-                                        marginLeft: normalize(2)
+                }}>
+                <Image
+                  source={ICONS.menu}
+                  style={{
+                    height: normalize(20),
+                    width: normalize(20),
+                    
+                    marginLeft: normalize(20)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+              </TouchableOpacity>
 
 
-                                    }}
-                                    resizeMode={'contain'}
-                                ></Image>
+<View>
+              <Text style={{
+                color: 'black',
+                fontSize: normalize(14),
+                fontWeight: '600'
+
+              }}>
+Notifications
+              </Text>
 
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}>
-                                <Image
-                                    source={ICONS.bag}
-                                    style={{
-                                        height: normalize(20),
-                                        width: normalize(20),
 
-                                        marginLeft: normalize(20)
-                                    }}
-                                    resizeMode={'contain'}
-                                ></Image>
-</TouchableOpacity>
-                                
-                            </View>
-                        </View>
+
+
+              </View>
+
+
+
+
+
+              <TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
+                style={{
+                  width: normalize(30),
+                  height: normalize(30),
+                  borderRadius: normalize(15),
+                  backgroundColor: '#F36E35',
+                  marginTop: normalize(-5)
+                }}
+
+              >
+                <Image
+                  source={ICONS.user}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    marginTop: normalize(7),
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'white'}
+                ></Image>
+              </TouchableOpacity>
+
+
+
+
+           
+            </View>
 
 
 
@@ -440,50 +487,16 @@ export default function Notification(props)
                         <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
 
 
-                            <View style={{
-                                justifyContent: 'center'
-                            }}>
-                                <Text
-
-
-                                    style={{
-
-                                        color: 'black',
-                                        fontSize: normalize(14),
-                                        fontWeight: '600',
-
-                                        textAlign: 'left',
-                                        marginLeft: normalize(20)
-
-
-
-                                    }}
-                                >
-
-                                    Notification
-
-
-
-                                </Text>
-
-                                <View style={{
-                                    height: normalize(1),
-                                    width: '90%',
-                                    backgroundColor: 'black',
-                                    marginTop: normalize(10),
-                                    marginLeft: normalize(10)
-                                }}
-                                />
-
-                            </View>
-                            <View style={{
-                                flexDirection: 'row',
-                                flex: 1,
-                                //width: '100%',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-
-                            }}>
+                          
+                          
+                                <View
+        style={{
+            height: normalize(1),
+            width: '93%',
+            backgroundColor: '#69BE53',
+            marginLeft: normalize(10),
+        }}
+        />
                                 <FlatList
                                     data={DATA}
                                     renderItem={renderItem1}
@@ -496,9 +509,9 @@ export default function Notification(props)
 
                                         marginLeft: normalize(10),
 
-                                        marginTop: normalize(20),
+                                        marginTop: normalize(10),
 
-                                        width: '50%'
+                                        width: '96%'
 
                                     }}
 
@@ -507,7 +520,7 @@ export default function Notification(props)
 
 
 
-                                </View>
+                             
                         </ScrollView>
 
 
