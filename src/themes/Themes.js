@@ -43,7 +43,7 @@ export const ICONS = {
    star: require('../assets/icons/star.png'),
    heart: require('../assets/icons/heart.png'),
    cart1: require('../assets/icons/cart1.png'),
-
+   carouselthree: require('../assets/icons/carouselthree.png'),
 };
 
 export const FONTS = {

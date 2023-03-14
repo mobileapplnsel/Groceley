@@ -10,7 +10,7 @@ const CarouselCardItem = ({ item, index }) => {
   return (
     
       <ImageBackground
-        source={ICONS.carouselone}
+        source={item.img}
         style={styles.image}
         resizeMode={"contain"}
       />

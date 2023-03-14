@@ -162,9 +162,9 @@ export default function Introduction(props) {
 
                                 textAlign: 'left',
                                 marginTop: normalize(10),
-                                color: 'black',
+                                color: '#3F3F3F',
 
-                                fontFamily: FONTS.PlayfairDisplayBlack,
+                                fontFamily: FONTS.Hind,
                                 fontSize: normalize(14)
 
                             }}>
