@@ -44,6 +44,8 @@ export const ICONS = {
    heart: require('../assets/icons/heart.png'),
    cart1: require('../assets/icons/cart1.png'),
    carouselthree: require('../assets/icons/carouselthree.png'),
+   delete: require('../assets/icons/delete.png'),
+
 };
 
 export const FONTS = {

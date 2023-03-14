@@ -752,7 +752,9 @@ style={{
 
 
                       
-                <View style={{
+                <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")} 
+                
+                style={{
                     flexDirection: 'row',
                     justifyContent: 'flex-start',
                     marginLeft: normalize(20),
@@ -799,7 +801,7 @@ style={{
 
                 
 
-                                    </View>
+                                    </TouchableOpacity>
 
                                     <Text style={{
               color: "#767676",

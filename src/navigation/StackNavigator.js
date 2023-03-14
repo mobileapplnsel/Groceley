@@ -18,6 +18,7 @@ import Productlist from '../screens/main/Productlist';
 import Discountpage from '../screens/main/Discountpage';
 import Productdetails from '../screens/main/Productdetails';
 import Notification from '../screens/main/Notification';
+import Cart from '../screens/main/Cart';
 
 
 const Stack = createStackNavigator();
@@ -44,7 +45,8 @@ export default function StackNavigator() {
         Productlist : Productlist,
         Discountpage: Discountpage,
         Productdetails: Productdetails,
-        Notification: Notification
+        Notification: Notification,
+        Cart: Cart
       }
      
 
