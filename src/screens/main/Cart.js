@@ -496,7 +496,7 @@ function favourite(){
 
             <Text style={{
                 fontFamily: FONTS.Hind,
-                fontSize: normalize(10),
+                fontSize: normalize(12),
                 color: '#515151',
                 marginLeft: normalize(-5)
 
@@ -522,24 +522,212 @@ function favourite(){
 
                       
                <View style={{
-                height: normalize(300),
+               
                 backgroundColor: 'white',
                 borderTopLeftRadius: normalize(25),
                 borderTopRightRadius: normalize(25),
-               // marginTop: normalize(-40),
+                marginTop: normalize(-30)
                 
                }}>
 
+               <View style={{
+                flexDirection: 'row',
+                marginTop: normalize(30),
+                marginLeft: normalize(30),
+                justifyContent: 'space-between',
+                alignItems: 'center'
+               }}>
+                <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black'
+                }}>Subtotal</Text>
+                 <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black',
+                    marginRight: normalize(30)
+                }}>{'\u20B9'}340</Text>
+               </View>
+
+
+               <View style={{
+                flexDirection: 'row',
+                marginTop: normalize(10),
+                marginLeft: normalize(30),
+                justifyContent: 'space-between',
+                alignItems: 'center'
+               }}>
+                <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black'
+                }}>GST (18%)</Text>
+                 <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black',
+                    marginRight: normalize(30)
+                }}>{'\u20B9'}61</Text>
+               </View>
+
+               <View style={{
+                flexDirection: 'row',
+                marginTop: normalize(10),
+                marginLeft: normalize(30),
+                justifyContent: 'space-between',
+                alignItems: 'center'
+               }}>
+                <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black'
+                }}>Delivery</Text>
+                 <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: '#69BE53',
+                    marginRight: normalize(30)
+                }}>FREE</Text>
+               </View>
+
+              <View style={{
+                flexDirection: 'row',
+                marginLeft: normalize(5),
+                marginTop: normalize(5)
+              }}>
                 <View style={{
-                                        height: normalize(30),
-                                        width: '90%',
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+                 <View style={{
+                    height: normalize(1),
+                    width: normalize(10),
+                    backgroundColor: '#646464',
+                    marginLeft: normalize(10),
+                    marginTop: normalize(10)
+                }}/>
+              </View>
+
+              <View style={{
+                flexDirection: 'row',
+                marginTop: normalize(10),
+                marginLeft: normalize(30),
+                justifyContent: 'space-between',
+                alignItems: 'center'
+               }}>
+                <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black'
+                }}>Total</Text>
+                 <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black',
+                    marginRight: normalize(30)
+                }}>{'\u20B9'}401</Text>
+               </View>
+
+
+
+                <View style={{
+                                        height: normalize(40),
+                                        width: '85%',
                                         backgroundColor: '#69BE53',
                                         borderRadius: normalize(20),
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         alignSelf: 'center',
-                                        
-                                        marginTop: normalize(90)
+                                        marginBottom: normalize(20),
+                                        marginTop: normalize(20)
                                        
 
                                     }}>
@@ -549,7 +737,8 @@ function favourite(){
                                         style={{
                                             fontSize: normalize(12),
                                             fontWeight: '700',
-                                            color: 'white'
+                                            color: 'white',
+                                            fontFamily: FONTS.Hind
                                         }}
                                         >
                                          Checkout
