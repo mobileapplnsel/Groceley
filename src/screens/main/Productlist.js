@@ -169,7 +169,7 @@ export default function Productlist(props) {
 
  function selectItem(item){
   
-props.navigation.navigate("Productlisting")
+props.navigation.navigate("Productdetails")
  }
 
 

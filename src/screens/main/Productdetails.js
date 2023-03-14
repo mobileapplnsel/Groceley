@@ -167,7 +167,9 @@ function favourite1(){
 
 
 
-
+ function selectItem(item){
+    props.navigation.navigate("Productdetails")
+ }
 
 
 
