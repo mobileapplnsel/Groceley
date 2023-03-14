@@ -136,7 +136,7 @@ export default function ChangePassword(props) {
                                 color: 'black',
 
                             }}>
-                            FORGOT PASSWORD
+                            CHANGE PASSWORD
                         </Text>
 
                         <View style={{

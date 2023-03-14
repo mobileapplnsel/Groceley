@@ -45,7 +45,7 @@ export const ICONS = {
    cart1: require('../assets/icons/cart1.png'),
    carouselthree: require('../assets/icons/carouselthree.png'),
    delete: require('../assets/icons/delete.png'),
-
+   discount: require('../assets/icons/discount.png'),
 };
 
 export const FONTS = {
