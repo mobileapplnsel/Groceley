@@ -575,13 +575,7 @@ function favourite(){
 
 
                       
-                <View style={{
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    marginLeft: normalize(20),
-                    marginTop: normalize(90)
-                }}
-                >
+               
 
                 <View style={{
                                         height: normalize(30),
@@ -591,7 +585,8 @@ function favourite(){
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         flexDirection: 'row',
-
+                                        marginLeft: normalize(20),
+                                        marginTop: normalize(90)
                                        
 
                                     }}>
@@ -619,16 +614,6 @@ function favourite(){
                                         </Text>
 
                                     </View>
-
-                
-
-                                    </View>
-
-                                   
-
-
-
-
 
        
 
