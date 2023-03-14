@@ -381,7 +381,7 @@ export default function Notification(props)
 
         <Fragment>
 
-            <Layout Home={true} {...props}>
+            <Layout Notification={true} {...props}>
                 <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 

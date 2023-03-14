@@ -319,7 +319,7 @@ function favourite(){
 
         <Fragment>
 
-            <Layout Home={true} {...props}>
+            <Layout Cart={true} {...props}>
                 <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 

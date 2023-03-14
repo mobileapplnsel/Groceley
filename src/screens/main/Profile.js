@@ -43,6 +43,7 @@ export default function Profile(props) {
   const [name, setName] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [emailaddress, setEmailaddress] = useState('');
+  const [address, setAddress] = useState('');
   const [pickerVisial, setPickerVisial] = useState(false);
   const [filePath, setFilePath] = useState('');
   const isFocused = useIsFocused();
@@ -404,6 +405,21 @@ export default function Profile(props) {
                 width={normalize(250)}
                 placeholder={'abc@yopmail.com'}
                 borderRadius={normalize(30)}
+                backgroundColor={'#D3D3D3'}
+
+              />
+
+<TextInput
+numberOfLines={3}
+                value={address}
+                onChangeText={_ => setAddress(_)}
+                marginTop={normalize(10)}
+                keyboardType={'email-address'}
+                fontSize={normalize(14)}
+                width={normalize(245)}
+                paddingLeft={normalize(10)}
+                placeholder={'Salt Lake Sector 5, SDF Building'}
+                borderRadius={normalize(10)}
                 backgroundColor={'#D3D3D3'}
 
               />
