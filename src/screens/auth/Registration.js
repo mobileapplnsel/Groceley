@@ -228,7 +228,7 @@ export default function Registration(props) {
               />
 
 
-              <TouchableOpacity
+              <TouchableOpacity onPress={()=> props.navigation.navigate("Login")}
 
                 style={{
                   height: normalize(35),
