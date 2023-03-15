@@ -32,7 +32,7 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
-
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 var status = '';
 export default function Home(props) {
@@ -178,7 +178,22 @@ props.navigation.navigate("Productdetails" , {
   })
    }
 
-
+  function location(){
+    console.log("abc")
+    return (
+      <GooglePlacesAutocomplete
+        placeholder='Search'
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+        }}
+        query={{
+          key: 'YOUR API KEY',
+          language: 'en',
+        }}
+      />
+    );
+  }
 
 
 
@@ -607,9 +622,13 @@ Delivery In 10 minutes
            
             </View>
 
-            <TouchableOpacity style={{
+          <TouchableOpacity
+            style={{
+              width: '80%',
   flexDirection: 'row',
   justifyContent: 'center',
+  alignItems: 'center',
+  alignSelf: 'center',
   marginTop: normalize(-10)
 }}>
 <Image
@@ -618,20 +637,36 @@ Delivery In 10 minutes
                     height: normalize(15),
                     width: normalize(15),
                    
-                    alignSelf: 'center'
+                    
                   }}
                   resizeMode={'contain'}
                   
                 ></Image>
 
 
-<Text style={{
+{/* <Text style={{
               color: "#515151",
               
               fontSize: normalize(12),
               marginLeft: normalize(10),
               
-            }}>SDF Building, GP Block, Sector v</Text>
+            }}>SDF Building, GP Block, Sector v</Text> */}
+
+                <GooglePlacesAutocomplete
+        placeholder='Search'
+        fetchDetails={true}
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+        }}
+        query={{
+          key: 'AIzaSyDPxxRffqrfHuKEcWJRjjjvE9SFC5SLcW4',
+          language: 'en',
+        }}
+        onFail={error => console.log(error)}
+        onNotFound={() => console.log('no results')}
+      />
+
 
 <Image
                   source={ICONS.downward_arrow}
@@ -640,13 +675,15 @@ Delivery In 10 minutes
                     width: normalize(10),
                     marginLeft: normalize(10),
                     marginTop: normalize(3),
-                    alignSelf: 'center'
+                   
                   }}
                   resizeMode={'contain'}
                   
                 ></Image>
 
-</TouchableOpacity>
+</TouchableOpacity> 
+
+
 
 <TouchableOpacity style={{
   flexDirection: 'row',
