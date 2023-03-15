@@ -13,7 +13,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList
+  FlatList,
+  PermissionsAndroid
 } from 'react-native';
 
 
@@ -33,6 +34,8 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import Geolocation from 'react-native-geolocation-service';
+import Geocoder from 'react-native-geocoding';
 
 var status = '';
 export default function Home(props) {
@@ -44,9 +47,28 @@ export default function Home(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [location, setLocation] = useState(false);
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
+  useEffect(() => {
+
+        
+
+    
+
+
+    
+    getLocation();
+   
+    
+
+
+    
 
 
 
+}, [constants.PUNCHIN, constants.PUNCHOUT]);
 
 
   const DATA = [{
@@ -160,8 +182,79 @@ export default function Home(props) {
 
   ]
 
+  const getLocation = () => {
+    const result = requestLocationPermission();
+    result.then(res => {
+      console.log('res is:', res);
+      if (res) {
+        Geolocation.getCurrentPosition(
+          position => {
+            console.log("Latitude === ", position?.coords?.latitude);
+            console.log("Longitude === ", position?.coords?.longitude);
+            setLatitude(position?.coords?.latitude);
+            setLongitude(position?.coords?.longitude);
+            geocoding(position)
+          },
+          error => {
+            // See error code charts below.
+            console.log(error.code, error.message);
+            setLocation(false);
+          },
+          {enableHighAccuracy: false, timeout: 15000},
+        );
+      }
+    });
+    console.log(location);
+   
+  };
+
+  function geocoding(position){
+    console.log("Geocoding latitude===", position?.coords?.latitude)
+    console.log("Geocoding longitude===", position?.coords?.longitude)
+    var lat =  position?.coords?.latitude
+    var long = position?.coords?.longitude
+
+    Geocoder.init("AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo");
+    Geocoder.from(lat, long)
+
+.then(json => {
+        var addressComponent = json.results[0].address_components[0]?.long_name                ;
+  console.log("Address===",json.results[0]);
+})
+.catch(error => console.warn(error));
+console.log("adkhbhkad")
+  }
 
 
+  
+    
+   
+  
+
+  const requestLocationPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: 'Geolocation Permission',
+          message: 'Can we access your location?',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      console.log('granted', granted);
+      if (granted === 'granted') {
+        console.log('You can use Geolocation');
+        return true;
+      } else {
+        console.log('You cannot use Geolocation');
+        return false;
+      }
+    } catch (err) {
+      return false;
+    }
+  };
 
  function selectItem(item){
   
@@ -178,22 +271,22 @@ props.navigation.navigate("Productdetails" , {
   })
    }
 
-  function location(){
-    console.log("abc")
-    return (
-      <GooglePlacesAutocomplete
-        placeholder='Search'
-        onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
-          console.log(data, details);
-        }}
-        query={{
-          key: 'YOUR API KEY',
-          language: 'en',
-        }}
-      />
-    );
-  }
+  // function location(){
+  //   console.log("abc")
+  //   return (
+  //     <GooglePlacesAutocomplete
+  //       placeholder='Search'
+  //       onPress={(data, details = null) => {
+  //         // 'details' is provided when fetchDetails = true
+  //         console.log(data, details);
+  //       }}
+  //       query={{
+  //         key: 'YOUR API KEY',
+  //         language: 'en',
+  //       }}
+  //     />
+  //   );
+  // }
 
 
 
@@ -660,7 +753,7 @@ Delivery In 10 minutes
           console.log(data, details);
         }}
         query={{
-          key: 'AIzaSyDPxxRffqrfHuKEcWJRjjjvE9SFC5SLcW4',
+          key: 'AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo',
           language: 'en',
         }}
         onFail={error => console.log(error)}
