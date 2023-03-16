@@ -677,6 +677,41 @@ export default function DrawerMenuAdminexpanded(props) {
                 </View>
               </TouchableOpacity>
 
+
+              <TouchableOpacity
+                onPress={() => {
+                  onPress();
+                  onBackdropPress()
+                  navigation.navigate('Notification');
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: normalize(30),
+                  }}>
+                  <Image
+                    source={ICONS.recipe}
+                    resizeMode="contain"
+                    style={{
+                      height: normalize(18),
+                      width: normalize(18),
+                      tintColor: 'black'
+                    
+                    }}
+                    tintColor='black'
+                  />
+                  <Text
+                    style={{
+                      fontSize: normalize(13),
+                      color: '#767676',
+
+                      marginLeft: normalize(10),
+                    }}>
+                    Recipe
+                  </Text>
+                </View>
+              </TouchableOpacity>
+
               <TouchableOpacity
                 onPress={() => {
                   onPress();
@@ -711,6 +746,40 @@ export default function DrawerMenuAdminexpanded(props) {
                 </View>
               </TouchableOpacity>
 
+
+              <TouchableOpacity
+                onPress={() => {
+                  onPress();
+                  onBackdropPress()
+               // navigation.navigate('Profile');
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: normalize(30),
+                  }}>
+                  <Image
+                    source={ICONS.coin}
+                    resizeMode="contain"
+                    style={{
+                      height: normalize(18),
+                      width: normalize(18),
+                      tintColor: 'black'
+                   
+                    }}
+                    tintColor='black'
+                  />
+                  <Text
+                    style={{
+                      fontSize: normalize(13),
+                      color: '#767676',
+
+                      marginLeft: normalize(10),
+                    }}>
+                    Refer & Earn
+                  </Text>
+                </View>
+              </TouchableOpacity>
 
               {/* <TouchableOpacity
               onPress={() => {

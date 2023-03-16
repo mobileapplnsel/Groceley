@@ -49,6 +49,8 @@ export const ICONS = {
    dotted_line:require('../assets/icons/dotted_line.png'),
    cornflakes_backside: require('../assets/icons/cornflakes_backside.png'),
    cornflakes_sideview: require('../assets/icons/cornflakes_sideview.png'),
+   recipe: require('../assets/icons/recipe.png'),
+   coin: require('../assets/icons/coin.png'),
 };
 
 export const FONTS = {

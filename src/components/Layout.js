@@ -24,9 +24,9 @@ export default function Layout(props) {
       
     },
     {
-      icon: ICONS.categories,
-      name: 'Categories',
-      link: 'Categories',
+      icon: ICONS.wallet,
+      name: 'Wallet',
+      link: 'Wallet',
     },
     {
       icon: ICONS.favourities,
