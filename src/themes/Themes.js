@@ -47,6 +47,8 @@ export const ICONS = {
    delete: require('../assets/icons/delete.png'),
    discount: require('../assets/icons/discount.png'),
    dotted_line:require('../assets/icons/dotted_line.png'),
+   cornflakes_backside: require('../assets/icons/cornflakes_backside.png'),
+   cornflakes_sideview: require('../assets/icons/cornflakes_sideview.png'),
 };
 
 export const FONTS = {

@@ -57,7 +57,7 @@ export default function Productdetails(props) {
     const DATA = [{
         id: "0",
         
-        pic: ICONS.cornflakes,
+        pic: ICONS.cornflakes2,
         
 
     },
@@ -65,19 +65,18 @@ export default function Productdetails(props) {
     {
         id: "1",
         
-        pic: ICONS.cornflakes,
+        pic: ICONS.cornflakes_backside,
         
 
 
     },
-
-    {
-        id: "2",
+{
+    id: "2",
         
         pic: ICONS.cornflakes2,
-       
-    }
+        
 
+    },
 
 
     ]
@@ -178,8 +177,9 @@ function favourite1(){
          
         
         style={{
-
-            
+           
+           height: normalize(130),
+            width: normalize(120),
         }}>
 
 
@@ -190,11 +190,10 @@ function favourite1(){
                                         source={item.pic}
                                         style={{
                                             height: normalize(130),
-                                            width: normalize(140),
+                                           
                                             alignSelf: 'center',
                                             
-                                            marginLeft: normalize(-20),
-                                            borderRadius: normalize(25)
+                                           
                                         }}
                                         resizeMode={'contain'}
                                     ></Image>
