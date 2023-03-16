@@ -51,7 +51,7 @@ export default function Home(props) {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [address, setAddress] = useState('');
-
+  const [dropdownpressed, setDropdownpressed] = useState(0);
 
   useEffect(() => {
 
@@ -274,22 +274,7 @@ props.navigation.navigate("Productdetails" , {
   })
    }
 
-  // function location(){
-  //   console.log("abc")
-  //   return (
-  //     <GooglePlacesAutocomplete
-  //       placeholder='Search'
-  //       onPress={(data, details = null) => {
-  //         // 'details' is provided when fetchDetails = true
-  //         console.log(data, details);
-  //       }}
-  //       query={{
-  //         key: 'YOUR API KEY',
-  //         language: 'en',
-  //       }}
-  //     />
-  //   );
-  // }
+ 
 
 
 
@@ -753,28 +738,36 @@ style={{
                 ></Image>
 
 </View>
-{/* <Text style={{
-              color: "#515151",
-              
-              fontSize: normalize(12),
-              marginLeft: normalize(10),
-              
-            }}>SDF Building, GP Block, Sector v</Text> */}
+
+
 
                 <GooglePlacesAutocomplete
-        placeholder='Search'
-        //placeholderTextColor={'#515151'}
+                
+        placeholder={address}
+        minLength={4}
+        enablePoweredByContainer={false}
+        autoFocus={true}
+            listViewDisplayed="auto"
+            returnKeyType={'search'}
         style={{
-          borderColor: '#515151',
-          borderWidth: normalize(0.25),
-         // placeholderTextColor: '#515151',
-          color: 'red',
+         // borderColor: '#515151',
+         // borderWidth: normalize(0.25),
+         
         }}
+        
         fetchDetails={true}
+        textInputProps={{
+          placeholderTextColor: '#515151',
+          
+            
+       
+        }}
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log("Data====",data);
-          setAddress(details)
+          setAddress(data.description)
+          setDropdownpressed(!dropdownpressed)
+          console.log("kabfkwba",dropdownpressed)
         }}
         query={{
           key: 'AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo',
@@ -782,6 +775,7 @@ style={{
         }}
         onFail={error => console.log(error)}
         onNotFound={() => console.log('no results')}
+        
       />
   <View style={{
    
@@ -815,8 +809,7 @@ style={{
   flexDirection: 'row',
   justifyContent: 'center'
 }}>
-
-            <TextInput
+       <TextInput
                                 value={name}
                                 onChangeText={_ => setName(_)}
                                 marginTop={normalize(15)}
