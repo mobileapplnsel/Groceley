@@ -70,7 +70,7 @@ export default function Home(props) {
 
 
 
-}, [constants.PUNCHIN, constants.PUNCHOUT]);
+}, []);
 
 
   const DATA = [{
@@ -196,6 +196,7 @@ export default function Home(props) {
             setLatitude(position?.coords?.latitude);
             setLongitude(position?.coords?.longitude);
             geocoding(position)
+            
           },
           error => {
             // See error code charts below.
@@ -220,7 +221,7 @@ export default function Home(props) {
     Geocoder.from(lat, long)
 
 .then(json => {
-        var addressComponent = json.results[0].formatted_address               ;
+        var addressComponent = json.results[0].formatted_address;
   console.log("Address===",addressComponent);
   setAddress(addressComponent)
 })
@@ -744,21 +745,32 @@ style={{
                 <GooglePlacesAutocomplete
                 
         placeholder={address}
-        minLength={4}
+        //minLength={4}
         enablePoweredByContainer={false}
         autoFocus={true}
             listViewDisplayed="auto"
             returnKeyType={'search'}
-        style={{
-         // borderColor: '#515151',
-         // borderWidth: normalize(0.25),
-         
-        }}
-        
+      
+        currentLocation={true} 
+        currentLocationLabel="Current location"
+        nearbyPlacesAPI="GoogleReverseGeocoding"
+        renderDescription={row => row.description || row.formatted_address || row.name}
+        renderRow={(rowData) => {
+          const title = rowData.structured_formatting.main_text;
+          const address = rowData.structured_formatting.secondary_text;
+          return (
+           <View style={{
+            width: '100%'
+           }}>
+            <Text style={{ fontSize: 14, color: 'green' }}>{title}</Text>
+            <Text style={{ fontSize: 14 }}>{address}</Text>
+           </View>
+           );
+          }}
         fetchDetails={true}
         textInputProps={{
           placeholderTextColor: '#515151',
-          
+         
             
        
         }}
@@ -769,6 +781,7 @@ style={{
           setDropdownpressed(!dropdownpressed)
           console.log("kabfkwba",dropdownpressed)
         }}
+       
         query={{
           key: 'AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo',
           language: 'en',
