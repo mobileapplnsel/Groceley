@@ -50,6 +50,8 @@ export default function Home(props) {
   const [location, setLocation] = useState(false);
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [address, setAddress] = useState('');
+
 
   useEffect(() => {
 
@@ -218,8 +220,9 @@ export default function Home(props) {
     Geocoder.from(lat, long)
 
 .then(json => {
-        var addressComponent = json.results[0].address_components[0]?.long_name                ;
-  console.log("Address===",json.results[0]);
+        var addressComponent = json.results[0].formatted_address               ;
+  console.log("Address===",addressComponent);
+  setAddress(addressComponent)
 })
 .catch(error => console.warn(error));
 console.log("adkhbhkad")
@@ -626,7 +629,7 @@ props.navigation.navigate("Productdetails" , {
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false} keyboardShouldPersistTaps="handled" >
 
 
 
@@ -666,12 +669,18 @@ props.navigation.navigate("Productdetails" , {
               </TouchableOpacity>
 
 
-<View>
+<View style={{
+  
+  width: normalize(200),
+  
+  marginLeft: normalize(-30)
+}}>
               <Text style={{
                 color: 'black',
                 fontSize: normalize(14),
-                fontWeight: '600'
-
+                fontWeight: '600',
+               // marginLeft: normalize(-60)
+               marginTop: normalize(-5)
               }}>
 Delivery In 10 minutes
               </Text>
@@ -716,27 +725,34 @@ Delivery In 10 minutes
             </View>
 
           <TouchableOpacity
-            style={{
-              width: '80%',
+style={{
   flexDirection: 'row',
+  marginTop: normalize(-20)
+}}
+
+>
+  <View style={{
+    marginTop: normalize(3),
+    marginLeft: normalize(50),
+    height: normalize(30),
+    width: normalize(20),
+   
   justifyContent: 'center',
-  alignItems: 'center',
-  alignSelf: 'center',
-  marginTop: normalize(-10)
-}}>
+  alignItems: 'center'
+  }}>
 <Image
                   source={ICONS.location}
                   style={{
-                    height: normalize(15),
+                    height: normalize(10),
                     width: normalize(15),
-                   
+                    
                     
                   }}
                   resizeMode={'contain'}
                   
                 ></Image>
 
-
+</View>
 {/* <Text style={{
               color: "#515151",
               
@@ -747,10 +763,18 @@ Delivery In 10 minutes
 
                 <GooglePlacesAutocomplete
         placeholder='Search'
+        //placeholderTextColor={'#515151'}
+        style={{
+          borderColor: '#515151',
+          borderWidth: normalize(0.25),
+         // placeholderTextColor: '#515151',
+          color: 'red',
+        }}
         fetchDetails={true}
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
-          console.log(data, details);
+          console.log("Data====",data);
+          setAddress(details)
         }}
         query={{
           key: 'AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo',
@@ -759,20 +783,29 @@ Delivery In 10 minutes
         onFail={error => console.log(error)}
         onNotFound={() => console.log('no results')}
       />
+  <View style={{
+   
+    marginRight: normalize(50),
+    height: normalize(30),
+    width: normalize(20),
 
+  justifyContent: 'center',
+  alignItems: 'center'
+  }}>
 
 <Image
                   source={ICONS.downward_arrow}
                   style={{
                     height: normalize(10),
-                    width: normalize(10),
-                    marginLeft: normalize(10),
-                    marginTop: normalize(3),
+                    width: normalize(7),
+                   
+                    marginTop: normalize(9),
                    
                   }}
                   resizeMode={'contain'}
                   
                 ></Image>
+                </View>
 
 </TouchableOpacity> 
 
