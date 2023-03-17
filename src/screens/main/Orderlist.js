@@ -58,35 +58,35 @@ export default function Orderlist(props) {
 
     {
         id: "1",
-        categories: "Bedsheets",
+        
         pic: ICONS.milk,
         description: "Amul Moti Homogenized Toned Milk",
         realprice: "Ordered on 15-Jan-2023",
         
-        quantity:2 
+       
 
 
     },
 
     {
         id: "2",
-        categories: 'Blankets',
+       
         pic: ICONS.cornflakes,
         description: "Kellogg's Corn Flakes Cereal",
-        realprice: "50",
+        realprice: "Ordered on 15-Jan-2023",
        
-        quantity:2
+       
 
     },
 
     {
         id: "3",
-        categories: 'Blankets',
+       
         pic: ICONS.cornflakes2,
         description: "Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits",
-        realprice: "80",
+        realprice: "Ordered on 15-Jan-2023",
        
-        quantity:2
+       
 
     },
    
@@ -314,7 +314,7 @@ const renderItem2 = ({ item, index }) => (
     
     
     
-                <View style={{
+                <TouchableOpacity style={{
                     flexDirection: 'row',
                     height: normalize(60),
                 width: '93%',
@@ -374,7 +374,7 @@ const renderItem2 = ({ item, index }) => (
                                 color: "black",
                                 
                             }}
-                        >{'\u20B9'}{item.realprice}</Text>
+                        >{item.realprice}</Text>
     
                       
     
@@ -418,7 +418,7 @@ const renderItem2 = ({ item, index }) => (
                     </View>
     
     
-                </View>
+                </TouchableOpacity>
     
     
                             

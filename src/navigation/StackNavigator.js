@@ -20,6 +20,7 @@ import Productdetails from '../screens/main/Productdetails';
 import Notification from '../screens/main/Notification';
 import Cart from '../screens/main/Cart';
 import Orderlist from '../screens/main/Orderlist';
+import Orderdetails from '../screens/main/Orderdetails';
 
 
 const Stack = createStackNavigator();
@@ -48,7 +49,8 @@ export default function StackNavigator() {
         Productdetails: Productdetails,
         Notification: Notification,
         Cart: Cart,
-        Orderlist: Orderlist
+        Orderlist: Orderlist,
+        Orderdetails: Orderdetails,
       }
      
 
