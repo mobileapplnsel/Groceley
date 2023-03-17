@@ -167,7 +167,7 @@ function favourite1(){
 
 
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=>props.navigation.navigate("Productdetails")}
             
             style={{
                 flexDirection: 'row',
@@ -694,7 +694,7 @@ function favourite1(){
             }}>Order Info</Text>
 
 
-<View style={{
+<TouchableOpacity style={{
     height: normalize(40),
     marginTop: normalize(10),
     flexDirection: 'row',
@@ -729,10 +729,10 @@ function favourite1(){
                   tintColor= {'#515151'}
                 ></Image>
 
-            </View>
+            </TouchableOpacity>
 
 
-            <View style={{
+            <TouchableOpacity style={{
     height: normalize(40),
     marginTop: normalize(10),
     flexDirection: 'row',
@@ -767,7 +767,7 @@ function favourite1(){
                   tintColor= {'#515151'}
                 ></Image>
 
-            </View>
+            </TouchableOpacity>
 
             <Text style={{
               color: "black",
@@ -806,7 +806,7 @@ function favourite1(){
                                         >
                                        Customer also bought</Text>
 
-                                       <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
+                                       <TouchableOpacity onPress={()=> props.navigation.navigate("Home")}>
 <Text style={{
               color: "#69BE53",
               fontFamily: FONTS.Hind,
