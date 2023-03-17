@@ -314,7 +314,9 @@ const renderItem2 = ({ item, index }) => (
     
     
     
-                <TouchableOpacity style={{
+                <TouchableOpacity onPress={()=> props.navigation.navigate("Orderdetails")}
+                
+                style={{
                     flexDirection: 'row',
                     height: normalize(60),
                 width: '93%',

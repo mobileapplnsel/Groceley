@@ -53,6 +53,8 @@ export const ICONS = {
    coin: require('../assets/icons/coin.png'),
    filter: require('../assets/icons/filter.png'),
    right_arrow: require('../assets/icons/right_arrow.png'),
+   share: require('../assets/icons/share.png'),
+
 };
 
 export const FONTS = {

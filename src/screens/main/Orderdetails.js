@@ -371,7 +371,7 @@ function favourite1(){
 
                             
                                 <View style={{
-                                    height: normalize(210),
+                                    height: normalize(200),
                                     width: '100%',
                                     backgroundColor: '#FFF2F0',
                                     marginRight: normalize(10),
@@ -417,15 +417,20 @@ function favourite1(){
 
                                     
    
-               {itemselected == 0 ?   (   
+               
                 
                 <TouchableOpacity onPress={()=>favourite()}
                                     style={{
                                         height: normalize(30),
                                         width: normalize(30),
                                        
+                                        backgroundColor: 'white',
+                                        shadowColor: '#171717',
+                                        shadowOffset: {width: -2, height: 4},
+                                        shadowOpacity: 0.2,
+                                        borderRadius: normalize(5),
                                         
-                                        
+                                       
                                         marginRight: normalize(10),
                                         marginTop: normalize(5)
 
@@ -435,7 +440,7 @@ function favourite1(){
                 
                 
                 <Image
-                                        source={ICONS.heart}
+                                        source={ICONS.share}
                                         style={{
                                             height: normalize(15),
                                             width: normalize(15),
@@ -443,193 +448,68 @@ function favourite1(){
                                             
                                             position: 'absolute',
                                             top:10,
-                                            right:20,
-                                            tintColor: 'black',
+                                           
+                                            tintColor: '#515151',
                                            
                                             
                                         }}
                                         resizeMode={'contain'}
                                         tintColor= {'black'}
                                     ></Image> 
+
+
+
                                     
                                     </TouchableOpacity>
-                                    ) : (
+                                   
 
 
-                                        <TouchableOpacity onPress={()=>favourite1()}
-                                    style={{
-                                        height: normalize(30),
-                                        width: normalize(30),
-                                       
                                         
-                                        
-                                        marginRight: normalize(10),
-                                        marginTop: normalize(5)
-
-                                    }}
-                                    
-                                    >
 
 
- <Image
-                                        source={ICONS.favourities}
-                                        style={{
-                                            height: normalize(15),
-                                            width: normalize(15),
-                                            alignSelf: 'center',
-                                            
-                                            position: 'absolute',
-                                            top:10,
-                                            right:20,
-                                            
-                                            tintColor: '#E10808'
-                                        }}
-                                        resizeMode={'contain'}
-                                        tintColor= {'#E10808'}
-                                    ></Image>
-
-                                    </TouchableOpacity>
-
-                                    )}
+ 
 
 
 </View>
 
 
                                     
-                                    {/* <Image
-                                        source={ICONS.cornflakes}
-                                        style={{
-                                            height: normalize(160),
-                                            width: normalize(140),
-                                            alignSelf: 'center',
-                                            
-                                            marginLeft: normalize(10),
-                                            borderRadius: normalize(25)
-                                        }}
-                                        resizeMode={'contain'}
-                                    ></Image> */}
+                              
                                     <View>
-              <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
 
 
-                  marginLeft: normalize(10),
-
-                  marginTop: normalize(10),
-                  marginBottom: normalize(20)
-
-
-                }}
-
-
-              />
+                                   
+ 
+ 
+ 
+ 
+ 
+ <Image
+                                         source={ICONS.cornflakes2}
+                                         style={{
+                                            height: normalize(130),
+                                            width: normalize(130),
+                                            alignSelf: 'center',
+                                             
+                                            
+                                         }}
+                                         resizeMode={'contain'}
+                                     ></Image>
+ 
+ 
+ 
+ 
+ 
+ 
+        
 
             </View>
 
                                     
 
-<View style={{
-                                        height: normalize(30),
-                                        width: normalize(60),
-                                        backgroundColor: 'white',
-                                        borderRadius: normalize(20),
-                                        justifyContent: 'space-evenly',
-                                        alignItems: 'center',
-                                        flexDirection: 'row',
-                                        shadowColor: '#171717',
-                                        shadowOffset: {width: -2, height: 4},
-                                        shadowOpacity: 0.2,
-                                        
-                                        position: 'absolute',
-                                        elevation: 3,
-                                        bottom: -15,
-                                        left: 30
-
-                                    }}>
-<Image
-                                        source={ICONS.star}
-                                        style={{
-                                            height: normalize(10),
-                                            width: normalize(10),
-                                            alignSelf: 'center',
-                                           
-                                          
-                                            borderRadius: normalize(25),
-                                            tintColor: '#F36E35'
-                                        }}
-                                        resizeMode={'contain'}
-                                        tintColor={'#F36E35'}
-                                    ></Image>
 
 
-                                        <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            
-                                            color: 'black'
-                                        }}
-                                        >
-                                            4.5
-                                        </Text>
-
-                                    </View>
-
-                                    <View style={{
-                                        height: normalize(30),
-                                        width: normalize(60),
-                                        backgroundColor: '#F36E35',
-                                        borderRadius: normalize(20),
-                                        justifyContent: 'space-evenly',
-                                        alignItems: 'center',
-                                        flexDirection: 'row',
-                                        shadowColor: '#171717',
-                                        shadowOffset: {width: -2, height: 4},
-                                        shadowOpacity: 0.2,
-                                        
-                                        position: 'absolute',
-                                        elevation: 3,
-                                        bottom: -15,
-                                        right: 30
-
-                                    }}>
- <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            
-                                            color: 'white'
-                                        }}
-                                        >
-                                            -
-                                        </Text>
-
-                                        <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            
-                                            color: 'white'
-                                        }}
-                                        >
-                                            02
-                                        </Text>
-
-                                        <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            
-                                            color: 'white'
-                                        }}
-                                        >
-                                            +
-                                        </Text>
-
-                                    </View>
+                                    
                                 </View>
 
 
@@ -642,7 +522,7 @@ function favourite1(){
                             }}>
                                 <Text
                                     style={{
-                                        color: '#222222',
+                                        color: 'black',
                                         fontSize: normalize(16),
                                         fontWeight: '600',
                                         fontStyle: FONTS.Hind,
@@ -654,102 +534,15 @@ function favourite1(){
 
 
                                
-<Text
-style={{
-    color: '#646464',
-                                            fontSize: normalize(12),
-                                            width: '85%',
-                                           fontWeight: '300',
-                                            marginTop: normalize(10),
-                                            alignSelf: 'flex-start',
-                                           fontStyle: FONTS.Hind
-}}
 
->Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum diam neque, sed vehicula turpis vestibulum quis.</Text>
                             </View>
 
-                            <View style={{
-                                flexDirection: 'row',
-                                justifyContent: 'flex-start',
-                                marginLeft: normalize(20)
-
-                            }}>
-
-                            <Text style={{
-    color: '#646464',
-                                            fontSize: normalize(12),
-                                           
-                                           fontWeight: '300',
-                                            marginTop: normalize(10),
-                                           
-                                           fontStyle: FONTS.Hind,
-                                           
-}}>Manufactured by :</Text>
-
-<Text style={{
-    color: '#646464',
-                                            fontSize: normalize(12),
-                                            marginLeft: normalize(5),
-                                           
-                                            marginTop: normalize(10),
-                                            
-                                           fontStyle: FONTS.Hind,
-                                          
-                                           fontWeight: '700'
-}}>ABC Company</Text>
-
-</View>           
+               
 
 
 
-<View style={{
-                                flexDirection: 'row',
-                                justifyContent: 'flex-start',
-                                marginLeft: normalize(20)
+           
 
-                            }}>
-
-                            <Text style={{
-    color: '#646464',
-                                            fontSize: normalize(12),
-                                           
-                                           fontWeight: '300',
-                                            marginTop: normalize(10),
-                                           
-                                           fontStyle: FONTS.Hind,
-                                           
-}}>Expiry date :</Text>
-
-<Text style={{
-    color: '#646464',
-                                            fontSize: normalize(12),
-                                            marginLeft: normalize(5),
-                                           
-                                            marginTop: normalize(10),
-                                            
-                                           fontStyle: FONTS.Hind,
-                                          
-                                           fontWeight: '700'
-}}>15/04/2023</Text>
-
-</View>           
-
-
-                        <Text style={{
-                            fontFamily: FONTS.Hind,
-                            color: '#646464',
-                            fontSize: normalize(10),
-                            marginLeft: normalize(20),
-                            marginTop: normalize(10)
-                        }}> TOTAL PRICE</Text>
-     <Text style={{
-                            fontFamily: FONTS.Hind,
-                            color: 'black',
-                            fontSize: normalize(14),
-                            marginLeft: normalize(25),
-                            fontWeight: '700',
-                            marginTop: normalize(5)
-                        }}>{'\u20B9'}160</Text>
 
 
 
@@ -757,10 +550,9 @@ style={{
                 <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")} 
                 
                 style={{
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
+                    
                     marginLeft: normalize(20),
-                    marginTop: normalize(10)
+                    marginTop: normalize(20)
                 }}
                 >
 
@@ -776,27 +568,15 @@ style={{
                                        
 
                                     }}>
-                                         <Image
-                source={ICONS.cart1}
-                style={{
-                    height: normalize(18),
-                    width: normalize(18),
-                    alignSelf: 'center',
-                   
-                    marginRight: normalize(10),
-                    borderRadius: normalize(25)
-                }}
-                resizeMode={'contain'}
-            ></Image>
-
+                                         
                                         <Text
                                         style={{
                                             fontSize: normalize(12),
-                                            fontWeight: '700',
+                                            
                                             color: 'white'
                                         }}
                                         >
-                                         Go To Cart
+                                         Buy It Again
                                         </Text>
 
                                     </View>
@@ -806,47 +586,37 @@ style={{
                                     </TouchableOpacity>
 
                                     <Text style={{
-              color: "#767676",
+              color: "black",
               fontFamily: FONTS.RubikBold,
+              fontSize: normalize(14),
+              marginLeft: normalize(20),
+              marginTop: normalize(20)
+            }}>Order Info</Text>
+
+
+<View style={{
+    height: normalize(30),
+    marginTop: normalize(10),
+    width: '90%',
+    backgroundColor: '#F0F0F0',
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    borderRadius: normalize(20)
+}}>
+             <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
               fontSize: normalize(12),
               marginLeft: normalize(20),
-              marginTop: normalize(10)
-            }}>Toping for you</Text>
-
-
-<View>
-              <FlatList
-                data={DATA2}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(10),
-
-                  marginTop: normalize(10),
-                  marginBottom: normalize(20)
-
-
-                }}
-
-
-              />
+              marginTop: normalize(5)
+              
+            }}>View Order Details</Text>
 
             </View>
 
 
-            <View style={{
-            justifyContent: 'center',
-            marginTop: normalize(-20)
-           }}>
-
-            <CarouselCards />
-
-            </View>
+         
 
 
                         </ScrollView>

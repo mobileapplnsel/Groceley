@@ -132,30 +132,13 @@ function favourite1(){
 }
       
 
-    function submit1(){
 
-       
-       setProductselect1(1);
-       setProductselect2(0);
-       setProductselect3(0);
 
-       } 
 
-    function submit2(){
-            setProductselect1(0);
-            setProductselect2(1);
-            setProductselect3(0);
-
-        } 
         
         
         
-    function submit3(){
-        setProductselect1(0);
-        setProductselect2(0);
-        setProductselect3(1);
-        
-    }
+  
 
 
 
