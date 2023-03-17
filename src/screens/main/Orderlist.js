@@ -223,7 +223,7 @@ function favourite(){
                     <View style={{
                         width: '70%',
                        
-                       
+                        marginLeft: normalize(10),
                         paddingRight: normalize(10)
                     }}>
                         <Text
@@ -254,7 +254,8 @@ function favourite(){
 
                     <View style={{
                         marginTop: normalize(8),
-                       alignSelf: 'center'
+                       alignSelf: 'center',
+                       marginLeft: normalize(-10)
                     }}>
 
                     <TouchableOpacity style={{
@@ -344,9 +345,9 @@ function favourite(){
 
                             
                                 <View style={{
-                                    height: normalize(400),
+                                    height: normalize(700),
                                     width: '100%',
-                                    backgroundColor: 'white',
+                                    
                                     marginRight: normalize(10),
                                   
                                 }}>
@@ -543,12 +544,59 @@ style={{
 
           
 <View style={{
-    height: normalize(1),
+    height: normalize(40),
     width: '90%',
-    backgroundColor: '#A9A9A9',
+    backgroundColor: '#EDEDED',
     marginTop: normalize(10),
-    marginLeft: normalize(20)
-}}/>
+    marginLeft: normalize(20),
+    borderRadius: normalize(20)
+}}>
+<Text
+                                        style={{
+                                            fontSize: normalize(10),
+                                            fontFamily: FONTS.Hind,
+                                            
+                                            color: 'black',
+                                            marginTop: normalize(10),
+                                            alignSelf: 'center',
+                                        }}
+                                        >
+You have reached the end of your orders                                       
+
+ </Text> 
+
+
+
+</View>
+
+<View style={{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+}}>
+<Text
+                                        style={{
+                                            fontSize: normalize(14),
+                                            fontFamily: FONTS.Hind,
+                                            marginLeft: normalize(20),
+                                            color: 'black',
+                                            fontWeight: '700',
+                                            marginTop: normalize(20)
+                                        }}
+                                        >
+                                       Buy Again</Text>
+
+                                       <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
+<Text style={{
+              color: "#69BE53",
+              fontFamily: FONTS.RubikBold,
+              fontSize: normalize(14),
+              marginRight: normalize(20),
+              marginTop: normalize(20)
+            }}>See All</Text>
+            
+</TouchableOpacity>
+</View>
 
                                 </View>
 
