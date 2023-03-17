@@ -52,6 +52,7 @@ export const ICONS = {
    recipe: require('../assets/icons/recipe.png'),
    coin: require('../assets/icons/coin.png'),
    filter: require('../assets/icons/filter.png'),
+   right_arrow: require('../assets/icons/right_arrow.png'),
 };
 
 export const FONTS = {
