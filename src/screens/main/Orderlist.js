@@ -671,7 +671,7 @@ You have reached the end of your orders
                                        <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
 <Text style={{
               color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
+              fontFamily: FONTS.Hind,
               fontSize: normalize(14),
               marginRight: normalize(20),
               marginTop: normalize(20)

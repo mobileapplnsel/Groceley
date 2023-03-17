@@ -163,41 +163,141 @@ function favourite1(){
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    const renderItem = ({ item, index }) => (
+        const renderItem = ({ item, index }) => (
 
-        <TouchableOpacity 
-         
+
+
+            <TouchableOpacity
+            
+            style={{
+                flexDirection: 'row',
+            height: normalize(100),
+            width: normalize(200),
+            borderRadius: normalize(10),
+            backgroundColor: '#F0F0F0',
+            marginHorizontal: normalize(5)
+            }}
+            >
+                 <Image
+                          source={item.pic}
+                          style={{
+                            height: normalize(60),
+                            width: normalize(60),
+                            alignSelf: 'center',
+                            marginTop: normalize(5),
+                            //marginLeft: normalize(20)
+                          }}
+                          resizeMode={'contain'}
+                        ></Image>
         
-        style={{
+        <View style={{
            
-           height: normalize(130),
-            width: normalize(120),
+            width: '65%'
         }}>
-
-
-
-
-
-<Image
-                                        source={item.pic}
-                                        style={{
-                                            height: normalize(130),
-                                           
-                                            alignSelf: 'center',
-                                            
-                                           
-                                        }}
-                                        resizeMode={'contain'}
-                                    ></Image>
-
-
-
-
-
-
-        </TouchableOpacity>
-    );
-
+        <Text
+              numberOfLines={2}
+                style={{
+                  color: 'black',
+                  fontSize: normalize(10),
+                  marginLeft: normalize(10),
+                  marginTop: normalize(10),
+                  alignSelf: 'flex-start'
+                }}
+              >{item.description}
+              </Text>
+        
+        
+              <Text
+                style={{
+                  color: 'black',
+                  fontSize: normalize(10),
+                  marginLeft: normalize(10),
+                  marginTop: normalize(5),
+                  alignSelf: 'flex-start'
+                        }}
+              >{item.quantity}
+              </Text>
+        
+            <View style={{
+          flexDirection: 'row',
+          alignSelf: 'flex-start',
+          marginLeft: normalize(10),
+          marginTop: normalize(10)
+        }}>
+              <Text
+                style={{
+                  
+                  fontSize: normalize(10),
+                  color: '#A9A9A9',
+                  
+                  
+                        }}
+              >{'\u20B9'} {item.discounted_price}
+              </Text>
+            <View style={{
+          height: normalize(1),
+          width: '20%',
+          backgroundColor: '#A9A9A9',
+          marginTop: normalize(7),
+          position: 'absolute'
+        }}/>
+             </View>
+        
+             <View style={{
+          flexDirection: 'row',
+         justifyContent: 'center',
+          
+        }}>
+          <View>
+              <Text
+                style={{
+                  
+                  fontSize: normalize(10),
+                  color: 'black',
+                  fontWeight: '600'
+                  
+                        }}
+              >{'\u20B9'} {item.real_price}
+              </Text>
+              </View>
+        
+        
+        
+        <TouchableOpacity style={{
+          height: normalize(30),
+          width: normalize(50),
+          backgroundColor: 'white',
+          borderWidth: normalize(2),
+          borderColor: '#69BE53',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: normalize(5),
+          marginLeft: normalize(30),
+          marginEnd: normalize(10),
+          marginTop: normalize(-20)
+        }}>
+              <Text
+                style={{
+                  
+                  fontSize: normalize(10),
+                  color: '#69BE53',
+                  alignSelf: 'center'
+                  
+                        }}
+              >ADD
+              </Text>
+              </TouchableOpacity>
+        
+        
+        
+        
+             </View>
+             </View>
+        
+        
+        
+            </TouchableOpacity>
+          );
     const renderItem2 = ({ item, index }) => (
         <TouchableOpacity
           onPress={(item) => selectItem(item)}
@@ -669,7 +769,76 @@ function favourite1(){
 
             </View>
 
+            <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(30),
+              marginTop: normalize(10)
+              
+            }}>Return window closed on 1 January 2023</Text>
 
+<Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(30),
+              marginTop: normalize(10)
+              
+            }}>
+                Ordered on 21 December 2022</Text>
+
+                <View style={{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+}}>
+<Text
+                                        style={{
+                                            fontSize: normalize(14),
+                                            fontFamily: FONTS.Hind,
+                                            marginLeft: normalize(20),
+                                            color: 'black',
+                                            fontWeight: '700',
+                                            marginTop: normalize(20)
+                                            
+                                        }}
+                                        >
+                                       Customer also bought</Text>
+
+                                       <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
+<Text style={{
+              color: "#69BE53",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(14),
+              marginRight: normalize(20),
+              marginTop: normalize(20)
+            }}>See All</Text>
+            
+</TouchableOpacity>
+</View>
+
+<FlatList
+                data={DATA2}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+
+                horizontal={true}
+                style={{
+
+                  width: '100%',
+                  marginLeft: normalize(12),
+                  marginTop: normalize(15),
+                  marginBottom: normalize(20)
+
+
+
+
+                }}
+
+
+              />
                         </ScrollView>
 
 

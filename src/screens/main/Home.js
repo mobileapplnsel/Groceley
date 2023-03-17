@@ -729,7 +729,7 @@ style={{
 <Image
                   source={ICONS.location}
                   style={{
-                    height: normalize(10),
+                    height: normalize(12),
                     width: normalize(15),
                     
                     
@@ -905,7 +905,7 @@ style={{
 <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
 <Text style={{
               color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
+              fontFamily: FONTS.Hind,
               fontSize: normalize(14),
               marginLeft: normalize(30),
               marginTop: normalize(20)
@@ -952,7 +952,7 @@ style={{
 <TouchableOpacity onPress={()=>props.navigation.navigate("Productlist")}>
 <Text style={{
               color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
+              fontFamily: FONTS.Hind,
               fontSize: normalize(14),
               marginLeft: normalize(30),
               marginTop: normalize(20)
