@@ -573,7 +573,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
                   onPress();
                   onBackdropPress()
-                  // navigation.navigate('Attendancelist',{user_id:userId});
+                  navigation.navigate('Orderlist');
                 }}>
                 <View
                   style={{

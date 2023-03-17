@@ -51,6 +51,7 @@ export const ICONS = {
    cornflakes_sideview: require('../assets/icons/cornflakes_sideview.png'),
    recipe: require('../assets/icons/recipe.png'),
    coin: require('../assets/icons/coin.png'),
+   filter: require('../assets/icons/filter.png'),
 };
 
 export const FONTS = {
