@@ -307,7 +307,7 @@ export default function Profile(props) {
                   width: normalize(90),
                   height: normalize(90),
                   borderRadius: normalize(45),
-                  backgroundColor: '#D0D0D0',
+                  backgroundColor: '#F36E35',
                   alignSelf: 'center',
                  
                 }}

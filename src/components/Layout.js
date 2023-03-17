@@ -95,7 +95,7 @@ export default function Layout(props) {
                   width: normalize(18),
                   marginVertical: normalize(2),
                   marginBottom: normalize(4),
-                  tintColor: hg(item.link) == true ? 'black' : 'white',
+                  tintColor: hg(item.link) == true ? '#F36E35' : 'white',
                  // tintColor: 'white'
                 }}
                 resizeMode="contain"

@@ -380,8 +380,9 @@ export default function DrawerMenuAdminexpanded(props) {
                   width: normalize(30),
                   height: normalize(30),
                   borderRadius: normalize(15),
-                  backgroundColor: '#F36E35',
+                  backgroundColor: 'white',
                   marginLeft: normalize(10)
+
                 }}
 
               >
@@ -391,10 +392,11 @@ export default function DrawerMenuAdminexpanded(props) {
                     height: normalize(15),
                     width: normalize(15),
                     marginTop: normalize(7),
-                    alignSelf: 'center'
+                    alignSelf: 'center',
+                    tintColor: 'black'
                   }}
                   resizeMode={'contain'}
-                  tintColor= {'white'}
+                  tintColor= {'black'}
                 ></Image>
 
 

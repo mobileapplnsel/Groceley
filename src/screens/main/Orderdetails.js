@@ -14,7 +14,8 @@ import {
     Alert,
     TextInput,
     FlatList,
-    Share
+    Share,
+    
 } from 'react-native';
 
 
@@ -115,9 +116,30 @@ export default function Orderdetails(props) {
 
       
 
-function favourite(){
-    setItemselected(1)
-}
+      const ShareExample = async () => {
+        try {
+          const result = await Share.share({
+              message: 'https://www.google.com',
+              url:
+              'https://www.google.com',
+            title:
+              'https://www.google.com',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          Alert.alert(error.message);
+        }
+      
+
+  }
 
 function favourite1(){
     setItemselected(0)
@@ -519,7 +541,7 @@ function favourite1(){
    
                
                 
-                <TouchableOpacity onPress={()=>favourite()}
+                <TouchableOpacity onPress={()=>ShareExample()}
                                     style={{
                                         height: normalize(30),
                                         width: normalize(30),
