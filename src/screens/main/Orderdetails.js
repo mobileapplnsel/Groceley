@@ -595,13 +595,14 @@ function favourite1(){
 
 
 <View style={{
-    height: normalize(30),
+    height: normalize(40),
     marginTop: normalize(10),
+    flexDirection: 'row',
     width: '90%',
     backgroundColor: '#F0F0F0',
     alignSelf: 'center',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderRadius: normalize(20)
 }}>
              <Text style={{
@@ -609,14 +610,64 @@ function favourite1(){
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
               marginLeft: normalize(20),
-              marginTop: normalize(5)
+             
               
             }}>View Order Details</Text>
+
+<Image
+                  source={ICONS.right_arrow}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    tintColor: '#515151',
+                    
+                    alignSelf: 'center',
+                    marginRight: normalize(10)
+                    
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'#515151'}
+                ></Image>
 
             </View>
 
 
-         
+            <View style={{
+    height: normalize(40),
+    marginTop: normalize(10),
+    flexDirection: 'row',
+    width: '90%',
+    backgroundColor: '#F0F0F0',
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: normalize(20)
+}}>
+             <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(20),
+             
+              
+            }}>Download Invoice</Text>
+
+<Image
+                  source={ICONS.right_arrow}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    tintColor: '#515151',
+                    
+                    alignSelf: 'center',
+                    marginRight: normalize(10)
+                    
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'#515151'}
+                ></Image>
+
+            </View>
 
 
                         </ScrollView>
