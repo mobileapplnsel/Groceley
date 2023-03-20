@@ -107,6 +107,37 @@ export default function Recipe(props) {
     
       ]
 
+
+      const DATA3 = [{
+        id: "0",
+        
+        description: "Sugar",
+        quantity: '1tbsp',
+        
+      },
+    
+      {
+        id: "1",
+        
+        description: "Fortune Pure Mustard oil",
+        quantity: '200ml',
+        
+      },
+
+      {
+        id: "2",
+        
+        description: "Chicken",
+        quantity: '1Kg',
+        
+      },
+    
+      
+    
+      
+    
+      ]
+
       
 
 function favourite(){
@@ -174,6 +205,76 @@ function favourite1(){
 
         </TouchableOpacity>
     );
+
+    const renderItem1 = ({ item, index }) => (
+        <>
+    
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+    <View style={{
+                                flexDirection: 'row',
+                                
+                                marginLeft: normalize(20),
+                                justifyContent: 'flex-start',
+                                alignItems: 'center'
+
+                            }}>
+<Image
+                source={ICONS.dot}
+                style={{
+                    height: normalize(15),
+                    width:  normalize(15),
+                    
+                    tintColor: 'black'
+                    
+                   
+                }}
+                resizeMode={'contain'}
+                tintColor= {'black'}
+            ></Image>
+<Text style={{
+              color: "#3F3F3F",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+             
+            }}>{item.description} -  </Text>
+            <Text style={{
+              color: "#3F3F3F",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+             
+            }}>{item.quantity}</Text>
+
+
+</View>
+
+
+                        
+
+
+
+
+
+
+
+       
+
+      
+        </>
+    );
+
 
      const renderItem2 = ({ item, index }) => (
     <TouchableOpacity
@@ -423,9 +524,44 @@ style={{
                                            fontStyle: FONTS.Hind
 }}
 
->Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in turpis dolor.</Text>
+>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in turpis dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in turpis dolor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in turpis dolor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in turpis dolor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in turpis dolor.</Text>
                             </View>
 
+                            
+                            <Text style={{
+              color: "#3F3F3F",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(14),
+              marginLeft: normalize(20),
+              marginTop: normalize(10)
+            }}>Ingredients: </Text>
+
+
+
+
+
+
+
+<FlatList
+                data={DATA3}
+                renderItem={renderItem1}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+
+                
+                style={{
+
+
+                 
+
+                  marginTop: normalize(10),
+                 
+
+
+                }}
+
+
+              />
                             <View style={{
                                 flexDirection: 'row',
                                 
@@ -435,6 +571,9 @@ style={{
 
                             }}>
 
+
+
+
                             
 <Text style={{
               color: "#3F3F3F",
@@ -442,7 +581,7 @@ style={{
               fontSize: normalize(14),
               marginLeft: normalize(20),
               marginTop: normalize(10)
-            }}>Toping for you</Text>
+            }}>Buy Ingredients</Text>
 
 <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
 <Text style={{

@@ -391,7 +391,7 @@ props.navigation.navigate("Productdetails")
 
     <Fragment>
 
-      <Layout Home={true} {...props}>
+      <Layout  {...props}>
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
