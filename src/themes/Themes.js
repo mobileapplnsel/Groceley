@@ -55,6 +55,12 @@ export const ICONS = {
    right_arrow: require('../assets/icons/right_arrow.png'),
    share: require('../assets/icons/share.png'),
    help: require('../assets/icons/help.png'),
+   recipe: require('../assets/icons/recipe.png'),
+   recipe2: require('../assets/icons/recipe2.png'),
+   recipe_item: require('../assets/icons/recipe_item.png'),
+   recipe_item1: require('../assets/icons/recipe_item1.png'),
+   recipe_item2: require('../assets/icons/recipe_item2.png'),
+   recipe_item3: require('../assets/icons/recipe_item3.png'),
 };
 
 export const FONTS = {
