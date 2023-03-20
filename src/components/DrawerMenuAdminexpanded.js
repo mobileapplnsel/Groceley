@@ -538,40 +538,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
               />) : null}
 
-              <TouchableOpacity
-                onPress={() => {
-
-                  onPress();
-                  onBackdropPress()
-                  navigation.navigate('Cart')
-                }}
-                  >
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    marginTop: normalize(30),
-                  }}>
-                  <Image
-                    source={ICONS.cart}
-                    resizeMode="contain"
-                    style={{
-                      height: normalize(18),
-                      width: normalize(18),
-                      tintColor: '#F36E35'
-                    }}
-                    tintColor= '#F36E35'
-                  />
-                  <Text
-                    style={{
-                      fontSize: normalize(13),
-                      marginLeft: normalize(10),
-
-                      color: '#767676',
-                    }}>
-                    Cart
-                  </Text>
-                </View>
-              </TouchableOpacity>
+              
 
               <TouchableOpacity
                 onPress={() => {
@@ -782,6 +749,41 @@ export default function DrawerMenuAdminexpanded(props) {
                       marginLeft: normalize(10),
                     }}>
                     Refer & Earn
+                  </Text>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => {
+
+                  onPress();
+                  onBackdropPress()
+                  navigation.navigate('Helpandsupport')
+                }}
+                  >
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: normalize(30),
+                  }}>
+                  <Image
+                    source={ICONS.help}
+                    resizeMode="contain"
+                    style={{
+                      height: normalize(18),
+                      width: normalize(18),
+                      tintColor: '#F36E35'
+                    }}
+                    tintColor= '#F36E35'
+                  />
+                  <Text
+                    style={{
+                      fontSize: normalize(13),
+                      marginLeft: normalize(10),
+
+                      color: '#767676',
+                    }}>
+                   Help & Support
                   </Text>
                 </View>
               </TouchableOpacity>

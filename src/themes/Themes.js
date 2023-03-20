@@ -54,7 +54,7 @@ export const ICONS = {
    filter: require('../assets/icons/filter.png'),
    right_arrow: require('../assets/icons/right_arrow.png'),
    share: require('../assets/icons/share.png'),
-
+   help: require('../assets/icons/help.png'),
 };
 
 export const FONTS = {
