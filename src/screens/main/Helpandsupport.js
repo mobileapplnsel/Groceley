@@ -392,7 +392,7 @@ export default function Helpandsupport(props)
 
         <Fragment>
 
-            <Layout Notification={true} {...props}>
+            <Layout  {...props}>
                 <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
