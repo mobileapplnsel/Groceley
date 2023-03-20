@@ -14,6 +14,7 @@ import {
     Alert,
     TextInput,
     FlatList,
+    Linking,
 } from 'react-native';
 import TextInputItem from '../../components/TextInputItem';
 import { COLORS, ICONS, FONTS, IMAGES } from '../../themes/Themes';
@@ -375,6 +376,16 @@ export default function Helpandsupport(props)
         </View>
     );
 
+    function openDialScreen(){
+        let number = '';
+    if (Platform.OS === 'ios') {
+      number = 'telprompt:${+915556661234}';
+    } else {
+      number = 'tel:${+915556661234}';
+    }
+    Linking.openURL(number);
+    }
+
 
     return (
 
@@ -505,7 +516,7 @@ Help & Support
               In case of any queries, or concerns, you can reach out to us at 
                             </Text>
 
-
+            <TouchableOpacity onPress={() => openDialScreen()}>
                             <Text  style={{
             fontSize: normalize(20),
             width: '90%',
@@ -517,6 +528,7 @@ Help & Support
         }}>
               +91-555-666-1234
                             </Text>
+                            </TouchableOpacity>
                             </View>
 
                              
