@@ -261,12 +261,14 @@ function favourite(){
                         height: normalize(20),
                         width: normalize(20),
                         borderTopLeftRadius: normalize(5),
-                        borderTopRightRadius: normalize(5)
+                        borderTopRightRadius: normalize(5),
+                        marginBottom: normalize(5)
                     }}>
                     <Text style={{
                         color: 'white',
                         fontSize: normalize(12),
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        
                     }}
                     >+</Text>
                  
@@ -281,7 +283,8 @@ function favourite(){
                     <Text style={{
                         color: 'white',
                         fontSize: normalize(12),
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                       
                     }}
                     >-</Text>
                  
