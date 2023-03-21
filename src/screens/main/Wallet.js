@@ -33,6 +33,7 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import Modal from "react-native-modal";
 
 var status = '';
 export default function Wallet(props) {
@@ -48,6 +49,7 @@ export default function Wallet(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
+    const [isModalFilterVisible, setModalFilterVisible] = useState(false);
 
 
 
@@ -158,7 +160,9 @@ function favourite(){
  }
 
 
-
+ const toggleModal = () => {
+    setModalFilterVisible(!isModalFilterVisible);
+  };
 
 
 
@@ -420,6 +424,8 @@ function favourite(){
                     }}
                     
                     > 4.7</Text>
+
+                    <TouchableOpacity onPress={() => toggleModal()}>
                     <Image
                   source={ICONS.info}
                   style={{
@@ -430,6 +436,7 @@ function favourite(){
                   }}
                   resizeMode={'contain'}
                 ></Image>
+                </TouchableOpacity>
                     </View>
                 </View>
                             </View>
@@ -600,7 +607,7 @@ function favourite(){
                            }}>
 
 <Image
-                  source={ICONS.deposit}
+                  source={ICONS.referandearn}
                   style={{
                     height: normalize(30),
                     width: normalize(30),
@@ -621,7 +628,7 @@ function favourite(){
                         marginTop: normalize(20)
                     }}
                     
-                    > Deposit Coins</Text>
+                    >Refer & Earn Coins </Text>
 
                     <View style={{
                         flexDirection: 'row'
@@ -642,7 +649,7 @@ function favourite(){
                 </View>
 <View style={{
     justifyContent: 'center',
-    marginLeft: normalize(90)
+    marginLeft: normalize(70)
 }}>
                 <Image
                   source={ICONS.right_arrow}
@@ -673,7 +680,7 @@ function favourite(){
 
                       
                <View style={{
-                height: normalize(120),
+                height: normalize(110),
                 backgroundColor: '#FFF2F0',
                 borderTopLeftRadius: normalize(25),
                 borderTopRightRadius: normalize(25),
@@ -684,7 +691,7 @@ function favourite(){
                <View style={{
                 flexDirection: 'row',
                 marginTop: normalize(30),
-                marginLeft: normalize(30),
+                marginLeft: normalize(40),
                 justifyContent: 'flex-start',
                 alignItems: 'center'
                }}>
@@ -753,6 +760,160 @@ function favourite(){
                         </ScrollView>
 
 
+                        <Modal isVisible={isModalFilterVisible}
+
+
+animationType={"slide"}
+transparent={true}
+onBackdropPress={() => setModalFilterVisible(false)}
+>
+<View style={{
+
+  
+  width: '100%',
+  backgroundColor: 'white',
+  marginTop: normalize(15),
+  borderRadius: normalize(10)
+
+}}>
+
+
+  <View style={{
+    height: normalize(40),
+    width: '60%',
+
+    flexDirection: 'row',
+
+  }}>
+    <Text
+      style={{
+        color: '#69BE53',
+        fontSize: normalize(14),
+        fontWeight: '700',
+        marginTop: normalize(20),
+
+        marginLeft: normalize(20),
+
+      }}
+    >
+      My Coins
+      </Text>
+
+
+
+    <TouchableOpacity
+      style={{
+        width: '18%',
+        height: normalize(30),
+        backgroundColor: '#F36E35',
+        borderRadius: normalize(5),
+        position: 'absolute',
+        left: Platform.OS == 'android' ? 290 : 295
+
+      }}
+
+      onPress={() => {
+        console.log("kshbfhwb")
+        setModalFilterVisible(false)
+
+      }}>
+      <Image
+        source={ICONS.cross}
+        style={{
+          height: normalize(10),
+          width: normalize(10),
+          marginTop: normalize(10),
+          alignSelf: 'center',
+          tintColor: 'white'
+        }}
+        resizeMode={'contain'}
+        tintColor={'white'}
+      ></Image>
+    </TouchableOpacity>
+  </View>
+
+
+
+  <View style={{
+    width: '90%',
+    backgroundColor: 'black',
+    height: 1,
+    marginLeft: normalize(10),
+    marginRight: normalize(10),
+    marginTop: normalize(10)
+  }}></View>
+
+
+
+  <View
+    style={{ marginLeft: normalize(20), 
+    
+    width: '90%'
+    }}>
+
+<Text
+      style={{
+        color: 'black',
+        fontSize: normalize(15),
+        fontFamily: FONTS.Hind,
+        marginBottom: normalize(20),
+        marginTop: normalize(10),
+
+
+
+
+      }}
+    >It displays the number of coins left in your wallet</Text>
+
+
+    
+
+
+    
+    
+
+
+
+   
+    
+ 
+
+
+    
+
+
+
+
+    
+
+    
+    
+    
+    
+
+
+
+   
+
+  
+
+
+
+
+    
+
+
+
+
+
+
+       
+
+
+
+  </View>
+</View>
+</Modal>
 
 
                         {/* </ScrollView> */}

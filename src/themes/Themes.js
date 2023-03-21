@@ -71,7 +71,8 @@ export const ICONS = {
    buyandearn: require('../assets/icons/buyandearn.png'),
    deposit: require('../assets/icons/deposit.png'),
    transaction_history: require('../assets/icons/transaction_history.png'),
-
+   cross: require('../assets/icons/cross.png'),
+   referandearn: require('../assets/icons/referandearn.png'),
 };
 
 export const FONTS = {
