@@ -107,7 +107,7 @@ export default function Home(props) {
   const DATA2 = [{
     id: "0",
     pic: ICONS.bread,
-    description: "Hovis Farmhouse Wholemeal",
+    description: "Bread",
     quantity: '400g',
     discounted_price: '90',
     real_price: '80'
@@ -116,7 +116,7 @@ export default function Home(props) {
   {
     id: "1",
     pic: ICONS.milk,
-    description: "Hovis Farmhouse Wholemeal",
+    description: "Milk",
     quantity: '450g',
     discounted_price: '50',
     real_price: '40'
@@ -125,7 +125,7 @@ export default function Home(props) {
   {
     id: "2",
     pic: ICONS.cornflakes,
-    description: "Amul Moti Homogenized Toned Milk",
+    description: "Cornflakes",
     quantity: '400g',
     discounted_price: '70',
     real_price: '50'
@@ -135,7 +135,7 @@ export default function Home(props) {
     id: "3",
     
     pic: ICONS.cornflakes2,
-    description: "Kellogg's Corn Flakes Cereal",
+    description: "Meusli",
     quantity: '400g',
     discounted_price: '90',
     real_price: '80'
@@ -146,39 +146,31 @@ export default function Home(props) {
 
   const DATA3 = [{
     id: "0",
-    pic: ICONS.bread,
-    description: "Hovis Farmhouse Wholemeal",
-    quantity: '400g',
-    discounted_price: '90',
-    real_price: '80'
+    pic: ICONS.meyonnaise,
+    description: "Veg Mayonnaise",
+    
   },
 
   {
     id: "1",
-    pic: ICONS.milk,
-    description: "Hovis Farmhouse Wholemeal",
-    quantity: '450g',
-    discounted_price: '50',
-    real_price: '40'
+    pic: ICONS.burger_patty,
+    description: "Burger Patty",
+   
   },
 
   {
     id: "2",
-    pic: ICONS.cornflakes,
-    description: "Amul Moti Homogenized Toned Milk",
-    quantity: '400g',
-    discounted_price: '70',
-    real_price: '50'
+    pic: ICONS.amul,
+    description: "Mithai mate",
+    
   },
 
   {
     id: "3",
     
-    pic: ICONS.cornflakes2,
-    description: "Kellogg's Corn Flakes Cereal",
-    quantity: '400g',
-    discounted_price: '90',
-    real_price: '80'
+    pic: ICONS.snacks,
+    description: "Hot Snax",
+   
   }
 
 
@@ -342,7 +334,7 @@ props.navigation.navigate("Productdetails" , {
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(180),
+        height: normalize(110),
         width: normalize(120),
         backgroundColor: '#F0F0F0' ,
 
@@ -359,26 +351,26 @@ props.navigation.navigate("Productdetails" , {
                     width: normalize(60),
                     alignSelf: 'center',
                     marginTop: normalize(5),
-                    //marginLeft: normalize(20)
+                    marginLeft: normalize(10)
                   }}
                   resizeMode={'contain'}
                 ></Image>
 
 
-      <Text
+       <Text
       numberOfLines={2}
         style={{
           color: 'black',
           fontSize: normalize(10),
-          marginLeft: normalize(10),
+          
           marginTop: normalize(5),
-          alignSelf: 'flex-start'
+          textAlign: 'center'
         }}
       >{item.description}
-      </Text>
+      </Text> 
 
 
-      <Text
+      {/* <Text
         style={{
           color: 'black',
           fontSize: normalize(10),
@@ -387,9 +379,9 @@ props.navigation.navigate("Productdetails" , {
           alignSelf: 'flex-start'
                 }}
       >{item.quantity}
-      </Text>
+      </Text> */}
 
-    <View style={{
+    {/* <View style={{
   flexDirection: 'row',
   alignSelf: 'flex-start',
   marginLeft: normalize(10),
@@ -412,9 +404,9 @@ props.navigation.navigate("Productdetails" , {
   marginTop: normalize(7),
   position: 'absolute'
 }}/>
-     </View>
+     </View> */}
 
-     <View style={{
+     {/* <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
   marginLeft: normalize(10),
@@ -462,7 +454,7 @@ props.navigation.navigate("Productdetails" , {
 
 
 
-     </View>
+     </View> */}
 
      
 
@@ -474,7 +466,7 @@ props.navigation.navigate("Productdetails" , {
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(180),
+        height: normalize(110),
         width: normalize(120),
         backgroundColor: '#F0F0F0' ,
 
@@ -501,15 +493,15 @@ props.navigation.navigate("Productdetails" , {
         style={{
           color: 'black',
           fontSize: normalize(10),
-          marginLeft: normalize(10),
+         // marginLeft: normalize(10),
           marginTop: normalize(5),
-          alignSelf: 'flex-start'
+          textAlign: 'center'
         }}
       >{item.description}
       </Text>
 
 
-      <Text
+      {/* <Text
         style={{
           color: 'black',
           fontSize: normalize(10),
@@ -518,9 +510,9 @@ props.navigation.navigate("Productdetails" , {
           alignSelf: 'flex-start'
                 }}
       >{item.quantity}
-      </Text>
+      </Text> */}
 
-    <View style={{
+    {/* <View style={{
   flexDirection: 'row',
   alignSelf: 'flex-start',
   marginLeft: normalize(10),
@@ -543,8 +535,8 @@ props.navigation.navigate("Productdetails" , {
   marginTop: normalize(7),
   position: 'absolute'
 }}/>
-     </View>
-
+     </View> */}
+{/* 
      <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
@@ -593,7 +585,7 @@ props.navigation.navigate("Productdetails" , {
 
 
 
-     </View>
+     </View> */}
 
      
 

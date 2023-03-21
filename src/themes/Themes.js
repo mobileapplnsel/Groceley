@@ -62,6 +62,10 @@ export const ICONS = {
    recipe_item2: require('../assets/icons/recipe_item2.png'),
    recipe_item3: require('../assets/icons/recipe_item3.png'),
    dot: require('../assets/icons/dot.png'),
+   meyonnaise: require('../assets/icons/meyonnaise.png'),
+   burger_patty: require('../assets/icons/burger_patty.png'),
+   amul: require('../assets/icons/amul.png'),
+   snacks: require('../assets/icons/snacks.png'),
 };
 
 export const FONTS = {
