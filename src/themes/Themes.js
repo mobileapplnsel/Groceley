@@ -66,6 +66,12 @@ export const ICONS = {
    burger_patty: require('../assets/icons/burger_patty.png'),
    amul: require('../assets/icons/amul.png'),
    snacks: require('../assets/icons/snacks.png'),
+   wallet_coin: require('../assets/icons/wallet_coin.png'),
+   info: require('../assets/icons/info.png'),
+   buyandearn: require('../assets/icons/buyandearn.png'),
+   deposit: require('../assets/icons/deposit.png'),
+   transaction_history: require('../assets/icons/transaction_history.png'),
+
 };
 
 export const FONTS = {

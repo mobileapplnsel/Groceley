@@ -23,6 +23,7 @@ import Orderlist from '../screens/main/Orderlist';
 import Orderdetails from '../screens/main/Orderdetails';
 import Helpandsupport from '../screens/main/Helpandsupport';
 import Recipe from '../screens/main/Recipe';
+import Wallet from '../screens/main/Wallet';
 
 const Stack = createStackNavigator();
 
@@ -53,7 +54,8 @@ export default function StackNavigator() {
         Orderlist: Orderlist,
         Orderdetails: Orderdetails,
         Helpandsupport: Helpandsupport,
-        Recipe: Recipe
+        Recipe: Recipe,
+        Wallet: Wallet
       }
      
 
