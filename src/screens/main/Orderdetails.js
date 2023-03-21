@@ -464,7 +464,7 @@ function favourite1(){
 
         <Fragment>
 
-            <Layout Home={true} {...props}>
+            <Layout {...props}>
                 <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 

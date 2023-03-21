@@ -403,7 +403,8 @@ function favourite1(){
 
 
 
-<TouchableOpacity style={{
+<TouchableOpacity onPress={()=>props.navigation.navigate("Cart")}
+ style={{
   height: normalize(30),
   width: normalize(50),
   backgroundColor: 'white',

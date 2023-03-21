@@ -146,7 +146,7 @@ const renderItem2 = ({ item, index }) => (
 
 
 
-    <TouchableOpacity
+    <TouchableOpacity onPress={()=> props.navigation.navigate("Productdetails")}
     
     style={{
         flexDirection: 'row',
@@ -201,7 +201,7 @@ const renderItem2 = ({ item, index }) => (
   flexDirection: 'row',
   alignSelf: 'flex-start',
   marginLeft: normalize(10),
-  marginTop: normalize(10)
+  marginTop: normalize(5)
 }}>
       <Text
         style={{
@@ -225,7 +225,7 @@ const renderItem2 = ({ item, index }) => (
      <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
-  
+ 
 }}>
   <View>
       <Text
@@ -242,7 +242,8 @@ const renderItem2 = ({ item, index }) => (
 
 
 
-<TouchableOpacity style={{
+<TouchableOpacity onPress={()=>props.navigation.navigate("Cart")}
+style={{
   height: normalize(30),
   width: normalize(50),
   backgroundColor: 'white',

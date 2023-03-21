@@ -721,7 +721,9 @@ function favourite(){
 
 
 
-                <View style={{
+                <TouchableOpacity onPress={()=> props.navigation.navigate("Orderlist")}
+                
+                style={{
                                         height: normalize(40),
                                         width: '85%',
                                         backgroundColor: '#69BE53',
@@ -747,7 +749,7 @@ function favourite(){
                                          Checkout
                                         </Text>
 
-                                    </View>
+                                    </TouchableOpacity>
 
                                     </View>
 

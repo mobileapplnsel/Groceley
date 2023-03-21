@@ -854,11 +854,11 @@ onBackdropPress={() => setModalFilterVisible(false)}
 <Text
       style={{
         color: 'black',
-        fontSize: normalize(15),
+        fontSize: normalize(14),
         fontFamily: FONTS.Hind,
         marginBottom: normalize(20),
         marginTop: normalize(10),
-
+    
 
 
 

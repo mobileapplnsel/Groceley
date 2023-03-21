@@ -288,7 +288,9 @@ function favourite1(){
     
     
     
-    <TouchableOpacity style={{
+    <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+    
+    style={{
       height: normalize(30),
       width: normalize(50),
       backgroundColor: 'white',
@@ -333,7 +335,7 @@ function favourite1(){
 
         <Fragment>
 
-            <Layout Home={true} {...props}>
+            <Layout  {...props}>
                 <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
