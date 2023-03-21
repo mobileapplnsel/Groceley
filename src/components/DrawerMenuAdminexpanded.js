@@ -731,7 +731,7 @@ export default function DrawerMenuAdminexpanded(props) {
                     marginTop: normalize(30),
                   }}>
                   <Image
-                    source={ICONS.coin}
+                    source={ICONS.referandearn}
                     resizeMode="contain"
                     style={{
                       height: normalize(18),
