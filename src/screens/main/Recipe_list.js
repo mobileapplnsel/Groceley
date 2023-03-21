@@ -160,7 +160,7 @@ export default function Recipe_list(props) {
 
  function selectItem(item){
   
-props.navigation.navigate("Productdetails")
+props.navigation.navigate("Recipe")
  }
 
 
@@ -387,7 +387,7 @@ Recipe list
               fontSize: normalize(10),
               
               
-            }}>25 items</Text>
+            }}>6 items</Text>
 
 </View>
 
