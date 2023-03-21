@@ -120,7 +120,7 @@ export default function Recipe(props) {
         id: "1",
         
         description: "Fortune Pure Mustard oil",
-        quantity: '200ml',
+        quantity: '200 ml',
         
       },
 
@@ -128,14 +128,14 @@ export default function Recipe(props) {
         id: "2",
         
         description: "Chicken",
-        quantity: '1Kg',
+        quantity: '1 Kg',
         
       },
       {
         id: "3",
         
         description: "Salt",
-        quantity: '1tbsp',
+        quantity: '1 tbsp',
         
       },
       
@@ -143,7 +143,7 @@ export default function Recipe(props) {
         id: "4",
         
         description: "Spices",
-        quantity: '2tbsp',
+        quantity: '2 tbsp',
         
       },
       
@@ -257,13 +257,13 @@ function favourite1(){
                 tintColor= {'black'}
             ></Image>
 <Text style={{
-              color: "#3F3F3F",
+              
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
              
             }}>{item.description} -  </Text>
             <Text style={{
-              color: "#3F3F3F",
+              
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
              
