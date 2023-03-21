@@ -254,7 +254,7 @@ console.log("adkhbhkad")
 
  function selectItem(item){
   
-props.navigation.navigate("Productdetails" , {
+props.navigation.navigate("Productlist" , {
   img: item.pic
 })
  }

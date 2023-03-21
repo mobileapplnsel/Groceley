@@ -526,51 +526,7 @@ function favourite1(){
 
                                     
 
-<View style={{
-                                        height: normalize(30),
-                                        width: normalize(60),
-                                        backgroundColor: 'white',
-                                        borderRadius: normalize(20),
-                                        justifyContent: 'space-evenly',
-                                        alignItems: 'center',
-                                        flexDirection: 'row',
-                                        shadowColor: '#171717',
-                                        shadowOffset: {width: -2, height: 4},
-                                        shadowOpacity: 0.2,
-                                        
-                                        position: 'absolute',
-                                        elevation: 3,
-                                        bottom: -15,
-                                        left: 30
 
-                                    }}>
-<Image
-                                        source={ICONS.star}
-                                        style={{
-                                            height: normalize(10),
-                                            width: normalize(10),
-                                            alignSelf: 'center',
-                                           
-                                          
-                                            borderRadius: normalize(25),
-                                            tintColor: '#F36E35'
-                                        }}
-                                        resizeMode={'contain'}
-                                        tintColor={'#F36E35'}
-                                    ></Image>
-
-
-                                        <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            
-                                            color: 'black'
-                                        }}
-                                        >
-                                            4.5
-                                        </Text>
-
-                                    </View>
 
                                     <View style={{
                                         height: normalize(30),
@@ -587,7 +543,8 @@ function favourite1(){
                                         position: 'absolute',
                                         elevation: 3,
                                         bottom: -15,
-                                        right: 30
+                                        alignSelf: 'flex-end',
+                                        right: 10
 
                                     }}>
  <Text
