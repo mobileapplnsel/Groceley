@@ -131,9 +131,21 @@ export default function Recipe(props) {
         quantity: '1Kg',
         
       },
-    
+      {
+        id: "3",
+        
+        description: "Salt",
+        quantity: '1tbsp',
+        
+      },
       
-    
+      {
+        id: "4",
+        
+        description: "Spices",
+        quantity: '2tbsp',
+        
+      },
       
     
       ]
@@ -583,7 +595,7 @@ style={{
               marginTop: normalize(10)
             }}>Buy Ingredients</Text>
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
+{/* <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
 <Text style={{
               color: "#69BE53",
               fontFamily: FONTS.Hind,
@@ -591,7 +603,7 @@ style={{
               marginRight: normalize(10),
               marginTop: normalize(10)
             }}>See All</Text>
-</TouchableOpacity>
+</TouchableOpacity> */}
 
 
 
