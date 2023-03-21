@@ -73,6 +73,8 @@ export const ICONS = {
    transaction_history: require('../assets/icons/transaction_history.png'),
    cross: require('../assets/icons/cross.png'),
    referandearn: require('../assets/icons/referandearn.png'),
+   noodles: require('../assets/icons/noodles.jpeg'),
+   pasta: require('../assets/icons/pasta.png'),
 };
 
 export const FONTS = {

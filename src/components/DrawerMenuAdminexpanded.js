@@ -654,7 +654,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                  navigation.navigate('Recipe');
+                  navigation.navigate('Recipe_list');
                 }}>
                 <View
                   style={{
