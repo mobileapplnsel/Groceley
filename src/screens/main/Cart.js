@@ -721,7 +721,7 @@ function favourite(){
 
 
 
-                <TouchableOpacity onPress={()=> props.navigation.navigate("Orderlist")}
+                <TouchableOpacity
                 
                 style={{
                                         height: normalize(40),
