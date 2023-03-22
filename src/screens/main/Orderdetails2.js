@@ -856,6 +856,88 @@ function favourite1(){
 
                </View>
 
+
+               <Text style={{
+             color: "black",
+             fontFamily: FONTS.Hind,
+             fontSize: normalize(14),
+             marginLeft: normalize(20),
+             marginTop: normalize(20)
+              
+            }}>Payment</Text>
+
+<View style={{
+                height: normalize(160),
+                width: '90%',
+                alignSelf: 'center',
+                backgroundColor: 'white',
+                borderWidth: normalize(1),
+                borderColor: '#69BE53',
+                marginTop: normalize(10),
+                borderRadius: normalize(5)
+               }}>
+
+                <View>
+                <Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(10),
+              fontWeight: '700',
+            }}>Payment Methods</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(5),
+             
+            }}>BHIM UPI</Text>
+            
+            </View>
+
+            <View style={{
+                height: normalize(1),
+                width: '95%',
+                alignSelf: 'center',
+                backgroundColor: 'black',
+                marginTop: normalize(5)
+            }}/>
+            
+            <Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(10),
+              fontWeight: '700',
+            }}>Billing Address</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(5),
+             
+            }}>151/20, R.B.C Road, Central Park, Dum Dum P.O., Kolkata - 700028</Text>
+            
+
+           
+
+
+               </View>
+
                 <View style={{
     flexDirection: 'row',
     justifyContent: 'space-between',
