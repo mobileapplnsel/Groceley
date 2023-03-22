@@ -505,7 +505,7 @@ function favourite1(){
                                 <Text
                                     style={{
                                         color: 'black',
-                                        fontSize: normalize(16),
+                                        fontSize: normalize(14),
                                         fontWeight: '600',
                                         fontStyle: FONTS.Hind,
                                         textAlign: 'left',
@@ -598,13 +598,13 @@ function favourite1(){
                                 <Text
                                     style={{
                                         color: 'black',
-                                        fontSize: normalize(16),
+                                        fontSize: normalize(14),
                                         fontWeight: '600',
                                         fontStyle: FONTS.Hind,
                                         textAlign: 'left',
 
                                     }}
-                                >Shipment details
+                                >Delivery details
                                 </Text>
 
 
@@ -690,6 +690,7 @@ function favourite1(){
               numberOfLines={2}
                 style={{
                   color: 'black',
+                  fontWeight: '700',
                   fontSize: normalize(10),
                   marginLeft: normalize(10),
                   marginTop: normalize(20),
@@ -736,7 +737,7 @@ function favourite1(){
                   
                   fontSize: normalize(10),
                   color: 'black',
-                  fontWeight: '700'
+                 
                   
                         }}
               >{'\u20B9'} 60
@@ -766,11 +767,11 @@ function favourite1(){
 
                                     <Text style={{
               color: "black",
-              fontFamily: FONTS.RubikBold,
+              fontFamily: FONTS.Hind,
               fontSize: normalize(14),
               marginLeft: normalize(20),
               marginTop: normalize(20)
-            }}>Order Info</Text>
+            }}>Shipment</Text>
 
 
 <TouchableOpacity style={{
@@ -791,7 +792,7 @@ function favourite1(){
               marginLeft: normalize(20),
              
               
-            }}>View Order Details</Text>
+            }}>Track shipment</Text>
 
 <Image
                   source={ICONS.right_arrow}
@@ -811,61 +812,49 @@ function favourite1(){
             </TouchableOpacity>
 
 
-            <TouchableOpacity style={{
-    height: normalize(40),
-    marginTop: normalize(10),
-    flexDirection: 'row',
-    width: '90%',
-    backgroundColor: '#F0F0F0',
-    alignSelf: 'center',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderRadius: normalize(20)
-}}>
-             <Text style={{
-              color: "black",
-              fontFamily: FONTS.Hind,
-              fontSize: normalize(12),
-              marginLeft: normalize(20),
-             
-              
-            }}>Download Invoice</Text>
-
-<Image
-                  source={ICONS.right_arrow}
-                  style={{
-                    height: normalize(10),
-                    width: normalize(10),
-                    tintColor: '#515151',
-                    
-                    alignSelf: 'center',
-                    marginRight: normalize(10)
-                    
-                  }}
-                  resizeMode={'contain'}
-                  tintColor= {'#515151'}
-                ></Image>
-
-            </TouchableOpacity>
+          
 
             <Text style={{
-              color: "black",
-              fontFamily: FONTS.Hind,
-              fontSize: normalize(12),
-              marginLeft: normalize(30),
-              marginTop: normalize(10)
+             color: "black",
+             fontFamily: FONTS.Hind,
+             fontSize: normalize(14),
+             marginLeft: normalize(20),
+             marginTop: normalize(20)
               
-            }}>Return window closed on 1 January 2023</Text>
+            }}>Address</Text>
 
-<Text style={{
+<View style={{
+                height: normalize(90),
+                width: '90%',
+                alignSelf: 'center',
+                backgroundColor: 'white',
+                borderWidth: normalize(1),
+                borderColor: '#69BE53',
+                marginTop: normalize(10),
+                borderRadius: normalize(5)
+               }}>
+
+                <View>
+                <Text 
+                numberOfLines={4}
+                style={{
               color: "black",
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
-              marginLeft: normalize(30),
+              marginLeft: normalize(10),
               marginTop: normalize(10)
-              
-            }}>
-                Ordered on 21 December 2022</Text>
+            }}>151/20, R.B.C Road, Central Park, Dum Dum P.O., Kolkata - 700028</Text>
+            
+            </View>
+
+            
+            
+
+
+           
+
+
+               </View>
 
                 <View style={{
     flexDirection: 'row',
