@@ -285,7 +285,9 @@ function favourite1(){
         
         
         
-        <TouchableOpacity style={{
+        <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+        
+        style={{
           height: normalize(30),
           width: normalize(50),
           backgroundColor: 'white',
@@ -658,8 +660,7 @@ function favourite1(){
             }}>Friday, 25-Mar-2023</Text>
              </View>
             
-             <TouchableOpacity onPress={()=>props.navigation.navigate("Productdetails")}
-            
+             <View 
             style={{
                 flexDirection: 'row',
             height: normalize(100),
@@ -750,7 +751,7 @@ function favourite1(){
         
         
         
-            </TouchableOpacity>
+            </View>
 
            
 
@@ -949,7 +950,7 @@ function favourite1(){
             }}>Order Summary</Text>
 
 <View style={{
-                height: normalize(180),
+                height: normalize(190),
                 width: '90%',
                 alignSelf: 'center',
                 backgroundColor: 'white',
@@ -975,6 +976,12 @@ function favourite1(){
                 flexDirection: 'row'
             }}>
 
+
+                
+<View style={{
+    width: '50%',
+    
+}}>
 <Text 
                 numberOfLines={4}
                 style={{
@@ -985,6 +992,7 @@ function favourite1(){
               marginTop: normalize(5),
              
             }}>Item cost:</Text>
+            </View>
 
 <Text 
                 numberOfLines={4}
@@ -992,7 +1000,7 @@ function favourite1(){
               color: "black",
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
-              marginLeft: normalize(52),
+              
               marginTop: normalize(5),
             
             }}>{'\u20B9'} 160.71</Text>
@@ -1004,6 +1012,11 @@ function favourite1(){
                 flexDirection: 'row'
             }}>
 
+<View style={{
+    width: '50%',
+    
+}}>
+
 <Text 
                 numberOfLines={4}
                 style={{
@@ -1014,6 +1027,7 @@ function favourite1(){
              
              
             }}>Packing:</Text>
+            </View>
 
 <Text 
                 numberOfLines={4}
@@ -1021,7 +1035,7 @@ function favourite1(){
               color: "black",
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
-              marginLeft: normalize(62),
+             
              
              
             }}>{'\u20B9'} 35.71</Text>
@@ -1033,6 +1047,10 @@ function favourite1(){
                 flexDirection: 'row'
             }}>
 
+<View style={{
+    width: '50%',
+    
+}}>
 <Text 
                 numberOfLines={4}
                 style={{
@@ -1043,6 +1061,7 @@ function favourite1(){
              
              
             }}>Price without Tax:</Text>
+            </View>
 
 <Text 
                 numberOfLines={4}
@@ -1050,7 +1069,6 @@ function favourite1(){
               color: "black",
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
-              marginLeft: normalize(10),
              
              
             }}>{'\u20B9'} 196.42</Text>
@@ -1061,7 +1079,10 @@ function favourite1(){
 <View style={{
                 flexDirection: 'row'
             }}>
-
+<View style={{
+    width: '50%',
+    
+}}>
 <Text 
                 numberOfLines={4}
                 style={{
@@ -1072,6 +1093,7 @@ function favourite1(){
              
              
             }}>Tax:</Text>
+            </View>
 
 <Text 
                 numberOfLines={4}
@@ -1079,7 +1101,7 @@ function favourite1(){
               color: "black",
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
-              marginLeft: normalize(85),
+              
              
              
             }}>{'\u20B9'} 196.42</Text>
@@ -1089,7 +1111,10 @@ function favourite1(){
 <View style={{
                 flexDirection: 'row'
             }}>
-
+<View style={{
+    width: '50%',
+    
+}}>
 <Text 
                 numberOfLines={4}
                 style={{
@@ -1100,6 +1125,7 @@ function favourite1(){
              
              
             }}>Total price:</Text>
+            </View>
 
 <Text 
                 numberOfLines={4}
@@ -1107,7 +1133,7 @@ function favourite1(){
               color: "black",
               fontFamily: FONTS.Hind,
               fontSize: normalize(12),
-              marginLeft: normalize(48),
+             
              
              
             }}>{'\u20B9'} 196.42</Text>
@@ -1117,7 +1143,10 @@ function favourite1(){
 <View style={{
                 flexDirection: 'row'
             }}>
-
+<View style={{
+    width: '50%',
+    
+}}>
 <Text 
                 numberOfLines={4}
                 style={{
@@ -1128,7 +1157,7 @@ function favourite1(){
              
              
             }}>Promotion Applied:</Text>
-
+</View>
 <Text 
                 numberOfLines={4}
                 style={{
@@ -1145,28 +1174,35 @@ function favourite1(){
 </View>
 
 <View style={{
-                flexDirection: 'row'
+                flexDirection: 'row',
+                marginTop: normalize(10)
             }}>
+                <View style={{
+    width: '50%',
+    
+}}>
 
 <Text 
                 numberOfLines={4}
                 style={{
               color: "black",
               fontFamily: FONTS.Hind,
-              fontSize: normalize(12),
+              fontSize: normalize(14),
               marginLeft: normalize(10),
-             
+              fontWeight: '700'
              
             }}>Total:</Text>
+            </View>
 
 <Text 
                 numberOfLines={4}
                 style={{
               color: "black",
               fontFamily: FONTS.Hind,
-              fontSize: normalize(12),
+              fontSize: normalize(14),
               marginLeft: normalize(2),
-             
+              fontWeight: '700',
+              
              
             }}>{'\u20B9'} 202.00</Text>
 
