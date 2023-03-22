@@ -938,11 +938,258 @@ function favourite1(){
 
                </View>
 
-                <View style={{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
 
-}}>
+               <Text style={{
+             color: "black",
+             fontFamily: FONTS.Hind,
+             fontSize: normalize(14),
+             marginLeft: normalize(20),
+             marginTop: normalize(20)
+              
+            }}>Order Summary</Text>
+
+<View style={{
+                height: normalize(180),
+                width: '90%',
+                alignSelf: 'center',
+                backgroundColor: 'white',
+                borderWidth: normalize(1),
+                borderColor: '#69BE53',
+                marginTop: normalize(10),
+                borderRadius: normalize(5)
+               }}>
+
+                <View>
+                <Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(10),
+              fontWeight: '700',
+            }}>Payment Methods</Text>
+
+            <View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(5),
+             
+            }}>Item cost:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(52),
+              marginTop: normalize(5),
+            
+            }}>{'\u20B9'} 160.71</Text>
+
+</View>
+
+
+<View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>Packing:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(62),
+             
+             
+            }}>{'\u20B9'} 35.71</Text>
+
+</View>
+
+
+<View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>Price without Tax:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>{'\u20B9'} 196.42</Text>
+
+</View>
+
+
+<View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>Tax:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(85),
+             
+             
+            }}>{'\u20B9'} 196.42</Text>
+
+</View>
+
+<View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>Total price:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(48),
+             
+             
+            }}>{'\u20B9'} 196.42</Text>
+
+</View>
+
+<View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>Promotion Applied:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(2),
+             
+             
+            }}>-{'\u20B9'} 18.00</Text>
+
+            
+
+</View>
+
+<View style={{
+                flexDirection: 'row'
+            }}>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+             
+             
+            }}>Total:</Text>
+
+<Text 
+                numberOfLines={4}
+                style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(2),
+             
+             
+            }}>{'\u20B9'} 202.00</Text>
+
+            
+
+</View>
+       
+            
+            </View>
+
+         
+            
+            
+
+
+            
+
+           
+
+
+               </View>
+
+                <View>
 <Text
                                         style={{
                                             fontSize: normalize(14),
@@ -954,18 +1201,9 @@ function favourite1(){
                                             
                                         }}
                                         >
-                                       Customer also bought</Text>
+                                      Buy again</Text>
 
-                                       <TouchableOpacity onPress={()=> props.navigation.navigate("Home")}>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.Hind,
-              fontSize: normalize(14),
-              marginRight: normalize(20),
-              marginTop: normalize(20)
-            }}>See All</Text>
-            
-</TouchableOpacity>
+                      
 </View>
 
 <FlatList
