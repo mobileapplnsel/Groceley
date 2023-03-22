@@ -36,7 +36,7 @@ import CarouselCards from '../../components/CarouselCards'
 import { tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 
 var status = '';
-export default function Orderdetails(props) {
+export default function Orderdetails2(props) {
 
     
     const [modalVisible, setModalVisible] = useState(false);
@@ -492,147 +492,7 @@ function favourite1(){
 
 
                             
-                                <View style={{
-                                    height: normalize(200),
-                                    width: '100%',
-                                    backgroundColor: '#FFF2F0',
-                                    marginRight: normalize(10),
-                                   borderBottomLeftRadius: normalize(20),
-                                   borderBottomRightRadius: normalize(20)
-                                }}>
-
-
-<View style={{
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-}}>
-      <TouchableOpacity onPress={()=>props.navigation.goBack()}
-                                    style={{
-                                        height: normalize(30),
-                                        width: normalize(30),
-                                       
-                                        
-                                        alignSelf: 'flex-start',
-                                       
-                                        marginTop: normalize(5),
-                                        marginLeft: normalize(10)
-                                    }}
-                                    
-                                    />
-   
-   {/* <Image
-                                        source={ICONS.left_arrow}
-                                        style={{
-                                            height: normalize(15),
-                                            width: normalize(15),
-                                            alignSelf: 'center',
-                                            
-                                            position: 'absolute',
-                                            top:15,
-                                            left:20,
-                                            tintColor: 'black'
-                                        }}
-                                        resizeMode={'contain'}
-                                        tintColor= {'black'}
-                                    ></Image> */}
-
-
-                                    
-   
-               
-                
-                <TouchableOpacity onPress={()=>ShareExample()}
-                                    style={{
-                                        height: normalize(30),
-                                        width: normalize(30),
-                                       
-                                        backgroundColor: 'white',
-                                        shadowColor: '#171717',
-                                        shadowOffset: {width: -2, height: 4},
-                                        shadowOpacity: 0.2,
-                                        borderRadius: normalize(5),
-                                        
-                                       
-                                        marginRight: normalize(10),
-                                        marginTop: normalize(5)
-
-                                    }}
-                                    
-                                    >
-                
-                
-                <Image
-                                        source={ICONS.share}
-                                        style={{
-                                            height: normalize(15),
-                                            width: normalize(15),
-                                            alignSelf: 'center',
-                                            
-                                            position: 'absolute',
-                                            top:10,
-                                           
-                                            tintColor: '#515151',
-                                           
-                                            
-                                        }}
-                                        resizeMode={'contain'}
-                                        tintColor= {'black'}
-                                    ></Image> 
-
-
-
-                                    
-                                    </TouchableOpacity>
-                                   
-
-
-                                        
-
-
- 
-
-
-</View>
-
-
-                                    
-                              
-                                    <View>
-
-
-                                   
- 
- 
- 
- 
- 
- <Image
-                                         source={ICONS.cornflakes2}
-                                         style={{
-                                            height: normalize(130),
-                                            width: normalize(130),
-                                            alignSelf: 'center',
-                                             
-                                            
-                                         }}
-                                         resizeMode={'contain'}
-                                     ></Image>
- 
- 
- 
- 
- 
- 
-        
-
-            </View>
-
-                                    
-
-
-
-                                    
-                                </View>
+                               
 
 
                             {/* </View> */}
@@ -651,7 +511,7 @@ function favourite1(){
                                         textAlign: 'left',
 
                                     }}
-                                >Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits
+                                >View Order details
                                 </Text>
 
 
@@ -659,9 +519,242 @@ function favourite1(){
 
                             </View>
 
-               
+               <View style={{
+                height: normalize(100),
+                width: '90%',
+                alignSelf: 'center',
+                backgroundColor: 'white',
+                borderWidth: normalize(1),
+                borderColor: '#69BE53',
+                marginTop: normalize(10),
+                borderRadius: normalize(5)
+               }}>
+
+                <View style={{
+                    flexDirection: 'row'
+                }}>
+                <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(10)
+            }}>Order date</Text>
+            <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(20),
+              marginTop: normalize(10)
+            }}>22-Mar-2023</Text>
+            </View>
+
+            
+            <View style={{
+                    flexDirection: 'row'
+                }}>
+                <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(10)
+            }}>Order No.</Text>
+            <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(25),
+              marginTop: normalize(10)
+            }}>405-291342919-329128987</Text>
+            </View>
 
 
+            <View style={{
+                    flexDirection: 'row'
+                }}>
+                <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(10),
+              marginTop: normalize(10)
+            }}>Total price</Text>
+            <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(20),
+              marginTop: normalize(10)
+            }}>{'\u20B9'} 202.00 (1 item)</Text>
+            </View>
+
+
+               </View>
+               <View style={{
+                                marginLeft: normalize(20),
+                                marginTop: normalize(30)
+                            }}>
+                                <Text
+                                    style={{
+                                        color: 'black',
+                                        fontSize: normalize(16),
+                                        fontWeight: '600',
+                                        fontStyle: FONTS.Hind,
+                                        textAlign: 'left',
+
+                                    }}
+                                >Shipment details
+                                </Text>
+
+
+                               
+
+                            </View>
+
+               <View style={{
+                height: normalize(200),
+                width: '90%',
+                alignSelf: 'center',
+                backgroundColor: 'white',
+                borderWidth: normalize(1),
+                borderColor: '#69BE53',
+                marginTop: normalize(10),
+                borderRadius: normalize(5)
+               }}>
+
+                <View>
+                <Text style={{
+              color: "#69BE53",
+              fontFamily: FONTS.Hind,
+              fontWeight: '700',
+              fontSize: normalize(14),
+              marginLeft: normalize(10),
+              marginTop: normalize(10)
+            }}>Delivered</Text>
+
+            </View>
+
+            <View style={{
+                flexDirection: 'row'
+            }}>
+
+           
+            <Text style={{
+             color: "black",
+             fontFamily: FONTS.Hind,
+             fontSize: normalize(12),
+             marginLeft: normalize(10),
+             fontWeight: '700',
+             marginTop: normalize(10)
+            }}>Date:</Text>
+                <Text style={{
+              color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              marginLeft: normalize(5),
+              fontWeight: '700',
+              marginTop: normalize(10)
+            }}>Friday, 25-Mar-2023</Text>
+             </View>
+            
+             <TouchableOpacity onPress={()=>props.navigation.navigate("Productdetails")}
+            
+            style={{
+                flexDirection: 'row',
+            height: normalize(100),
+            width: normalize(275),
+            borderRadius: normalize(10),
+            backgroundColor: '#F0F0F0',
+            marginHorizontal: normalize(5),
+            marginTop: normalize(10)
+            }}
+            >
+                 <Image
+                          source={ICONS.milk}
+                          style={{
+                            height: normalize(70),
+                            width: normalize(70),
+                            alignSelf: 'center',
+                            marginTop: normalize(5),
+                            marginLeft: normalize(10)
+                          }}
+                          resizeMode={'contain'}
+                        ></Image>
+        
+        <View style={{
+           
+            width: '65%'
+        }}>
+        <Text
+              numberOfLines={2}
+                style={{
+                  color: 'black',
+                  fontSize: normalize(10),
+                  marginLeft: normalize(10),
+                  marginTop: normalize(20),
+                  alignSelf: 'flex-start'
+                }}
+              >Amul Moti Homogenized Toned Milk
+              </Text>
+        
+        <View style={{
+            flexDirection: 'row'
+        }}>
+              <Text
+                style={{
+                  color: 'black',
+                  fontSize: normalize(10),
+                  marginLeft: normalize(10),
+                  marginTop: normalize(5),
+                  alignSelf: 'flex-start'
+                        }}
+              >Qty: 1
+              </Text>
+
+              <Text
+                style={{
+                  color: 'black',
+                  fontSize: normalize(10),
+                  marginLeft: normalize(10),
+                  marginTop: normalize(5),
+                  alignSelf: 'flex-start'
+                        }}
+              >Sold by: ABC Company
+              </Text>
+
+</View>
+        
+            <View style={{
+          flexDirection: 'row',
+          alignSelf: 'flex-start',
+          marginLeft: normalize(10),
+          marginTop: normalize(5)
+        }}>
+              <Text
+                style={{
+                  
+                  fontSize: normalize(10),
+                  color: 'black',
+                  fontWeight: '700'
+                  
+                        }}
+              >{'\u20B9'} 60
+              </Text>
+           
+             </View>
+        
+           
+             </View>
+        
+        
+        
+            </TouchableOpacity>
+
+           
+
+
+               </View>
 
            
 
@@ -669,43 +762,7 @@ function favourite1(){
 
 
                       
-                <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")} 
-                
-                style={{
-                    
-                    marginLeft: normalize(20),
-                    marginTop: normalize(20)
-                }}
-                >
-
-                <View style={{
-                                        height: normalize(30),
-                                        width: normalize(120),
-                                        backgroundColor: '#69BE53',
-                                        borderRadius: normalize(20),
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        flexDirection: 'row',
-
-                                       
-
-                                    }}>
-                                         
-                                        <Text
-                                        style={{
-                                            fontSize: normalize(12),
-                                            
-                                            color: 'white'
-                                        }}
-                                        >
-                                         Buy It Again
-                                        </Text>
-
-                                    </View>
-
-                
-
-                                    </TouchableOpacity>
+             
 
                                     <Text style={{
               color: "black",
@@ -716,9 +773,7 @@ function favourite1(){
             }}>Order Info</Text>
 
 
-<TouchableOpacity onPress={()=> props.navigation.navigate('Orderdetails2')}
-
-style={{
+<TouchableOpacity style={{
     height: normalize(40),
     marginTop: normalize(10),
     flexDirection: 'row',
