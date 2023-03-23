@@ -116,9 +116,151 @@ export default function Add_delivery_address(props) {
                 }}>
              Add Delivery Address
               </Text>
-         
 
-            <View
+
+
+
+              <View
+            style={{
+                height: normalize(1),
+                width: '90%',
+                backgroundColor: '#69BE53',
+                alignSelf: 'center',
+                marginTop: normalize(10)
+            }}
+            />
+
+
+              <View style={{
+    height: normalize(70),
+    width: '90%',
+    
+    alignSelf: 'center',
+    borderRadius: normalize(10)
+}}>
+         <View style={{
+            flexDirection: 'row',
+            marginTop: normalize(20),
+         }}>
+
+            <View>
+<View
+style={{
+    height: normalize(15),
+    width: normalize(15),
+    borderRadius: normalize(7.5),
+    borderWidth: normalize(1),
+    borderColor: 'black',
+    marginRight: normalize(5),
+    marginLeft: normalize(28),
+    backgroundColor: '#69BE53'
+}}
+/>
+</View>
+<View
+style={{
+    height: normalize(1),
+    width: '30%',
+    alignSelf: 'center',
+    backgroundColor: '#A9A9A9'
+}}
+/>
+
+<View
+style={{
+    height: normalize(15),
+    width: normalize(15),
+    borderRadius: normalize(7.5),
+    borderWidth: normalize(1),
+    borderColor: 'black',
+    marginLeft: normalize(5),
+    
+    backgroundColor: 'white'
+}}
+/>
+
+<View
+style={{
+    height: normalize(1),
+    width: '30%',
+    alignSelf: 'center',
+    backgroundColor: '#A9A9A9',
+    marginLeft: normalize(5)
+}}
+/>
+
+<View
+style={{
+    height: normalize(15),
+    width: normalize(15),
+    borderRadius: normalize(7.5),
+    borderWidth: normalize(1),
+    borderColor: 'black',
+    marginLeft: normalize(5),
+    
+    backgroundColor: 'white'
+}}
+/>
+         </View>
+
+         <View style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: normalize(2)
+         }}>
+            <Text
+            style={{
+                fontSize: normalize(12),
+                
+                fontWeight: '600',
+                textAlign: 'center',
+                fontFamily: FONTS.Hind,
+                marginLeft: normalize(10),
+                color: 'black',
+                
+
+              }}
+            >Address</Text>
+            <Text
+             style={{
+                fontSize: normalize(12),
+                
+                fontWeight: '600',
+                textAlign: 'center',
+                fontFamily: FONTS.Hind,
+               
+                color: 'black',
+                
+
+              }}
+            >Payment</Text>
+            <Text
+             style={{
+                fontSize: normalize(12),
+                
+                fontWeight: '600',
+                textAlign: 'center',
+                fontFamily: FONTS.Hind,
+                marginRight: normalize(10),
+                color: 'black',
+                
+
+              }}
+            >Order</Text>
+         </View>
+
+         </View>
+         <View
+            style={{
+                height: normalize(1),
+                width: '90%',
+                backgroundColor: '#69BE53',
+                alignSelf: 'center',
+                
+            }}
+            />
+
+            <TouchableOpacity
             style={{
                 height: normalize(40),
                 width: '90%',
@@ -143,7 +285,9 @@ export default function Add_delivery_address(props) {
 
                 
 
-            </View>
+            </TouchableOpacity>
+
+
             <Text style={{
                      fontSize: normalize(12),
                      
