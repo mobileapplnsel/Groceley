@@ -375,7 +375,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
              
 
-<TouchableOpacity onPress = {() => props.navigation.navigate("Profile")}
+<View
                 style={{
                   width: normalize(30),
                   height: normalize(30),
@@ -400,7 +400,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 ></Image>
 
 
-              </TouchableOpacity>
+              </View>
 
               <View>
 
