@@ -304,12 +304,12 @@ props.navigation.navigate("Productdetails")
       borderRadius: normalize(5),
       marginLeft: normalize(30),
       marginEnd: normalize(10),
-      marginTop: normalize(-30)
+      marginTop: normalize(-35)
     }}>
           <Text
             style={{
               
-              fontSize: normalize(10),
+              fontSize: normalize(9),
               color: '#69BE53',
               alignSelf: 'center'
               
@@ -331,12 +331,12 @@ props.navigation.navigate("Productdetails")
       borderRadius: normalize(5),
       marginLeft: normalize(30),
       marginEnd: normalize(10),
-      marginTop: normalize(10)
+      marginTop: normalize(5)
     }}>
           <Text
             style={{
               
-              fontSize: normalize(10),
+              fontSize: normalize(9),
               color: '#69BE53',
               alignSelf: 'center'
               
@@ -358,155 +358,181 @@ props.navigation.navigate("Productdetails")
 
   const renderItem2 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem(item)}
-      style={{
-
-        height: normalize(195),
-        width: normalize(140),
-        backgroundColor: '#F0F0F0' ,
-       
-        marginLeft: normalize(7),
-        borderRadius: normalize(15),
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: normalize(10)
-      }}>
-        
-       {item.discountrate !== '0' ? ( <View style={{
-            height: normalize(20),
-            width: normalize(50),
-            backgroundColor: '#F36E35',
-            alignSelf: 'flex-start',
-            marginLeft: normalize(10),
+          onPress={(item) => selectItem(item)}
+          style={{
+    
+            height: normalize(215),
+            width: normalize(140),
+            backgroundColor: '#F0F0F0' ,
+           
+            marginLeft: normalize(7),
+            borderRadius: normalize(15),
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: normalize(5)
-        }}>
-            <Text
+            marginBottom: normalize(10)
+          }}>
+            
+           {item.discountrate !== '0' ? ( <View style={{
+                height: normalize(20),
+                width: normalize(50),
+                backgroundColor: '#F36E35',
+                alignSelf: 'flex-start',
+                marginLeft: normalize(10),
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: normalize(5)
+            }}>
+                <Text
+                style={{
+                    color: 'white',
+                    fontSize: normalize(10)
+    
+                }}>{item.discountrate} OFF</Text>
+            </View>
+           ) : (null)}
+
+            <Image
+                      source={item.pic}
+                      style={{
+                        height: normalize(60),
+                        width: normalize(60),
+                        marginTop: normalize(5),
+                        
+                      }}
+                      resizeMode={'contain'}
+                    ></Image>
+    
+    
+          <Text
             style={{
-                color: 'white',
-                fontSize: normalize(10)
-
-            }}>{item.discountrate} OFF</Text>
-        </View>
-       ) : (null)}
-       
-        <Image
-                  source={item.pic}
-                  style={{
-                    height: normalize(60),
-                    width: normalize(60),
-                    marginTop: normalize(5),
-                    
-                  }}
-                  resizeMode={'contain'}
-                ></Image>
-
-
-      <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-        }}
-      >{item.description}
-      </Text>
-
-
-      <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-                }}
-      >{item.quantity}
-      </Text>
-
-    <View style={{
-  flexDirection: 'row',
-  alignSelf: 'flex-start',
-  marginLeft: normalize(10),
-  marginTop: normalize(10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#A9A9A9',
-          
-          
-                }}
-      >{'\u20B9'} {item.discounted_price}
-      </Text>
-    <View style={{
-  height: normalize(1),
-  width: '20%',
-  backgroundColor: '#A9A9A9',
-  marginTop: normalize(7),
-  position: 'absolute'
-}}/>
-     </View>
-
-     <View style={{
-  flexDirection: 'row',
- justifyContent: 'center',
-  marginLeft: normalize(-10),
-}}>
-  <View>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: 'black',
-          fontWeight: '600'
-          
-                }}
-      >{'\u20B9'} {item.real_price}
-      </Text>
-      </View>
-
-
-
-<TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
-
-style={{
-  height: normalize(30),
-  width: normalize(50),
-  backgroundColor: 'white',
-  borderWidth: normalize(2),
-  borderColor: '#69BE53',
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: normalize(5),
-  marginLeft: normalize(30),
-  marginEnd: normalize(10),
-  marginTop: normalize(-10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#69BE53',
-          alignSelf: 'center'
-          
-                }}
-      >ADD
-      </Text>
-      </TouchableOpacity>
-
-
-
-
-     </View>
-
-     
-
-
-    </TouchableOpacity>
+              color: 'black',
+              fontSize: normalize(10),
+              marginLeft: normalize(10),
+              marginTop: normalize(5),
+              alignSelf: 'flex-start',
+              
+            }}
+          >{item.description}
+          </Text>
+    
+    
+          <Text
+            style={{
+              color: 'black',
+              fontSize: normalize(10),
+              marginLeft: normalize(10),
+              marginTop: normalize(5),
+              alignSelf: 'flex-start'
+                    }}
+          >{item.quantity}
+          </Text>
+    
+        <View style={{
+      flexDirection: 'row',
+      alignSelf: 'flex-start',
+      marginLeft: normalize(10),
+      marginTop: normalize(10)
+    }}>
+          <Text
+            style={{
+              
+              fontSize: normalize(10),
+              color: '#A9A9A9',
+              
+              
+                    }}
+          >{'\u20B9'} {item.discounted_price}
+          </Text>
+        <View style={{
+      height: normalize(1),
+      width: '20%',
+      backgroundColor: '#A9A9A9',
+      marginTop: normalize(7),
+      position: 'absolute'
+    }}/>
+         </View>
+    
+         <View style={{
+      flexDirection: 'row',
+     justifyContent: 'center',
+      marginLeft: normalize(-10),
+    }}>
+      <View>
+          <Text
+            style={{
+              
+              fontSize: normalize(10),
+              color: 'black',
+              fontWeight: '600'
+              
+                    }}
+          >{'\u20B9'} {item.real_price}
+          </Text>
+          </View>
+    
+    <View>
+    
+    <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+    
+    style={{
+      height: normalize(30),
+      width: normalize(50),
+      backgroundColor: 'white',
+      borderWidth: normalize(2),
+      borderColor: '#69BE53',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: normalize(5),
+      marginLeft: normalize(30),
+      marginEnd: normalize(10),
+      marginTop: normalize(-35)
+    }}>
+          <Text
+            style={{
+              
+              fontSize: normalize(9),
+              color: '#69BE53',
+              alignSelf: 'center'
+              
+                    }}
+          >ADD
+          </Text>
+          </TouchableOpacity>
+    
+          <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+    
+    style={{
+      height: normalize(30),
+      width: normalize(50),
+      backgroundColor: 'white',
+      borderWidth: normalize(2),
+      borderColor: '#69BE53',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: normalize(5),
+      marginLeft: normalize(30),
+      marginEnd: normalize(10),
+      marginTop: normalize(5)
+    }}>
+          <Text
+            style={{
+              
+              fontSize: normalize(9),
+              color: '#69BE53',
+              alignSelf: 'center'
+              
+                    }}
+          >REMOVE
+          </Text>
+          </TouchableOpacity>
+          </View>
+    
+         </View>
+    
+         
+    
+    
+        </TouchableOpacity>
   );
 
   return (
