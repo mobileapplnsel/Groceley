@@ -721,7 +721,7 @@ function favourite(){
 
 
 
-                <TouchableOpacity
+                <TouchableOpacity onPress={()=> props.navigation.navigate("Add_delivery_address")}
                 
                 style={{
                                         height: normalize(40),
