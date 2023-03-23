@@ -13,7 +13,7 @@ import Store from './src/redux/store';
  
  LogBox.ignoreAllLogs();
  
- const Groceley = () => {
+ const Grocley = () => {
    // const dispatch = useDispatch()
    // useEffect(() => {
    //     setTimeout(() => {
@@ -27,4 +27,4 @@ import Store from './src/redux/store';
    );
  };
  
- AppRegistry.registerComponent(appName, () => Groceley );
+ AppRegistry.registerComponent(appName, () => Grocley );
