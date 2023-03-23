@@ -512,7 +512,9 @@ style={{
                                             marginLeft: normalize(25),
                                         }}>
 
-<TouchableOpacity style={{
+<TouchableOpacity onPress={()=> props.navigation.navigate("Filter")}
+
+style={{
     height: normalize(36),
     width: normalize(36),
     marginTop: normalize(6),

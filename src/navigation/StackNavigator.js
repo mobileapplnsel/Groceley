@@ -28,6 +28,8 @@ import Recipe_list from '../screens/main/Recipe_list';
 import Orderdetails2 from '../screens/main/Orderdetails2';
 import Favourities from '../screens/main/Favourities';
 import Add_delivery_address from '../screens/main/Add_delivery_address';
+import Filter from '../screens/main/Filter';
+
 
 const Stack = createStackNavigator();
 
@@ -63,7 +65,8 @@ export default function StackNavigator() {
         Recipe_list: Recipe_list,
         Orderdetails2: Orderdetails2,
         Favourities : Favourities,
-        Add_delivery_address: Add_delivery_address
+        Add_delivery_address: Add_delivery_address,
+        Filter: Filter
       }
      
 
