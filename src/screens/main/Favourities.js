@@ -227,7 +227,7 @@ props.navigation.navigate("Productdetails")
               color: 'black',
               fontSize: normalize(10),
               marginLeft: normalize(10),
-              marginTop: normalize(5),
+              marginTop: normalize(10),
               alignSelf: 'flex-start',
               
             }}
@@ -408,7 +408,7 @@ props.navigation.navigate("Productdetails")
               color: 'black',
               fontSize: normalize(10),
               marginLeft: normalize(10),
-              marginTop: normalize(5),
+              marginTop: normalize(10),
               alignSelf: 'flex-start',
               
             }}
@@ -499,7 +499,7 @@ props.navigation.navigate("Productdetails")
           </Text>
           </TouchableOpacity>
     
-          <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+          <TouchableOpacity 
     
     style={{
       height: normalize(30),
