@@ -352,6 +352,33 @@ export default function Add_delivery_address(props) {
             </Text>
             
             </TouchableOpacity>
+
+            <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: '#69BE53',
+            borderColor: '#D3D3D3'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'white'
+    }}
+        >
+           Back to Cart
+            </Text>
+            
+            </TouchableOpacity>
 </View>
 
 
