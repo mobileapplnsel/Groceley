@@ -281,7 +281,7 @@ style={{
                </Text>
 <TouchableOpacity
           style={{
-            height: normalize(40),
+            height: normalize(140),
             width: '90%',
             marginTop: normalize(10),
             alignSelf: 'center',
@@ -292,19 +292,65 @@ style={{
           }}
           
         > 
-        
-        <Text style={{
-        fontSize: normalize(12),           
-        textAlign: 'center',
-        fontFamily: FONTS.Hind,
-        marginTop: normalize(10),
-        color: 'black'
-    }}
-        >
-            Add Delivery Instructions(optional)
-            </Text>
-            
-            </TouchableOpacity>
+
+<View style={{
+                flexDirection: 'row',
+                
+                width: '85%',
+                
+                marginVertical: normalize(5),
+                marginLeft: normalize(10),
+                borderRadius: normalize(5)
+
+            }}
+            >
+
+               
+                          
+                    <TouchableOpacity style={{
+                      marginTop: normalize(7)
+                      }} >
+
+                       
+                         <View style={{ 
+                          alignSelf:'center',
+                          borderColor:'green',
+                          width: normalize(18),
+                          height: normalize(18),
+                          borderRadius: normalize(10),
+                          borderWidth:2,
+                          backgroundColor:'green'
+                          }}>
+                         <View style={{ 
+                          alignSelf:'center',
+                          borderRadius:normalize(10),
+                          padding:normalize(4),
+                          backgroundColor:'white',
+                          marginTop:normalize(2)
+                          }}></View>
+                      </View> 
+                      
+                    
+
+                   
+               </TouchableOpacity>
+
+             
+                
+                    <Text
+                    
+                        style={{
+                            fontSize: normalize(12),
+                            color: "black",
+                           marginLeft: normalize(10),
+                            fontWeight:'400',
+                            alignSelf:'center'
+                        }}
+                    >SDF Building, 4th Floor, Software Technology Park, GP Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091</Text>
+
+                
+
+            </View>
 
             <TouchableOpacity
           style={{
@@ -328,10 +374,25 @@ style={{
         color: 'white'
     }}
         >
-           Use this address
+           Deliver to this address
             </Text>
             
             </TouchableOpacity>
+        
+        {/* <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'black'
+    }}
+        >
+            Add Delivery Instructions(optional)
+            </Text> */}
+            
+            </TouchableOpacity>
+
+           
 
             <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
           style={{
