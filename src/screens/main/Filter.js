@@ -32,7 +32,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import { FadeInFromBottomAndroidSpec } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionSpecs';
 import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 
-export default function Filter(props)
+export default function Filters(props)
 {
 
     const [name, setName] = useState('');
@@ -44,6 +44,12 @@ export default function Filter(props)
     const [flagOrder, setFlagOrder] = useState(0);
     const [flagShipped, setFlagShipped] = useState(0);
     const [flagCancel, setFlagCancel] = useState(0);
+    const [flagmonth, setFlagmonth] = useState("false");
+    const [flagdays, setFlagdays] = useState("false");
+    const [flagcurrentyear, setFlagCurrentyear] = useState("false");
+    const [flagpreviousyear, setFlagpreviousyear] = useState("false");
+    const [selected, setSelected] = useState("");
+    const [isRender, setisRender] = useState(false);
 
 
 
@@ -207,10 +213,81 @@ export default function Filter(props)
     },
    
 
-
-
-
     ]
+
+
+
+    const filterdate =(filter) =>{
+
+        console.log(JSON.stringify(DATA2))
+        console.log(filter)
+        DATA2.map((item, index) => {
+          // alert(JSON.stringify(index))
+          console.log("index",index)
+          if (item.id == filter) {
+            
+            setSelected(filter)
+            console.log("yes")
+          } 
+          //topData[index].selected=true
+          
+        });
+    
+        setisRender(!isRender)
+
+         console.log(selected);
+              
+    //     if(item == "Last 30 days")
+    //     {
+
+    //           setFlagmonth("true"),
+    //         setFlagdays("false"),
+    //         setFlagCurrentyear("false"),
+    //         setFlagpreviousyear("false")
+    //         console.log("log",item)
+    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
+
+    //     }else if(item == "Last 3 days")
+    //     {
+    //         setFlagmonth("false"),
+    //         setFlagdays("true"),
+    //         setFlagCurrentyear("false"),
+    //         setFlagpreviousyear("false")
+    //         console.log("log",item)
+    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
+
+
+    //     }else if(item == "2023")
+    //     {
+           
+    //         setFlagmonth("false"),
+    //         setFlagdays("false"),
+    //         setFlagCurrentyear("true"),
+    //         setFlagpreviousyear("false")
+    //         console.log("log",item)
+    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
+
+    //     }
+    //     else if(item == "2022")
+      
+    //     {
+    //         setFlagmonth("false"),
+    //         setFlagdays("false"),
+    //         setFlagCurrentyear("false"),
+    //         setFlagpreviousyear("true")
+    //         console.log("log",item)
+    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
+
+    //     }
+       
+         
+        
+        
+ 
+       console.log("Flag status === ", selected)
+     }
+
+
 
 
 
@@ -295,12 +372,19 @@ console.log("Flag status === ", flagCancel)
 
               {/* {this.state.show ? <Modal /> : null} */}
                
+              
+              <TouchableOpacity  style={{marginTop:7}} onPress ={()=> filterdate(item.id)}>
+                      
+              { selected== item.id ?<View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+                        <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
+                     </View> :
+                      <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1}}></View> }
+                  
+
+
+              </TouchableOpacity>
                           
-                   <TouchableOpacity>
-                         
-                       <View style={{ alignSelf:'center',borderColor:'gray',width:normalize(18),height:normalize(18),borderRadius:10,borderWidth:1,marginTop:normalize(6)}}></View> 
-                    
-                       </TouchableOpacity>
+                
                    
               
 
@@ -829,6 +913,7 @@ Filters
                   renderItem={renderItem1}
                   keyExtractor={item => item.id}
                   showsHorizontalScrollIndicator={false}
+                  extraData={isRender}
 
 
                   style={{

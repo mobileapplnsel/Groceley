@@ -31,18 +31,10 @@ import constants from '../../utils/helpers/constants';
 
 
 var status = '';
-export default function Add_delivery_address(props) {
+export default function Select_delivery_address(props) {
 
 
-  const [name, setName] = useState('');
-  const [mobilenumber, setMobileNumber] = useState('');
-  const [house, setHouse] = useState('');
-  const [street, setStreet] = useState('');
-  const [landmark, setLandmark] = useState('');
-  const [town, setTown] = useState('');
-  const [states, setStates] = useState('');
-  const [country, setCountry] = useState('');
-  const [pincode, setPincode] = useState('');
+
 
   const isFocused = useIsFocused();
 
