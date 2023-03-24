@@ -264,24 +264,10 @@ style={{
                 marginTop: normalize(-10)
               }}
               />
-               <Text style={{
-                fontSize: normalize(12),
-                letterSpacing: 1,
-                fontWeight: '700',
-                textAlign: 'center',
-                color: 'black',
-                marginTop: normalize(10),
-                fontFamily: FONTS.Hind,
-            }}>
-
-        
-               LNSEL
-
-          
-               </Text>
+              
 <TouchableOpacity
           style={{
-            height: normalize(140),
+            height: normalize(300),
             width: '90%',
             marginTop: normalize(10),
             alignSelf: 'center',
@@ -292,6 +278,44 @@ style={{
           }}
           
         > 
+
+<View >
+<Text style={{
+                fontSize: normalize(12),
+                letterSpacing: 1,
+                fontWeight: '700',
+                textAlign: 'left',
+                color: 'black',
+                marginTop: normalize(10),
+                fontFamily: FONTS.Hind,
+                marginLeft: normalize(40)
+
+               // marginLeft: normalize(5)
+            }}>
+
+        
+               LNSEL
+
+          
+               </Text>
+
+               <Text style={{
+                fontSize: normalize(12),
+                letterSpacing: 1,
+                textAlign: 'left',
+                marginLeft: normalize(40),
+                color: 'black',
+                marginTop: normalize(10),
+                fontFamily: FONTS.Hind,
+            }}>
+
+        
+               Ph: +91 9293829328
+
+          
+               </Text>
+
+               </View>
 
 <View style={{
                 flexDirection: 'row',
@@ -374,7 +398,62 @@ style={{
         color: 'white'
     }}
         >
-           Deliver to this address
+           Use this address
+            </Text>
+            
+            </TouchableOpacity>
+
+
+            <TouchableOpacity
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: '#808080',
+            borderColor: '#D3D3D3'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'white'
+    }}
+        >
+           Edit address
+            </Text>
+            
+            </TouchableOpacity>
+
+            <TouchableOpacity
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: 'white',
+            borderColor: 'green'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'black'
+    }}
+        >
+          Add Delivery Instructions(optional)
             </Text>
             
             </TouchableOpacity>
