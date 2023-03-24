@@ -250,189 +250,10 @@ style={{
          </View>
 
          </View>
-         <View
-            style={{
-                height: normalize(1),
-                width: '90%',
-                backgroundColor: '#69BE53',
-                alignSelf: 'center',
-                
-            }}
-            />
-
-            <TouchableOpacity
-            style={{
-                height: normalize(40),
-                width: '90%',
-                backgroundColor: '#69BE53',
-                alignSelf: 'center',
-                marginTop: normalize(20),
-                borderRadius: normalize(15)
-            }}
-            
-            >
-                <Text style={{
-                     fontSize: normalize(12),
-                     
-                    
-                     textAlign: 'center',
-                     fontFamily: FONTS.Hind,
-                     marginTop: normalize(10),
-                     color: 'white',
-                }}>
-                       Use Current Location
-                </Text>
-
-                
-
-            </TouchableOpacity>
-
-
-            <Text style={{
-                     fontSize: normalize(12),
-                     
-                    
-                     textAlign: 'center',
-                     fontFamily: FONTS.Hind,
-                     marginTop: normalize(10),
-                     color: 'black',
-                }}>
-                       OR
-                </Text>
-
+        
            
 
-<View style={{
-    alignSelf: 'center'
-}}>
-              <TextInputItem
-                value={name}
-                onChangeText={_ => setName(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Full Name'}
-                secureTextEntry={false}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
 
-              />
-
-              <TextInputItem
-                value={mobilenumber}
-                onChangeText={_ => setMobileNumber(_)}
-                marginTop={normalize(10)}
-                keyboardType={'numeric'}
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Mobile Number'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-
-              />
-              <TextInputItem
-                value={house}
-                onChangeText={_ => setHouse(_)}
-                marginTop={normalize(10)}
-               
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Flat, House no.,Apartment'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-               <TextInputItem
-                value={street}
-                onChangeText={_ => setStreet(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Street'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-
-<TextInputItem
-                value={landmark}
-                onChangeText={_ => setStreet(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Landmark'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-              
-
-              <TextInputItem
-                value={town}
-                onChangeText={_ => setTown(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Town/City'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-              <TextInputItem
-                value={states}
-                onChangeText={_ => setStates(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'State'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-              <TextInputItem
-                value={country}
-                onChangeText={_ => setCountry(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Country'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-               <TextInputItem
-                value={pincode}
-                onChangeText={_ => setPincode(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Pincode'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-
-
-
-
-            <View
-            style={{
-                height: normalize(30),
-                width: '90%',
-                backgroundColor: 'green'
-            }}
-            />
-           
-           
-</View>
 
               <View
               style={{
@@ -443,6 +264,21 @@ style={{
                 marginTop: normalize(-10)
               }}
               />
+               <Text style={{
+                fontSize: normalize(12),
+                letterSpacing: 1,
+                fontWeight: '700',
+                textAlign: 'center',
+                color: 'black',
+                marginTop: normalize(10),
+                fontFamily: FONTS.Hind,
+            }}>
+
+        
+               LNSEL
+
+          
+               </Text>
 <TouchableOpacity
           style={{
             height: normalize(40),
