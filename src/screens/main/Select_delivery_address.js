@@ -34,7 +34,8 @@ var status = '';
 export default function Select_delivery_address(props) {
 
 
-
+  const [default_address, setDefault_address] = useState(0);
+  const [recent_address, setRecent_address] = useState(0);
 
   const isFocused = useIsFocused();
 
@@ -53,7 +54,17 @@ export default function Select_delivery_address(props) {
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+function default_address_clicked(){
+  setDefault_address(1)
+  setRecent_address(0)
+  console.log("Default Address ==== ", default_address)
+}
 
+function recent_address_clicked(){
+  setDefault_address(0)
+  setRecent_address(1)
+  console.log("Recent Address ==== ", recent_address)
+}
 
   return (
 
@@ -257,7 +268,7 @@ style={{
               }}
               />
               
-<TouchableOpacity
+<View
           style={{
             height: normalize(300),
             width: '90%',
@@ -323,19 +334,22 @@ style={{
 
                
                           
-                    <TouchableOpacity style={{
+       {default_address == 1 ? (            <TouchableOpacity 
+       onPress={()=> default_address_clicked()}
+       
+       style={{
                       marginTop: normalize(7)
                       }} >
 
                        
                          <View style={{ 
                           alignSelf:'center',
-                          borderColor:'green',
+                          borderColor:'#69BE53',
                           width: normalize(18),
                           height: normalize(18),
                           borderRadius: normalize(10),
                           borderWidth:2,
-                          backgroundColor:'green'
+                          backgroundColor:'#69BE53'
                           }}>
                          <View style={{ 
                           alignSelf:'center',
@@ -349,8 +363,42 @@ style={{
                     
 
                    
-               </TouchableOpacity>
+               </TouchableOpacity>) : (  <TouchableOpacity onPress={()=> default_address_clicked()}
+                    
+                    
+                    style={{
+                      marginTop: normalize(7)
+                      }} >
 
+                       
+                         <View style={{ 
+                          alignSelf:'center',
+                          borderColor:'black',
+                          width: normalize(18),
+                          height: normalize(18),
+                          borderRadius: normalize(10),
+                          borderWidth:2,
+
+                         // backgroundColor:'green'
+                          }}>
+                         <View style={{ 
+                          alignSelf:'center',
+                          borderRadius:normalize(10),
+                          padding:normalize(4),
+                          backgroundColor:'white',
+                          marginTop:normalize(2)
+                          }}></View>
+
+
+
+
+                      </View> 
+                      
+                    
+
+                   
+               </TouchableOpacity>)}
+             
              
                 
                     <Text
@@ -432,7 +480,7 @@ style={{
             borderWidth: normalize(1),
             borderRadius: normalize(15),
             backgroundColor: 'white',
-            borderColor: 'green'
+            borderColor: '#69BE53'
           }}
           
         > 
@@ -452,9 +500,9 @@ style={{
         
         
             
-            </TouchableOpacity>
+            </View>
 
-            <TouchableOpacity
+            <View
           style={{
             height: normalize(330),
             width: '90%',
@@ -537,7 +585,39 @@ style={{
 
                
                           
-                    <TouchableOpacity style={{
+{recent_address == 1 ? (            <TouchableOpacity 
+       onPress={()=> recent_address_clicked()}
+       
+       style={{
+                      marginTop: normalize(7)
+                      }} >
+
+                       
+                         <View style={{ 
+                          alignSelf:'center',
+                          borderColor:'#69BE53',
+                          width: normalize(18),
+                          height: normalize(18),
+                          borderRadius: normalize(10),
+                          borderWidth:2,
+                          backgroundColor:'#69BE53'
+                          }}>
+                         <View style={{ 
+                          alignSelf:'center',
+                          borderRadius:normalize(10),
+                          padding:normalize(4),
+                          backgroundColor:'white',
+                          marginTop:normalize(2)
+                          }}></View>
+                      </View> 
+                      
+                    
+
+                   
+               </TouchableOpacity>) : (  <TouchableOpacity onPress={()=> recent_address_clicked()}
+                    
+                    
+                    style={{
                       marginTop: normalize(7)
                       }} >
 
@@ -559,12 +639,16 @@ style={{
                           backgroundColor:'white',
                           marginTop:normalize(2)
                           }}></View>
+
+
+
+
                       </View> 
                       
                     
 
                    
-               </TouchableOpacity>
+               </TouchableOpacity>)}
 
              
                 
@@ -667,7 +751,7 @@ style={{
         
        
             
-            </TouchableOpacity>
+            </View>
 
 
             <TouchableOpacity onPress={()=> props.navigation.navigate("Add_delivery_address")
@@ -692,7 +776,7 @@ style={{
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'green',
+        color: '#69BE53',
         marginLeft: normalize(20)
     }}
         >
