@@ -180,7 +180,7 @@ props.navigation.navigate("Productdetails")
           onPress={(item) => selectItem(item)}
           style={{
     
-            height: normalize(215),
+            height: normalize(235),
             width: normalize(140),
             backgroundColor: '#F0F0F0' ,
            
@@ -213,8 +213,8 @@ props.navigation.navigate("Productdetails")
             <Image
                       source={item.pic}
                       style={{
-                        height: normalize(60),
-                        width: normalize(60),
+                        height: normalize(80),
+                        width: normalize(80),
                         marginTop: normalize(5),
                         
                       }}
@@ -361,7 +361,7 @@ props.navigation.navigate("Productdetails")
           onPress={(item) => selectItem(item)}
           style={{
     
-            height: normalize(215),
+            height: normalize(235),
             width: normalize(140),
             backgroundColor: '#F0F0F0' ,
            
@@ -380,7 +380,8 @@ props.navigation.navigate("Productdetails")
                 marginLeft: normalize(10),
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: normalize(5)
+                borderRadius: normalize(5),
+                //marginTop: normalize(-5)
             }}>
                 <Text
                 style={{
@@ -394,8 +395,8 @@ props.navigation.navigate("Productdetails")
             <Image
                       source={item.pic}
                       style={{
-                        height: normalize(60),
-                        width: normalize(60),
+                        height: normalize(80),
+                        width: normalize(80),
                         marginTop: normalize(5),
                         
                       }}
