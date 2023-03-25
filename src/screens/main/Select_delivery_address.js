@@ -471,7 +471,7 @@ style={{
             
             </TouchableOpacity>
 
-            <TouchableOpacity
+            <TouchableOpacity onPress = {() => props.navigation.navigate("Add_delivery_instructions")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -722,7 +722,7 @@ style={{
             
             </TouchableOpacity>
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=> props.navigation.navigate("Add_delivery_instructions")}
           style={{
             height: normalize(40),
             width: '90%',
