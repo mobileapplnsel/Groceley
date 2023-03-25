@@ -13,8 +13,7 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList,
-  PermissionsAndroid
+  FlatList
 } from 'react-native';
 
 
@@ -33,12 +32,10 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import Geolocation from 'react-native-geolocation-service';
-import Geocoder from 'react-native-geocoding';
+
 
 var status = '';
-export default function Home(props) {
+export default function Subcategorylist(props) {
 
 
   const [name, setName] = useState('');
@@ -47,30 +44,9 @@ export default function Home(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-  const [location, setLocation] = useState(false);
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [address, setAddress] = useState('');
-  const [dropdownpressed, setDropdownpressed] = useState(0);
-
-  useEffect(() => {
-
-        
-
-    
-
-
-    
-    //getLocation();
-   
-    
-
-
-    
 
 
 
-}, []);
 
 
   const DATA = [{
@@ -107,7 +83,51 @@ export default function Home(props) {
   const DATA2 = [{
     id: "0",
     pic: ICONS.bread,
-    description: "Bread",
+    description: "Hovis Farmhouse Wholemeal",
+    quantity: '400g',
+    discounted_price: '90',
+    real_price: '80',
+    discountrate: '20%'
+  },
+
+  {
+    id: "1",
+    pic: ICONS.ryebread,
+    description: "Rye Bread Slicemeal",
+    quantity: '450g',
+    discounted_price: '50',
+    real_price: '40',
+    discountrate: '0'
+  },
+
+  {
+    id: "2",
+    pic: ICONS.organicbread,
+    description: "Biona Organic Bread",
+    quantity: '400g',
+    discounted_price: '70',
+    real_price: '50',
+    discountrate: '0'
+  },
+
+  {
+    id: "3",
+    
+    pic: ICONS.streetbread,
+    description: "Braker and wheat Bread",
+    quantity: '400g',
+    discounted_price: '90',
+    real_price: '80',
+    discountrate: '0'
+  }
+
+
+  ]
+
+  const DATA3 = [{
+    id: "0",
+    pic: ICONS.bread,
+    description: "Hovis Farmhouse Wholemeal",
     quantity: '400g',
     discounted_price: '90',
     real_price: '80'
@@ -116,7 +136,7 @@ export default function Home(props) {
   {
     id: "1",
     pic: ICONS.milk,
-    description: "Milk",
+    description: "Hovis Farmhouse Wholemeal",
     quantity: '450g',
     discounted_price: '50',
     real_price: '40'
@@ -125,7 +145,7 @@ export default function Home(props) {
   {
     id: "2",
     pic: ICONS.cornflakes,
-    description: "Cornflakes",
+    description: "Amul Moti Homogenized Toned Milk",
     quantity: '400g',
     discounted_price: '70',
     real_price: '50'
@@ -135,7 +155,7 @@ export default function Home(props) {
     id: "3",
     
     pic: ICONS.cornflakes2,
-    description: "Meusli",
+    description: "Kellogg's Corn Flakes Cereal",
     quantity: '400g',
     discounted_price: '90',
     real_price: '80'
@@ -144,125 +164,16 @@ export default function Home(props) {
 
   ]
 
-  const DATA3 = [{
-    id: "0",
-    pic: ICONS.meyonnaise,
-    description: "Veg Mayonnaise",
-    
-  },
-
-  {
-    id: "1",
-    pic: ICONS.burger_patty,
-    description: "Burger Patty",
-   
-  },
-
-  {
-    id: "2",
-    pic: ICONS.amul,
-    description: "Mithai mate",
-    
-  },
-
-  {
-    id: "3",
-    
-    pic: ICONS.snacks,
-    description: "Hot Snax",
-   
-  }
 
 
-  ]
-
-  const getLocation = () => {
-    const result = requestLocationPermission();
-    result.then(res => {
-      console.log('res is:', res);
-      if (res) {
-        Geolocation.getCurrentPosition(
-          position => {
-            console.log("Latitude === ", position?.coords?.latitude);
-            console.log("Longitude === ", position?.coords?.longitude);
-            setLatitude(position?.coords?.latitude);
-            setLongitude(position?.coords?.longitude);
-            geocoding(position)
-            
-          },
-          error => {
-            // See error code charts below.
-            console.log(error.code, error.message);
-            setLocation(false);
-          },
-          {enableHighAccuracy: false, timeout: 15000},
-        );
-      }
-    });
-    console.log(location);
-   
-  };
-
-  function geocoding(position){
-    console.log("Geocoding latitude===", position?.coords?.latitude)
-    console.log("Geocoding longitude===", position?.coords?.longitude)
-    var lat =  position?.coords?.latitude
-    var long = position?.coords?.longitude
-
-    Geocoder.init("AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo");
-    Geocoder.from(lat, long)
-
-.then(json => {
-        var addressComponent = json.results[0].formatted_address;
-  console.log("Address===",addressComponent);
-  setAddress(addressComponent)
-})
-.catch(error => console.warn(error));
-console.log("adkhbhkad")
-  }
-
-
-  const requestLocationPermission = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: 'Geolocation Permission',
-          message: 'Can we access your location?',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      console.log('granted', granted);
-      if (granted === 'granted') {
-        console.log('You can use Geolocation');
-        return true;
-      } else {
-        console.log('You cannot use Geolocation');
-        return false;
-      }
-    } catch (err) {
-      return false;
-    }
-  };
 
  function selectItem(item){
   
-props.navigation.navigate("Subcategorylist" , {
-  img: item.pic
-})
+props.navigation.navigate("Productdetails")
  }
 
- function selectItem2(item){
 
-  
-  props.navigation.navigate("Discountpage",{
-    discount_rate: item.discountrate
-  })
-   }
 
- 
 
 
 
@@ -272,7 +183,7 @@ props.navigation.navigate("Subcategorylist" , {
 
   const renderItem1 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem2(item)}
+      onPress={(item) => selectItem(item)}
       style={{
 
         height: normalize(90),
@@ -329,43 +240,61 @@ props.navigation.navigate("Subcategorylist" , {
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(110),
-        width: normalize(120),
+        height: normalize(195),
+        width: normalize(140),
         backgroundColor: '#F0F0F0' ,
-
+       
         marginLeft: normalize(7),
         borderRadius: normalize(15),
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: normalize(10)
       }}>
         
+       {item.discountrate !== '0' ? ( <View style={{
+            height: normalize(20),
+            width: normalize(50),
+            backgroundColor: '#F36E35',
+            alignSelf: 'flex-start',
+            marginLeft: normalize(10),
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: normalize(5)
+        }}>
+            <Text
+            style={{
+                color: 'white',
+                fontSize: normalize(10)
+
+            }}>{item.discountrate} OFF</Text>
+        </View>
+       ) : (null)}
+       
         <Image
                   source={item.pic}
                   style={{
                     height: normalize(60),
                     width: normalize(60),
-                    alignSelf: 'center',
                     marginTop: normalize(5),
-                    marginLeft: normalize(10)
+                    
                   }}
                   resizeMode={'contain'}
                 ></Image>
 
 
-       <Text
-      numberOfLines={2}
+      <Text
         style={{
           color: 'black',
           fontSize: normalize(10),
-          
+          marginLeft: normalize(10),
           marginTop: normalize(5),
-          textAlign: 'center'
+          alignSelf: 'flex-start'
         }}
       >{item.description}
-      </Text> 
+      </Text>
 
 
-      {/* <Text
+      <Text
         style={{
           color: 'black',
           fontSize: normalize(10),
@@ -374,9 +303,9 @@ props.navigation.navigate("Subcategorylist" , {
           alignSelf: 'flex-start'
                 }}
       >{item.quantity}
-      </Text> */}
+      </Text>
 
-    {/* <View style={{
+    <View style={{
   flexDirection: 'row',
   alignSelf: 'flex-start',
   marginLeft: normalize(10),
@@ -399,143 +328,12 @@ props.navigation.navigate("Subcategorylist" , {
   marginTop: normalize(7),
   position: 'absolute'
 }}/>
-     </View> */}
+     </View>
 
-     {/* <View style={{
-  flexDirection: 'row',
- justifyContent: 'center',
-  marginLeft: normalize(10),
-}}>
-  <View>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: 'black',
-          fontWeight: '600'
-          
-                }}
-      >{'\u20B9'} {item.real_price}
-      </Text>
-      </View>
-
-
-
-<TouchableOpacity style={{
-  height: normalize(30),
-  width: normalize(50),
-  backgroundColor: 'white',
-  borderWidth: normalize(2),
-  borderColor: '#69BE53',
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: normalize(5),
-  marginLeft: normalize(30),
-  marginEnd: normalize(10),
-  marginTop: normalize(-10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#69BE53',
-          alignSelf: 'center'
-          
-                }}
-      >ADD
-      </Text>
-      </TouchableOpacity>
-
-
-
-
-     </View> */}
-
-     
-
-
-    </TouchableOpacity>
-  );
-  const renderItem3 = ({ item, index }) => (
-    <TouchableOpacity
-      onPress={(item) => selectItem(item)}
-      style={{
-
-        height: normalize(110),
-        width: normalize(120),
-        backgroundColor: '#F0F0F0' ,
-
-        marginLeft: normalize(7),
-        borderRadius: normalize(15),
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        
-        <Image
-                  source={item.pic}
-                  style={{
-                    height: normalize(60),
-                    width: normalize(60),
-                    marginTop: normalize(5),
-                   
-                  }}
-                  resizeMode={'contain'}
-                ></Image>
-
-
-      <Text
-      numberOfLines={2}
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-         // marginLeft: normalize(10),
-          marginTop: normalize(5),
-          textAlign: 'center'
-        }}
-      >{item.description}
-      </Text>
-
-
-      {/* <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-                }}
-      >{item.quantity}
-      </Text> */}
-
-    {/* <View style={{
-  flexDirection: 'row',
-  alignSelf: 'flex-start',
-  marginLeft: normalize(10),
-  marginTop: normalize(10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#A9A9A9',
-          
-          
-                }}
-      >{'\u20B9'} {item.discounted_price}
-      </Text>
-    <View style={{
-  height: normalize(1),
-  width: '20%',
-  backgroundColor: '#A9A9A9',
-  marginTop: normalize(7),
-  position: 'absolute'
-}}/>
-     </View> */}
-{/* 
      <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
-  marginLeft: normalize(10),
+  marginLeft: normalize(-10),
 }}>
   <View>
       <Text
@@ -552,7 +350,9 @@ props.navigation.navigate("Subcategorylist" , {
 
 
 
-<TouchableOpacity style={{
+<TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+
+style={{
   height: normalize(30),
   width: normalize(50),
   backgroundColor: 'white',
@@ -580,19 +380,20 @@ props.navigation.navigate("Subcategorylist" , {
 
 
 
-     </View> */}
+     </View>
 
      
 
 
     </TouchableOpacity>
   );
+
   return (
 
 
     <Fragment>
 
-      <Layout Home={true} {...props}>
+      <Layout  {...props}>
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
@@ -602,7 +403,12 @@ props.navigation.navigate("Subcategorylist" , {
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} keyboardShouldPersistTaps="handled" >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+
+
+
+
+
 
             <View style={{
               flexDirection: 'row',
@@ -638,19 +444,20 @@ props.navigation.navigate("Subcategorylist" , {
 
 
 <View style={{
-  
-  width: normalize(200),
-  
-  marginLeft: normalize(-30)
+    alignSelf: 'flex-start',
+    marginRight: normalize(97),
+    //backgroundColor: 'red',
+    width: '40%',
+    
 }}>
               <Text style={{
                 color: 'black',
                 fontSize: normalize(14),
                 fontWeight: '600',
-               // marginLeft: normalize(-60)
-               marginTop: normalize(-5)
+               
+
               }}>
-Delivery In 10 minutes
+Breads
               </Text>
 
 
@@ -692,112 +499,24 @@ Delivery In 10 minutes
            
             </View>
 
-          <TouchableOpacity
-style={{
-  flexDirection: 'row',
-  marginTop: normalize(-20)
-}}
+           
 
-onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
->
-  <View style={{
-    marginTop: normalize(3),
-    marginLeft: normalize(50),
-    height: normalize(30),
-    width: normalize(20),
-   
-  justifyContent: 'center',
-  alignItems: 'center'
-  }}>
-<Image
-                  source={ICONS.location}
-                  style={{
-                    height: normalize(12),
-                    width: normalize(15),
-                    
-                    
-                  }}
-                  resizeMode={'contain'}
-                  
-                ></Image>
+<View style={{
+    alignSelf: 'flex-start',
+    marginLeft: normalize(60),
+   // backgroundColor: 'red',
+    width: '40%',
+    marginTop: normalize(-15)
+}}>
+<Text style={{
+              color: "#515151",
+              
+              fontSize: normalize(10),
+              
+              
+            }}>530 Products</Text>
 
 </View>
-
-
-
-                <GooglePlacesAutocomplete
-                
-        placeholder={address}
-        //minLength={4}
-        enablePoweredByContainer={false}
-        autoFocus={true}
-            listViewDisplayed="auto"
-            returnKeyType={'search'}
-      
-        currentLocation={true} 
-        currentLocationLabel="Current location"
-        nearbyPlacesAPI="GoogleReverseGeocoding"
-        renderDescription={row => row.description || row.formatted_address || row.name}
-        renderRow={(rowData) => {
-          const title = rowData.structured_formatting.main_text;
-          const address = rowData.structured_formatting.secondary_text;
-          return (
-           <View style={{
-            width: '100%'
-           }}>
-            <Text style={{ fontSize: 14, color: 'green' }}>{title}</Text>
-            <Text style={{ fontSize: 14 }}>{address}</Text>
-           </View>
-           );
-          }}
-        fetchDetails={true}
-        textInputProps={{
-          placeholderTextColor: '#515151',
-         
-            
-       
-        }}
-        onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
-          console.log("Data====",data);
-          setAddress(data.description)
-          setDropdownpressed(!dropdownpressed)
-          console.log("kabfkwba",dropdownpressed)
-        }}
-       
-        query={{
-          key: 'AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo',
-          language: 'en',
-        }}
-        onFail={error => console.log(error)}
-        onNotFound={() => console.log('no results')}
-        
-      />
-  <View style={{
-   
-    marginRight: normalize(50),
-    height: normalize(30),
-    width: normalize(20),
-
-  justifyContent: 'center',
-  alignItems: 'center'
-  }}>
-
-<Image
-                  source={ICONS.downward_arrow}
-                  style={{
-                    height: normalize(10),
-                    width: normalize(7),
-                   
-                    marginTop: normalize(9),
-                   
-                  }}
-                  resizeMode={'contain'}
-                  
-                ></Image>
-                </View>
-
-</TouchableOpacity> 
 
 
 
@@ -805,7 +524,8 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
   flexDirection: 'row',
   justifyContent: 'center'
 }}>
-       <TextInput
+
+            <TextInput
                                 value={name}
                                 onChangeText={_ => setName(_)}
                                 marginTop={normalize(15)}
@@ -849,29 +569,10 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
             <CarouselCards />
 
             </View>
-              <FlatList
-                data={DATA}
-                renderItem={renderItem1}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-
-                  
-
-
-
-                }}
-
-
-              />
+              
 
           
-<View style={{
+{/* <View style={{
   flexDirection: 'row',
   justifyContent: 'space-between',
   marginRight: normalize(10)
@@ -888,7 +589,7 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
 <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
 <Text style={{
               color: "#69BE53",
-              fontFamily: FONTS.Hind,
+              fontFamily: FONTS.RubikBold,
               fontSize: normalize(14),
               marginLeft: normalize(30),
               marginTop: normalize(20)
@@ -932,10 +633,10 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
               marginTop: normalize(20)
             }}>Dairy & Frozen Foods</Text>
 
-<TouchableOpacity onPress={()=>props.navigation.navigate("Productlist")}>
+<TouchableOpacity>
 <Text style={{
               color: "#69BE53",
-              fontFamily: FONTS.Hind,
+              fontFamily: FONTS.RubikBold,
               fontSize: normalize(14),
               marginLeft: normalize(30),
               marginTop: normalize(20)
@@ -945,7 +646,7 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
 
 <FlatList
                 data={DATA3}
-                renderItem={renderItem3}
+                renderItem={renderItem2}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
 
@@ -961,8 +662,61 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
 
                 }}
 
+              /> */}
 
-              />
+
+
+
+<View style={{
+                                flexDirection: 'row',
+                                flex: 1,
+                                
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                               
+                            }}>
+                                <FlatList
+                                    data={DATA2}
+                                    renderItem={renderItem2}
+                                    keyExtractor={item => item.id}
+                                    showsHorizontalScrollIndicator={false}
+
+
+                                    style={{
+
+
+                                        marginLeft: normalize(10),
+
+                                        
+
+                                        width: '50%'
+
+                                    }}
+
+
+                                />
+                                <FlatList
+                                    data={DATA2}
+                                    renderItem={renderItem2}
+                                    keyExtractor={item => item.id}
+                                    showsHorizontalScrollIndicator={false}
+
+
+                                    style={{
+
+
+                                       // marginLeft: normalize(5),
+                                        marginRight: normalize(8),
+                                        
+                                        width: '50%'
+
+
+
+                                    }}
+
+
+                                />
+                            </View>
 
 
 

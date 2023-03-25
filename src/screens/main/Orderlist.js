@@ -302,19 +302,6 @@ style={{
             <>
         
     
-    
-    
-    
-               
-    
-    
-    
-    
-    
-    
-    
-    
-    
                 <TouchableOpacity onPress={()=> props.navigation.navigate("Orderdetails")}
                 
                 style={{
@@ -422,18 +409,7 @@ style={{
     
     
                 </TouchableOpacity>
-    
-    
-                            
-    
-    
-    
-    
-    
-    
-    
-           
-    
+  
           
             </>
         );
@@ -460,15 +436,6 @@ style={{
 
 
                         {/* <ScrollView showsVerticalScrollIndicator={false} bounces={false} > */}
-
-
-
-
-
-
-                        
-
-
 
 
 
@@ -522,7 +489,7 @@ style={{
     borderRadius: normalize(5),
     borderColor: '#D6D6D6',
     borderWidth: normalize(1)
-}}>
+}}  onPress={()=> props.navigation.navigate("Filters")} >
     <Image
                   source={ICONS.filter}
                   style={{
