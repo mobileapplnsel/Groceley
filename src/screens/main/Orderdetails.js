@@ -193,8 +193,8 @@ function favourite1(){
             
             style={{
                 flexDirection: 'row',
-            height: normalize(100),
-            width: normalize(200),
+            height: normalize(110),
+            width: normalize(210),
             borderRadius: normalize(10),
             backgroundColor: '#F0F0F0',
             marginHorizontal: normalize(5)
@@ -203,8 +203,8 @@ function favourite1(){
                  <Image
                           source={item.pic}
                           style={{
-                            height: normalize(60),
-                            width: normalize(60),
+                            height: normalize(80),
+                            width: normalize(80),
                             alignSelf: 'center',
                             marginTop: normalize(5),
                             //marginLeft: normalize(20)
