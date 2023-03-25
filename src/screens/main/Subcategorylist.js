@@ -240,7 +240,7 @@ props.navigation.navigate("Productdetails")
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(195),
+        height: normalize(220),
         width: normalize(140),
         backgroundColor: '#F0F0F0' ,
        

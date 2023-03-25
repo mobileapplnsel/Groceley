@@ -466,7 +466,7 @@ props.navigation.navigate("Productlist" , {
   );
   const renderItem3 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem(item)}
+      onPress={(item) => selectItem3(item)}
       style={{
 
         height: normalize(110),
