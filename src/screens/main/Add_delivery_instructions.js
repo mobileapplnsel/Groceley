@@ -39,16 +39,81 @@ export default function Add_delivery_instructions(props) {
   const [delivery_instructions, setDelivery_instructions] = useState('');
   const [fromtime, setFromtime] = useState('');
   const [totime, setTotime] = useState('');
+
+
+
+  const [houseselected, setHouseselected] = useState('');
+  const [apartment, setApartment] = useState('');
+  const [office, setOffice] = useState('');
+  const [others, setOthers] = useState('');
+
+  const [nosaturday, setNosaturday] = useState(0);
+  const [yessaturday, setYessaturday] = useState(0);
+  const [nosunday, setNosunday] = useState(0);
+  const [yessunday, setYessunday] = useState(0);
+
+
   const isFocused = useIsFocused();
 
 
 
 
+function nosaturdayclicked(){
+    setNosaturday(1),
+    setYessaturday(0),
+    setNosunday(0),
+    setYessunday(0)
+}
+
+function yessaturdayclicked(){
+    setNosaturday(0),
+    setYessaturday(1),
+    setNosunday(0),
+    setYessunday(0)
+}
+
+function nosundayclicked(){
+    setNosaturday(0),
+    setYessaturday(0),
+    setNosunday(1),
+    setYessunday(0)
+}
+
+function yessundayclicked(){
+    setNosaturday(0),
+    setYessaturday(0),
+    setNosunday(0),
+    setYessunday(1)
+}
 
 
+function houseselectedclicked(){
+    setHouseselected(1),
+    setApartment(0),
+    setOffice(0),
+    setOthers(0)
+}
 
+function apartmentclicked(){
+    setHouseselected(0),
+    setApartment(1),
+    setOffice(0),
+    setOthers(0)
+}
 
+function officeclicked(){
+    setHouseselected(0),
+    setApartment(0),
+    setOffice(1),
+    setOthers(0)
+}
 
+function othersclicked(){
+    setHouseselected(0),
+    setApartment(0),
+    setOffice(0),
+    setOthers(1)
+}
 
 
 
@@ -243,7 +308,7 @@ function recent_address_clicked(){
     justifyContent: 'space-evenly',
     
 }}>
-            <TouchableOpacity 
+            <TouchableOpacity onPress={houseselectedclicked}
           style={{
             height: normalize(40),
             width: '40%',
@@ -251,7 +316,7 @@ function recent_address_clicked(){
            
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: houseselected == 1 ? '#69BE53' : 'white',
             borderColor: '#69BE53'
           }}
           
@@ -262,7 +327,7 @@ function recent_address_clicked(){
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color: houseselected == 1 ? 'white' : 'black'
     }}
         >
            House
@@ -270,7 +335,7 @@ function recent_address_clicked(){
             
             </TouchableOpacity>
 
-            <TouchableOpacity 
+            <TouchableOpacity onPress={apartmentclicked}
           style={{
             height: normalize(40),
             width: '40%',
@@ -278,7 +343,7 @@ function recent_address_clicked(){
             alignSelf: 'center',
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: apartment == 1 ? '#69BE53' : 'white',
             borderColor: '#69BE53'
           }}
           
@@ -289,7 +354,7 @@ function recent_address_clicked(){
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color: apartment == 1 ? 'white' : 'black'
     }}
         >
            Apartment
@@ -303,7 +368,7 @@ function recent_address_clicked(){
     
     justifyContent: 'space-evenly',
 }}>
-            <TouchableOpacity 
+            <TouchableOpacity onPress={officeclicked}
           style={{
             height: normalize(40),
             width: '40%',
@@ -311,7 +376,7 @@ function recent_address_clicked(){
            
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: office == 1 ? '#69BE53' : 'white',
             borderColor: '#69BE53'
           }}
           
@@ -322,14 +387,14 @@ function recent_address_clicked(){
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color: office == 1 ? 'white' : 'black'
     }}
         >
            Office
             </Text>
             
             </TouchableOpacity>
-            <TouchableOpacity 
+            <TouchableOpacity onPress={othersclicked}
           style={{
             height: normalize(40),
             width: '40%',
@@ -337,7 +402,7 @@ function recent_address_clicked(){
             alignSelf: 'center',
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: others == 1 ? '#69BE53' : 'white',
             borderColor: '#69BE53'
           }}
           
@@ -348,7 +413,7 @@ function recent_address_clicked(){
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color:  others == 1 ? 'white' : 'black',
     }}
         >
           Others
@@ -418,7 +483,7 @@ function recent_address_clicked(){
     }}>
 Sat
     </Text>
-            <TouchableOpacity 
+           <TouchableOpacity onPress={nosaturdayclicked}
           style={{
             height: normalize(40),
             width: '30%',
@@ -426,7 +491,7 @@ Sat
            
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: nosaturday == 1 ? '#69BE53': 'white',
             borderColor: '#69BE53'
           }}
           
@@ -437,7 +502,7 @@ Sat
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color: nosaturday == 1 ? 'white' : 'black'
     }}
         >
            No
@@ -445,7 +510,7 @@ Sat
             
             </TouchableOpacity>
 
-            <TouchableOpacity 
+            <TouchableOpacity onPress={yessaturdayclicked}
           style={{
             height: normalize(40),
             width: '30%',
@@ -453,7 +518,7 @@ Sat
             alignSelf: 'center',
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: yessaturday == 1 ? '#69BE53': 'white',
             borderColor: '#69BE53'
           }}
           
@@ -464,7 +529,7 @@ Sat
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color:  yessaturday == 1 ? 'white' : 'black'
     }}
         >
            Yes
@@ -491,7 +556,7 @@ Sat
     }}>
 Sun
     </Text>
-            <TouchableOpacity 
+            <TouchableOpacity onPress={nosundayclicked}
           style={{
             height: normalize(40),
             width: '30%',
@@ -499,7 +564,7 @@ Sun
            
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: nosunday == 1 ? '#69BE53': 'white',
             borderColor: '#69BE53'
           }}
           
@@ -510,14 +575,18 @@ Sun
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color:  nosunday == 1 ? 'white' : 'black'
     }}
         >
            No
             </Text>
             
             </TouchableOpacity>
-            <TouchableOpacity 
+           
+           
+           
+           
+            <TouchableOpacity onPress={yessundayclicked}
           style={{
             height: normalize(40),
             width: '30%',
@@ -525,7 +594,7 @@ Sun
             alignSelf: 'center',
             borderWidth: normalize(1),
             borderRadius: normalize(5),
-            backgroundColor: 'white',
+            backgroundColor: yessunday == 1 ? '#69BE53': 'white',
             borderColor: '#69BE53'
           }}
           
@@ -536,7 +605,7 @@ Sun
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color: yessunday == 1 ? 'white' : 'black'
     }}
         >
           Yes
