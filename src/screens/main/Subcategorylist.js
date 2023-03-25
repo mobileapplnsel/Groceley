@@ -92,7 +92,7 @@ export default function Subcategorylist(props) {
 
   {
     id: "1",
-    pic: ICONS.ryebread,
+    pic: ICONS.moreishbread,
     description: "Rye Bread Slicemeal",
     quantity: '450g',
     discounted_price: '50',
@@ -273,8 +273,8 @@ props.navigation.navigate("Productdetails")
         <Image
                   source={item.pic}
                   style={{
-                    height: normalize(60),
-                    width: normalize(60),
+                    height: normalize(80),
+                    width: normalize(80),
                     marginTop: normalize(5),
                     
                   }}

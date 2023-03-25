@@ -75,6 +75,12 @@ export const ICONS = {
    referandearn: require('../assets/icons/referandearn.png'),
    noodles: require('../assets/icons/noodles.jpeg'),
    pasta: require('../assets/icons/pasta.png'),
+   moreishbread: require('../assets/icons/moreishbread.png'),
+   organicbread: require('../assets/icons/organicbread.png'),
+   ryebread: require('../assets/icons/ryebread.jpg'),
+   streetbread: require('../assets/icons/streetbread.png'),
+   multigrainbread: require('../assets/icons/multigrainbread.jpg'),
+   multigrainbread: require('../assets/icons/multigrainbread.jpg'),
 };
 
 export const FONTS = {
