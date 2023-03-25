@@ -114,7 +114,7 @@ export default function Add_delivery_address(props) {
                   
 
                 }}>
-             Select Delivery Address
+             Add Delivery Address
               </Text>
 
 

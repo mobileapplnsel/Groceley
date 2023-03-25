@@ -368,7 +368,7 @@ style={{
 
             </View>
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=> props.navigation.navigate("Add_delivery_address")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -450,16 +450,7 @@ style={{
             
             </TouchableOpacity>
         
-        {/* <Text style={{
-        fontSize: normalize(12),           
-        textAlign: 'center',
-        fontFamily: FONTS.Hind,
-        marginTop: normalize(10),
-        color: 'black'
-    }}
-        >
-            Add Delivery Instructions(optional)
-            </Text> */}
+        
             
             </TouchableOpacity>
 
@@ -674,16 +665,53 @@ style={{
             
             </TouchableOpacity>
         
-        {/* <Text style={{
+       
+            
+            </TouchableOpacity>
+
+
+            <TouchableOpacity
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(10),
+            backgroundColor: 'white',
+            borderColor: '#D3D3D3',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+          }}
+          
+        > 
+        
+        <Text style={{
         fontSize: normalize(12),           
         textAlign: 'center',
         fontFamily: FONTS.Hind,
         marginTop: normalize(10),
-        color: 'black'
+        color: 'green',
+        marginLeft: normalize(20)
     }}
         >
-            Add Delivery Instructions(optional)
-            </Text> */}
+          Add Delivery Address
+            </Text>
+
+            <Image
+                source={ICONS.right_arrow}
+                style={{
+                    height: normalize(10),
+                    width: '100%',
+                    alignSelf: 'center',
+                    tintColor: 'black',
+                    marginLeft: normalize(-20),
+                   
+                }}
+                resizeMode={'contain'}
+                tintColor={'black'}
+            ></Image>
+
             
             </TouchableOpacity>
 

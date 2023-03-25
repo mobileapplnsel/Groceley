@@ -29,6 +29,8 @@ import Orderdetails2 from '../screens/main/Orderdetails2';
 import Favourities from '../screens/main/Favourities';
 import Add_delivery_address from '../screens/main/Add_delivery_address';
 import Select_delivery_address from '../screens/main/Select_delivery_address';
+import Subcategorylist from '../screens/main/Subcategorylist';
+
 import Filter from '../screens/main/Filter';
 
 
@@ -68,7 +70,8 @@ export default function StackNavigator() {
         Favourities : Favourities,
         Add_delivery_address: Add_delivery_address,
         Filter: Filter,
-        Select_delivery_address: Select_delivery_address
+        Select_delivery_address: Select_delivery_address,
+        Subcategorylist: Subcategorylist,
       }
      
 
