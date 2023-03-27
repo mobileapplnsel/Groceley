@@ -404,8 +404,8 @@ const renderItem2 = ({ item, index }) => (
   <View style={{
 
       height: normalize(60),
-      width: '88%',
-      
+      width: '95%',
+      alignSelf:'center',
       marginVertical: normalize(5),
       
       borderRadius: normalize(15)
@@ -454,7 +454,7 @@ const renderItem2 = ({ item, index }) => (
 
 </View>:item.coinstype =="Refer Coins" ? <View style={{justifyContent:'flex-end'}}>
  
- <Text style={{color:'green',marginLeft:10,fontWeight:'700',alignSelf:'flex-end',textAlign:'right'}}>{item.coins}</Text>
+ <Text style={{color:'green',fontWeight:'700',alignSelf:'flex-end',textAlign:'right'}}>{item.coins}</Text>
  <View style={{flexDirection:'row',alignSelf:'flex-end'}}>
 <Image
                 source={ICONS.referandearn}
@@ -466,12 +466,12 @@ const renderItem2 = ({ item, index }) => (
                 resizeMode={'contain'}
                 tintColor= {'green'}
               ></Image>
-<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+<Text style={{color:'green',fontSize:normalize(10),}}>{item.coinstype}</Text>
 </View>
   </View>:item.coinstype =="Deposit Coins" ? <View style={{justifyContent:'flex-end'}}>
  
   <Text style={{color:'green',marginLeft:10,fontWeight:'700',alignSelf:'flex-end',textAlign:'right'}}>{item.coins}</Text>
-<View style={{flexDirection:'row',alignItems:'flex-end',marginLeft:10}}>
+<View style={{flexDirection:'row',alignItems:'flex-end'}}>
 <Image
                 source={ICONS.deposit}
                 style={{
@@ -482,7 +482,7 @@ const renderItem2 = ({ item, index }) => (
                 resizeMode={'contain'}
                 tintColor= {'green'}
               ></Image>
-<Text style={{color:'green',marginRight:10,fontSize:normalize(10),alignSelf:'flex-end',textAlign:'right'}}>{item.coinstype}</Text>
+<Text style={{color:'green',fontSize:normalize(10),alignSelf:'flex-end',textAlign:'right'}}>{item.coinstype}</Text>
 </View>
  
   </View>:null}
