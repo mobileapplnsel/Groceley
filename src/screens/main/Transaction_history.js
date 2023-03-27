@@ -437,8 +437,8 @@ const renderItem2 = ({ item, index }) => (
           {item.coinstype =="Buy & Earn Coins"?
           <View style={{justifyContent:'flex-end'}}>
  
-<Text style={{color:'orange',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
-<View style={{flexDirection:'row'}}>
+<Text style={{color:'orange',marginLeft:10,fontWeight:'700',alignSelf:'flex-end',textAlign:'right'}}>{item.coins}</Text>
+<View style={{flexDirection:'row',alignSelf:'flex-end'}}>
 <Image
                 source={ICONS.buyandearn}
                 style={{
@@ -454,8 +454,8 @@ const renderItem2 = ({ item, index }) => (
 
 </View>:item.coinstype =="Refer Coins" ? <View style={{justifyContent:'flex-end'}}>
  
- <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
- <View style={{flexDirection:'row'}}>
+ <Text style={{color:'green',marginLeft:10,fontWeight:'700',alignSelf:'flex-end',textAlign:'right'}}>{item.coins}</Text>
+ <View style={{flexDirection:'row',alignSelf:'flex-end'}}>
 <Image
                 source={ICONS.referandearn}
                 style={{
@@ -470,19 +470,19 @@ const renderItem2 = ({ item, index }) => (
 </View>
   </View>:item.coinstype =="Deposit Coins" ? <View style={{justifyContent:'flex-end'}}>
  
-  <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
-<View style={{flexDirection:'row'}}>
+  <Text style={{color:'green',marginLeft:10,fontWeight:'700',alignSelf:'flex-end',textAlign:'right'}}>{item.coins}</Text>
+<View style={{flexDirection:'row',alignItems:'flex-end',marginLeft:10}}>
 <Image
                 source={ICONS.deposit}
                 style={{
                   height: normalize(15),
                   width: normalize(15),
-                  alignSelf: 'center'
+                  alignSelf: 'flex-end'
                 }}
                 resizeMode={'contain'}
                 tintColor= {'green'}
               ></Image>
-<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+<Text style={{color:'green',marginRight:10,fontSize:normalize(10),alignSelf:'flex-end',textAlign:'right'}}>{item.coinstype}</Text>
 </View>
  
   </View>:null}
