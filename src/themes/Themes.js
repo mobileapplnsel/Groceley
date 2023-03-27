@@ -35,7 +35,8 @@ export const ICONS = {
    streetbread: require('../assets/icons/streetbread.jpg'),
    organicbread: require('../assets/icons/organicbread.jpg'),
    multigrainbread: require('../assets/icons/multigrainbread.jpg'),
-
+   down_arrow: require('../assets/icons/down.png'),
+   check: require('../assets/icons/check.png'),
    milk: require('../assets/icons/milk.png'),
    cornflakes: require('../assets/icons/cornflakes.png'),
    cornflakes2: require('../assets/icons/cornflakes2.png'),

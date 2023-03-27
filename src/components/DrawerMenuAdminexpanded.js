@@ -616,7 +616,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                  navigation.navigate('PaymentOptions');
+                  navigation.navigate('Transaction_history');
                 }}>
                 <View
                   style={{

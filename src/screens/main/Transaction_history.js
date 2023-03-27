@@ -11,7 +11,8 @@ import {
   ImageBackground,
   StatusBar,
   Alert,
-  TextInput
+  TextInput,
+  FlatList
 } from 'react-native';
 
 
@@ -26,6 +27,7 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
+import { height } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 
 
 
@@ -43,23 +45,626 @@ export default function Transaction_history(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
-
+  const [all, setAll] = useState(1);
+  const [credit, setCredit] = useState(0);
+  const [debit, setDebit] = useState(0);
   const isFocused = useIsFocused();
-
-
-
-
-
-
-
-
-
-
-
-
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+    const DATA = [{
+      id: "0",
+      categories: "Bedcovers",
+      pic: ICONS.bread,
+      coins:"-10 Coins",
+      coinstype:"Buy & Earn Coins",
+      description: "Hovis Farmhouse Wholemeal",
+      realprice: "4999",
+      discountedprice: "1690",
+      quantity:1 
+
+  },
+
+  {
+      id: "1",
+      categories: "Bedsheets",
+      pic: ICONS.cornflakes,
+      description: "Kellogg's Corn Flakes Cereal",
+      coins:"+10 Coins",
+      coinstype:"Deposit Coins",
+      realprice: "4999",
+      discountedprice: "1690",
+      quantity:1 
+
+
+  },
+
+  {
+      id: "2",
+      categories: 'Blankets',
+      pic: ICONS.milk,
+      description: "Amul Moti Homogenized Toned Milk",
+      realprice: "4999",
+      discountedprice: "1690",
+      coins:"+20 Coins",
+      coinstype:"Refer Coins",
+      quantity:1 
+
+  },
+
+  {
+      id: "3",
+      categories: 'Blankets',
+      pic: ICONS.cornflakes2,
+      coins:"-10 Coins",
+      coinstype:"Buy & Earn Coins",
+      description: "Kellogg's Corn Flakes Cereal",
+      realprice: "4999",
+      discountedprice: "1690",
+      quantity:1 
+
+  },
+  {
+      id: "4",
+      categories: 'Blankets',
+      pic: ICONS.milk,
+      description: "Amul Moti Homogenized Toned Milk",
+      realprice: "4999",
+      discountedprice: "1690",
+      coins:"+10 Coins",
+      coinstype:"Deposit Coins",
+      quantity:1 
+
+  }
+  ]
+
+//-----------------------------------------------------------
+
+
+const DATA1 = [{
+  id: "0",
+  categories: "Bedcovers",
+  pic: ICONS.bread,
+  coins:"+10 Coins",
+  coinstype:"Deposit Coins",
+  description: "Hovis Farmhouse Wholemeal",
+  realprice: "4999",
+  discountedprice: "1690",
+  quantity:1 
+
+},
+
+{
+  id: "1",
+  categories: "Bedsheets",
+  pic: ICONS.cornflakes,
+  description: "Kellogg's Corn Flakes Cereal",
+  coins:"+10 Coins",
+  coinstype:"Deposit Coins",
+  realprice: "4999",
+  discountedprice: "1690",
+  quantity:1 
+
+
+},
+
+{
+  id: "2",
+  categories: 'Blankets',
+  pic: ICONS.milk,
+  description: "Amul Moti Homogenized Toned Milk",
+  realprice: "4999",
+  discountedprice: "1690",
+  coins:"+20 Coins",
+  coinstype:"Refer Coins",
+  quantity:1 
+
+},
+
+{
+  id: "3",
+  categories: 'Blankets',
+  pic: ICONS.cornflakes2,
+  coins:"+10 Coins",
+  coinstype:"Deposit Coins",
+  description: "Kellogg's Corn Flakes Cereal",
+  realprice: "4999",
+  discountedprice: "1690",
+  quantity:1 
+
+},
+{
+  id: "4",
+  categories: 'Blankets',
+  pic: ICONS.milk,
+  description: "Amul Moti Homogenized Toned Milk",
+  realprice: "4999",
+  discountedprice: "1690",
+  coins:"+10 Coins",
+  coinstype:"Refer Coins",
+  quantity:1 
+
+}
+
+
+
+
+]//--------------------------------------------------
+
+
+
+
+const DATA2 = [{
+  id: "0",
+  categories: "Bedcovers",
+  pic: ICONS.bread,
+  coins:"-10 Coins",
+  coinstype:"Buy & Earn Coins",
+  description: "Hovis Farmhouse Wholemeal",
+  realprice: "4999",
+  discountedprice: "1690",
+  quantity:1 
+
+},
+
+{
+  id: "1",
+  categories: "Bedsheets",
+  pic: ICONS.cornflakes,
+  description: "Kellogg's Corn Flakes Cereal",
+  coins:"-30 Coins",
+  coinstype:"Buy & Earn Coins",
+  realprice: "4999",
+  discountedprice: "1690",
+  quantity:1 
+
+
+},
+
+{
+  id: "2",
+  categories: 'Blankets',
+  pic: ICONS.milk,
+  description: "Amul Moti Homogenized Toned Milk",
+  realprice: "4999",
+  discountedprice: "1690",
+  coins:"-20 Coins",
+  coinstype:"Buy & Earn Coins",
+  quantity:1 
+
+},
+
+{
+  id: "3",
+  categories: 'Blankets',
+  pic: ICONS.cornflakes2,
+  coins:"-10 Coins",
+  coinstype:"Buy & Earn Coins",
+  description: "Kellogg's Corn Flakes Cereal",
+  realprice: "4999",
+  discountedprice: "1690",
+  quantity:1 
+
+},
+{
+  id: "4",
+  categories: 'Blankets',
+  pic: ICONS.milk,
+  description: "Amul Moti Homogenized Toned Milk",
+  realprice: "4999",
+  discountedprice: "1690",
+  coins:"-10 Coins",
+  coinstype:"Buy & Earn Coins",
+  quantity:1 
+
+}
+
+
+
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const renderItem1 = ({ item, index }) => (
+    <>
+    <View style={{
+
+        height: normalize(60),
+        width: '88%',
+        
+        marginVertical: normalize(5),
+        
+        borderRadius: normalize(15)
+    }}>
+
+        <View style={{
+            flexDirection: 'row',
+
+        }}
+        >
+
+
+            <View style={{
+                width: '70%',
+                marginLeft: normalize(10)
+            }}>
+                <Text
+                numberOfLines={3}
+                    style={{
+                        fontSize: normalize(12),
+                        color: "black",
+                        marginTop: normalize(10),
+                        fontWeight:'600'
+                    }}
+                >{item.description}</Text>
+
+            </View>
+
+            {item.coinstype =="Buy & Earn Coins"?
+            <View style={{justifyContent:'flex-end'}}>
+   
+<Text style={{color:'orange',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+<View style={{flexDirection:'row'}}>
+<Image
+                  source={ICONS.buyandearn}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'orange'}
+                ></Image>
+<Text style={{color:'orange',marginRight:10}}>{item.coinstype}</Text>
+</View>
+
+ </View>:item.coinstype =="Refer Coins" ? <View style={{justifyContent:'flex-end'}}>
+   
+   <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+   <View style={{flexDirection:'row'}}>
+<Image
+                  source={ICONS.referandearn}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'green'}
+                ></Image>
+<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+</View>
+    </View>:item.coinstype =="Deposit Coins" ? <View style={{justifyContent:'flex-end'}}>
+   
+    <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+<View style={{flexDirection:'row'}}>
+<Image
+                  source={ICONS.deposit}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    alignSelf: 'center'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'green'}
+                ></Image>
+<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+</View>
+   
+    </View>:null}
+ 
+        </View>
+
+
+                    
+
+  
+
+
+
+
+
+    </View>
+
+
+    <View
+    style={{
+        height: normalize(1),
+        width: '95%',
+        backgroundColor: '#69BE53'
+    }}
+    />
+    </>
+);
+
+///...................................................
+
+const renderItem2 = ({ item, index }) => (
+  <>
+  <View style={{
+
+      height: normalize(60),
+      width: '88%',
+      
+      marginVertical: normalize(5),
+      
+      borderRadius: normalize(15)
+  }}>
+
+      <View style={{
+          flexDirection: 'row',
+
+      }}
+      >
+
+
+          <View style={{
+              width: '70%',
+              marginLeft: normalize(10)
+          }}>
+              <Text
+              numberOfLines={3}
+                  style={{
+                      fontSize: normalize(12),
+                      color: "black",
+                      marginTop: normalize(10),
+                      fontWeight:'600'
+                  }}
+              >{item.description}</Text>
+
+          </View>
+
+          {item.coinstype =="Buy & Earn Coins"?
+          <View style={{justifyContent:'flex-end'}}>
+ 
+<Text style={{color:'orange',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+<View style={{flexDirection:'row'}}>
+<Image
+                source={ICONS.buyandearn}
+                style={{
+                  height: normalize(15),
+                  width: normalize(15),
+                  alignSelf: 'center'
+                }}
+                resizeMode={'contain'}
+                tintColor= {'orange'}
+              ></Image>
+<Text style={{color:'orange',marginRight:10}}>{item.coinstype}</Text>
+</View>
+
+</View>:item.coinstype =="Refer Coins" ? <View style={{justifyContent:'flex-end'}}>
+ 
+ <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+ <View style={{flexDirection:'row'}}>
+<Image
+                source={ICONS.referandearn}
+                style={{
+                  height: normalize(15),
+                  width: normalize(15),
+                  alignSelf: 'center'
+                }}
+                resizeMode={'contain'}
+                tintColor= {'green'}
+              ></Image>
+<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+</View>
+  </View>:item.coinstype =="Deposit Coins" ? <View style={{justifyContent:'flex-end'}}>
+ 
+  <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+<View style={{flexDirection:'row'}}>
+<Image
+                source={ICONS.deposit}
+                style={{
+                  height: normalize(15),
+                  width: normalize(15),
+                  alignSelf: 'center'
+                }}
+                resizeMode={'contain'}
+                tintColor= {'green'}
+              ></Image>
+<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+</View>
+ 
+  </View>:null}
+
+      </View>
+
+
+                  
+
+
+
+
+
+
+
+  </View>
+
+
+  <View
+  style={{
+      height: normalize(1),
+      width: '95%',
+      backgroundColor: '#69BE53'
+  }}
+  />
+  </>
+);
+///-------------------------------------------------
+
+
+const renderItem3 = ({ item, index }) => (
+  <>
+  <View style={{
+
+      height: normalize(60),
+      width: '88%',
+      
+      marginVertical: normalize(5),
+      
+      borderRadius: normalize(15)
+  }}>
+
+      <View style={{
+          flexDirection: 'row',
+
+      }}
+      >
+
+
+          <View style={{
+              width: '70%',
+              marginLeft: normalize(10)
+          }}>
+              <Text
+              numberOfLines={3}
+                  style={{
+                      fontSize: normalize(12),
+                      color: "black",
+                      marginTop: normalize(10),
+                      fontWeight:'600'
+                  }}
+              >{item.description}</Text>
+
+          </View>
+
+          {item.coinstype =="Buy & Earn Coins"?
+          <View style={{justifyContent:'flex-end'}}>
+ 
+<Text style={{color:'orange',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+<View style={{flexDirection:'row'}}>
+<Image
+                source={ICONS.buyandearn}
+                style={{
+                  height: normalize(15),
+                  width: normalize(15),
+                  alignSelf: 'center'
+                }}
+                resizeMode={'contain'}
+                tintColor= {'orange'}
+              ></Image>
+<Text style={{color:'orange',marginRight:10}}>{item.coinstype}</Text>
+</View>
+
+</View>:item.coinstype =="Refer Coins" ? <View style={{justifyContent:'flex-end'}}>
+ 
+ <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+ <View style={{flexDirection:'row'}}>
+<Image
+                source={ICONS.referandearn}
+                style={{
+                  height: normalize(15),
+                  width: normalize(15),
+                  alignSelf: 'center'
+                }}
+                resizeMode={'contain'}
+                tintColor= {'green'}
+              ></Image>
+<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+</View>
+  </View>:item.coinstype =="Deposit Coins" ? <View style={{justifyContent:'flex-end'}}>
+ 
+  <Text style={{color:'green',marginLeft:10,fontWeight:'700'}}>{item.coins}</Text>
+<View style={{flexDirection:'row'}}>
+<Image
+                source={ICONS.deposit}
+                style={{
+                  height: normalize(15),
+                  width: normalize(15),
+                  alignSelf: 'center'
+                }}
+                resizeMode={'contain'}
+                tintColor= {'green'}
+              ></Image>
+<Text style={{color:'green',marginRight:10}}>{item.coinstype}</Text>
+</View>
+ 
+  </View>:null}
+
+      </View>
+
+
+                  
+  </View>
+
+
+  <View
+  style={{
+      height: normalize(1),
+      width: '95%',
+      backgroundColor: '#69BE53'
+  }}
+  />
+  </>
+);
+//----------------------------------------------------
+
+
+
+
+function allTab () {
+
+  {
+   
+      setAll(1),
+      setCredit(0),
+      setDebit(0)
+  }
+
+console.log("Flag status === ", all)
+}
+
+//----------------------------------------
+
+function allCredit () {
+
+  {
+   
+      setAll(0),
+      setCredit(1),
+      setDebit(0)
+  }
+
+console.log("Flag status === ", credit)
+}
+
+//----------------------------------------
+
+function allDebit () {
+
+  {
+   
+      setAll(0),
+      setCredit(0),
+      setDebit(1)
+  }
+
+console.log("Flag status === ", debit)
+}
+
+
+
+
 
 
 
@@ -91,16 +696,6 @@ export default function Transaction_history(props) {
         marginBottom: normalize(20)
     }}>
 
-
-
-
-
-          
-
-
-
-
-
              
               <Text
                 style={{
@@ -114,7 +709,7 @@ export default function Transaction_history(props) {
                   
 
                 }}>
-             Add Delivery Address
+               Transaction History
               </Text>
 
 
@@ -131,101 +726,42 @@ export default function Transaction_history(props) {
             />
 
 
-              <View style={{
-    height: normalize(70),
-    width: '90%',
-    
-    alignSelf: 'center',
-    borderRadius: normalize(10)
-}}>
+  
+      
+
+         
          <View style={{
-            flexDirection: 'row',
-            marginTop: normalize(20),
-         }}>
-
-            <View>
-<View
-style={{
-    height: normalize(15),
-    width: normalize(15),
-    borderRadius: normalize(7.5),
-    borderWidth: normalize(1),
-    borderColor: 'black',
-    marginRight: normalize(5),
-    marginLeft: normalize(28),
-    backgroundColor: '#69BE53'
-}}
-/>
-</View>
-<View
-style={{
-    height: normalize(1),
-    width: '30%',
-    alignSelf: 'center',
-    backgroundColor: '#A9A9A9'
-}}
-/>
-
-<View
-style={{
-    height: normalize(15),
-    width: normalize(15),
-    borderRadius: normalize(7.5),
-    borderWidth: normalize(1),
-    borderColor: 'black',
-    marginLeft: normalize(5),
-    
-    backgroundColor: 'white'
-}}
-/>
-
-<View
-style={{
-    height: normalize(1),
-    width: '30%',
-    alignSelf: 'center',
-    backgroundColor: '#A9A9A9',
-    marginLeft: normalize(5)
-}}
-/>
-
-<View
-style={{
-    height: normalize(15),
-    width: normalize(15),
-    borderRadius: normalize(7.5),
-    borderWidth: normalize(1),
-    borderColor: 'black',
-    marginLeft: normalize(5),
-    
-    backgroundColor: 'white'
-}}
-/>
-         </View>
-
-         <View style={{
+          marginLeft:20,
+          marginRight:20,
+          
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginTop: normalize(2)
+          
+            
+           
+            marginTop: normalize(20)
          }}>
+          <TouchableOpacity onPress={()=> allTab()}>
             <Text
             style={{
                 fontSize: normalize(12),
                 
-                fontWeight: '600',
+                fontWeight: '700',
                 textAlign: 'center',
                 fontFamily: FONTS.Hind,
-                marginLeft: normalize(10),
+                marginLeft: normalize(15),
                 color: 'black',
                 
 
               }}
-            >Address</Text>
+            >All</Text>
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={()=> allCredit()}>
             <Text
              style={{
                 fontSize: normalize(12),
                 
-                fontWeight: '600',
+                fontWeight: '700',
                 textAlign: 'center',
                 fontFamily: FONTS.Hind,
                
@@ -233,12 +769,15 @@ style={{
                 
 
               }}
-            >Payment</Text>
+            
+            >Credit</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=> allDebit()}>
             <Text
              style={{
                 fontSize: normalize(12),
                 
-                fontWeight: '600',
+                fontWeight: '700',
                 textAlign: 'center',
                 fontFamily: FONTS.Hind,
                 marginRight: normalize(10),
@@ -246,284 +785,227 @@ style={{
                 
 
               }}
-            >Order</Text>
+            >Debit</Text>
+            </TouchableOpacity>
          </View>
 
-         </View>
+
+
+
+
+         
+         {all== 1? 
+         <View style={{
+          marginLeft:10,
+          marginRight:20,
+          
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          
+            
+           
+          
+         }}>
+
          <View
             style={{
-                height: normalize(1),
-                width: '90%',
-                backgroundColor: '#69BE53',
-                alignSelf: 'center',
-                
-            }}
-            />
-
-            <TouchableOpacity
-            style={{
-                height: normalize(40),
-                width: '90%',
-                backgroundColor: '#69BE53',
-                alignSelf: 'center',
-                marginTop: normalize(20),
-                borderRadius: normalize(15)
-            }}
-            
-            >
-                <Text style={{
-                     fontSize: normalize(12),
-                     
-                    
-                     textAlign: 'center',
-                     fontFamily: FONTS.Hind,
-                     marginTop: normalize(10),
-                     color: 'white',
-                }}>
-                       Use Current Location
-                </Text>
-
-                
-
-            </TouchableOpacity>
-
-
-            <Text style={{
-                     fontSize: normalize(12),
-                     
-                    
-                     textAlign: 'center',
-                     fontFamily: FONTS.Hind,
-                     marginTop: normalize(10),
-                     color: 'black',
-                }}>
-                       OR
-                </Text>
-
-           
-
-<View style={{
-    alignSelf: 'center'
-}}>
-              <TextInputItem
-                value={name}
-                onChangeText={_ => setName(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Full Name'}
-                secureTextEntry={false}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-
-              />
-
-              <TextInputItem
-                value={mobilenumber}
-                onChangeText={_ => setMobileNumber(_)}
-                marginTop={normalize(10)}
-                keyboardType={'numeric'}
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Mobile Number'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-
-              />
-              <TextInputItem
-                value={house}
-                onChangeText={_ => setHouse(_)}
-                marginTop={normalize(10)}
                
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Flat, House no.,Apartment'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-               <TextInputItem
-                value={street}
-                onChangeText={_ => setStreet(_)}
-                marginTop={normalize(10)}
+                marginLeft: normalize(1),
+                 backgroundColor:'#F36E35',
+                width:normalize(60),
+                height:normalize(2)
 
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Street'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-
-<TextInputItem
-                value={landmark}
-                onChangeText={_ => setStreet(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Landmark'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-              
-
-              <TextInputItem
-                value={town}
-                onChangeText={_ => setTown(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Town/City'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-              <TextInputItem
-                value={states}
-                onChangeText={_ => setStates(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'State'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-              <TextInputItem
-                value={country}
-                onChangeText={_ => setCountry(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Country'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-               <TextInputItem
-                value={pincode}
-                onChangeText={_ => setPincode(_)}
-                marginTop={normalize(10)}
-
-                fontSize={normalize(14)}
-                width={'90%'}
-                placeholder={'Pincode'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#E8E8E8'}
-                secureTextEntry={false}
-              />
-
-
-
-
-            <View
-            style={{
-                height: normalize(30),
-                width: '90%',
-                backgroundColor: 'green'
-            }}
-            />
-           
-           
-</View>
-
-              <View
-              style={{
-                height: normalize(1),
-                width: '90%',
-                backgroundColor: '#69BE53',
-                alignSelf: 'center',
-                marginTop: normalize(-10)
               }}
-              />
-<TouchableOpacity
-          style={{
-            height: normalize(40),
-            width: '90%',
-            marginTop: normalize(10),
-            alignSelf: 'center',
-            borderWidth: normalize(1),
-            borderRadius: normalize(15),
-            backgroundColor: 'white',
-            borderColor: '#D3D3D3'
-          }}
-          
-        > 
-        
-        <Text style={{
-        fontSize: normalize(12),           
-        textAlign: 'center',
-        fontFamily: FONTS.Hind,
-        marginTop: normalize(10),
-        color: 'black'
-    }}
-        >
-            Add Delivery Instructions(optional)
-            </Text>
-            
-            </TouchableOpacity>
+            ></View>
+           <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(60),
+                height:normalize(2)
 
-            <TouchableOpacity
-          style={{
-            height: normalize(40),
-            width: '90%',
-            marginTop: normalize(10),
-            alignSelf: 'center',
-            borderWidth: normalize(1),
-            borderRadius: normalize(15),
-            backgroundColor: '#F36E35',
-            borderColor: '#D3D3D3'
-          }}
-          
-        > 
-        
-        <Text style={{
-        fontSize: normalize(12),           
-        textAlign: 'center',
-        fontFamily: FONTS.Hind,
-        marginTop: normalize(10),
-        color: 'white'
-    }}
-        >
-           Use this address
-            </Text>
-            
-            </TouchableOpacity>
+              }}
+            ></View>
+          <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(65),
+                height:normalize(2)
 
-            <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
-          style={{
-            height: normalize(40),
-            width: '90%',
-            marginTop: normalize(10),
-            alignSelf: 'center',
-            borderWidth: normalize(1),
-            borderRadius: normalize(15),
-            backgroundColor: '#69BE53',
-            borderColor: '#D3D3D3'
-          }}
+              }}
+            ></View>
+           
+         </View> :credit== 1? 
+         <View style={{
+          marginLeft:10,
+          marginRight:20,
           
-        > 
-        
-        <Text style={{
-        fontSize: normalize(12),           
-        textAlign: 'center',
-        fontFamily: FONTS.Hind,
-        marginTop: normalize(10),
-        color: 'white'
-    }}
-        >
-           Back to Cart
-            </Text>
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          
             
-            </TouchableOpacity>
+           
+          
+         }}>
+
+         <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(60),
+                height:normalize(2)
+
+              }}
+            ></View>
+           <View
+            style={{
+               
+                marginLeft: normalize(1),
+                backgroundColor:'#F36E35',
+                width:normalize(60),
+                height:normalize(2)
+
+              }}
+            ></View>
+          <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(65),
+                height:normalize(2)
+
+              }}
+            ></View>
+           
+         </View>: debit== 1? 
+         <View style={{
+          marginLeft:10,
+          marginRight:20,
+          
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          
+            
+           
+          
+         }}>
+
+         <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(60),
+                height:normalize(2)
+
+              }}
+            ></View>
+           <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(60),
+                height:normalize(2)
+
+              }}
+            ></View>
+          <View
+            style={{
+               
+                marginLeft: normalize(1),
+                 
+                width:normalize(65),
+                height:normalize(2),
+                backgroundColor:'#F36E35',
+
+              }}
+            ></View>
+           
+         </View>:null}
+
+
+
+
+
+
+
+
+           
+         
+
+            
+                   {all==1?
+                                <FlatList
+                                    data={DATA}
+                                    renderItem={renderItem1}
+                                    keyExtractor={item => item.id}
+                                    showsHorizontalScrollIndicator={false}
+
+
+                                    style={{
+
+
+                                        
+
+                                        marginTop: normalize(10),
+
+                                        width: '100%'
+
+                                    }}
+
+                
+                                />: credit==1? <FlatList
+                                data={DATA1}
+                                renderItem={renderItem2}
+                                keyExtractor={item => item.id}
+                                showsHorizontalScrollIndicator={false}
+
+
+                                style={{
+
+
+                                    
+
+                                    marginTop: normalize(10),
+
+                                    width: '100%'
+
+                                }}
+
+            
+                            />: debit==1? <FlatList
+                            data={DATA2}
+                            renderItem={renderItem3}
+                            keyExtractor={item => item.id}
+                            showsHorizontalScrollIndicator={false}
+
+
+                            style={{
+
+
+                                
+
+                                marginTop: normalize(10),
+
+                                width: '100%'
+
+                            }}
+
+        
+                        /> :null}
+
+                   
 </View>
+
+            
+
+
 
 
          

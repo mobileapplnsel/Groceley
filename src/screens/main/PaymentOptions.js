@@ -43,24 +43,98 @@ export default function PaymentOptions(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
-
+  const [netbanking, setNetbanking] = useState(0);
+  const [card, setCard] = useState(0);
+  const [emi, setEmi] = useState(0);
+  const [upi, setUpi] = useState(0);
+  const [cash, setCash] = useState(0);
   const isFocused = useIsFocused();
-
-
-
-
-
-
-
-
-
-
-
 
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+
+
+
+
+
+
+
+    
+   
+  function NetBanking () {
+
+    {
+     
+        setUpi(0),
+        setNetbanking(1),
+        setCard(0),
+        setEmi(0),
+        setCash(0)
+    }
+  
+  console.log("Flag status === ", netbanking)
+  }
+
+
+  
+   
+  function CardPay () {
+
+    {
+     
+        setUpi(0),
+        setNetbanking(0),
+        setCard(1),
+        setEmi(0),
+        setCash(0)
+    }
+  
+  console.log("Flag status === ", card)
+  }
+   
+  function EmiPay () {
+
+    {
+     
+        setUpi(0),
+        setNetbanking(0),
+        setCard(0),
+        setEmi(1),
+        setCash(0)
+    }
+  
+  console.log("Flag status === ", emi)
+  }
+
+  function UpiPay () {
+
+    {
+     
+        setUpi(1),
+        setNetbanking(0),
+        setCard(0),
+        setEmi(0),
+        setCash(0)
+    }
+  
+  console.log("Flag status === ", upi)
+  }
+
+  function CashPay () {
+
+    {
+     
+        setUpi(0),
+        setNetbanking(0),
+        setCard(0),
+        setEmi(0),
+        setCash(1)
+    }
+  
+  console.log("Flag status === ", cash)
+  }
 
 
   return (
@@ -90,14 +164,6 @@ export default function PaymentOptions(props) {
         flex: 1,
         marginBottom: normalize(20)
     }}>
-
-
-
-
-
-          
-
-
 
 
 
@@ -151,11 +217,27 @@ style={{
     borderRadius: normalize(7.5),
     borderWidth: normalize(1),
     borderColor: 'black',
+    alignItems:'center',
     marginRight: normalize(5),
     marginLeft: normalize(28),
+    backgroundColor:"#69BE53"
    
-}}
-/>
+}}>
+
+<Image
+                        source={ICONS.check}
+                        style={{
+                            height: normalize(15),
+                            width: '100%',
+                            alignSelf: 'center',
+                              
+                        }}
+                        resizeMode={'contain'}
+                    ></Image>
+
+
+
+</View>
 </View>
 <View
 style={{
@@ -174,7 +256,8 @@ style={{
     borderWidth: normalize(1),
     borderColor: 'black',
     marginLeft: normalize(5),
-    backgroundColor: '#69BE53'
+    backgroundColor: '#F36E35'
+    
 }}
 />
 
@@ -350,15 +433,15 @@ style={{
 
               {/* {this.state.show ? <Modal /> : null} */}
                
-              
-              <TouchableOpacity  style={{alignSelf:'center',marginLeft:10}} >
-                      
-             
-                      <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-                  
+              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> NetBanking()}>
 
-
-              </TouchableOpacity>
+{netbanking==1 ?
+ <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
+</View> 
+ :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
+}
+ </TouchableOpacity>
                           
                 
                   
@@ -396,14 +479,15 @@ style={{
               {/* {this.state.show ? <Modal /> : null} */}
                
               
-              <TouchableOpacity  style={{alignSelf:'center',marginLeft:10}} >
-                      
-             
-                      <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-                  
+              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> CardPay()}>
 
-
-              </TouchableOpacity>
+{card==1 ?
+ <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
+</View> 
+ :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
+}
+ </TouchableOpacity>
                           
                 
                   
@@ -440,14 +524,15 @@ style={{
               {/* {this.state.show ? <Modal /> : null} */}
                
               
-              <TouchableOpacity  style={{alignSelf:'center',marginLeft:10}} >
-                      
-             
-                      <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-                  
+              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> EmiPay()}>
 
-
-              </TouchableOpacity>
+{emi==1 ?
+ <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
+</View> 
+ :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
+}
+ </TouchableOpacity>
                           
                 
                   
@@ -485,14 +570,15 @@ style={{
               {/* {this.state.show ? <Modal /> : null} */}
                
               
-              <TouchableOpacity  style={{alignSelf:'center',marginLeft:10}} >
-                      
-             
-                      <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-                  
+              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> UpiPay()}>
 
-
-              </TouchableOpacity>
+{upi==1 ?
+ <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
+</View> 
+ :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
+}
+ </TouchableOpacity>
                           
                 
                   
@@ -528,15 +614,15 @@ style={{
 
               {/* {this.state.show ? <Modal /> : null} */}
                
-              
-              <TouchableOpacity  style={{alignSelf:'center',marginLeft:10}} >
-                      
-             
-                      <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-                  
+              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> CashPay()}>
 
-
-              </TouchableOpacity>
+{cash==1 ?
+ <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
+</View> 
+ :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
+}
+ </TouchableOpacity>
                           
                 
                   
