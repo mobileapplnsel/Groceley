@@ -31,7 +31,7 @@ import constants from '../../utils/helpers/constants';
 
 
 var status = '';
-export default function Introduction(props) {
+export default function Login(props) {
 
 
   const [name, setName] = useState('');
@@ -77,29 +77,36 @@ export default function Introduction(props) {
 
 
 
-          <Image
-                source={ICONS.ellipse2}
-                style={{
-                  height: normalize(38),
-                  width: normalize(40),
-                  alignSelf: 'flex-start',
-                }}
-                resizeMode={'contain'}
-            />
+         
 
 
 <Image
-                source={ICONS.ellipse3}
+                source={ICONS.ellipse}
                 style={{
-                  height: normalize(70),
-                  width: normalize(70),
-                  marginLeft:normalize(-20),
-                  alignSelf: 'flex-start',
+                  height: normalize(80),
+                  width: normalize(80),
+                  marginRight: normalize(-15),
+                  marginTop: normalize(-5),
+                  
+                  alignSelf: 'flex-end',
+                  position: 'relative'
                 }}
                 resizeMode={'contain'}
             />
 
-
+<Image
+                source={ICONS.ellipse2}
+                style={{
+                  height: normalize(50),
+                  width: normalize(50),
+                  alignSelf: 'flex-end',
+                  marginRight: normalize(-10),
+                  alignSelf: 'flex-end',
+                  position: 'relative',
+                  top: -6
+                }}
+                resizeMode={'contain'}
+            />
 
 
 
@@ -107,15 +114,15 @@ export default function Introduction(props) {
             <View
               style={{
 
-                marginTop: normalize(-60),
+                marginTop: normalize(-20),
                 alignSelf: 'center'
               }}>
 
 
               <Image
-                source={ICONS.home}
+                source={ICONS.logo1}
                 style={{
-                  height: normalize(50),
+                  height: normalize(100),
                   width: normalize(50),
                   alignSelf: 'center',
                 }}
@@ -177,13 +184,13 @@ export default function Introduction(props) {
              
 
 
-              <TouchableOpacity
+              <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
 
                 style={{
                   height: normalize(35),
                   width: normalize(100),
                   marginTop: normalize(20),
-                  backgroundColor: '#D80000',
+                  backgroundColor: '#69BE53',
                   alignSelf: 'center',
                   borderRadius: normalize(20)
                 }}
@@ -235,7 +242,7 @@ export default function Introduction(props) {
                   marginTop: normalize(25),
                   fontWeight: '700'
                 }}
-              >or Login with</Text>
+              >Or Login with</Text>
 
               <View
                 style={{
@@ -302,7 +309,7 @@ export default function Introduction(props) {
 
 
             <View style={{
-              marginTop: normalize(5),
+              //marginTop: normalize(5),
               flexDirection: 'row',
               marginLeft: normalize(50),
               marginBottom: normalize(20),
@@ -315,7 +322,7 @@ export default function Introduction(props) {
                   color: '#1D1D1B',
 
                   textAlign: 'left',
-                  marginTop: normalize(22),
+                  marginTop: normalize(15),
                  
                   fontWeight: '700'
                 }}
@@ -327,10 +334,10 @@ export default function Introduction(props) {
                 style={{
 
                   fontSize: normalize(11),
-                  color: '#E31C23',
+                  color: '#FF6205',
 
                   marginLeft: normalize(2),
-                  marginTop: normalize(22),
+                  marginTop: normalize(15),
                   fontWeight: '700'
                 }}
               >Click Here</Text>
@@ -348,7 +355,7 @@ export default function Introduction(props) {
              
               flexDirection: 'row',
               marginLeft: normalize(50),
-              marginBottom: normalize(20),
+              marginBottom: normalize(10),
             }}>
 
 <Text
@@ -370,7 +377,7 @@ export default function Introduction(props) {
                 style={{
 
                   fontSize: normalize(11),
-                  color: '#E31C23',
+                  color: '#FF6205',
 
                   
                   
@@ -384,39 +391,7 @@ export default function Introduction(props) {
 
 
             </View>
-            <View style={{
-    height: '20.5%',
-    width: '100%',
-  position: 'absolute',
-   bottom: 0,
- 
-   
-}}>
-            <Image
-                source={ICONS.ellipse}
-                style={{
-                  height: normalize(60),
-                  width: normalize(60),
-                  alignSelf: 'flex-end',
-                  marginRight: normalize(-17),
-                  //marginTop: normalize(-20)
-                }}
-                resizeMode={'contain'}
-            />
-
-<Image
-                source={ICONS.ellipse4}
-                style={{
-                  height: normalize(76),
-                  width: normalize(60),
-                  alignSelf: 'flex-end',
-                  marginRight: normalize(-15),
-                 
-                }}
-                resizeMode={'contain'}
-            />
-
-</View>
+          
 
 
           {/* </ScrollView> */}

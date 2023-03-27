@@ -78,26 +78,33 @@ export default function Registration(props) {
 
 
           <Image
-                source={ICONS.ellipse2}
+                source={ICONS.ellipse}
                 style={{
-                  height: normalize(38),
-                  width: normalize(40),
-                  alignSelf: 'flex-start',
+                  height: normalize(80),
+                  width: normalize(80),
+                  marginRight: normalize(-15),
+                  marginTop: normalize(-5),
+                  
+                  alignSelf: 'flex-end',
+                  position: 'relative'
                 }}
                 resizeMode={'contain'}
             />
-
 
 <Image
-                source={ICONS.ellipse3}
+                source={ICONS.ellipse2}
                 style={{
-                  height: normalize(70),
-                  width: normalize(70),
-                  marginLeft:normalize(-20),
-                  alignSelf: 'flex-start',
+                  height: normalize(50),
+                  width: normalize(50),
+                  alignSelf: 'flex-end',
+                  marginRight: normalize(-10),
+                  alignSelf: 'flex-end',
+                  position: 'relative',
+                  top: -6
                 }}
                 resizeMode={'contain'}
             />
+
 
 
 
@@ -112,10 +119,10 @@ export default function Registration(props) {
               }}>
 
 
-              <Image
-                source={ICONS.home}
+<Image
+                source={ICONS.logo1}
                 style={{
-                  height: normalize(50),
+                  height: normalize(100),
                   width: normalize(50),
                   alignSelf: 'center',
                 }}
@@ -125,6 +132,10 @@ export default function Registration(props) {
 
 
               </Image>
+
+
+
+             
               <Text
                 style={{
                   fontSize: normalize(14),
@@ -217,13 +228,13 @@ export default function Registration(props) {
               />
 
 
-              <TouchableOpacity
+              <TouchableOpacity onPress={()=> props.navigation.navigate("Login")}
 
                 style={{
                   height: normalize(35),
                   width: normalize(100),
                   marginTop: normalize(20),
-                  backgroundColor: '#D80000',
+                  backgroundColor: '#69BE53',
                   alignSelf: 'center',
                   borderRadius: normalize(20)
                 }}
@@ -274,7 +285,7 @@ export default function Registration(props) {
                   marginTop: normalize(22),
                   fontWeight: '700'
                 }}
-              >or Register with</Text>
+              >Or Register with</Text>
 
               <View
                 style={{
@@ -367,7 +378,7 @@ export default function Registration(props) {
                 style={{ 
 
                   fontSize: normalize(11),
-                  color: '#E31C23',
+                  color: '#FF6205',
 
                  
                   marginTop: normalize(22),
@@ -382,29 +393,9 @@ export default function Registration(props) {
 
             </View>
 
-            <Image
-                source={ICONS.ellipse}
-                style={{
-                  height: normalize(60),
-                  width: normalize(60),
-                  alignSelf: 'flex-end',
-                  marginRight: normalize(-17),
-                  marginTop: normalize(-60)
-                }}
-                resizeMode={'contain'}
-            />
+            
 
-<Image
-                source={ICONS.ellipse4}
-                style={{
-                  height: normalize(60),
-                  width: normalize(60),
-                  alignSelf: 'flex-end',
-                  marginRight: normalize(-15),
-                 
-                }}
-                resizeMode={'contain'}
-            />
+
 
 
 

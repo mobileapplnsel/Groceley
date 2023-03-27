@@ -73,7 +73,7 @@ export default function Introduction(props) {
 
 
 
-                    {/* <ScrollView showsVerticalScrollIndicator={false} bounces={false} > */}
+                    <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
 
 
 
@@ -162,9 +162,9 @@ export default function Introduction(props) {
 
                                 textAlign: 'left',
                                 marginTop: normalize(10),
-                                color: 'black',
+                                color: '#3F3F3F',
 
-                                fontFamily: FONTS.PlayfairDisplayBlack,
+                                fontFamily: FONTS.Hind,
                                 fontSize: normalize(14)
 
                             }}>
@@ -176,7 +176,7 @@ export default function Introduction(props) {
                         </View>
 
 
-                        <TouchableOpacity
+                        <TouchableOpacity onPress = {()=> props.navigation.navigate("Home")}
 
                             style={{
                                 height: normalize(35),
@@ -186,7 +186,8 @@ export default function Introduction(props) {
                                 alignSelf: 'flex-start',
                                 borderRadius: normalize(20),
                                 flexDirection: 'row',
-                                justifyContent: 'space-evenly'
+                                justifyContent: 'space-evenly',
+                               
                             }}
                         >
                             <Text
@@ -251,7 +252,7 @@ export default function Introduction(props) {
                    
                    
 
-                    {/* </ScrollView> */}
+                    </ScrollView>
                 </KeyboardAvoidingView>
 
             </SafeAreaView>
