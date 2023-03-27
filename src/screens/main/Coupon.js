@@ -40,7 +40,8 @@ export default function Coupon(props)
     const [modalVisible, setModalVisible] = useState(false);
     const [coupon, setCoupon] = useState(false);
     const [isModalFilterVisible, setModalFilterVisible] = useState(false);
-
+    const [isModalFilterVisible2, setModalFilterVisible2] = useState(false);
+    const [offerclicked, setOfferclicked] = useState(0);
 
 
     const DATA = [{
@@ -89,8 +90,9 @@ function toggleModal(){
     setModalFilterVisible(!isModalFilterVisible);
 }
 
-
-
+function toggleModal2(){
+    setModalFilterVisible2(!isModalFilterVisible2);
+}
 
 
 
@@ -186,7 +188,9 @@ function toggleModal(){
                 </View>
 
 
-                <TouchableOpacity style={{
+                <TouchableOpacity onPress={()=>toggleModal2()}
+                
+                style={{
                     height: normalize(40),
                     width: '30%',
                     
@@ -208,10 +212,10 @@ function toggleModal(){
                     >OFFERS</Text>
 
 <Image
-                        source={ICONS.downward_arrow}
+                        source={ICONS.info2}
                         style={{
-                            height: normalize(7),
-                            width: normalize(7),
+                            height: normalize(10),
+                            width: normalize(10),
                             alignSelf: 'center',
                             
                             marginRight: normalize(5),
@@ -677,7 +681,7 @@ Available coupons
           >
           <View style={{
  
- height: normalize(350),
+ height: normalize(380),
  width: '95%',
  backgroundColor: 'white',
  
@@ -761,7 +765,368 @@ Available coupons
          marginLeft: normalize(15),
          marginTop: normalize(-10)
      }}
- >Get 40% OFF up to {'\u20B9'} 80</Text>
+ >Get 20% OFF up to {'\u20B9'} 50 on being a Member</Text>
+
+<Text
+     style={{
+         color: '#A9A9A9',
+         fontSize: normalize(10),
+         fontWeight: '600',
+         fontFamily: FONTS.Hind,
+         alignSelf: 'flex-start',
+         marginLeft: normalize(15),
+ 
+     }}
+ >Valid on total value of products worth {'\u20B9'} 400 or more</Text>
+
+
+
+<View style={{
+    flexDirection: 'row',
+    justifyContent: 'center',
+   // marginLeft: normalize(10)
+}}>
+                 <TextInput
+                value={coupon}
+                
+                placeholder={'DKasASJKadjn'}
+                placeholderTextColor={'#F36E35'}
+                onChangeText={_ => setCoupon(_)}
+                style={{
+                marginTop: normalize(10),
+                alignSelf: 'center',
+                fontSize: normalize(14),
+                width: normalize(190),
+               
+                
+                borderRadius : normalize(10),
+                backgroundColor: 'white',
+                paddingLeft: normalize(10),
+                
+                borderWidth: normalize(1),
+                borderColor: '#D3D3D3'
+                }}
+                keyboardType={"default"}
+              />
+
+<TouchableOpacity onPress={()=> props.navigation.navigate("Select_delivery_address")}
+                
+                style={{
+                                        height: normalize(40),
+                                        width: '20%',
+                                        backgroundColor: '#69BE53',
+                                        borderRadius: normalize(10),
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        alignSelf: 'center',
+                                        marginLeft: normalize(5),
+                                        marginTop: normalize(10)
+                                       
+
+                                    }}>
+                                         
+
+                                        <Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            fontWeight: '700',
+                                            color: 'white',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                        Apply
+                                        </Text>
+
+                                    </TouchableOpacity>
+
+
+ 
+                                    
+
+</View>
+
+
+
+<View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+    marginTop: normalize(10)
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      This offer is personalised for you.
+                                        </Text>
+
+
+
+                                        </View>
+
+
+
+                                        <View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+   
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      Maximum discount upto {'\u20B9'} 50
+                                        </Text>
+
+
+
+                                        </View>
+
+
+                                        <View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+    
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      Applicable only for selected products
+                                        </Text>
+
+
+
+                                        </View>
+
+
+                                        <View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+    
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      Applicable one time
+                                        </Text>
+
+
+
+                                        </View>
+
+
+                                        <View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+    
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                     Other T&C may apply
+                                        </Text>
+
+
+
+                                        </View>
+ </View>
+        </Modal>
+
+
+        <Modal isVisible={isModalFilterVisible2}
+         
+         style={{
+             justifyContent: 'center',
+             alignItems: 'center'
+         }}
+          animationType={"slide"}
+   
+       onBackdropPress = { () => setModalFilterVisible2(false)}
+          >
+          <View style={{
+ 
+ height: normalize(380),
+ width: '95%',
+ backgroundColor: 'white',
+ 
+ borderRadius: normalize(10),
+ 
+ }}>
+ 
+    
+ 
+ 
+ 
+ 
+ <TouchableOpacity
+                                 style={{
+                                     width: '12%',
+                                     height: '10%',
+                                     backgroundColor: 'orange',
+                                     borderRadius: normalize(5),
+                                     alignSelf: 'flex-end',
+                                     justifyContent: 'center',
+                                    
+                                 }}
+ 
+                                 onPress={() => {
+                                     console.log("kshbfhwb")
+                                     setModalFilterVisible2(false)
+ 
+                                 }}>
+                                 <Image
+                                     source={ICONS.cross}
+                                     style={{
+                                         height: normalize(11),
+                                         width: normalize(10),
+                                         
+                                         alignSelf: 'center'
+                                     }}
+                                     resizeMode={'contain'}
+                                     tintColor={'white'}
+                                 ></Image>
+                             </TouchableOpacity>
+ 
+ 
+ <Text
+     style={{
+         color: 'black',
+         fontSize: normalize(14),
+         fontWeight: '600',
+         fontFamily: FONTS.Hind,
+         alignSelf: 'flex-start',
+         marginLeft: normalize(15),
+ 
+     }}
+ >Coupon details</Text>
+
+ <View style={{
+    height: normalize(1),
+    width:'100%',
+    backgroundColor: '#69BE53',
+    marginTop: normalize(10)
+ }}/>
+
+<Image
+                        source={ICONS.paytm}
+                        style={{
+                            height: normalize(80),
+                            width: normalize(80),
+                            alignSelf: 'flex-start',
+                            marginLeft: normalize(20),
+                            marginTop: normalize(-5)
+                            
+                        }}
+                        resizeMode={'contain'}
+                    ></Image>
+ <Text
+     style={{
+         color: 'black',
+         fontSize: normalize(14),
+         fontWeight: '600',
+         fontFamily: FONTS.Hind,
+         alignSelf: 'flex-start',
+         marginLeft: normalize(15),
+         marginTop: normalize(-10)
+     }}
+ >Get 40% OFF up to {'\u20B9'} 80 </Text>
 
 <Text
      style={{
