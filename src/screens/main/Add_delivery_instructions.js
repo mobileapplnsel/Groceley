@@ -644,7 +644,7 @@ Sun
                                 onChangeText={_ => setFromtime(_)}
                                 marginTop={normalize(15)}
                                 alignSelf={'center'}
-                                keyboardType={'email-address'}
+                                
                                 fontSize={normalize(12)}
                                 width={'30%'}
                                
@@ -675,7 +675,7 @@ Sun
                                 onChangeText={_ => setTotime(_)}
                                 marginTop={normalize(15)}
                                 alignSelf={'center'}
-                                keyboardType={'email-address'}
+                               
                                 fontSize={normalize(12)}
                                 width={'30%'}
                                

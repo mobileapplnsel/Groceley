@@ -12,7 +12,7 @@ import {
     ImageBackground,
     StatusBar,
     Alert,
-    TextInput,
+   TextInput ,
     FlatList,
     Share
 } from 'react-native';

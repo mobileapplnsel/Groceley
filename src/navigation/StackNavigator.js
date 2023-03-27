@@ -32,6 +32,7 @@ import Select_delivery_address from '../screens/main/Select_delivery_address';
 import Subcategorylist from '../screens/main/Subcategorylist';
 import Add_delivery_instructions from '../screens/main/Add_delivery_instructions';
 import Filter from '../screens/main/Filter';
+import Coupon from '../screens/main/Coupon';
 
 
 const Stack = createStackNavigator();
@@ -72,7 +73,8 @@ export default function StackNavigator() {
         Filter: Filter,
         Select_delivery_address: Select_delivery_address,
         Subcategorylist: Subcategorylist,
-        Add_delivery_instructions : Add_delivery_instructions
+        Add_delivery_instructions : Add_delivery_instructions,
+        Coupon: Coupon
       }
      
 

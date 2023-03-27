@@ -80,7 +80,7 @@ export const ICONS = {
    ryebread: require('../assets/icons/ryebread.jpg'),
    streetbread: require('../assets/icons/streetbread.png'),
    multigrainbread: require('../assets/icons/multigrainbread.jpg'),
-   multigrainbread: require('../assets/icons/multigrainbread.jpg'),
+   info2: require('../assets/icons/info2.png'),
 };
 
 export const FONTS = {

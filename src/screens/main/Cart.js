@@ -479,10 +479,15 @@ function favourite(){
 
             </View> 
 
-             <View style={{
+             <TouchableOpacity onPress={()=> props.navigation.navigate("Coupon")}
+             
+             style={{
                 flexDirection: 'row',
                 marginTop: normalize(10),
-                marginLeft: normalize(30)
+                marginLeft: normalize(30),
+                height: normalize(40),
+                
+                width: '95%'
              }}>                 
             <Image
                 source={ICONS.discount}
@@ -505,7 +510,11 @@ function favourite(){
 
             }}>Do you have any discount code?</Text>
             
-</View>   
+</TouchableOpacity>   
+
+
+
+
 <View style={{
     height: normalize(1),
     width: '90%',
