@@ -121,7 +121,7 @@ export default function Coupon(props)
 
             <View style={{
                 flexDirection: 'row',
-
+          
             }}
             >
 
@@ -156,7 +156,7 @@ export default function Coupon(props)
                     marginLeft: normalize(10)
                 }}>
                     <Text
-                   
+                       numberOfLines={1}
                         style={{
                             fontSize: normalize(12),
                             color: "black",
@@ -181,6 +181,47 @@ export default function Coupon(props)
               
 
                 </View>
+
+
+                <TouchableOpacity style={{
+                    height: normalize(40),
+                    width: '30%',
+                    
+                    marginLeft: -normalize(45),
+                    marginRight: normalize(10),
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    justifyContent: 'space-evenly'
+                }}>
+                    <Text
+                   
+                        style={{
+                            fontSize: normalize(12),
+                            color: "#F36E35",
+                            marginTop: normalize(10),
+                            fontWeight:'600',
+                            fontFamily: FONTS.Hind
+                        }}
+                    >OFFERS</Text>
+
+<Image
+                        source={ICONS.downward_arrow}
+                        style={{
+                            height: normalize(7),
+                            width: normalize(7),
+                            alignSelf: 'center',
+                            
+                            marginRight: normalize(5),
+                            
+                        }}
+                        resizeMode={'contain'}
+                    ></Image>
+
+
+              
+
+                </TouchableOpacity>
+                
 
 
 
@@ -517,7 +558,7 @@ Available coupons
                 value={coupon}
                 
                 placeholder={'DKasASJKadjn'}
-                placeholderTextColor={'#69BE53'}
+                placeholderTextColor={'#F36E35'}
                 onChangeText={_ => setCoupon(_)}
                 style={{
                 marginTop: normalize(10),
