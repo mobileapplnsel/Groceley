@@ -44,99 +44,42 @@ export default function Coupon(props)
 
     const DATA = [{
         id: "0",
-        categories: "Bedcovers",
-        pic: ICONS.bread,
-        description: "Your order Hovis Farmhouse Wholemeal has been dispatched",
-        realprice: "4999",
-        discountedprice: "1690",
-        quantity:1 
+        
+        pic: ICONS.paytm,
+        description: "Paytm",
+        cashback: "25 cashback"
 
     },
 
     {
         id: "1",
-        categories: "Bedsheets",
-        pic: ICONS.cornflakes,
-        description: "Your order Kellogg's Corn Flakes Cereal is shipped",
-
-        realprice: "4999",
-        discountedprice: "1690",
-        quantity:1 
-
-
+        
+        pic: ICONS.mobikwik,
+        description: "Mobikwik",
+        cashback: "100 cashback"
     },
 
     {
         id: "2",
-        categories: 'Blankets',
-        pic: ICONS.milk,
-        description: "Your order Amul Moti Homogenized Toned Milk is in-Transit",
-        realprice: "4999",
-        discountedprice: "1690",
-        quantity:1 
+       
+        pic: ICONS.standard_chatered,
+        description: "Standard Chatered Bank",
+        cashback: "14 savings with this code"
 
     },
 
     {
         id: "3",
-        categories: 'Blankets',
-        pic: ICONS.cornflakes2,
-        description: "Your order Kellogg's Corn Flakes Cereal will be delivered today",
-        realprice: "4999",
-        discountedprice: "1690",
-        quantity:1 
-
+        
+        pic: ICONS.phonepe,
+        description: "Phone Pe",
+        cashback: "50 cashback"
     },
-    {
-        id: "4",
-        categories: 'Blankets',
-        pic: ICONS.milk,
-        description: "Your ordered Amul Moti Homogenized Toned Milk on 14/12/2023",
-        realprice: "4999",
-        discountedprice: "1690",
-        quantity:1 
-
-    }
-
-
+  
 
 
     ]
 
-    const DATA2 = [{
-        id: "0",
-        categories: "Bedcovers",
-        pic: ICONS.bedsheet,
-        description: "King Size Bed Sheet (with pillow cover)",
-        realprice: "4999",
-        discountedprice: "2150"
-
-
-    },
-
-    {
-        id: "1",
-        categories: "Bedsheets",
-        pic: ICONS.bedsheet,
-        description: "King Size Bed Sheet (with pillow cover)",
-        realprice: "4999",
-        discountedprice: "2150"
-
-
-    },
-
-    {
-        id: "2",
-        categories: 'Blankets',
-        pic: ICONS.bedsheet,
-        description: "King Size Bed Sheet (with pillow cover)",
-        realprice: "4999",
-        discountedprice: "2150"
-    }
-
-
-
-    ]
 
 
 
@@ -185,23 +128,23 @@ export default function Coupon(props)
 
                 <View style={{
                     height: normalize(60),
-                    width: normalize(50),
+                    width: normalize(40),
                     backgroundColor: 'white',
                     justifyContent: 'center',
                     alignItems: 'center',
                     marginLeft: normalize(10),
-                    borderRadius: normalize(5),
+                    
                     
                 }}>
                     <Image
                         source={item.pic}
                         style={{
-                            height: normalize(80),
+                            height: normalize(30),
                             width: normalize(40),
                             alignSelf: 'center',
-                          
+                            borderRadius: normalize(5),
                             marginRight: normalize(5),
-                            borderRadius: normalize(25)
+                            
                         }}
                         resizeMode={'contain'}
                     ></Image>
@@ -213,16 +156,26 @@ export default function Coupon(props)
                     marginLeft: normalize(10)
                 }}>
                     <Text
-                    numberOfLines={3}
+                   
                         style={{
                             fontSize: normalize(12),
                             color: "black",
                             marginTop: normalize(10),
-                            fontWeight:'600'
+                            fontWeight:'600',
+                            fontFamily: FONTS.Hind
                         }}
                     >{item.description}</Text>
 
-                  
+<Text
+                   
+                   style={{
+                       fontSize: normalize(12),
+                       color: "black",
+                       marginTop: normalize(5),
+                       fontFamily: FONTS.Hind,
+                       color: '#69BE53'
+                   }}
+               >{'\u20B9'} {item.cashback}</Text>
 
 
               

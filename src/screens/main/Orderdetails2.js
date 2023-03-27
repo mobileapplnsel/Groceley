@@ -1197,7 +1197,7 @@ function favourite1(){
 <Text 
                 numberOfLines={4}
                 style={{
-              color: "black",
+              color: "#F36E35",
               fontFamily: FONTS.Hind,
               fontSize: normalize(14),
               marginLeft: normalize(2),

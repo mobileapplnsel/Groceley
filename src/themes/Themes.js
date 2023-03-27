@@ -81,6 +81,11 @@ export const ICONS = {
    streetbread: require('../assets/icons/streetbread.png'),
    multigrainbread: require('../assets/icons/multigrainbread.jpg'),
    info2: require('../assets/icons/info2.png'),
+   paytm: require('../assets/icons/paytm.png'),
+   mobikwik: require('../assets/icons/mobikwik.png'),
+   standard_chatered: require('../assets/icons/standard_chatered.png'),
+   phonepe: require('../assets/icons/phonepe.png'),
+   
 };
 
 export const FONTS = {
