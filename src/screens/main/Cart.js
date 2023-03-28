@@ -487,8 +487,11 @@ function favourite(){
                 marginTop: normalize(10),
                 marginLeft: normalize(30),
                 height: normalize(40),
-                
-                width: '95%'
+                borderRadius: normalize(10),
+                backgroundColor: 'white',
+                width: '70%',
+                justifyContent: 'center',
+                alignItems: 'center'
              }}>                 
             <Image
                 source={ICONS.discount}
@@ -498,18 +501,22 @@ function favourite(){
                     
                    
                     marginRight: normalize(10),
-                    borderRadius: normalize(25)
+                   
                 }}
                 resizeMode={'contain'}
             ></Image>
+
 
             <Text style={{
                 fontFamily: FONTS.Hind,
                 fontSize: normalize(12),
                 color: '#515151',
-                marginLeft: normalize(-5)
+                
 
             }}>Do you have any discount code?</Text>
+
+
+
             
 </TouchableOpacity>   
 

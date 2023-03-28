@@ -25,7 +25,7 @@ const CarouselCardItem3 = ({ item, index }) => {
                     height: normalize(30),
                     width: normalize(30),
                     alignSelf: 'center',
-                    
+                    marginRight: normalize(5),
                    marginTop: normalize(-10)
                   }}
                   resizeMode={'contain'}
