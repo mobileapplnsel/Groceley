@@ -32,6 +32,7 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
+import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 
 var status = '';
@@ -789,6 +790,7 @@ function favourite(){
                     </KeyboardAvoidingView>
 
                 </SafeAreaView>
+                <CarouselCards3/>
             </Layout>
 
         </Fragment>
