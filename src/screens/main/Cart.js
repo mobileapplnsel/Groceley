@@ -259,7 +259,8 @@ const ShareExample = async () => {
                         color: 'black',
                         fontSize: normalize(12),
                         fontWeight: '700',
-                        fontFamily: FONTS.Hind
+                        fontFamily: FONTS.Hind,
+                        marginLeft: normalize(5)
                     }}
                     >Buy Together</Text>
     <Image
