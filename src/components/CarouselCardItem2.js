@@ -20,7 +20,7 @@ const CarouselCardItem2 = ({ item, index }) => {
                   <Text style={{
                     color: '#F36E35',
                     fontSize: normalize(10),
-                    fontWeight: '600',
+                    fontWeight: '700',
                    
                    marginTop: normalize(-10)
                   }}>

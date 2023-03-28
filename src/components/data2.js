@@ -2,7 +2,7 @@ import { ICONS } from "../themes/Themes";
 
 const data2 = [
     {
-        body: 'Get discount coupons on purchases above 180 INR'
+        body: 'Get discount coupons on purchases above 1000 INR'
     },
    
     {

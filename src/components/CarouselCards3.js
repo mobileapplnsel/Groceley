@@ -4,7 +4,7 @@ import Carousel, { Pagination } from 'react-native-snap-carousel'
 import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from './CarouselCardItem'
 import { COLORS, FONTS, ICONS } from '../themes/Themes';
 import { ViewPropTypes } from 'deprecated-react-native-prop-types'
-import data from './data'
+import data3 from './data3'
 import normalize from '../utils/helpers/normalize';
 import CarouselCardItem3 from './CarouselCardItem3';
 
@@ -25,7 +25,7 @@ const CarouselCards3 = () => {
         layout="default"
        // layoutCardOffset={9}
         ref={isCarousel}
-        data={data}
+        data={data3}
         renderItem={CarouselCardItem3}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
