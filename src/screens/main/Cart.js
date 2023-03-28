@@ -116,7 +116,11 @@ function toggleModal(){
 
         
         
-    
+function clickshare(){
+   
+    setModalFilterVisible(false)
+    ShareExample()
+    }
 
 
 
@@ -124,6 +128,30 @@ function toggleModal(){
     props.navigation.navigate("Productdetails")
  }
 
+const ShareExample = async () => {
+        try {
+          const result = await Share.share({
+              message: 'https://www.google.com',
+              url:
+              'https://www.google.com',
+            title:
+              'https://www.google.com',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          Alert.alert(error.message);
+        }
+      
+
+  }
 
 
 
@@ -230,7 +258,7 @@ function toggleModal(){
      <Text style={{
                         color: 'black',
                         fontSize: normalize(12),
-                        
+                        fontWeight: '700',
                         fontFamily: FONTS.Hind
                     }}
                     >Buy Together</Text>
@@ -968,7 +996,7 @@ function toggleModal(){
                             flexDirection: 'row',
                             justifyContent: 'space-evenly'
                          }}     >        
-                                        <TouchableOpacity
+                                        <TouchableOpacity onPress={()=>clickshare()}
                 
                 style={{
                                         height: normalize(40),
@@ -982,7 +1010,19 @@ function toggleModal(){
                                         flexDirection: 'row'
 
                                     }}>
-                                         
+                                        <Image
+                            source={ICONS.community_share}
+                            style={{
+                                height: normalize(15),
+                                width: normalize(15),
+                                alignSelf: 'center',
+                               tintColor: 'white'
+                                
+                                
+                            }}
+                            resizeMode={'contain'}
+                            tintColor={'white'}
+                        ></Image>  
 
                                         <Text
                                         style={{
@@ -998,7 +1038,7 @@ function toggleModal(){
                                     </TouchableOpacity>
 
                                        
-                                    <TouchableOpacity
+                                    <TouchableOpacity onPress={()=>setModalFilterVisible(false)}
                 
                 style={{
                                         height: normalize(40),
