@@ -32,6 +32,7 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
+import CarouselCards2 from '../../components/CarouselCards2'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Geolocation from 'react-native-geolocation-service';
@@ -373,92 +374,7 @@ props.navigation.navigate("Productlist" , {
       </Text> 
 
 
-      {/* <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-                }}
-      >{item.quantity}
-      </Text> */}
-
-    {/* <View style={{
-  flexDirection: 'row',
-  alignSelf: 'flex-start',
-  marginLeft: normalize(10),
-  marginTop: normalize(10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#A9A9A9',
-          
-          
-                }}
-      >{'\u20B9'} {item.discounted_price}
-      </Text>
-    <View style={{
-  height: normalize(1),
-  width: '20%',
-  backgroundColor: '#A9A9A9',
-  marginTop: normalize(7),
-  position: 'absolute'
-}}/>
-     </View> */}
-
-     {/* <View style={{
-  flexDirection: 'row',
- justifyContent: 'center',
-  marginLeft: normalize(10),
-}}>
-  <View>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: 'black',
-          fontWeight: '600'
-          
-                }}
-      >{'\u20B9'} {item.real_price}
-      </Text>
-      </View>
-
-
-
-<TouchableOpacity style={{
-  height: normalize(30),
-  width: normalize(50),
-  backgroundColor: 'white',
-  borderWidth: normalize(2),
-  borderColor: '#69BE53',
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: normalize(5),
-  marginLeft: normalize(30),
-  marginEnd: normalize(10),
-  marginTop: normalize(-10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#69BE53',
-          alignSelf: 'center'
-          
-                }}
-      >ADD
-      </Text>
-      </TouchableOpacity>
-
-
-
-
-     </View> */}
-
+     
      
 
 
@@ -504,92 +420,7 @@ props.navigation.navigate("Productlist" , {
       </Text>
 
 
-      {/* <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-                }}
-      >{item.quantity}
-      </Text> */}
-
-    {/* <View style={{
-  flexDirection: 'row',
-  alignSelf: 'flex-start',
-  marginLeft: normalize(10),
-  marginTop: normalize(10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#A9A9A9',
-          
-          
-                }}
-      >{'\u20B9'} {item.discounted_price}
-      </Text>
-    <View style={{
-  height: normalize(1),
-  width: '20%',
-  backgroundColor: '#A9A9A9',
-  marginTop: normalize(7),
-  position: 'absolute'
-}}/>
-     </View> */}
-{/* 
-     <View style={{
-  flexDirection: 'row',
- justifyContent: 'center',
-  marginLeft: normalize(10),
-}}>
-  <View>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: 'black',
-          fontWeight: '600'
-          
-                }}
-      >{'\u20B9'} {item.real_price}
-      </Text>
-      </View>
-
-
-
-<TouchableOpacity style={{
-  height: normalize(30),
-  width: normalize(50),
-  backgroundColor: 'white',
-  borderWidth: normalize(2),
-  borderColor: '#69BE53',
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: normalize(5),
-  marginLeft: normalize(30),
-  marginEnd: normalize(10),
-  marginTop: normalize(-10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#69BE53',
-          alignSelf: 'center'
-          
-                }}
-      >ADD
-      </Text>
-      </TouchableOpacity>
-
-
-
-
-     </View> */}
-
+     
      
 
 
@@ -601,6 +432,7 @@ props.navigation.navigate("Productlist" , {
     <Fragment>
 
       <Layout Home={true} {...props}>
+     
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
@@ -859,6 +691,7 @@ style={{
            }}>
 
             <CarouselCards />
+            
 
             </View>
               <FlatList
@@ -999,6 +832,7 @@ style={{
           </KeyboardAvoidingView>
 
         </SafeAreaView>
+        <CarouselCards2 />
       </Layout>
 
     </Fragment>
