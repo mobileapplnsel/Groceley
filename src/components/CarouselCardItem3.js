@@ -12,11 +12,26 @@ const CarouselCardItem3 = ({ item, index }) => {
     <View style={{
      
       width: ITEM_WIDTH,
-      height: normalize(20),
+      height: normalize(30),
       alignItems: 'center',
-      justifyContent: 'center'
-     
+      justifyContent: 'center',
+      flexDirection: 'row',
+      
     }}>
+
+<Image
+                  source={item.img3}
+                  style={{
+                    height: normalize(30),
+                    width: normalize(30),
+                    alignSelf: 'center',
+                    
+                   marginTop: normalize(-10)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+
+
                   <Text style={{
                     color: '#F36E35',
                     fontSize: normalize(10),

@@ -16,7 +16,7 @@ const CarouselCards3 = () => {
   return (
     <View style={{
         marginTop: normalize(10),
-       
+        
     }} >
       <Carousel
         autoplay={true}
