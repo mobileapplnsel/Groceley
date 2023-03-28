@@ -85,7 +85,7 @@ export const ICONS = {
    mobikwik: require('../assets/icons/mobikwik.png'),
    standard_chatered: require('../assets/icons/standard_chatered.png'),
    phonepe: require('../assets/icons/phonepe.png'),
-   
+   community_share: require('../assets/icons/community_share.png'),
 };
 
 export const FONTS = {

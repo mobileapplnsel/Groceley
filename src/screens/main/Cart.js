@@ -244,7 +244,17 @@ function favourite(){
                             }}
                         >{'\u20B9'}{item.realprice} x {item.quantity}</Text>
     
-                      
+    <Image
+                  source={item.pic}
+                  style={{
+                    height: normalize(60),
+                    width: normalize(60),
+                    alignSelf: 'center',
+                    marginTop: normalize(5),
+                    marginLeft: normalize(10)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
     
     
                   
