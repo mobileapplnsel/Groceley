@@ -110,9 +110,10 @@ function recent_address_clicked(){
                   fontSize: normalize(14),
                   letterSpacing: 1,
                   fontWeight: '700',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
+                  marginLeft: normalize(30),
                   color: 'black',
                   
 
@@ -416,7 +417,7 @@ style={{
 
             </View>
 
-            <TouchableOpacity 
+            <TouchableOpacity onPress={()=> props.navigation.navigate("PaymentOptions")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -444,7 +445,7 @@ style={{
             </TouchableOpacity>
 
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=> props.navigation.navigate("EditAddressPage")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -667,7 +668,7 @@ style={{
 
             </View>
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=> props.navigation.navigate("PaymentOptions")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -695,7 +696,7 @@ style={{
             </TouchableOpacity>
 
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=> props.navigation.navigate("EditAddressPage")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -764,7 +765,7 @@ style={{
             borderWidth: normalize(1),
             borderRadius: normalize(10),
             backgroundColor: 'white',
-            borderColor: '#D3D3D3',
+            borderColor: 'green',
             flexDirection: 'row',
             justifyContent: 'space-between'
           }}
@@ -800,6 +801,52 @@ style={{
             
             </TouchableOpacity>
 
+            <TouchableOpacity onPress={()=> props.navigation.navigate("EditAddressPage")
+            }
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(10),
+            backgroundColor: 'white',
+            borderColor: 'green',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'left',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: '#69BE53',
+        marginLeft: normalize(20)
+    }}
+        >
+          Edit Delivery Address
+            </Text>
+
+            <Image
+                source={ICONS.right_arrow}
+                style={{
+                    height: normalize(10),
+                    width: '100%',
+                    alignSelf: 'center',
+                    tintColor: 'black',
+                    marginLeft: normalize(-20),
+                   
+                }}
+                resizeMode={'contain'}
+                tintColor={'black'}
+            ></Image>
+
+            
+            </TouchableOpacity>
+
 
             <TouchableOpacity onPress={()=> props.navigation.navigate("MultipleAddress")
             }
@@ -811,7 +858,7 @@ style={{
             borderWidth: normalize(1),
             borderRadius: normalize(10),
             backgroundColor: 'white',
-            borderColor: '#D3D3D3',
+            borderColor: 'green',
             flexDirection: 'row',
             justifyContent: 'space-between'
           }}

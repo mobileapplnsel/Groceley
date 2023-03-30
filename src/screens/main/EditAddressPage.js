@@ -92,11 +92,11 @@ export default function EditAddressPage(props) {
                   fontSize: normalize(14),
                   letterSpacing: 1,
                   fontWeight: '700',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
                   color: 'black',
-                  
+                  marginLeft: normalize(25)
 
                 }}>
              Edit Delivery Address
@@ -146,10 +146,11 @@ export default function EditAddressPage(props) {
                 onChangeText={_ => setName(_)}
                 marginTop={normalize(10)}
                 keyboardType={'email-address'}
-                fontSize={normalize(14)}
+                fontSize={normalize(12)}
                 width={'90%'}
                 placeholder={'Awantika Maurya'}
                 placeholderTextColor={'black'}
+                
                 secureTextEntry={false}
                 borderRadius={normalize(10)}
                 backgroundColor={'#E8E8E8'}
@@ -177,7 +178,7 @@ export default function EditAddressPage(props) {
                
                 fontSize={normalize(14)}
                 width={'90%'}
-                placeholder={'Floor 4th, SDF building, near mio amore sector 5'}
+                placeholder={'Floor 4th, SDF building'}
                 borderRadius={normalize(10)}
                 backgroundColor={'#E8E8E8'}
                 placeholderTextColor={'black'}
@@ -199,7 +200,7 @@ export default function EditAddressPage(props) {
 
 <TextInputItem
                 value={landmark}
-                onChangeText={_ => setStreet(_)}
+                onChangeText={_ => setLandmark(_)}
                 marginTop={normalize(10)}
 
                 fontSize={normalize(14)}

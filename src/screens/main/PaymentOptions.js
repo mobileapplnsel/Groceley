@@ -48,6 +48,8 @@ export default function PaymentOptions(props) {
   const [emi, setEmi] = useState(0);
   const [upi, setUpi] = useState(0);
   const [cash, setCash] = useState(0);
+  const [coupon_clicked, setCoupon_clicked] = useState(false);
+
   const isFocused = useIsFocused();
 
 
@@ -59,7 +61,9 @@ export default function PaymentOptions(props) {
 
 
 
-
+function coupon(){
+  setCoupon_clicked(!coupon_clicked)
+}
 
     
    
@@ -173,11 +177,11 @@ export default function PaymentOptions(props) {
                   fontSize: normalize(14),
                   letterSpacing: 1,
                   fontWeight: '700',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
                   color: 'black',
-                  
+                  marginLeft: normalize(20)
 
                 }}>
              Payment Options
@@ -225,14 +229,15 @@ style={{
 }}>
 
 <Image
-                        source={ICONS.check}
+                        source={ICONS.tick}
                         style={{
-                            height: normalize(15),
-                            width: '100%',
+                            height: normalize(10),
+                            width: '90%',
                             alignSelf: 'center',
-                              
+                            tintColor: 'white'
                         }}
                         resizeMode={'contain'}
+                        tintColor= {'white'}
                     ></Image>
 
 
@@ -283,6 +288,17 @@ style={{
     backgroundColor: 'white'
 }}
 />
+
+{/* <Image
+                  source={ICONS.tick}
+                  style={{
+                    height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20)
+                  }}
+                  resizeMode={'contain'}
+                ></Image> */}
          </View>
 
          <View style={{
@@ -345,7 +361,7 @@ style={{
 
 <TouchableOpacity
             style={{
-                height: normalize(60),
+                //height: normalize(60),
                 width: '90%',
                 backgroundColor: '#FFD580',
                 alignSelf: 'center',
@@ -363,10 +379,31 @@ style={{
                      marginTop: normalize(10),
                      color: 'black',
                 }}>
-                       Pay Only {'\u20B9'}3,000 for Membership, Active and get rewards of {'\u20B9'}900
+                       Pay Only {'\u20B9'}999 for Membership, and get {'\u20B9'}200 cashback and 7% discount
                 </Text>
 
-                
+                <TouchableOpacity 
+                                        onPress={()=>props.navigation.navigate("Membership")}
+                                        style={{
+                                          height: normalize(30),
+                                          width: '70%',
+                                          backgroundColor: '#69BE53',
+                                          borderRadius: normalize(5),
+                                          justifyContent: 'center',
+                                          alignItems: 'center',
+                                          marginBottom: normalize(10),
+                                         alignSelf: 'center',
+                                         marginTop: normalize(10)
+                                        }}>
+                                          <Text
+                                          
+                                          style={{
+                                            fontSize: normalize(12),
+                                            fontFamily: FONTS.Hind,
+                                            color: 'white'
+                                          }}
+                                          > Go to Membership page</Text>
+                                           </TouchableOpacity>
 
             </TouchableOpacity>
 
@@ -667,7 +704,7 @@ style={{
 </View>
 
           
-<TouchableOpacity
+<TouchableOpacity onPress={()=> coupon()}
           style={{
             height: normalize(40),
             width: '90%',
@@ -693,6 +730,118 @@ style={{
             </Text>
             
             </TouchableOpacity>
+
+            {coupon_clicked == 1 ? (     <View 
+           
+            
+           style={{
+
+
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: 'white',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
+
+marginTop: normalize(5),
+           }}>
+          
+
+    
+
+<View style = {{
+ marginLeft: normalize(10)
+}}
+>
+<TextInput
+                                value={name}
+                                onChangeText={_ => setName(_)}
+                                marginTop={normalize(15)}
+                                alignSelf={'center'}
+                                keyboardType={'email-address'}
+                                fontSize={normalize(14)}
+                                width={normalize(250)}
+                                placeholder={'Enter promo code'}
+                                placeholderTextColor={'#3F3F3F'}
+                                borderRadius={normalize(10)}
+                                borderWidth={normalize(1)}
+                                borderColor={'#DADADA'}
+                                height={normalize(40)}
+                                style={{
+                                  paddingHorizontal: normalize(20)
+                                }}
+                            />
+
+
+
+                                      
+
+
+
+
+
+
+
+
+                                     
+
+
+
+
+
+
+
+
+
+
+
+                                  
+
+
+
+
+
+                                       <TouchableOpacity 
+                                      
+                                       style={{
+                                         height: normalize(30),
+                                         width: '60%',
+                                         backgroundColor: '#69BE53',
+                                         borderRadius: normalize(5),
+                                         justifyContent: 'center',
+                                         alignItems: 'center',
+                                         marginBottom: normalize(10),
+                                         alignSelf: 'center',
+                                         borderRadius: normalize(10),
+                                         marginTop: normalize(10)
+                                       }}>
+                                         <Text
+                                         
+                                         style={{
+                                           fontSize: normalize(12),
+                                           fontFamily: FONTS.Hind,
+                                           color: 'white',
+                                           alignSelf: 'center'
+
+                                         }}
+                                         > Apply</Text>
+                                          </TouchableOpacity>
+
+                                       </View>
+
+                                       
+                                       
+             
+
+           </View>
+        
+  
+  
+  ) : (null)}
+
 
             <TouchableOpacity
           style={{

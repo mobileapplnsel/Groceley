@@ -81,7 +81,8 @@ export default function StackNavigator() {
         PaymentOptions: PaymentOptions,
         EditAddressPage : EditAddressPage,
         MultipleAddress: MultipleAddress,
-        Membership: Membership
+        Membership: Membership,
+        PaymentOptions: PaymentOptions,
       }
      
 
