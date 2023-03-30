@@ -37,6 +37,7 @@ import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
+import Membership from './Membership';
 
 var status = '';
 export default function Home(props) {
@@ -53,6 +54,8 @@ export default function Home(props) {
   const [longitude, setLongitude] = useState('');
   const [address, setAddress] = useState('');
   const [dropdownpressed, setDropdownpressed] = useState(0);
+  const [membership_clicked, setMembership_clicked] = useState(false);
+
 
   useEffect(() => {
 
@@ -273,7 +276,9 @@ props.navigation.navigate("Productlist" , {
     props.navigation.navigate("Subcategorylist")
      }
 
-
+ function membership(){
+  setMembership_clicked(!membership_clicked)
+ }
 
 
   const regex =
@@ -716,7 +721,10 @@ style={{
               </Text>
             </View>  
 
-            <TouchableOpacity style={{
+            <TouchableOpacity 
+            onPress={()=> membership()}
+            
+            style={{
 
 height: normalize(40),
 width: '90%',
@@ -725,6 +733,8 @@ width: '90%',
 alignSelf: 'center',
 borderRadius: normalize(10),
 backgroundColor: '#F0F0F0',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
 flexDirection: 'row',
 justifyContent: 'space-evenly',
 alignItems: 'center',
@@ -745,7 +755,7 @@ marginTop: normalize(5)
                   style={{
                     height: normalize(10),
                     width: normalize(10),
-                    marginLeft: normalize(20)
+                    marginLeft: normalize(70)
                     
                   }}
                   resizeMode={'contain'}
@@ -753,8 +763,133 @@ marginTop: normalize(5)
 
             </TouchableOpacity>
 
-         
 
+
+   {membership_clicked == 1 ? (     <View 
+           
+            
+            style={{
+
+
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: 'white',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
+
+marginTop: normalize(5),
+            }}>
+           
+
+     
+
+<View style = {{
+  marginLeft: normalize(10)
+}}
+>
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind,
+                                            marginTop: normalize(10),
+                                            
+                                        }}
+                                        >
+                                     Minimum 7% discount on all products.
+                                        </Text>
+
+
+
+                                       
+
+
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      200 INR instant discount through coins.
+                                        </Text>
+
+
+
+                                      
+
+
+
+
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      300 INR cashback for all Club Members.
+                                        </Text>
+
+
+
+
+                                   
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind,
+                                            marginBottom: normalize(10)
+                                        }}
+                                        >
+                                       150 INR in three instalments as coins in Wallet.
+                                        </Text>
+
+
+                                        <TouchableOpacity 
+                                        onPress={()=>props.navigation.navigate("Membership")}
+                                        style={{
+                                          height: normalize(30),
+                                          width: '70%',
+                                          backgroundColor: '#69BE53',
+                                          borderRadius: normalize(5),
+                                          justifyContent: 'center',
+                                          alignItems: 'center',
+                                          marginBottom: normalize(10)
+                                        }}>
+                                          <Text
+                                          
+                                          style={{
+                                            fontSize: normalize(12),
+                                            fontFamily: FONTS.Hind,
+                                            color: 'white'
+                                          }}
+                                          > Go to Membership page</Text>
+                                           </TouchableOpacity>
+
+                                        </View>
+
+                                        
+                                        
+              
+
+            </View>
+         
+   ) : (null)}
 
               <FlatList
                 data={DATA}
@@ -869,7 +1004,7 @@ marginTop: normalize(5)
                 }}
 
 
-              />
+              /> 
 
 
 
