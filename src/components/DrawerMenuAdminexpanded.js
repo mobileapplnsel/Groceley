@@ -612,7 +612,41 @@ export default function DrawerMenuAdminexpanded(props) {
                 </View>
               </TouchableOpacity>
 
-              
+              <TouchableOpacity
+                onPress={() => {
+                  onPress();
+                  onBackdropPress()
+                  navigation.navigate('Membership');
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: normalize(30),
+                  }}>
+                  <Image
+                    source={ICONS.multiuser}
+                    resizeMode="contain"
+                    style={{
+                      height: normalize(18),
+                      width: normalize(18),
+                      tintColor: '#F36E35'
+                     
+                    }}
+                      tintColor= '#F36E35'
+                  
+                  />
+                  <Text
+                    style={{
+                      fontSize: normalize(13),
+                      color: '#767676',
+                    
+
+                      marginLeft: normalize(10),
+                    }}>
+                    Membership
+                  </Text>
+                </View>
+              </TouchableOpacity>
              
 
               <TouchableOpacity

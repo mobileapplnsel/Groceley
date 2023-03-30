@@ -88,6 +88,7 @@ export const ICONS = {
    community_share: require('../assets/icons/community_share.png'),
    member_card: require('../assets/icons/member_card.png'),
    whatsapp: require('../assets/icons/whatsapp.png'),
+   multiuser: require('../assets/icons/multiuser.png'),
 
 };
 

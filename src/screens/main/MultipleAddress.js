@@ -38,7 +38,8 @@ export default function MultipleAddress(props)
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [house, setHouse] = useState('');
-
+    const [house1, setHouse1] = useState('');
+    const [house2, setHouse2] = useState('');
 
 
 
@@ -103,40 +104,6 @@ export default function MultipleAddress(props)
 
     ]
 
-    const DATA2 = [{
-        id: "0",
-        categories: "Bedcovers",
-        pic: ICONS.bedsheet,
-        description: "King Size Bed Sheet (with pillow cover)",
-        realprice: "4999",
-        discountedprice: "2150"
-
-
-    },
-
-    {
-        id: "1",
-        categories: "Bedsheets",
-        pic: ICONS.bedsheet,
-        description: "King Size Bed Sheet (with pillow cover)",
-        realprice: "4999",
-        discountedprice: "2150"
-
-
-    },
-
-    {
-        id: "2",
-        categories: 'Blankets',
-        pic: ICONS.bedsheet,
-        description: "King Size Bed Sheet (with pillow cover)",
-        realprice: "4999",
-        discountedprice: "2150"
-    }
-
-
-
-    ]
 
 
 
@@ -234,8 +201,8 @@ export default function MultipleAddress(props)
             <View style ={{borderColor:'#D3D3D3',borderRadius:10,width:'100%',borderWidth:1,height:normalize(60),marginTop:normalize(10)}}>
 
 <TextInput
- value={house}
- onChangeText={_ => setHouse(_)}
+ //value={house}
+ //onChangeText={_ => setHouse(_)}
  numberOfLines={5}
  style={{paddingLeft:normalize(10)}}
  multiline={true}
@@ -289,127 +256,7 @@ export default function MultipleAddress(props)
         </>
     );
 
-    const renderItem2 = ({ item, index }) => (
-        <View style={{
-
-            height: normalize(200),
-
-            backgroundColor: item.id % 2 == '0' ? '#F6F6F6' : '#FFF3F4',
-            marginVertical: normalize(5),
-
-            borderRadius: normalize(15)
-        }}>
-
-
-
-
-
-            <Image
-                source={item.pic}
-                style={{
-                    height: normalize(100),
-                    width: normalize(80),
-                    alignSelf: 'center',
-                    marginTop: normalize(-18),
-                    marginRight: normalize(5),
-                    borderRadius: normalize(25)
-                }}
-                resizeMode={'contain'}
-            ></Image>
-
-
-
-
-
-            <Text
-                numberOfLines={2}
-                style={{
-                    color: 'black',
-                    fontSize: normalize(10),
-                    fontWeight: '600',
-                    marginTop: normalize(5),
-                    alignSelf: 'center',
-                    width: '60%'
-                }}
-            >{item.description}
-            </Text>
-
-
-            <View style={{
-                flexDirection: 'row',
-            }}>
-
-                <Image
-                    source={ICONS.rupee}
-                    style={{
-                        height: normalize(10),
-                        width: normalize(10),
-                        marginTop: normalize(8),
-                        marginLeft: normalize(20),
-                        tintColor: "#9E9E9E"
-                    }}
-                    resizeMode={'contain'}
-                    tintColor={"#9E9E9E"}
-
-                ></Image>
-                <Text
-                    style={{
-                        color: '#9E9E9E',
-                        fontSize: normalize(10),
-                        fontWeight: '600',
-                        marginTop: normalize(5),
-                        alignSelf: 'center'
-                    }}
-                >{item.realprice}
-                </Text>
-
-                <View style={{
-                    flexDirection: 'row',
-                    marginLeft: normalize(2)
-                }}>
-
-                    <Image
-                        source={ICONS.rupee}
-                        style={{
-                            height: normalize(13),
-                            width: normalize(15),
-                            marginTop: normalize(8),
-                            // marginLeft: normalize(20),
-
-                        }}
-                        resizeMode={'contain'}
-
-                    />
-
-                    <Text style={{
-                        color: '#222222',
-                        fontSize: normalize(13),
-                        fontWeight: '600',
-                        marginTop: normalize(5),
-                        alignSelf: 'center',
-                        fontWeight: '700'
-                    }}>{item.discountedprice}
-                    </Text>
-                </View>
-
-                <View
-                    style={{
-                        height: normalize(1),
-                        width: normalize(40),
-                        backgroundColor: "#9E9E9E",
-                        position: 'absolute',
-                        top: 15,
-                        left: 20
-
-                    }}
-                />
-
-            </View>
-
-
-        </View>
-    );
-
+   
 
     return (
 
