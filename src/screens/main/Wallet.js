@@ -519,7 +519,9 @@ function favourite(){
 
 
 
-                            <View style={{
+                            <TouchableOpacity onPress={()=> props.navigation.navigate("DepositCoinsPage")}
+                            
+                            style={{
                             height: normalize(70),
                             width: '90%',
                             flexDirection: 'row',
@@ -592,7 +594,7 @@ function favourite(){
 
 </View>
 
-                            </View>
+                            </TouchableOpacity>
 
                             <View style={{
                             height: normalize(70),
@@ -679,7 +681,9 @@ function favourite(){
 
 
                       
-               <View style={{
+               <TouchableOpacity onPress={()=> props.navigation.navigate("Transaction_history")}
+               
+               style={{
                 height: normalize(110),
                 backgroundColor: '#FFF2F0',
                 borderTopLeftRadius: normalize(25),
@@ -754,7 +758,7 @@ function favourite(){
 
                
 
-                                    </View>
+                                    </TouchableOpacity>
 
 
                         </ScrollView>

@@ -410,32 +410,6 @@ style={{
 
 
 
-            <TouchableOpacity
-            style={{
-                height: normalize(40),
-                width: '90%',
-                backgroundColor: '#69BE53',
-                alignSelf: 'center',
-                marginTop: normalize(20),
-                borderRadius: normalize(15)
-            }}
-            
-            >
-                <Text style={{
-                     fontSize: normalize(12),
-                     
-                    
-                     textAlign: 'center',
-                     fontFamily: FONTS.Hind,
-                     marginTop: normalize(10),
-                     color: 'white',
-                }}>
-                       Continue
-                </Text>
-
-                
-
-            </TouchableOpacity>
 
 
             <Text style={{
@@ -843,7 +817,7 @@ marginTop: normalize(5),
   ) : (null)}
 
 
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=> props.navigation.navigate("Orderlist")}
           style={{
             height: normalize(40),
             width: '90%',
