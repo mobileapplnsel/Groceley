@@ -33,7 +33,10 @@ import Subcategorylist from '../screens/main/Subcategorylist';
 import Add_delivery_instructions from '../screens/main/Add_delivery_instructions';
 import Filter from '../screens/main/Filter';
 import Coupon from '../screens/main/Coupon';
-
+import PaymentOptions from '../screens/main/PaymentOptions';
+import EditAddressPage from '../screens/main/EditAddressPage';
+import MultipleAddress from '../screens/main/MultipleAddress';
+import Membership from '../screens/main/Membership';
 
 const Stack = createStackNavigator();
 
@@ -74,7 +77,11 @@ export default function StackNavigator() {
         Select_delivery_address: Select_delivery_address,
         Subcategorylist: Subcategorylist,
         Add_delivery_instructions : Add_delivery_instructions,
-        Coupon: Coupon
+        Coupon: Coupon,
+        PaymentOptions: PaymentOptions,
+        EditAddressPage : EditAddressPage,
+        MultipleAddress: MultipleAddress,
+        Membership: Membership
       }
      
 

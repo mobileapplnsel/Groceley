@@ -694,6 +694,68 @@ style={{
             
 
             </View>
+
+            <View style={{
+              backgroundColor: '#F36E35',
+              height: normalize(20),
+              width: '90%',
+              alignSelf: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: normalize(5),
+            }}>
+              <Text style={{
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(10),
+              alignSelf: 'center',
+              
+              color: 'white'
+            }}
+              >
+                Attractive discounts and cashbacks for Members
+              </Text>
+            </View>  
+
+            <TouchableOpacity style={{
+
+height: normalize(40),
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: '#F0F0F0',
+flexDirection: 'row',
+justifyContent: 'space-evenly',
+alignItems: 'center',
+marginTop: normalize(5)
+            }}>
+           
+
+<Text style={{color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+             
+             
+              }}>
+                Membership details
+              </Text>
+              <Image
+                  source={ICONS.downward_arrow}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    marginLeft: normalize(20)
+                    
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+
+            </TouchableOpacity>
+
+         
+
+
               <FlatList
                 data={DATA}
                 renderItem={renderItem1}
@@ -705,7 +767,7 @@ style={{
 
 
                   marginLeft: normalize(12),
-
+                  marginTop: normalize(20)
                   
 
 
