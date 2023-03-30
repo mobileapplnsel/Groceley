@@ -86,6 +86,9 @@ export const ICONS = {
    standard_chatered: require('../assets/icons/standard_chatered.png'),
    phonepe: require('../assets/icons/phonepe.png'),
    community_share: require('../assets/icons/community_share.png'),
+   member_card: require('../assets/icons/member_card.png'),
+   whatsapp: require('../assets/icons/whatsapp.png'),
+
 };
 
 export const FONTS = {

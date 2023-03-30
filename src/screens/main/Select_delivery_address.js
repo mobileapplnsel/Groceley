@@ -800,6 +800,53 @@ style={{
             
             </TouchableOpacity>
 
+
+            <TouchableOpacity onPress={()=> props.navigation.navigate("MultipleAddress")
+            }
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(10),
+            backgroundColor: 'white',
+            borderColor: '#D3D3D3',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: '#69BE53',
+        marginLeft: normalize(20)
+    }}
+        >
+          Add Multiple Address
+            </Text>
+
+            <Image
+                source={ICONS.right_arrow}
+                style={{
+                    height: normalize(10),
+                    width: '100%',
+                    alignSelf: 'center',
+                    tintColor: 'black',
+                    marginLeft: normalize(-20),
+                   
+                }}
+                resizeMode={'contain'}
+                tintColor={'black'}
+            ></Image>
+
+            
+            </TouchableOpacity>
+
             <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
           style={{
             height: normalize(40),
