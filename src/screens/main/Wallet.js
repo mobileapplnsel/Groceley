@@ -475,27 +475,11 @@ function favourite(){
                         marginLeft: normalize(20),
                         color: 'black',
                         
-                        marginTop: normalize(20)
+                        marginTop: normalize(25)
                     }}
                     
                     >Promotion</Text>
 
-                    <View style={{
-                        flexDirection: 'row'
-                    }}>
-                    <Text
-                     style={{
-                        fontSize: normalize(12),
-                        fontFamily: FONTS.Hind,
-                        marginLeft: normalize(20),
-                        color: 'black',
-                        
-                       // marginTop: normalize(5)
-                    }}
-                    
-                    > 0.0 </Text>
-                    
-                    </View>
                 </View>
 <View style={{
     justifyContent: 'center',
