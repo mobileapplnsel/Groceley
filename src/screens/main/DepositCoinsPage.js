@@ -34,7 +34,7 @@ var status = '';
 export default function DepositCoinsPage(props) {
 
 
-  const [name, setName] = useState('');
+  const [amount, setAmount] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [house, setHouse] = useState('');
   const [street, setStreet] = useState('');
@@ -43,6 +43,9 @@ export default function DepositCoinsPage(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
+  const [flag1, setFlag1] = useState(0);
+  const [flag2, setFlag2] = useState(0);
+  const [flag3, setFlag3] = useState(0);
 
   const isFocused = useIsFocused();
 
@@ -51,6 +54,36 @@ export default function DepositCoinsPage(props) {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
+     function deposit1()
+     {
+         setFlag1(1);
+         setFlag2(0);
+         setFlag3(0);
+
+         setAmount("250")    
+     }
+
+    // 
+     function deposit2()
+     {
+
+      setFlag1(0);
+      setFlag2(1);
+      setFlag3(0);
+      setAmount("500")  
+
+     }
+
+
+     function deposit3()
+     {
+      setFlag1(0);
+      setFlag2(0);
+      setFlag3(1);
+      setAmount("1000")
+     }
+
+    
 
   return (
 
@@ -130,21 +163,21 @@ export default function DepositCoinsPage(props) {
 <View style={{
     
 }}>
-
-            
+   
             <View style={{flexDirection:'row', borderRadius:normalize(10),
                 backgroundColor:'#E8E8E8', width:'90%',marginLeft:10
 }}>
-             <Text style={{marginLeft:10,alignSelf:'center'}}>{'\u20B9'}</Text>
+             <Text style={{marginLeft:10,alignSelf:'center',color:'black'}}>{'\u20B9'}</Text>
 
       
               <TextInput
-                value={name}
-                onChangeText={_ => setName(_)}
+                value={amount}
+                onChangeText={_ => setAmount(_)}
                 width= '90%'
                 keyboardType='numeric'
                 fontSize={normalize(14)}
-              
+                 style={{color:'black'}}
+                placeholderTextColor='gray'
                 placeholder={'0'}
                 secureTextEntry={false}
                
@@ -179,10 +212,11 @@ export default function DepositCoinsPage(props) {
             borderWidth: normalize(1),
             borderRadius: normalize(8),
             backgroundColor: 'white',
-            borderColor: '#D3D3D3'
-          }}
-          
-        > 
+            borderColor: flag1 == 1 ?'#69BE53':'#D3D3D3'
+          }}  onPress ={()=>
+          {
+            deposit1()
+          }}> 
         
         <Text style={{
         fontSize: normalize(12),           
@@ -206,10 +240,11 @@ export default function DepositCoinsPage(props) {
             borderRadius: normalize(8),
             marginLeft:10,
             backgroundColor: 'white',
-            borderColor: '#D3D3D3'
-          }}
-          
-        > 
+            borderColor: flag2 == 1 ?'#69BE53':'#D3D3D3'
+          }}  onPress ={()=>
+          {
+            deposit2()
+          }}> 
         
         <Text style={{
         fontSize: normalize(12),           
@@ -236,10 +271,11 @@ export default function DepositCoinsPage(props) {
             borderRadius: normalize(8),
             marginLeft:10,
             backgroundColor: 'white',
-            borderColor: '#D3D3D3'
-          }}
-          
-        > 
+            borderColor: flag3 == 1 ?'#69BE53':'#D3D3D3'
+          }}  onPress ={()=>
+          {
+            deposit3()
+          }}> 
         
         <Text style={{
         fontSize: normalize(12),           

@@ -66,8 +66,7 @@ export default function Layout(props) {
           backgroundColor: 'white',
           paddingBottom: Platform.OS == 'ios' ? normalize(10) : normalize(8),
           backgroundColor: '#69BE53',
-         
-         
+          
          
           marginRight: normalize(10),
           width: '100%',
