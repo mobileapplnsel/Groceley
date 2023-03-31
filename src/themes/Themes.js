@@ -91,6 +91,11 @@ export const ICONS = {
    multiuser: require('../assets/icons/multiuser.png'),
    tick: require('../assets/icons/tick.png'),
    giftbox: require('../assets/icons/giftbox.png'),
+   mail: require('../assets/icons/mail.png'),
+   copy: require('../assets/icons/copy.png'),
+   orangebg: require('../assets/icons/orangebg.png'),
+   referlogo: require('../assets/icons/referlogo.png'),
+
 };
 
 export const FONTS = {

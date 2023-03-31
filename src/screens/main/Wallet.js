@@ -582,7 +582,9 @@ function favourite(){
 
                             </TouchableOpacity>
 
-                            <View style={{
+                            <TouchableOpacity 
+                            onPress={()=> props.navigation.navigate("ReferAndEarn")}
+                            style={{
                             height: normalize(70),
                             width: '90%',
                             flexDirection: 'row',
@@ -655,7 +657,7 @@ function favourite(){
 
 </View>
 
-                            </View>
+                            </TouchableOpacity >
 
                                 </View>
 
