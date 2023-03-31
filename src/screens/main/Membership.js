@@ -586,7 +586,8 @@ export default function Membership(props)
             backgroundColor: '#3F3F3F',
             borderColor: '#D3D3D3',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            marginLeft: normalize(20)
           }}
           
         > 

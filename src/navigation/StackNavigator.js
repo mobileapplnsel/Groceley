@@ -39,6 +39,7 @@ import MultipleAddress from '../screens/main/MultipleAddress';
 import Membership from '../screens/main/Membership';
 import DepositCoinsPage from '../screens/main/DepositCoinsPage';
 import Transaction_history from '../screens/main/Transaction_history';
+import Promotion from '../screens/main/Promotion';
 
 
 const Stack = createStackNavigator();
@@ -88,6 +89,7 @@ export default function StackNavigator() {
         PaymentOptions: PaymentOptions,
         DepositCoinsPage: DepositCoinsPage,
         Transaction_history: Transaction_history,
+        Promotion: Promotion
       }
      
 

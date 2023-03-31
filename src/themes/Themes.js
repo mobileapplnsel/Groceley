@@ -90,7 +90,7 @@ export const ICONS = {
    whatsapp: require('../assets/icons/whatsapp.png'),
    multiuser: require('../assets/icons/multiuser.png'),
    tick: require('../assets/icons/tick.png'),
-
+   giftbox: require('../assets/icons/giftbox.png'),
 };
 
 export const FONTS = {

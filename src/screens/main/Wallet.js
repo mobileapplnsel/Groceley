@@ -442,7 +442,9 @@ function favourite(){
                             </View>
 
 
-                            <View style={{
+                            <TouchableOpacity onPress={()=> props.navigation.navigate("Promotion")}
+                            
+                            style={{
                             height: normalize(70),
                             width: '90%',
                             flexDirection: 'row',
@@ -476,7 +478,7 @@ function favourite(){
                         marginTop: normalize(20)
                     }}
                     
-                    > Buy & earn Coins</Text>
+                    >Promotion</Text>
 
                     <View style={{
                         flexDirection: 'row'
@@ -497,7 +499,7 @@ function favourite(){
                 </View>
 <View style={{
     justifyContent: 'center',
-    marginLeft: normalize(70)
+    marginLeft: normalize(130)
 }}>
                 <Image
                   source={ICONS.right_arrow}
@@ -505,7 +507,7 @@ function favourite(){
                     height: normalize(10),
                     width: normalize(10),
                     
-                    marginLeft: normalize(20),
+                    
                     tintColor: 'black'
                   }}
                   resizeMode={'contain'}
@@ -515,7 +517,7 @@ function favourite(){
 
 </View>
 
-                            </View>
+                            </TouchableOpacity>
 
 
 
