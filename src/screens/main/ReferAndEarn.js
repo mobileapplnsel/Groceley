@@ -661,9 +661,10 @@ export default function ReferAndEarn(props)
            
           
             <View style={{
-            flexDirection: 'column',
+          
             marginTop: normalize(20),
             marginBottom:normalize(20),
+            paddingRight: normalize(10)
          }}>
 
 <View style ={{flexDirection:'row'}}>
@@ -686,14 +687,14 @@ style={{
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
     marginLeft: normalize(7),
     backgroundColor: '#F36E35'
 }}
 />
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment.
 </Text>
 </View>
 
@@ -717,7 +718,7 @@ style={{
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
@@ -725,7 +726,7 @@ style={{
 }}
 />
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment.
 </Text>
 </View>
 
@@ -749,7 +750,7 @@ style={{
 <View style ={{flexDirection:'row'}}>    
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
@@ -759,7 +760,7 @@ style={{
 
 
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction. 
+The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment. 
 </Text>
 </View>
 
@@ -780,7 +781,7 @@ style={{
 </Text>
 </View>
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(20),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment.
 </Text>
 
          </View>
