@@ -185,8 +185,16 @@ export default function Promotion(props) {
 
 
             </View>
+
+
+
             <View style={{marginLeft:20 }}>
-                <Text style={{fontWeight:'700',color:'black',fontSize:normalize(14)}}>How It Works</Text>
+                <Text style={{fontWeight:'700',
+                color:'black',
+                fontSize:normalize(14),
+                marginTop: normalize(-20),
+                color: '#69BE53'
+                }}>How It Works</Text>
 
                 
                 <View style={{marginTop:normalize(15),
@@ -202,7 +210,7 @@ export default function Promotion(props) {
                     <Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>1.</Text>
                   <Text style={{
                     color:'gray',
-                    marginTop:normalize(7),
+                    
                     marginLeft: normalize(10),
                     fontSize:normalize(12),
                     marginRight:normalize(10),

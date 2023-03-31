@@ -635,9 +635,9 @@ style={{
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
-    marginLeft: normalize(5),
+    marginLeft: normalize(7),
     backgroundColor: '#F36E35'
 }}
 />
@@ -665,11 +665,11 @@ style={{
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
-    marginLeft: normalize(5)
+     marginLeft: normalize(7)
 }}
 />
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
@@ -696,11 +696,11 @@ style={{
 <View style ={{flexDirection:'row'}}>    
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
-    marginLeft: normalize(5)
+    marginLeft: normalize(7)
 }}
 />
 
@@ -722,11 +722,11 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5)}}>
-150 INR in three instalments through in-built wallet  
+{'\u20B9'} 150 in three instalments through in-built wallet  
 </Text>
 </View>
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(20),marginRight:normalize(10)}}>
-150 INR each in three instalments through wallet as coins which would be credited on 1st of second month on the registered mobile number or registered card. 
+{'\u20B9'} 150 each in three instalments through wallet as coins which would be credited on 1st of second month on the registered mobile number or registered card. 
 </Text>
 
          </View>
