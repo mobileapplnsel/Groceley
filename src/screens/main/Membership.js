@@ -722,11 +722,11 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5)}}>
-Rs.150 in three instalments through in-built wallet  
+150 INR in three instalments through in-built wallet  
 </Text>
 </View>
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(20),marginRight:normalize(10)}}>
-Rs.150 each in three instalments through in-built wallet as coins wallet which would be credited on 1st of second month on the registered mobile number or registered card. For Instance if someone buys the membership on 1st January the first 150 Rs coins would be credited on the app on 1st February the second 150 Rs coins would be credited on 1st March and third 150rs coins would be credited on 1st April 2023.
+150 INR each in three instalments through wallet as coins which would be credited on 1st of second month on the registered mobile number or registered card. 
 </Text>
 
          </View>

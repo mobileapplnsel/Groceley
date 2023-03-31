@@ -186,7 +186,7 @@ export default function Promotion(props) {
 
             </View>
             <View style={{marginLeft:20 }}>
-                <Text style={{fontWeight:'700',color:'black',fontSize:normalize(14)}}>How it Works</Text>
+                <Text style={{fontWeight:'700',color:'black',fontSize:normalize(14)}}>How It Works</Text>
 
                 
                 <View style={{marginTop:normalize(15),
@@ -213,7 +213,12 @@ export default function Promotion(props) {
                     
 
                        </View>
-
+<View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>
 
                        <View style={{flexDirection:'row'}}>
 
@@ -228,7 +233,13 @@ export default function Promotion(props) {
                         </Text>
 
 
-                           </View>              
+                           </View>     
+                           <View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>         
                       
                       <View style={{flexDirection:'row'}}>
 
@@ -245,6 +256,13 @@ export default function Promotion(props) {
 
                        </View>
 
+                       <View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>  
+
                        <View style={{flexDirection:'row'}}>
 
 <Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>4.</Text>
@@ -259,6 +277,14 @@ Rs.150 each in three instalments through in-built wallet as coins wallet which w
 
 
 </View>
+
+<View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>  
+
 <View style={{flexDirection:'row',marginRight:10,marginBottom:10}}>
 
 <Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>5.</Text>
@@ -274,7 +300,12 @@ The Instant coupon code of Rs 200 should be redeemed on the same day of enrolmen
 
 </View>
                      
-
+<View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>  
                 </View>
             </View>
           
