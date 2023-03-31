@@ -82,6 +82,17 @@ export const ICONS = {
    referandearn: require('../assets/icons/referandearn.png'),
    noodles: require('../assets/icons/noodles.jpeg'),
    pasta: require('../assets/icons/pasta.png'),
+   giftbox: require('../assets/icons/giftbox.png'),
+   whatsapp: require('../assets/icons/whatsapp.png'),
+   member_card: require('../assets/icons/card.png'),
+   orangebg: require('../assets/icons/orangebg.png'),
+   referlogo: require('../assets/icons/referlogo.png'),
+   copy: require('../assets/icons/copy.png'),
+   facebook: require('../assets/icons/facebook_share.png'),
+   mail: require('../assets/icons/mail_share.png'),
+   facebook: require('../assets/icons/facebook_share.png'),
+   whatsapp: require('../assets/icons/whatsapp_share.png'),
+   
 };
 
 export const FONTS = {

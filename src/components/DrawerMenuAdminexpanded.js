@@ -603,8 +603,6 @@ export default function DrawerMenuAdminexpanded(props) {
                     style={{
                       fontSize: normalize(13),
                       color: '#767676',
-                    
-
                       marginLeft: normalize(10),
                     }}>
                     Change Password
@@ -616,7 +614,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                  navigation.navigate('Transaction_history');
+                  navigation.navigate('DepositCoinsPage');
                 }}>
                 <View
                   style={{
@@ -648,11 +646,6 @@ export default function DrawerMenuAdminexpanded(props) {
                 </View>
               </TouchableOpacity>
 
-
-
-
-
-             
 
               <TouchableOpacity
                 onPress={() => {

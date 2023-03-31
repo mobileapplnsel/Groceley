@@ -28,6 +28,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
+import { onPress } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes';
 
 export default function MultipleAddress(props)
 {
@@ -37,8 +38,7 @@ export default function MultipleAddress(props)
     const [choosepassword, setChoosepassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
-    const [house, setHouse] = useState('');
-
+    const [house, setHouse] = useState([]);
 
 
 
@@ -50,7 +50,8 @@ export default function MultipleAddress(props)
         description: "Hovis Farmhouse Wholemeal",
         realprice: "4999",
         discountedprice: "1690",
-        quantity:1 
+        quantity:1,
+        address:''
 
     },
 
@@ -61,7 +62,8 @@ export default function MultipleAddress(props)
         description: "Kellogg's Corn Flakes Cereal",
          realprice: "4999",
         discountedprice: "1690",
-        quantity:1 
+        quantity:1,
+        address:''
 
 
     },
@@ -73,7 +75,8 @@ export default function MultipleAddress(props)
         description: "Amul Moti Homogenized Toned Milk",
         realprice: "4999",
         discountedprice: "1690",
-        quantity:1 
+        quantity:1,
+        address:'' 
 
     },
 
@@ -84,7 +87,8 @@ export default function MultipleAddress(props)
         description: "Kellogg's Corn Flakes Cereal",
         realprice: "4999",
         discountedprice: "1690",
-        quantity:1 
+        quantity:1, 
+         address:'' 
 
     },
     {
@@ -94,7 +98,8 @@ export default function MultipleAddress(props)
         description: "Amul Moti Homogenized Toned Milk",
         realprice: "4999",
         discountedprice: "1690",
-        quantity:1 
+        quantity:1,
+        address:'' 
 
     }
 
@@ -221,51 +226,69 @@ export default function MultipleAddress(props)
                    }}
                > Quantity: {item.quantity}</Text>
 
-              
-
                 </View>
-
-
-
             </View>
-
-
-
-            <View style ={{borderColor:'#D3D3D3',borderRadius:10,width:'100%',borderWidth:1,height:normalize(60),marginTop:normalize(10)}}>
+           <View style ={{borderColor:'#D3D3D3',borderRadius:10,width:'100%',borderWidth:1,height:normalize(60),marginTop:normalize(10)}}>
 
 <TextInput
- value={house}
- onChangeText={_ => setHouse(_)}
- numberOfLines={5}
- style={{paddingLeft:normalize(10)}}
- multiline={true}
- fontSize={normalize(12)}
- width={'90%'}
 
- placeholder={'Please Enter the Address'}
- color={'black'}
+onChangeText={text => {
+   
+    //  setHouse(newArray)
+   
+    
+    house[index] = text;
+    setHouse(house)
 
- placeholderTextColor={'gray'}
- secureTextEntry={false}
-/>
+  
+  }}
+ // value={house[index]}
+              numberOfLines={5}
+               style={{paddingLeft:normalize(10)}}
+                multiline={true}
+                 fontSize={normalize(12)}
+                     width={'90%'}
+
+                  placeholder={'Please Enter the Address'}
+                  color={'black'}
+
+                   placeholderTextColor={'gray'}
+                   secureTextEntry={false}
+               />
 
 
     </View>
 
 
 
-    <View style ={{width:'95%',height:normalize(60),marginTop:normalize(10),justifyContent:'space-between',flexDirection:'row'}}>
-       <View style ={{backgroundColor:'#69BE53',width:'50%',height:normalize(30),borderColor:'#D3D3D3',alignItems:'center',borderRadius:10,borderWidth:1}}>
+    <View style ={{marginTop:normalize(10),flexDirection:'row'}}>
+        <TouchableOpacity style={{width:'50%',height:normalize(60)}} onPress={()=>{
+                   //for new array...................
+      let newArray = [...DATA];
+      newArray[index].address = house[index]
+        console.log(DATA);
+        }}>
+       <View style ={{backgroundColor:'#69BE53',height:normalize(30),borderColor:'#D3D3D3',alignItems:'center',borderRadius:10,borderWidth:1}}>
         <Text style={{color:'white',alignSelf:'center',marginTop:5,fontWeight:'600'}}>
             Submit
         </Text>
        </View>
-     
-       <View style ={{backgroundColor:'#E76229',marginLeft:15,width:'50%',height:normalize(30),borderColor:'#D3D3D3',alignItems:'center',borderRadius:10,borderWidth:1}}>
+       </TouchableOpacity>
+     <TouchableOpacity style={{width:'50%',height:normalize(60),marginLeft:normalize(5)}} onPress ={()=>
+    {
+    //                  //for new array...................
+    //   let newArray = [...DATA];
+    //   newArray[index].address = ""
+    //     console.log(DATA);
+       
+        }}>
+    
+       <View style ={{backgroundColor:'#E76229',height:normalize(30),borderColor:'#D3D3D3',alignItems:'center',borderRadius:10,borderWidth:1}}>
         <Text style={{color:'white',alignSelf:'center',marginTop:5,fontWeight:'600'}}>
             Delete
         </Text>
        </View>
+       </TouchableOpacity>
      
 
     </View>

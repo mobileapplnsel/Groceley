@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-
 import Splash from '../screens/Splash';
 import Introduction from '../screens/auth/Introduction';
 import Registration from '../screens/auth/Registration';
@@ -32,10 +30,12 @@ import EditAddressPage from '../screens/main/EditAddressPage';
 import MultipleAddress from '../screens/main/MultipleAddress';
 import PaymentOptions from '../screens/main/PaymentOptions';
 import Transaction_history from '../screens/main/Transaction_history';
+import Promotion from '../screens/main/Promotion';
+import DepositCoinsPage from '../screens/main/DepositCoinsPage';
+import Membership from '../screens/main/Membership';
+import ReferAndEarn from '../screens/main/ReferAndEarn';
 
 
-
- 
 const Stack = createStackNavigator();
 
 export default function StackNavigator() {
@@ -66,6 +66,10 @@ export default function StackNavigator() {
         Productdetails: Productdetails,
         Notification: Notification,
         Cart: Cart,
+        ReferAndEarn:ReferAndEarn,
+        Membership:Membership,
+        Promotion:Promotion,
+        DepositCoinsPage: DepositCoinsPage,
         MultipleAddress:MultipleAddress,
         Orderlist: Orderlist,
         Orderdetails: Orderdetails,

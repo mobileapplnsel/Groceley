@@ -671,13 +671,6 @@ function favourite(){
 
                                 </View>
 
-
-                          
-
-                   
-
-
-
                       
                <View style={{
                 height: normalize(110),
@@ -741,18 +734,6 @@ function favourite(){
                   
                 ></Image>
                </View>
-
-
-               
-
-
-             
-
-              
-
-
-
-               
 
                                     </View>
 
