@@ -273,10 +273,10 @@ export default function Transaction_history(props) {
         <>
             <View style={{
 
-                height: normalize(60),
+                height: normalize(55),
                 width: '95%',
 
-                marginVertical: normalize(5),
+               
 
                 borderRadius: normalize(15)
             }}>
@@ -309,13 +309,13 @@ export default function Transaction_history(props) {
 
                         <View style={{
                             justifyContent: 'flex-end',
-                            marginRight: normalize(10),
                            
-                            marginTop: normalize(20)
+                            
+                            marginTop: normalize(15)
                         }}>
 
                             <Text style={{
-                                color: 'orange',
+                                color: '#F36E35',
                                 fontWeight: '700',
                                 alignSelf: 'flex-end',
                                 textAlign: 'right',
@@ -333,22 +333,22 @@ export default function Transaction_history(props) {
 
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'orange'}
+                                    tintColor={'#F36E35'}
                                 ></Image>
 
 
 
-                                <Text style={{
-                                    color: 'orange',
+                                <Text style={{               //All section
+                                    color: '#F36E35',
                                     alignSelf: 'flex-end',
                                     fontSize: normalize(10)
                                 }}>{item.coinstype}</Text>
                             </View>
 
                         </View> : item.coinstype == "Refer Coins" ? <View style={{ 
-                            justifyContent: 'flex-end', marginLeft:normalize(20), marginTop: normalize(20) }}>
+                            justifyContent: 'flex-end', marginLeft:normalize(20), marginTop: normalize(15) }}>
 
-                            <Text style={{ color: 'green', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
+                            <Text style={{ color: '#69BE53', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
                                 <Image
                                     source={ICONS.referandearn}
@@ -358,18 +358,18 @@ export default function Transaction_history(props) {
 
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'green'}
+                                    tintColor={'#69BE53'}
                                 ></Image>
-                                <Text style={{ color: 'green', alignSelf: 'flex-end', textAlign: 'right', fontSize: normalize(11) }}>{item.coinstype}</Text>
+                                <Text style={{ color: '#69BE53', alignSelf: 'flex-end', textAlign: 'right', fontSize: normalize(11) }}>{item.coinstype}</Text>
                             </View>
                         </View> : item.coinstype == "Deposit Coins" ? <View style=
                             {{
                                 justifyContent: 'flex-end',
-                                marginLeft: normalize(10),
-                                marginTop: normalize(20)
+                                marginLeft: normalize(15),
+                                marginTop: normalize(15)
                             }}>
 
-                            <Text style={{ color: 'green', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
+                            <Text style={{ color: '#69BE53', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <Image
                                     source={ICONS.deposit}
@@ -379,9 +379,9 @@ export default function Transaction_history(props) {
                                         alignSelf: 'center'
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'green'}
+                                    tintColor={'#69BE53'}
                                 ></Image>
-                                <Text style={{ color: 'green', alignSelf: 'flex-end', textAlign: 'right', fontSize: normalize(11) }}>{item.coinstype}</Text>
+                                <Text style={{ color: '#69BE53', alignSelf: 'flex-end', textAlign: 'right', fontSize: normalize(11) }}>{item.coinstype}</Text>
                             </View>
 
                         </View> : null}
@@ -408,10 +408,10 @@ export default function Transaction_history(props) {
         <>
             <View style={{
 
-                height: normalize(60),
+                height: normalize(55),
                 width: '95%',
                 alignSelf: 'center',
-                marginVertical: normalize(5),
+               
 
                 borderRadius: normalize(15)
             }}>
@@ -442,8 +442,8 @@ export default function Transaction_history(props) {
                     {item.coinstype == "Buy & Earn Coins" ?
                         <View style={{ justifyContent: 'flex-end' }}>
 
-                            <Text style={{ color: 'orange', marginLeft: 10, fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
-                            <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
+                            <Text style={{ color: '#F36E35', marginLeft: 10, fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
+                            <View style={{ flexDirection: 'row', alignSelf: 'flex-end', marginRight: normalize(10) }}>
                                 <Image
                                     source={ICONS.buyandearn}
                                     style={{
@@ -452,19 +452,28 @@ export default function Transaction_history(props) {
                                         alignSelf: 'center'
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'orange'}
+                                    tintColor={'#F36E35'}
                                 ></Image>
-                                <Text style={{ color: 'orange', marginRight: 10 }}>{item.coinstype}</Text>
+                                <Text style={{ color: '#F36E35', marginRight: 10 }}>{item.coinstype}</Text>
                             </View>
 
                         </View> : item.coinstype == "Refer Coins" ?
                             <View style={{
-                                justifyContent: 'flex-end',
-                                marginLeft: normalize(10)
+                                height: normalize(40),
+                            width: '40%',
+                            
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginTop: normalize(5),
+                            
+                                
                             }}>
 
-                                <Text style={{ color: 'green', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
-                                <View style={{ flexDirection: 'row', alignSelf: 'flex-end' }}>
+                                <Text style={{ color: '#69BE53', 
+                                fontWeight: '700',  
+                                marginRight: normalize(20),
+                                textAlign: 'right' }}>{item.coins}</Text>
+                                <View style={{ flexDirection: 'row', alignItems: 'flex-end',marginRight: normalize(35) }}>
                                     <Image
                                         source={ICONS.referandearn}
                                         style={{
@@ -473,28 +482,68 @@ export default function Transaction_history(props) {
                                             alignSelf: 'center'
                                         }}
                                         resizeMode={'contain'}
-                                        tintColor={'green'}
+                                        tintColor={'#69BE53'}
                                     ></Image>
-                                    <Text style={{ color: 'green', fontSize: normalize(10), }}>{item.coinstype}</Text>
+                                    <Text style={{ color: '#69BE53', fontSize: normalize(10), }}>{item.coinstype}</Text>
                                 </View>
-                            </View> : item.coinstype == "Deposit Coins" ? <View style={{ justifyContent: 'flex-end' }}>
+                            </View> : item.coinstype == "Deposit Coins" ? 
+                            
+                            
+                           ( <View style={{
+                            height: normalize(40),
+                            width: '40%',
+                            
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginTop: normalize(5),
+                            
+                           }}>
+                            <Text style={{ 
+                                color: '#69BE53', 
+                            fontWeight: '700',  
+                            textAlign: 'right', 
+                            marginRight: normalize(20)
+                             }}>{item.coins}</Text>
 
-                                <Text style={{ color: 'green', marginLeft: 10, fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
-                                <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                    <Image
+
+                              <View style={{ flexDirection: 'row', alignItems: 'flex-end' ,}}>
+                                     <Image
                                         source={ICONS.deposit}
-                                        style={{
-                                            height: normalize(15),
-                                            width: normalize(15),
-                                            alignSelf: 'flex-end'
-                                        }}
+                                         style={{
+                                             height: normalize(15),
+                                             width: normalize(15),
+                                            
+                                         }}
                                         resizeMode={'contain'}
-                                        tintColor={'green'}
+                                        tintColor={'#69BE53'}
                                     ></Image>
-                                    <Text style={{ color: 'green', fontSize: normalize(10), alignSelf: 'flex-end' }}>{item.coinstype}</Text>
+                                     <Text style={{ color: '#69BE53', fontSize: normalize(10), textAlign: 'right', marginRight: normalize(45) }}>{item.coinstype}</Text>
+                                 </View>
                                 </View>
+                           )
+                            
+                            // <View style={{ alignItems: 'flex-end' }}>
 
-                            </View> : null}
+                            //     <Text style={{ color: '#69BE53', marginRight: normalize(5), fontWeight: '700',  textAlign: 'right' }}>{item.coins}</Text>
+                            //     <View style={{ flexDirection: 'row', alignItems: 'flex-end' , marginRight: -normalize(10)}}>
+                            //         <Image
+                            //             source={ICONS.deposit}
+                            //             style={{
+                            //                 height: normalize(15),
+                            //                 width: normalize(15),
+                            //                // marginRight: -normalize(10)
+                            //             }}
+                            //             resizeMode={'contain'}
+                            //             tintColor={'#69BE53'}
+                            //         ></Image>
+                            //         <Text style={{ color: '#69BE53', fontSize: normalize(10), alignSelf: 'flex-end' }}>{item.coinstype}</Text>
+                            //     </View>
+
+                            // </View>
+                            
+                            
+                            
+                            : null}
 
                 </View>
 
@@ -517,7 +566,7 @@ export default function Transaction_history(props) {
         <>
             <View style={{
 
-                height: normalize(60),
+                height: normalize(55),
                 width: '85%',
 
                 marginVertical: normalize(5),
@@ -549,26 +598,33 @@ export default function Transaction_history(props) {
                     </View>
 
                     {item.coinstype == "Buy & Earn Coins" ?
-                        <View style={{ justifyContent: 'flex-end' }}>
+                        <View style={{ 
+                            height: normalize(40),
+                            width: '40%',
+                            
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            marginTop: normalize(10)
+                        }}>
 
-                            <Text style={{ color: 'orange', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
-                            <View style={{ flexDirection: 'row' }}>
+                            <Text style={{ color: '#F36E35', fontWeight: '700', alignSelf: 'flex-end', textAlign: 'right' }}>{item.coins}</Text>
+                            <View style={{ flexDirection: 'row' , marginLeft: normalize(10)}}>
                                 <Image
                                     source={ICONS.buyandearn}
                                     style={{
                                         height: normalize(15),
                                         width: normalize(15),
-                                        alignSelf: 'center'
+                                       
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'orange'}
+                                    tintColor={'#F36E35'}
                                 ></Image>
-                                <Text style={{ color: 'orange', fontSize: normalize(10) }}>{item.coinstype}</Text>
+                                <Text style={{ color: '#F36E35', fontSize: normalize(10) }}>{item.coinstype}</Text>
                             </View>
 
                         </View> : item.coinstype == "Refer Coins" ? <View style={{ justifyContent: 'flex-end' }}>
 
-                            <Text style={{ color: 'green', marginLeft: 10, fontWeight: '700' }}>{item.coins}</Text>
+                            <Text style={{ color: '#69BE53', marginLeft: 10, fontWeight: '700' }}>{item.coins}</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <Image
                                     source={ICONS.referandearn}
@@ -578,13 +634,13 @@ export default function Transaction_history(props) {
                                         alignSelf: 'center'
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'green'}
+                                    tintColor={'#69BE53'}
                                 ></Image>
-                                <Text style={{ color: 'green', marginRight: 10 }}>{item.coinstype}</Text>
+                                <Text style={{ color: '#69BE53', marginRight: 10 }}>{item.coinstype}</Text>
                             </View>
                         </View> : item.coinstype == "Deposit Coins" ? <View style={{ justifyContent: 'flex-end' }}>
 
-                            <Text style={{ color: 'green', marginLeft: 10, fontWeight: '700' }}>{item.coins}</Text>
+                            <Text style={{ color: '#69BE53', marginLeft: 10, fontWeight: '700' }}>{item.coins}</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <Image
                                     source={ICONS.deposit}
@@ -594,9 +650,9 @@ export default function Transaction_history(props) {
                                         alignSelf: 'center'
                                     }}
                                     resizeMode={'contain'}
-                                    tintColor={'green'}
+                                    tintColor={'#69BE53'}
                                 ></Image>
-                                <Text style={{ color: 'green', marginRight: 10 }}>{item.coinstype}</Text>
+                                <Text style={{ color: '#69BE53', marginRight: 10 }}>{item.coinstype}</Text>
                             </View>
 
                         </View> : null}
