@@ -94,9 +94,29 @@ export default function Add_delivery_address(props) {
 
 
 
-
+<View style={{
+  flexDirection: 'row'
+}}>
           
 
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
 
@@ -107,17 +127,17 @@ export default function Add_delivery_address(props) {
                   fontSize: normalize(14),
                   letterSpacing: 1,
                   fontWeight: '700',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
                   color: 'black',
-                  
+                  marginLeft: normalize(20)
 
                 }}>
              Add Delivery Address
               </Text>
 
-
+              </View>
 
 
               <View

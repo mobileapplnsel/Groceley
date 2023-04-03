@@ -394,20 +394,25 @@ const ShareExample = async () => {
     flexDirection: 'row',
     justifyContent: 'space-between'
 }}>
-      <TouchableOpacity onPress={()=>props.navigation.goBack()}
-                                    style={{
-                                        height: normalize(30),
-                                        width: normalize(30),
-                                       
-                                        
-                                        alignSelf: 'flex-start',
-                                       
-                                        marginTop: normalize(5),
-                                        marginLeft: normalize(10)
-                                    }}
-                                    
-                                    />
-   
+      
+      <TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(15),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
                                     
@@ -427,6 +432,8 @@ const ShareExample = async () => {
                                     }}
                                     
                                     >
+
+
                 
                 
                 <Image
@@ -465,7 +472,7 @@ const ShareExample = async () => {
                                             fontFamily: FONTS.Hind,
                                             marginLeft: normalize(20),
                                             color: 'black',
-                                            
+                                            marginTop: normalize(10)
                                         }}
                                         >
                                             My

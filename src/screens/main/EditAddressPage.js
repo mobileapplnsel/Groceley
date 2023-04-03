@@ -83,6 +83,30 @@ export default function EditAddressPage(props) {
 
 
 
+<View style={{
+  flexDirection: 'row'
+}}>
+          
+
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
+
 
 
 
@@ -96,11 +120,16 @@ export default function EditAddressPage(props) {
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
                   color: 'black',
-                  marginLeft: normalize(25)
+                  marginLeft: normalize(20)
 
                 }}>
              Edit Delivery Address
               </Text>
+
+              </View>
+
+
+             
 
 
 

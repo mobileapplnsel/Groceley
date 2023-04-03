@@ -363,7 +363,24 @@ export default function ReferAndEarn(props)
                         <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
 
 
+                        {/* <TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
 
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity> */}
 
                         <View style={{
               flexDirection: 'row',
