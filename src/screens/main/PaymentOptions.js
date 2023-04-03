@@ -169,8 +169,28 @@ function coupon(){
         marginBottom: normalize(20)
     }}>
 
+<View style={{
+  flexDirection: 'row'
+}}
+>
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
 
-
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
              
               <Text
                 style={{
@@ -188,7 +208,7 @@ function coupon(){
               </Text>
 
 
-
+              </View>
 
               <View
             style={{
