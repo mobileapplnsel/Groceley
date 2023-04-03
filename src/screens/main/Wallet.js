@@ -354,9 +354,18 @@ function favourite(){
                                 }}>
 
 
-
-
-
+<TouchableOpacity onPress={()=> props.navigation.goBack()}>
+<Image
+                  source={ICONS.previous}
+                  style={{
+                    height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+</TouchableOpacity>
 
                                         <Text
                                         style={{
@@ -365,7 +374,7 @@ function favourite(){
                                             marginLeft: normalize(20),
                                             color: 'black',
                                             fontWeight: '700',
-                                            marginTop: normalize(30)
+                                            marginTop: normalize(10)
                                         }}
                                         >
                                         My Wallet

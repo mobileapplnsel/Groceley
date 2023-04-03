@@ -40,6 +40,7 @@ export const ICONS = {
    rightarrow: require('../assets/icons/right-arrow.png'),
    wallet: require('../assets/icons/wallet.png'),
    left_arrow: require('../assets/icons/left_arrow.png'),
+   previous: require('../assets/icons/previous.png'),
    star: require('../assets/icons/star.png'),
    heart: require('../assets/icons/heart.png'),
    cart1: require('../assets/icons/cart1.png'),
@@ -95,7 +96,7 @@ export const ICONS = {
    copy: require('../assets/icons/copy.png'),
    orangebg: require('../assets/icons/orangebg.png'),
    referlogo: require('../assets/icons/referlogo.png'),
-
+   back: require('../assets/icons/back.png'),
 };
 
 export const FONTS = {

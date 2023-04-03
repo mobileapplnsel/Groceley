@@ -100,7 +100,23 @@ export default function Promotion(props) {
 
       
 
-             <View style={{backgroundColor:'#69BE53',width:'100%',flexDirection:'row'}}>
+             <View style={{backgroundColor:'#69BE53',flexDirection:'row'}}>
+             <TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(30),
+                    marginLeft: normalize(20),
+                    tintColor: 'white'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'white'}
+                ></Image>
+</TouchableOpacity>
               <Text
                 style={{
                   fontSize: normalize(16),

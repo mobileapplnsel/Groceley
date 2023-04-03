@@ -15,6 +15,7 @@ import {
     TextInput,
     FlatList,
     Share,
+    PermissionsAndroid
     
 } from 'react-native';
 
@@ -32,6 +33,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
+import RNFetchBlob from 'react-native-fetch-blob'
 import CarouselCards from '../../components/CarouselCards'
 import { tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 
@@ -193,8 +195,8 @@ function favourite1(){
             
             style={{
                 flexDirection: 'row',
-            height: normalize(110),
-            width: normalize(210),
+            height: normalize(100),
+            width: normalize(200),
             borderRadius: normalize(10),
             backgroundColor: '#F0F0F0',
             marginHorizontal: normalize(5)
@@ -203,8 +205,8 @@ function favourite1(){
                  <Image
                           source={item.pic}
                           style={{
-                            height: normalize(80),
-                            width: normalize(80),
+                            height: normalize(60),
+                            width: normalize(60),
                             alignSelf: 'center',
                             marginTop: normalize(5),
                             //marginLeft: normalize(20)
@@ -455,9 +457,102 @@ function favourite1(){
         </TouchableOpacity>
       );
 
-   
-    
 
+
+      //---------------------------------------------------------------------
+   
+        
+//define Url....................
+const fileUrl = 'https://cdn.graciousquotes.com/wp-content/uploads/2021/02/100-Inspirational-Quotes-About-Life.pdf';
+
+
+        // Pdf download.................
+
+const checkPermission = async () => {
+    
+  // Function to check the platform
+  // If Platform is Android then check for permissions.
+  console.log('hello');
+  if (Platform.OS === 'ios') {
+    downloadFile();
+  } else {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        {
+          title: 'Storage Permission Required',
+          message:
+            'Application needs access to your storage to download File',
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        // Start downloading
+        downloadFile();
+        console.log('Storage Permission Granted.');
+      } else {
+        // If permission denied then show alert
+        Alert.alert('Error','Storage Permission Not Granted');
+      }
+    } catch (err) {
+      // To handle permission related exception
+      console.log("++++"+err);
+    }
+  }
+};
+
+const downloadFile = () => {
+ 
+  // Get today's date to add the time suffix in filename
+  console.log('gru')
+  let date = new Date();
+  // File URL which we want to download
+  let FILE_URL = fileUrl;    
+  // Function to get extention of the file url
+  let file_ext = getFileExtention(FILE_URL);
+ 
+  file_ext = '.' + file_ext[0];
+ 
+  // config: To get response by passing the downloading related options
+  // fs: Root directory path to download
+  const { config, fs } = RNFetchBlob;
+  let RootDir = fs.dirs.PictureDir;
+  let options = {
+    fileCache: true,
+    addAndroidDownloads: {
+      path:
+        RootDir+
+        '/file_' + 
+        Math.floor(date.getTime() + date.getSeconds() / 2) +
+        file_ext,
+      description: 'downloading file...',
+      notification: true,
+      // useDownloadManager works with Android only
+      useDownloadManager: true,   
+    },
+  };
+  config(options)
+    .fetch('GET', FILE_URL)
+    .then(res => {
+      // Alert after successful downloading
+      console.log('res -> ', JSON.stringify(res));
+      alert('File Downloaded Successfully.');
+    });
+};
+
+const getFileExtention = fileUrl => {
+  // To get the file extension
+  return /[.]/.exec(fileUrl) ?
+           /[^.]+$/.exec(fileUrl) : undefined;
+};
+
+
+//-------------------------------------------------------
+ 
+
+
+
+//-------------------------------------------------------
+ 
 
     return (
 
@@ -475,14 +570,6 @@ function favourite1(){
 
 
                         {/* <ScrollView showsVerticalScrollIndicator={false} bounces={false} > */}
-
-
-
-
-
-
-                        
-
 
 
 
@@ -585,26 +672,10 @@ function favourite1(){
                                     </TouchableOpacity>
                                    
 
-
-                                        
-
-
- 
-
-
-</View>
-
-
-                                    
+</View>                                  
                               
                                     <View>
 
-
-                                   
- 
- 
- 
- 
  
  <Image
                                          source={ICONS.cornflakes2}
@@ -716,9 +787,7 @@ function favourite1(){
             }}>Order Info</Text>
 
 
-<TouchableOpacity onPress={()=> props.navigation.navigate('Orderdetails2')}
-
-style={{
+<TouchableOpacity style={{
     height: normalize(40),
     marginTop: normalize(10),
     flexDirection: 'row',
@@ -766,7 +835,7 @@ style={{
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: normalize(20)
-}}>
+}} onPress ={()=> checkPermission()}>
              <Text style={{
               color: "black",
               fontFamily: FONTS.Hind,
