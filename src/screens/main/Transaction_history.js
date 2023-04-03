@@ -753,6 +753,39 @@ export default function Transaction_history(props) {
                         }}>
 
 
+         <View style={{
+            flexDirection: 'row'
+         }}        >         
+
+<TouchableOpacity onPress={()=>props.navigation.goBack()}
+                                    style={{
+                                        height: normalize(30),
+                                        width: normalize(30),
+                                       
+                                        
+                                        alignSelf: 'flex-start',
+                                       
+                                        marginTop: normalize(5),
+                                        
+                                    }}
+                                    
+                                  >
+                                       <Image
+                                        source={ICONS.previous}
+                                        style={{
+                                            height: normalize(20),
+                                            width: normalize(20),
+                                            alignSelf: 'center',
+                                            
+                                            position: 'absolute',
+                                            top:15,
+                                            left:20,
+                                            tintColor: 'black'
+                                        }}
+                                        resizeMode={'contain'}
+                                        tintColor= {'black'}
+                                    ></Image>
+                                    </TouchableOpacity>
                             <Text
                                 style={{
                                     fontSize: normalize(14),
@@ -770,7 +803,7 @@ export default function Transaction_history(props) {
                             </Text>
 
 
-
+                            </View> 
 
                             <View
                                 style={{
@@ -783,7 +816,7 @@ export default function Transaction_history(props) {
                             />
 
 
-
+ 
 
 
 

@@ -353,6 +353,9 @@ function favourite(){
                                   
                                 }}>
 
+<View style={{
+  flexDirection: 'row'
+}}>
 
 <TouchableOpacity onPress={()=> props.navigation.goBack()}>
 <Image
@@ -374,14 +377,14 @@ function favourite(){
                                             marginLeft: normalize(20),
                                             color: 'black',
                                             fontWeight: '700',
-                                            marginTop: normalize(10)
+                                            marginTop: normalize(20)
                                         }}
                                         >
                                         My Wallet
                                         </Text> 
 
 
-                                    
+                                        </View>                      
                                        
                                         <View style={{
                             height: normalize(110),

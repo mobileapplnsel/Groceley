@@ -467,7 +467,7 @@ style={{
               <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> NetBanking()}>
 
 {netbanking==1 ?
- <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
  <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
 </View> 
  :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
@@ -513,7 +513,7 @@ style={{
               <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> CardPay()}>
 
 {card==1 ?
- <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
  <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
 </View> 
  :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
@@ -558,7 +558,7 @@ style={{
               <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> EmiPay()}>
 
 {emi==1 ?
- <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
  <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
 </View> 
  :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
@@ -604,7 +604,7 @@ style={{
               <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> UpiPay()}>
 
 {upi==1 ?
- <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
  <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
 </View> 
  :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
@@ -648,7 +648,7 @@ style={{
               <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> CashPay()}>
 
 {cash==1 ?
- <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+ <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
  <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
 </View> 
  :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 

@@ -391,8 +391,8 @@ function favourite1(){
                                     
                                     />
    
-   {/* <Image
-                                        source={ICONS.left_arrow}
+   <Image
+                                        source={ICONS.previous}
                                         style={{
                                             height: normalize(15),
                                             width: normalize(15),
@@ -405,7 +405,7 @@ function favourite1(){
                                         }}
                                         resizeMode={'contain'}
                                         tintColor= {'black'}
-                                    ></Image> */}
+                                    ></Image>
 
 
                                     
