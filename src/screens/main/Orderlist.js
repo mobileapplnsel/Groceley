@@ -488,8 +488,28 @@ style={{
                                 }}>
 
 
+<View style={{
+  flexDirection: 'row'
+}}
+>
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
 
-
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
                                         <Text
@@ -504,7 +524,7 @@ style={{
                                         >
                                        Your Orders
                                         </Text> 
-
+                                        </View>
                                         <View style={{
                                             flexDirection: 'row',
                                             justifyContent: 'center',

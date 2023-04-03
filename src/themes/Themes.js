@@ -97,6 +97,8 @@ export const ICONS = {
    orangebg: require('../assets/icons/orangebg.png'),
    referlogo: require('../assets/icons/referlogo.png'),
    back: require('../assets/icons/back.png'),
+   cart2: require('../assets/icons/cart2.png'),
+
 };
 
 export const FONTS = {

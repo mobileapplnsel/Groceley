@@ -297,7 +297,7 @@ props.navigation.navigate("Productdetails")
       height: normalize(30),
       width: normalize(50),
       backgroundColor: 'white',
-      borderWidth: normalize(2),
+      borderWidth: normalize(1),
       borderColor: '#69BE53',
       justifyContent: 'center',
       alignItems: 'center',
@@ -306,16 +306,17 @@ props.navigation.navigate("Productdetails")
       marginEnd: normalize(10),
       marginTop: normalize(-35)
     }}>
-          <Text
-            style={{
-              
-              fontSize: normalize(9),
-              color: '#69BE53',
-              alignSelf: 'center'
-              
-                    }}
-          >ADD
-          </Text>
+           <Image
+                  source={ICONS.cart2}
+                  style={{
+                    height: normalize(18),
+                    width: normalize(18),
+                    tintColor: '#69BE53'
+                   
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'#69BE53'}
+                ></Image>
           </TouchableOpacity>
     
           <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
@@ -324,7 +325,7 @@ props.navigation.navigate("Productdetails")
       height: normalize(30),
       width: normalize(50),
       backgroundColor: 'white',
-      borderWidth: normalize(2),
+      borderWidth: normalize(1),
       borderColor: '#69BE53',
       justifyContent: 'center',
       alignItems: 'center',
@@ -333,16 +334,17 @@ props.navigation.navigate("Productdetails")
       marginEnd: normalize(10),
       marginTop: normalize(5)
     }}>
-          <Text
-            style={{
-              
-              fontSize: normalize(9),
-              color: '#69BE53',
-              alignSelf: 'center'
-              
-                    }}
-          >REMOVE
-          </Text>
+           <Image
+                  source={ICONS.delete}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    tintColor: '#69BE53'
+                   
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'#69BE53'}
+                ></Image>
           </TouchableOpacity>
           </View>
     
@@ -479,7 +481,7 @@ props.navigation.navigate("Productdetails")
       height: normalize(30),
       width: normalize(50),
       backgroundColor: 'white',
-      borderWidth: normalize(2),
+      borderWidth: normalize(1),
       borderColor: '#69BE53',
       justifyContent: 'center',
       alignItems: 'center',
@@ -488,16 +490,17 @@ props.navigation.navigate("Productdetails")
       marginEnd: normalize(10),
       marginTop: normalize(-35)
     }}>
-          <Text
-            style={{
-              
-              fontSize: normalize(9),
-              color: '#69BE53',
-              alignSelf: 'center'
-              
-                    }}
-          >ADD
-          </Text>
+           <Image
+                  source={ICONS.cart2}
+                  style={{
+                    height: normalize(18),
+                    width: normalize(18),
+                    tintColor: '#69BE53'
+                   
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'#69BE53'}
+                ></Image>
           </TouchableOpacity>
     
           <TouchableOpacity 
@@ -506,7 +509,7 @@ props.navigation.navigate("Productdetails")
       height: normalize(30),
       width: normalize(50),
       backgroundColor: 'white',
-      borderWidth: normalize(2),
+      borderWidth: normalize(1),
       borderColor: '#69BE53',
       justifyContent: 'center',
       alignItems: 'center',
@@ -515,16 +518,17 @@ props.navigation.navigate("Productdetails")
       marginEnd: normalize(10),
       marginTop: normalize(5)
     }}>
-          <Text
-            style={{
-              
-              fontSize: normalize(9),
-              color: '#69BE53',
-              alignSelf: 'center'
-              
-                    }}
-          >REMOVE
-          </Text>
+           <Image
+                  source={ICONS.delete}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    tintColor: '#69BE53'
+                   
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'#69BE53'}
+                ></Image>
           </TouchableOpacity>
           </View>
     
