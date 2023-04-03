@@ -408,7 +408,27 @@ function toggleModal2(){
               marginLeft: normalize(30)
             }}>
 
-           
+                <View style={{
+                    flexDirection: 'row'
+                }}>
+
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginLeft: -normalize(10)
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
 
@@ -416,13 +436,14 @@ function toggleModal2(){
                 color: 'black',
                 fontSize: normalize(14),
                 fontWeight: '600',
-                fontFamily: FONTS.Hind
+                fontFamily: FONTS.Hind,
+                marginLeft: normalize(20)
               }}>
 Coupons
               </Text>
 
 
-
+              </View>
 
 
              

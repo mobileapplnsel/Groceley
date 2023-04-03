@@ -167,8 +167,27 @@ function recent_address_clicked(){
 
           
 
+<View style={{
+  flexDirection: 'row'
+}}>
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
 
-
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
              
@@ -181,13 +200,13 @@ function recent_address_clicked(){
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
                   color: 'black',
-                  
+                  marginLeft: normalize(20)
 
                 }}>
             Add Delivery Instructions
               </Text>
 
-
+              </View>
 
 
 

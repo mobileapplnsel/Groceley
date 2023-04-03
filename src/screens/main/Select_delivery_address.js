@@ -97,8 +97,27 @@ function recent_address_clicked(){
 
 
 
+<View style={{
+  flexDirection: 'row'
+}}>
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
 
           
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
 
@@ -113,7 +132,7 @@ function recent_address_clicked(){
                   textAlign: 'left',
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
-                  marginLeft: normalize(30),
+                  marginLeft: normalize(20),
                   color: 'black',
                   
 
@@ -122,7 +141,7 @@ function recent_address_clicked(){
               </Text>
 
 
-
+</View>
 
               <View
             style={{
