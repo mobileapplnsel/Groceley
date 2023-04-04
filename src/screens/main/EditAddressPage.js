@@ -43,7 +43,7 @@ export default function EditAddressPage(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
-
+  const [delivery, setDelivery] = useState(0);
   const isFocused = useIsFocused();
 
 
@@ -51,7 +51,9 @@ export default function EditAddressPage(props) {
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-
+   function add_delivery_instructions_clicked(){
+        setDelivery(1)
+   }
 
   return (
 
@@ -318,6 +320,203 @@ export default function EditAddressPage(props) {
                 marginTop: normalize(-10)
               }}
               />
+
+
+<TouchableOpacity onPress={()=> add_delivery_instructions_clicked()}
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: 'white',
+            borderColor: '#D3D3D3'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'black'
+    }}
+        >
+            Edit Delivery Instructions(optional)
+            </Text>
+            
+            </TouchableOpacity>
+
+
+            {delivery == 1 ? (     <View 
+           
+            
+           style={{
+
+
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: 'white',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
+
+marginTop: normalize(5),
+           }}>
+          
+
+    
+
+<View style = {{
+ marginLeft: normalize(10)
+}}
+>
+<Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                    Landmark - RDB, Sector 5, Saltlake
+                                       </Text>
+
+                                       <Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           fontWeight: '700',
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                  Open to Deliver on Weekends?
+                                       </Text>
+
+                                       <Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                   Saturday - Yes , Sunday -  Yes
+                                       </Text>
+
+
+                                       <Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                  Preferred time - 8.00 AM to 10.00 AM
+                                       </Text>
+
+
+
+                                      
+
+
+
+
+
+
+
+
+                                     
+
+
+
+
+
+
+
+
+
+
+                                  
+
+
+<View style={{
+  flexDirection: 'row',
+  marginTop: normalize(10)
+}}>
+
+                                       <TouchableOpacity 
+                                       onPress={()=>props.navigation.navigate("Membership")}
+                                       style={{
+                                         height: normalize(30),
+                                         width: '30%',
+                                         backgroundColor: '#69BE53',
+                                         borderRadius: normalize(5),
+                                         justifyContent: 'center',
+                                         alignItems: 'center',
+                                         marginBottom: normalize(10)
+                                       }}>
+                                         <Text
+                                         
+                                         style={{
+                                           fontSize: normalize(12),
+                                           fontFamily: FONTS.Hind,
+                                           color: 'white'
+                                         }}
+                                         >Edit</Text>
+                                          </TouchableOpacity>
+
+
+                                          <TouchableOpacity 
+                                       onPress={()=>props.navigation.navigate("Membership")}
+                                       style={{
+                                         height: normalize(30),
+                                         width: '30%',
+                                         backgroundColor: 'white',
+                                         borderRadius: normalize(5),
+                                         borderWidth: normalize(1),
+                                         justifyContent: 'center',
+                                         alignItems: 'center',
+                                         marginBottom: normalize(10),
+                                         marginLeft: normalize(10)
+                                       }}>
+                                         <Text
+                                         
+                                         style={{
+                                           fontSize: normalize(12),
+                                           fontFamily: FONTS.Hind,
+                                           color: 'black'
+                                         }}
+                                         > Cancel</Text>
+                                          </TouchableOpacity>
+
+
+</View>
+                                       </View>
+
+
+                                       
+
+                                       
+                                       
+             
+
+           </View>
+        
+  ) : (null)}
 
 
             <TouchableOpacity
