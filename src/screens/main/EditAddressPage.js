@@ -481,7 +481,7 @@ marginTop: normalize(5),
 
 
                                           <TouchableOpacity 
-                                       onPress={()=>props.navigation.navigate("Membership")}
+                                       onPress={()=>setDelivery(0)}
                                        style={{
                                          height: normalize(30),
                                          width: '30%',
