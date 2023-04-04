@@ -52,6 +52,7 @@ export default function Add_delivery_address(props) {
   const [location, setLocation] = useState(false);
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [dropdownpressed, setDropdownpressed] = useState(0);
   const isFocused = useIsFocused();
 
 
@@ -413,7 +414,7 @@ style={{
 
 
 
-            {currentlocation_clicked == 1 ? (     <TouchableOpacity
+            {currentlocation_clicked == 1 ? (     <View
 style={{
   flexDirection: 'row',
   marginTop: normalize(10)
@@ -448,6 +449,7 @@ style={{
                 <GooglePlacesAutocomplete
                 
         placeholder={address}
+        
         //minLength={4}
         enablePoweredByContainer={false}
         autoFocus={true}
@@ -482,7 +484,7 @@ style={{
           console.log("Data====",data);
           setAddress(data.description)
           setDropdownpressed(!dropdownpressed)
-          console.log("kabfkwba",dropdownpressed)
+          console.log("kabfkwba",details)
         }}
        
         query={{
@@ -517,7 +519,7 @@ style={{
                 ></Image>
                 </View>
 
-</TouchableOpacity> 
+</View> 
         
   ) : (null)}
 
@@ -683,7 +685,7 @@ style={{
   null
 )}
 
-<TouchableOpacity
+<TouchableOpacity onPress={()=> props.navigation.navigate("Add_delivery_instructions")}
           style={{
             height: normalize(40),
             width: '90%',
