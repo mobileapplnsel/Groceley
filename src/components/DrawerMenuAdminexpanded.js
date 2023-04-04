@@ -757,7 +757,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-               // navigation.navigate('Profile');
+                 navigation.navigate('ReferAndEarn');
                 }}>
                 <View
                   style={{

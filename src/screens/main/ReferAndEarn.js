@@ -387,9 +387,12 @@ export default function ReferAndEarn(props)
               justifyContent: 'space-between',
               marginTop: normalize(10),
               marginRight: normalize(10),
-              height: normalize(40)
+              height: normalize(40),
+             marginTop: normalize(15)
             }}>
             <View style={{flexDirection:'row'}}>
+
+
               <TouchableOpacity
                 style={{
                   width: '20%',
