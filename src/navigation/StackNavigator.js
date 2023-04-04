@@ -41,7 +41,7 @@ import DepositCoinsPage from '../screens/main/DepositCoinsPage';
 import Transaction_history from '../screens/main/Transaction_history';
 import Promotion from '../screens/main/Promotion';
 import ReferAndEarn from '../screens/main/ReferAndEarn';
-
+import Edit_Delivery_Instructions from '../screens/main/Edit_Delivery_Instructions';
 
 const Stack = createStackNavigator();
 
@@ -91,7 +91,8 @@ export default function StackNavigator() {
         DepositCoinsPage: DepositCoinsPage,
         Transaction_history: Transaction_history,
         Promotion: Promotion,
-        ReferAndEarn: ReferAndEarn
+        ReferAndEarn: ReferAndEarn,
+        Edit_Delivery_Instructions: Edit_Delivery_Instructions,
       }
      
 

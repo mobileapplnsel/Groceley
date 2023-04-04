@@ -411,7 +411,7 @@ marginTop: normalize(5),
                                            
                                        }}
                                        >
-                                   Saturday - Yes , Sunday -  Yes
+                                   Saturday - No , Sunday -  Yes
                                        </Text>
 
 
@@ -459,7 +459,7 @@ marginTop: normalize(5),
 }}>
 
                                        <TouchableOpacity 
-                                       onPress={()=>props.navigation.navigate("Membership")}
+                                       onPress={()=>props.navigation.navigate("Edit_Delivery_Instructions")}
                                        style={{
                                          height: normalize(30),
                                          width: '30%',
