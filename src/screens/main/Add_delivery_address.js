@@ -11,7 +11,9 @@ import {
   ImageBackground,
   StatusBar,
   Alert,
-  TextInput
+  TextInput,
+  PermissionsAndroid
+
 } from 'react-native';
 
 
@@ -26,7 +28,9 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
-
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import Geolocation from 'react-native-geolocation-service';
+import Geocoder from 'react-native-geocoding';
 
 
 
@@ -43,19 +47,93 @@ export default function Add_delivery_address(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
-
+  const [currentlocation_clicked, setCurrentlocation_clicked] = useState(false);
+  const [address, setAddress] = useState('');
+  const [location, setLocation] = useState(false);
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
   const isFocused = useIsFocused();
 
 
 
+  const requestLocationPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: 'Geolocation Permission',
+          message: 'Can we access your location?',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      console.log('granted', granted);
+      if (granted === 'granted') {
+        console.log('You can use Geolocation');
+        return true;
+      } else {
+        console.log('You cannot use Geolocation');
+        return false;
+      }
+    } catch (err) {
+      return false;
+    }
+  };
 
 
 
 
 
+  function currentlocation(){
+    setCurrentlocation_clicked(!currentlocation_clicked)
+    getLocation();
+   }
 
+   const getLocation = () => {
+    const result = requestLocationPermission();
+    result.then(res => {
+      console.log('res is:', res);
+      if (res) {
+        Geolocation.getCurrentPosition(
+          position => {
+            console.log("Latitude === ", position?.coords?.latitude);
+            console.log("Longitude === ", position?.coords?.longitude);
+            setLatitude(position?.coords?.latitude);
+            setLongitude(position?.coords?.longitude);
+            geocoding(position)
+            
+          },
+          error => {
+            // See error code charts below.
+            console.log(error.code, error.message);
+            setLocation(false);
+          },
+          {enableHighAccuracy: false, timeout: 15000},
+        );
+      }
+    });
+    console.log(location);
+   
+  };
 
+  function geocoding(position){
+    console.log("Geocoding latitude===", position?.coords?.latitude)
+    console.log("Geocoding longitude===", position?.coords?.longitude)
+    var lat =  position?.coords?.latitude
+    var long = position?.coords?.longitude
 
+    Geocoder.init("AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo");
+    Geocoder.from(lat, long)
+
+.then(json => {
+        var addressComponent = json.results[0].formatted_address;
+  console.log("Address===",addressComponent);
+  setAddress(addressComponent)
+})
+.catch(error => console.warn(error));
+console.log("adkhbhkad")
+  }
 
 
   const regex =
@@ -280,7 +358,7 @@ style={{
             }}
             />
 
-            <TouchableOpacity
+         {currentlocation_clicked == 0 ? (   <TouchableOpacity onPress={()=> currentlocation()}
             style={{
                 height: normalize(40),
                 width: '90%',
@@ -305,9 +383,146 @@ style={{
 
                 
 
-            </TouchableOpacity>
+            </TouchableOpacity> ) : (<TouchableOpacity onPress={()=> currentlocation()}
+            style={{
+                height: normalize(40),
+                width: '90%',
+                backgroundColor: '#69BE53',
+                alignSelf: 'center',
+                marginTop: normalize(20),
+                borderRadius: normalize(15)
+            }}
+            
+            >
+                <Text style={{
+                     fontSize: normalize(12),
+                     
+                    
+                     textAlign: 'center',
+                     fontFamily: FONTS.Hind,
+                     marginTop: normalize(10),
+                     color: 'white',
+                }}>
+                       Use Manual Location
+                </Text>
+
+                
+
+            </TouchableOpacity>)}
 
 
+
+
+            {currentlocation_clicked == 1 ? (     <TouchableOpacity
+style={{
+  flexDirection: 'row',
+  marginTop: normalize(10)
+}}
+
+>
+  <View style={{
+    marginTop: normalize(3),
+    marginLeft: normalize(50),
+    height: normalize(30),
+    width: normalize(20),
+   
+  justifyContent: 'center',
+  alignItems: 'center'
+  }}>
+<Image
+                  source={ICONS.location}
+                  style={{
+                    height: normalize(12),
+                    width: normalize(15),
+                    
+                    
+                  }}
+                  resizeMode={'contain'}
+                  
+                ></Image>
+
+</View>
+
+
+
+                <GooglePlacesAutocomplete
+                
+        placeholder={address}
+        //minLength={4}
+        enablePoweredByContainer={false}
+        autoFocus={true}
+            listViewDisplayed="auto"
+            returnKeyType={'search'}
+      
+        currentLocation={true} 
+        currentLocationLabel="Current location"
+        nearbyPlacesAPI="GoogleReverseGeocoding"
+        renderDescription={row => row.description || row.formatted_address || row.name}
+        renderRow={(rowData) => {
+          const title = rowData.structured_formatting.main_text;
+          const address = rowData.structured_formatting.secondary_text;
+          return (
+           <View style={{
+            width: '100%'
+           }}>
+            <Text style={{ fontSize: 14, color: 'green' }}>{title}</Text>
+            <Text style={{ fontSize: 14 }}>{address}</Text>
+           </View>
+           );
+          }}
+        fetchDetails={true}
+        textInputProps={{
+          placeholderTextColor: '#515151',
+         
+            
+       
+        }}
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log("Data====",data);
+          setAddress(data.description)
+          setDropdownpressed(!dropdownpressed)
+          console.log("kabfkwba",dropdownpressed)
+        }}
+       
+        query={{
+          key: 'AIzaSyCTNEZO6ODA9x9z0MDb9fPGSgtYI0mqvUo',
+          language: 'en',
+        }}
+        onFail={error => console.log(error)}
+        onNotFound={() => console.log('no results')}
+        
+      />
+  <View style={{
+   
+    marginRight: normalize(50),
+    height: normalize(30),
+    width: normalize(20),
+
+  justifyContent: 'center',
+  alignItems: 'center'
+  }}>
+
+<Image
+                  source={ICONS.downward_arrow}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(7),
+                   
+                    marginTop: normalize(9),
+                   
+                  }}
+                  resizeMode={'contain'}
+                  
+                ></Image>
+                </View>
+
+</TouchableOpacity> 
+        
+  ) : (null)}
+
+
+{currentlocation_clicked == 0? (<View>
             <Text style={{
                      fontSize: normalize(12),
                      
@@ -463,6 +678,11 @@ style={{
                 marginTop: normalize(-10)
               }}
               />
+
+</View>) : (
+  null
+)}
+
 <TouchableOpacity
           style={{
             height: normalize(40),
