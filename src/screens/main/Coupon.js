@@ -205,7 +205,7 @@ function toggleModal2(){
                         style={{
                             fontSize: normalize(12),
                             color: "#F36E35",
-                            marginTop: normalize(10),
+                            marginTop: normalize(15),
                             fontWeight:'600',
                             fontFamily: FONTS.Hind
                         }}
@@ -218,7 +218,7 @@ function toggleModal2(){
                             width: normalize(10),
                             alignSelf: 'center',
                             
-                            marginRight: normalize(5),
+                            marginRight: normalize(10),
                             
                         }}
                         resizeMode={'contain'}
