@@ -174,7 +174,7 @@ export default function VerifyOTP(props) {
 
 
 
-                        <TouchableOpacity onPress={()=> props.navigation.navigate("Home")}
+                        <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
 
                             style={{
                                 height: normalize(35),
