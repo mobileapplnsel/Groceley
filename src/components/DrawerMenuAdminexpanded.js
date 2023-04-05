@@ -172,168 +172,7 @@ export default function DrawerMenuAdminexpanded(props) {
     //navigation.navigate('MyAccount');
     setModalVisible(false);
   }
-  // function logout() {
-
-
-  //     let obj = {
-  //       user_id : AuthReducer?.loginResponse?.user_id
-
-  //     };
-  //     isInternetConnected()
-  //       .then(() => {
-  //         dispatch(logoutRequest(obj));
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //         Toast('Please connect to internet');
-  //       });
-
-  // }
-
-  // useEffect(() => {
-  //   console.log("abc")
-
-  //   console.log("Navigation=====", constants.Token)
-  //   getSession();
-  //   myprofile()
-
-
-
-
-  // }, [userId]);
-
-
-  // async function getSession() {
-  //   let user = await AsyncStorage.getItem(constants.HRMSTOKEN);
-  //   let parsed = JSON.parse(user);
-  //   console.log('LLLL=', parsed)
-
-  //   // setUserId(parsed.userId)
-  //   console.log("Data=====",parsed.token.user_id)
-  //   constants.Token = parsed.token.jwt_token
-  //   console.log("Token1====", constants.Token)
-
-  //   setUserId(parsed.token.user_id)
-  //   setName(parsed.token.name)
-  //   setDateofjoining(parsed.token.date_of_joining)
-
-  //   if (parsed.token.user_id != '') {
-  //       setUserId(parsed.token.user_id);
-  //     } 
-
-  //   if(parsed.token.user_id != '') {
-  //     setName(parsed.token.name);
-  //   } 
-
-  //   if(parsed.token.user_id != '') {
-  //     setDateofjoining(parsed.token.date_of_joining);
-  //   } 
-
-  //  console.log("User Id=====",userId)
-  // }
-
-  // async function getSession2() {
-  //   let user = await AsyncStorage.getItem(constants.HRMSTOKEN);
-  //   let parsed = JSON.parse(user);
-  //   console.log('LLLL=', parsed)
-
-  //   // setUserId(parsed.userId)
-  //   console.log("Data=====",parsed.token.user_id)
-  //   constants.Token = parsed.token.jwt_token
-  //   console.log("Token1====", constants.Token)
-
-  //   setUserId(parsed.token.user_id)
-  //   setName(parsed.token.name)
-  //   setDateofjoining(parsed.token.date_of_joining)
-
-  //   if (parsed.token.user_id == '') {
-  //       setUserId('');
-  //     } else {
-  //       setUserId(parsed.token.user_id);
-  //     }
-  //  console.log("User Id=====",userId)
-  // }
-  // async function getSession3() {
-  //   let user = await AsyncStorage.getItem(constants.HRMSTOKEN);
-  //   let parsed = JSON.parse(user);
-  //   console.log('LLLL=', parsed)
-
-  //   // setUserId(parsed.userId)
-  //   console.log("Data=====",parsed.token.user_id)
-  //   constants.Token = parsed.token.jwt_token
-  //   console.log("Token1====", constants.Token)
-
-  //   setUserId(parsed.token.user_id)
-  //   setName(parsed.token.name)
-  //   setDateofjoining(parsed.token.date_of_joining)
-
-  //   if (parsed.token.user_id == '') {
-  //       setUserId('');
-  //     } else {
-  //       setUserId(parsed.token.user_id);
-  //     }
-  //  console.log("User Id=====",userId)
-  // }
-
-  // function myprofile(){
-  //   let obj = {
-
-  //     user_id: userId,
-
-  //   };
-  //   isInternetConnected()
-  //     .then(() => {
-  //       dispatch(personaldetailsRequest(obj));
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       Toast('Please connect to internet');
-  //     });
-  // }
-
-
-
-
-  // if (status == '' || AuthReducer.status != status) {
-  //   switch (AuthReducer.status) {
-  //     case 'Auth/logoutRequest':
-  //       status = AuthReducer.status;
-  //       break;
-
-  //     case 'Auth/logoutSuccess':
-  //       status = AuthReducer.status;
-  //    Toast("You have been successfully logged out")
-  //       navigation.navigate('Login2');
-
-  //       break;
-
-  //     case 'Auth/logoutFailure':
-
-  //       status = AuthReducer.status;
-  //       break;
-
-  //       case 'Profile/personaldetailsRequest':
-  //         status = ProfileReducer.status;
-  //         break;
-
-
-  //       case 'Profile/personaldetailsSuccess':
-  //         console.log("Profile Response === ", ProfileReducer?.personaldetailsResponse?.employee_code)
-  //         status = ProfileReducer.status;
-
-
-  //         break;
-  //       case 'Profile/personaldetailsFailure':
-
-
-  //         status = ProfileReducer.status;
-  //         break;
-
-  //   }
-  // }
-
-
-
+  
 
   return (
     <Modal
@@ -464,7 +303,7 @@ export default function DrawerMenuAdminexpanded(props) {
               }
                 style={{
                   flexDirection: 'row',
-                 
+                 marginTop: normalize(10)
                 }}>
                 <Image
                   source={ICONS.home}
@@ -538,7 +377,40 @@ export default function DrawerMenuAdminexpanded(props) {
 
               />) : null}
 
-              
+<TouchableOpacity
+                onPress={() => {
+
+                  onPress();
+                  onBackdropPress()
+                  navigation.navigate('Login');
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: normalize(20),
+                  }}>
+                  <Image
+                    source={ICONS.login}
+                    resizeMode="contain"
+                    style={{
+                      height: normalize(18),
+                      width: normalize(18),
+                      tintColor: '#F36E35'
+                    }}
+                    tintColor='#F36E35'
+                  />
+
+                  <Text
+                    style={{
+                      color: '#767676',
+                      fontSize: normalize(13),
+
+                      marginLeft: normalize(10),
+                    }}>
+                    Login
+                  </Text>
+                </View>
+              </TouchableOpacity>
 
               <TouchableOpacity
                 onPress={() => {
@@ -550,7 +422,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.order}
@@ -585,7 +457,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.change_password}
@@ -621,7 +493,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.multiuser}
@@ -658,7 +530,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.notifications}
@@ -693,7 +565,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.recipe}
@@ -722,15 +594,15 @@ export default function DrawerMenuAdminexpanded(props) {
                 onPress={() => {
                   onPress();
                   onBackdropPress()
-                  navigation.navigate('Wallet');
+                  navigation.navigate('Select_delivery_address');
                 }}>
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
-                    source={ICONS.wallet}
+                    source={ICONS.address_book}
                     resizeMode="contain"
                     style={{
                       height: normalize(18),
@@ -747,7 +619,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
                       marginLeft: normalize(10),
                     }}>
-                    Wallet
+                    Address Book
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -762,7 +634,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.referandearn}
@@ -798,7 +670,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.help}
@@ -833,7 +705,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginTop: normalize(30),
+                    marginTop: normalize(20),
                   }}>
                   <Image
                     source={ICONS.rightarrow}
@@ -863,7 +735,7 @@ export default function DrawerMenuAdminexpanded(props) {
               style={{
                 height: normalize(1),
             backgroundColor: '#69BE53',
-            marginTop: normalize(40)
+            marginTop: normalize(20)
             
                
                 
