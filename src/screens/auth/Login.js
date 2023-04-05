@@ -37,20 +37,9 @@ export default function Login(props) {
   const [name, setName] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [emailaddress, setEmailaddress] = useState('');
-  const [choosepassword, setChoosepassword] = useState('');
+  const [phoneno, setPhoneNo] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const isFocused = useIsFocused();
-
-
-
-
-
-
-
-
-
-
-
 
 
   const regex =
@@ -146,45 +135,31 @@ export default function Login(props) {
               </Text>
 
 
-              <TextInputItem
-                value={name}
-                onChangeText={_ => setName(_)}
-                marginTop={normalize(30)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'Enter Username / Mobile number'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-
+   
              
              
 
 <TextInput
-                value={choosepassword}
-                secureTextEntry={true}
-                placeholder={'Choose Password'}
-                onChangeText={_ => setChoosepassword(_)}
+                value={phoneno}
+              
+                placeholder={'Enter the Phone No'}
+                onChangeText={_ => setPhoneNo()}
                 style={{
-                marginTop: normalize(10),
-                
+                marginTop: normalize(20),
                 fontSize: normalize(14),
+                color:'black',
                 width: normalize(250),
-               
-                
-                borderRadius : normalize(30),
+                 borderRadius : normalize(30),
                 backgroundColor: '#D3D3D3',
                 paddingLeft: normalize(10)
                 }}
-                keyboardType={"default"}
+                keyboardType={"numeric"}
               />
 
              
 
 
-              <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+              <TouchableOpacity onPress={()=> props.navigation.navigate("VarifyOTP")}
 
                 style={{
                   height: normalize(35),
@@ -220,44 +195,9 @@ export default function Login(props) {
               alignItems: 'center'
             }}>
 
-              <View
-                style={{
-                  width: '25%',
-                  height: normalize(1),
-                  backgroundColor: '#D9D9D9',
+             
 
-                  marginLeft: normalize(30),
-                  marginTop: normalize(30)
-                }}
-
-              />
-
-              <Text
-                style={{
-
-                  fontSize: normalize(11),
-                  color: '#1D1D1B',
-
-                  marginLeft: normalize(5),
-                  marginTop: normalize(25),
-                  fontWeight: '700'
-                }}
-              >Or Login with</Text>
-
-              <View
-                style={{
-                  width: '25%',
-                  height: normalize(1),
-                  backgroundColor: '#D9D9D9',
-
-                  marginRight: normalize(30),
-                  marginLeft: normalize(5),
-                  marginTop: normalize(30)
-                }}
-
-              />
-
-
+              
 
             </View>
 
@@ -268,40 +208,8 @@ export default function Login(props) {
               alignItems: 'center'
             }}>
 
-              <Image
-                source={ICONS.facebook}
-                style={{
-                  height: normalize(40),
-                  width: normalize(40),
-                  alignSelf: 'center',
-                }}
-                resizeMode={'contain'}
-              ></Image>
 
-              <View
-
-                style={{
-                  height: normalize(40),
-                  width: normalize(40),
-                  borderRadius: normalize(20),
-                  backgroundColor: '#E31C23',
-                  justifyContent: 'center',
-                  marginLeft: normalize(10)
-                }}>
-
-
-                <Image
-                  source={ICONS.google}
-                  style={{
-                    height: normalize(20),
-                    width: normalize(20),
-                    alignSelf: 'center',
-                  }}
-                  resizeMode={'contain'}
-                ></Image>
-
-
-              </View>
+            
 
 
 
@@ -311,7 +219,7 @@ export default function Login(props) {
             <View style={{
               //marginTop: normalize(5),
               flexDirection: 'row',
-              marginLeft: normalize(50),
+              alignSelf: 'center',
               marginBottom: normalize(20),
             }}>
 
@@ -321,15 +229,15 @@ export default function Login(props) {
                   fontSize: normalize(11),
                   color: '#1D1D1B',
 
-                  textAlign: 'left',
-                  marginTop: normalize(15),
+                 
+                  marginTop: normalize(5),
                  
                   fontWeight: '700'
                 }}
               >Forgot Your Password ?</Text>
             
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword")}>
+<TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword") }>
             <Text
                 style={{
 
@@ -337,7 +245,7 @@ export default function Login(props) {
                   color: '#FF6205',
 
                   marginLeft: normalize(2),
-                  marginTop: normalize(15),
+                  marginTop: normalize(5),
                   fontWeight: '700'
                 }}
               >Click Here</Text>
@@ -358,35 +266,7 @@ export default function Login(props) {
               marginBottom: normalize(10),
             }}>
 
-<Text
-                style={{
 
-                  fontSize: normalize(11),
-                  color: '#1D1D1B',
-
-                  
-                 
-                 
-                  fontWeight: '700'
-                }}
-              >Don’t have an account ? </Text>
-            
-
-<TouchableOpacity onPress={()=> props.navigation.navigate("Registration")}>
-            <Text
-                style={{
-
-                  fontSize: normalize(11),
-                  color: '#FF6205',
-
-                  
-                  
-                  fontWeight: '700'
-                }}
-              > Click Here To Register</Text>
-
-</TouchableOpacity>
-             
 
 
 
