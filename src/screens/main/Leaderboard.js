@@ -148,7 +148,7 @@ export default function Leaderboard(props)
 
 
     function infoAlert() {
-        Alert.alert('Information', 'This is description Section.', [
+        Alert.alert('Difference', 'Difference is the number of referrals deficit from the previous member.', [
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
