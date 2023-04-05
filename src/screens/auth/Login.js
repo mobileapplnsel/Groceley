@@ -159,7 +159,7 @@ export default function Login(props) {
              
 
 
-              <TouchableOpacity onPress={()=> props.navigation.navigate("VarifyOTP")}
+              <TouchableOpacity onPress={()=> props.navigation.navigate("VerifyOTP")}
 
                 style={{
                   height: normalize(35),

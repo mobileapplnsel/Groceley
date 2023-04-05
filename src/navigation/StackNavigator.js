@@ -43,6 +43,7 @@ import Promotion from '../screens/main/Promotion';
 import ReferAndEarn from '../screens/main/ReferAndEarn';
 import Edit_Delivery_Instructions from '../screens/main/Edit_Delivery_Instructions';
 import Leaderboard from '../screens/main/Leaderboard';
+import VerifyOTP from '../screens/main/VerifyOTP';
 
 const Stack = createStackNavigator();
 
@@ -94,7 +95,8 @@ export default function StackNavigator() {
         Promotion: Promotion,
         ReferAndEarn: ReferAndEarn,
         Edit_Delivery_Instructions: Edit_Delivery_Instructions,
-        Leaderboard : Leaderboard
+        Leaderboard : Leaderboard,
+        VerifyOTP: VerifyOTP,
       }
      
 
