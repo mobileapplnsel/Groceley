@@ -151,7 +151,7 @@ export default function ChangePassword(props) {
                                 keyboardType={'email-address'}
                                 fontSize={normalize(14)}
                                 width={normalize(250)}
-                                placeholder={'Enter Username'}
+                                placeholder={'Enter mobile no.'}
                                 borderRadius={normalize(30)}
                                 backgroundColor={'#D3D3D3'}
 

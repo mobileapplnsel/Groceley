@@ -517,7 +517,7 @@ export default function Membership(props)
               ></Image>
           </View>
            
-          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:55,marginLeft:32,marginRight:50}}>
+          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:normalize(55),marginLeft:normalize(32),marginRight: normalize(50)}}>
             <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>1234</Text>
             <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>5678</Text>
             <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>9101</Text>
@@ -560,7 +560,7 @@ export default function Membership(props)
              
           </View>
         
-          <Text style={{fontSize:normalize(12),color:'white',fontWeight:'700',marginLeft:normalize(33),marginTop:normalize(7)}}>Nick Thomas</Text>
+          <Text style={{fontSize:normalize(12),color:'white',fontWeight:'700',marginLeft:normalize(28),marginTop:normalize(7)}}>Nick Thomas</Text>
         </ImageBackground>
 
         <View style={{ width:'95%',
