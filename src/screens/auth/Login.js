@@ -142,7 +142,7 @@ export default function Login(props) {
 <TextInput
                 value={phoneno}
               
-                placeholder={'Enter the Phone No'}
+                placeholder={'Enter mobile no.'}
                 onChangeText={_ => setPhoneNo()}
                 style={{
                 marginTop: normalize(20),
@@ -151,7 +151,7 @@ export default function Login(props) {
                 width: normalize(250),
                  borderRadius : normalize(30),
                 backgroundColor: '#D3D3D3',
-                paddingLeft: normalize(10)
+                paddingLeft: normalize(20)
                 }}
                 keyboardType={"numeric"}
               />
