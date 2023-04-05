@@ -433,7 +433,7 @@ export default function ReferAndEarn(props)
                     height: normalize(20),
                     width: normalize(20),
                     
-                    marginLeft: normalize(20)
+                    marginLeft: normalize(10)
                   }}
                   resizeMode={'contain'}
                 ></Image>
@@ -640,7 +640,7 @@ export default function ReferAndEarn(props)
                 {/* leaderboard screen........... */}
            
           
-               <TouchableOpacity
+               <TouchableOpacity onPress={()=>props.navigation.navigate("Leaderboard")}
                style={{
                 width:'90%',
                 height:'7%',
@@ -650,9 +650,9 @@ export default function ReferAndEarn(props)
                 borderRadius:normalize(20),
                 alignItems:'center'
 
-               }}>
+               }} >
            
-                <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700',marginTop:normalize(10)}}>LeaderBoard</Text>
+                <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700',marginTop:normalize(10)}}>Leaderboard</Text>
                  
                 </TouchableOpacity>
             <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:20}}>How Does It Work?</Text>

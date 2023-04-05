@@ -100,6 +100,8 @@ export const ICONS = {
    cart2: require('../assets/icons/cart2.png'),
    login: require('../assets/icons/login.png'),
    address_book: require('../assets/icons/address_book.png'),
+   photo: require('../assets/icons/photo.png'),
+
 };
 
 export const FONTS = {
