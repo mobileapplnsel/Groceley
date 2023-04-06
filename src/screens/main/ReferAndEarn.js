@@ -410,7 +410,7 @@ export default function ReferAndEarn(props)
                         <View style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginTop: normalize(10),
+              marginTop: normalize(15),
               marginRight: normalize(10),
               height: normalize(40)
             }}>
@@ -676,7 +676,7 @@ style={{
     
     backgroundColor: '#F36E35'
 }}/>
-<Text style={{color:'black',fontWeight:'500',fontSize:normalize(10)}}>
+<Text style={{color:'black',fontWeight:'500',fontSize:normalize(10), marginLeft: -normalize(2)}}>
     Sharing Link
 </Text>
 </View>
