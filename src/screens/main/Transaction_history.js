@@ -425,7 +425,7 @@ export default function Transaction_history(props) {
 
                     <View style={{
                         width: '70%',
-                        marginLeft: normalize(10)
+                        //marginLeft: normalize(10)
                     }}>
                         <Text
                             numberOfLines={3}
