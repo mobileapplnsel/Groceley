@@ -431,21 +431,27 @@ export default function Notification(props)
               </TouchableOpacity>
 
 
-<View>
+<View style={{
+
+height: normalize(50),
+width: '70%',
+
+marginLeft: -normalize(10)
+}}>
               <Text style={{
                 color: 'black',
                 fontSize: normalize(14),
-                fontWeight: '600'
-
+                fontWeight: '600',
+                textAlign: 'left'
               }}>
 Notifications
               </Text>
 
-
-
-
-
               </View>
+
+
+
+              
 
 
 

@@ -137,6 +137,14 @@ export default function Membership(props)
 
 
 
+
+
+
+
+
+
+
+
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -151,6 +159,17 @@ export default function Membership(props)
             marginLeft: normalize(10),
             borderRadius: normalize(15)
         }}>
+
+
+
+
+           
+
+
+
+
+
+
 
 
 
@@ -498,7 +517,7 @@ export default function Membership(props)
               ></Image>
           </View>
            
-          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:55,marginLeft:32,marginRight:50}}>
+          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:normalize(55),marginLeft:normalize(32),marginRight: normalize(50)}}>
             <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>1234</Text>
             <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>5678</Text>
             <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>9101</Text>
@@ -541,34 +560,43 @@ export default function Membership(props)
              
           </View>
         
-          <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700',marginLeft:33,marginTop:7}}>Nick Thomas</Text>
+          <Text style={{fontSize:normalize(12),color:'white',fontWeight:'700',marginLeft:normalize(28),marginTop:normalize(7)}}>Nick Thomas</Text>
         </ImageBackground>
 
         <View style={{ width:'95%',
             marginLeft: normalize(20),}}>
-        <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:10}}>MemberShip Details</Text>
-            <Text style={{fontSize:normalize(10),color:'gray',fontWeight:'400'}}>Last Recharge on 30 March, 2022
+        <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop: normalize(10)}}>Membership Details</Text>
+            <Text style={{fontSize:normalize(10),
+                color:'gray',
+                marginTop: normalize(2),
+                fontWeight:'400'}}>Last Recharge on 30 March, 2022
                      </Text>
-            <Text style={{fontSize:normalize(10),color:'red',fontWeight:'400'}}>Expired on 30 March, 2023</Text>
+            <Text style={{fontSize:normalize(10),color:'red',fontWeight:'400', marginTop: normalize(2)}}>Expired on 30 March, 2023</Text>
+
+
+
            <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
           style={{
-            height: normalize(40),
+            height: normalize(35),
             width: '80%',
-            marginTop: normalize(10),
+            marginTop: normalize(15),
            
             borderWidth: normalize(1),
             borderRadius: normalize(20),
-            backgroundColor: 'gray',
-            borderColor: '#D3D3D3'
+            backgroundColor: '#3F3F3F',
+            borderColor: '#D3D3D3',
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: normalize(20)
           }}
           
         > 
         
         <Text style={{
-        fontSize: normalize(14),           
+        fontSize: normalize(12),           
         textAlign: 'center',
         fontFamily: FONTS.Hind,
-        marginTop: normalize(8),
+       
         color: 'white'
     }}
         >
@@ -578,7 +606,7 @@ export default function Membership(props)
             </TouchableOpacity>
 
 
-            <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:10}}>How Does It Work?</Text>
+            <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:normalize(15)}}>How Does It Work?</Text>
            
           
             <View style={{
@@ -600,22 +628,21 @@ style={{
     backgroundColor: '#F36E35'
 }}/>
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10)}}>
-    Monthly Discount?
+{'\u20B9'} 200 discount coins
 </Text>
 </View>
 
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
-    marginLeft: normalize(5),
+    marginLeft: normalize(7),
     backgroundColor: '#F36E35'
 }}
 />
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
-</Text>
+All customer will get {'\u20B9'} 200 instant discount through coins which can be reimbursed from the app purchases</Text>
 </View>
 
 <View style ={{flexDirection:'row'}}>
@@ -631,23 +658,22 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5),}}>
-    Monthly Discount?
+{'\u20B9'} 300 cashback for all Club Members
 </Text>
 </View>
 
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
-    marginLeft: normalize(5)
+     marginLeft: normalize(7)
 }}
 />
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
-</Text>
+{'\u20B9'} 300 cashback will be given to all Club Members through in-built Wallet as coins which can be used on next visit.</Text>
 </View>
 
 <View style ={{flexDirection:'row'}}>
@@ -662,7 +688,7 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5)}}>
-    Monthly Discount?
+7% discount for members
 </Text>
 
 </View>
@@ -670,18 +696,17 @@ style={{
 <View style ={{flexDirection:'row'}}>    
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
-    marginLeft: normalize(5)
+    marginLeft: normalize(7)
 }}
 />
 
 
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction. 
-</Text>
+For members, we have extra 2% discount on MRP and 5% discount for new customers, making it a total of 7% </Text>
 </View>
 
 <View style ={{flexDirection:'row'}}>
@@ -697,11 +722,11 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5)}}>
-    MemeberShip Discount?
+{'\u20B9'} 150 in three instalments through in-built wallet  
 </Text>
 </View>
 <Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(20),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+{'\u20B9'} 150 each in three instalments through wallet as coins which would be credited on 1st of second month on the registered mobile number or registered card. 
 </Text>
 
          </View>

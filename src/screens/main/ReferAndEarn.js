@@ -14,6 +14,7 @@ import {
     Alert,
     TextInput,
     FlatList,
+    Share
 } from 'react-native';
 import TextInputItem from '../../components/TextInputItem';
 import { COLORS, ICONS, FONTS, IMAGES } from '../../themes/Themes';
@@ -137,6 +138,33 @@ export default function ReferAndEarn(props)
     ]
 
 
+
+    const ShareExample = async () => {
+        try {
+          const result = await Share.share({
+              message: 'https://www.google.com',
+              url:
+              'https://www.google.com',
+            title:
+              'https://www.google.com',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          Alert.alert(error.message);
+        }
+      
+
+  }
+
+
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -222,6 +250,20 @@ export default function ReferAndEarn(props)
         />
         </>
     );
+
+
+    function createTwoButtonAlert() {
+    Alert.alert('Successful Coppied', 'You can paste this link.', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+}
+
+
 
     const renderItem2 = ({ item, index }) => (
         <View style={{
@@ -368,7 +410,7 @@ export default function ReferAndEarn(props)
                         <View style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginTop: normalize(10),
+              marginTop: normalize(15),
               marginRight: normalize(10),
               height: normalize(40)
             }}>
@@ -391,7 +433,7 @@ export default function ReferAndEarn(props)
                     height: normalize(20),
                     width: normalize(20),
                     
-                    marginLeft: normalize(20)
+                    marginLeft: normalize(10)
                   }}
                   resizeMode={'contain'}
                 ></Image>
@@ -470,6 +512,7 @@ export default function ReferAndEarn(props)
                 resizeMode={'contain'}
                
               ></Image>
+              <TouchableOpacity onPress={()=>ShareExample()}>
              <View style={{width:normalize(30),borderRadius:normalize(10),height:normalize(30),backgroundColor:'white', marginTop:normalize(20),marginRight:normalize(30)}}>
               <Image
                 source={ICONS.share}
@@ -483,6 +526,7 @@ export default function ReferAndEarn(props)
                
               ></Image>
               </View>
+              </TouchableOpacity>
               
               </View>
 
@@ -515,7 +559,7 @@ export default function ReferAndEarn(props)
                  marginLeft:normalize(4),
                  fontSize:normalize(14),}}>50.00</Text>
             </View>
-           <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+           <View
           style={{
             height: normalize(120),
             width: '90%',
@@ -527,6 +571,7 @@ export default function ReferAndEarn(props)
           }}      
         > 
 
+<TouchableOpacity onPress={()=> createTwoButtonAlert()}>
           <Image
                 source={ICONS.copy}
                 style={{
@@ -540,6 +585,7 @@ export default function ReferAndEarn(props)
                 resizeMode={'contain'}
                
               ></Image>
+              </TouchableOpacity>
         
         <Text style={{
         fontSize: normalize(14),           
@@ -551,6 +597,7 @@ export default function ReferAndEarn(props)
         >
            REFERRAL CODE
             </Text>
+           
 
             <TouchableOpacity 
           style={{
@@ -584,79 +631,30 @@ export default function ReferAndEarn(props)
                   
             
             </TouchableOpacity>
-
-
-
-            
-            </TouchableOpacity>
-            <View style={{flexDirection:'row',marginTop:15,justifyContent:'space-between',marginRight:normalize(28),marginLeft:normalize(3)}}>
-              <View style={{width:40,height:40,borderRadius:normalize(20),backgroundColor:'#0064FF'}}>
-              <Image
-                source={ICONS.facebook}
-                style={{
-                  height: normalize(20),
-                  width: normalize(30),
-                  alignSelf:'center',
-                marginTop:normalize(7)
-                 
-                }}
-                resizeMode={'contain'}
-               
-              ></Image>
-              </View>
-              <View style={{marginLeft:15,width:40,height:40,borderRadius:normalize(20),backgroundColor:'#69BE53'}}>
-
-              <Image
-                source={ICONS.whatsapp}
-                style={{
-                  height: normalize(20),
-                  width: normalize(30),
-                  alignSelf:'center',
-                marginTop:normalize(7)
-                 
-                }}
-                resizeMode={'contain'}
-               
-              ></Image>
-              </View>
-              <View style={{marginLeft:15,width:40,height:40,borderRadius:normalize(20),backgroundColor:'#F36E35'}}>
-
-              <Image
-                source={ICONS.mail}
-                style={{
-                  height: normalize(15),
-                  width: normalize(30),
-                  alignSelf:'center',
-                marginTop:normalize(10)
-                 
-                }}
-                resizeMode={'contain'}
-               
-              ></Image>
-               
-            
-                    </View>
-                    <View style={{marginLeft:15,width:40,height:40,borderRadius:normalize(20),backgroundColor:'gray'}}>
-
-
-                    <Image
-                source={ICONS.copy}
-                style={{
-                  height: normalize(15),
-                  width: normalize(20),
-                  alignSelf:'center',
-                marginTop:normalize(10)
-                 
-                }}
-                resizeMode={'contain'}
-               
-              ></Image>
-                          </View>
-
-
             </View>
 
 
+            
+          
+           
+                {/* leaderboard screen........... */}
+           
+          
+               <TouchableOpacity onPress={()=>props.navigation.navigate("Leaderboard")}
+               style={{
+                width:'90%',
+                height:'7%',
+                marginTop:normalize(10),
+                backgroundColor: '#F36E35',
+                borderColor: '#F36E35',
+                borderRadius:normalize(20),
+                alignItems:'center'
+
+               }} >
+           
+                <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700',marginTop:normalize(10)}}>Leaderboard</Text>
+                 
+                </TouchableOpacity>
             <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:20}}>How Does It Work?</Text>
            
           
@@ -678,8 +676,8 @@ style={{
     
     backgroundColor: '#F36E35'
 }}/>
-<Text style={{color:'black',fontWeight:'500',fontSize:normalize(10)}}>
-    Monthly Discount?
+<Text style={{color:'black',fontWeight:'500',fontSize:normalize(10), marginLeft: -normalize(2)}}>
+    Sharing Link
 </Text>
 </View>
 
@@ -692,8 +690,8 @@ style={{
     backgroundColor: '#F36E35'
 }}
 />
-<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(20)}}>
+Existing customers can refer friends and family by sharing a unique referral code or link.
 </Text>
 </View>
 
@@ -710,22 +708,22 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5),}}>
-    Monthly Discount?
+    Recieve Reward
 </Text>
 </View>
 
 <View style ={{flexDirection:'row'}}>
 <View
 style={{
-    height: normalize(30),
+    height: normalize(40),
     width: '0.4%',
    
     backgroundColor: '#F36E35',
     marginLeft: normalize(7)
 }}
 />
-<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(20)}}>
+When a new customer uses the referral code or link to sign up for the grocery app, both the referrer and the referred will receive a reward.
 </Text>
 </View>
 
@@ -741,7 +739,7 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5)}}>
-    Monthly Discount?
+    Monthly Discount
 </Text>
 
 </View>
@@ -758,8 +756,8 @@ style={{
 />
 
 
-<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction. 
+<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(10),marginRight:normalize(20)}}>
+The reward for the referrer could be a discount on their next purchase, or a certain.
 </Text>
 </View>
 
@@ -776,11 +774,11 @@ style={{
 }}
 />
 <Text style={{color:'black',fontWeight:'500',fontSize:normalize(10),marginLeft:normalize(5)}}>
-    MemeberShip Discount?
+    Memebership Discount
 </Text>
 </View>
-<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(20),marginRight:normalize(10)}}>
-The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction.
+<Text style={{color:'gray',fontWeight:'400',fontSize:normalize(10),marginLeft:normalize(20),marginRight:normalize(50)}}>
+The reward for the referred could be an extra 2% discount on their first purchase, and Rs 100 as coins on the account of the referrer that can be redeemed on their next purchase.
 </Text>
 
          </View>

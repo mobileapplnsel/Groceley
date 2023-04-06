@@ -375,7 +375,7 @@ console.log("Flag status === ", flagCancel)
               
               <TouchableOpacity  style={{marginTop:7}} onPress ={()=> filterdate(item.id)}>
                       
-              { selected== item.id ?<View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+              { selected== item.id ?<View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
                         <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
                      </View> :
                       <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1}}></View> }
@@ -488,7 +488,7 @@ borderRadius: normalize(15)
         numberOfLines={3}
             style={{
                 fontSize: normalize(10),
-                color: "green",
+                color: "#69BE53",
                
                 fontWeight:'600'
 
@@ -499,7 +499,7 @@ borderRadius: normalize(15)
         numberOfLines={3}
             style={{
                 fontSize: normalize(10),
-                color: "green",
+                color: "#69BE53",
                 marginTop: normalize(2),
                 fontWeight:'600'
             }}
@@ -748,7 +748,7 @@ Filters
                     <TouchableOpacity style={{marginTop:7}} onPress = {() => filterOrder()}>
 
                          {flagOrder==1?
-                         <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+                         <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
                             <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
                          </View> 
                           : <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1}}></View> 
@@ -807,7 +807,7 @@ Filters
                     <TouchableOpacity style={{marginTop:7}} onPress ={()=> filterShipped()} >
 
                         {flagShipped == 1?
-                         <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+                         <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
                          <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
                       </View> 
                        : <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1}}></View> 
@@ -868,7 +868,7 @@ Filters
                     <TouchableOpacity style={{marginTop:7}} onPress ={()=> filterCancelled()}>
 
                        {flagCancel==1 ?
-                        <View style={{ alignSelf:'center',borderColor:'green',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'green'}}>
+                        <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
                         <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
                      </View> 
                         : <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1}}></View> 

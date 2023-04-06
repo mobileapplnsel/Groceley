@@ -15,6 +15,7 @@ import {
     TextInput,
     FlatList,
     Share,
+    PermissionsAndroid
     
 } from 'react-native';
 

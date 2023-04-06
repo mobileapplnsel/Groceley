@@ -353,10 +353,22 @@ function favourite(){
                                   
                                 }}>
 
+<View style={{
+  flexDirection: 'row'
+}}>
 
-
-
-
+<TouchableOpacity onPress={()=> props.navigation.goBack()}>
+<Image
+                  source={ICONS.previous}
+                  style={{
+                    height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20)
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+</TouchableOpacity>
 
                                         <Text
                                         style={{
@@ -365,14 +377,14 @@ function favourite(){
                                             marginLeft: normalize(20),
                                             color: 'black',
                                             fontWeight: '700',
-                                            marginTop: normalize(30)
+                                            marginTop: normalize(20)
                                         }}
                                         >
                                         My Wallet
                                         </Text> 
 
 
-                                    
+                                        </View>                      
                                        
                                         <View style={{
                             height: normalize(110),
@@ -442,7 +454,9 @@ function favourite(){
                             </View>
 
 
-                            <View style={{
+                            <TouchableOpacity onPress={()=> props.navigation.navigate("Promotion")}
+                            
+                            style={{
                             height: normalize(70),
                             width: '90%',
                             flexDirection: 'row',
@@ -473,31 +487,15 @@ function favourite(){
                         marginLeft: normalize(20),
                         color: 'black',
                         
-                        marginTop: normalize(20)
+                        marginTop: normalize(25)
                     }}
                     
-                    > Buy & earn Coins</Text>
+                    >Promotion</Text>
 
-                    <View style={{
-                        flexDirection: 'row'
-                    }}>
-                    <Text
-                     style={{
-                        fontSize: normalize(12),
-                        fontFamily: FONTS.Hind,
-                        marginLeft: normalize(20),
-                        color: 'black',
-                        
-                       // marginTop: normalize(5)
-                    }}
-                    
-                    > 0.0 </Text>
-                    
-                    </View>
                 </View>
 <View style={{
     justifyContent: 'center',
-    marginLeft: normalize(70)
+    marginLeft: normalize(130)
 }}>
                 <Image
                   source={ICONS.right_arrow}
@@ -505,7 +503,7 @@ function favourite(){
                     height: normalize(10),
                     width: normalize(10),
                     
-                    marginLeft: normalize(20),
+                    
                     tintColor: 'black'
                   }}
                   resizeMode={'contain'}
@@ -515,11 +513,13 @@ function favourite(){
 
 </View>
 
-                            </View>
+                            </TouchableOpacity>
 
 
 
-                            <View style={{
+                            <TouchableOpacity onPress={()=> props.navigation.navigate("DepositCoinsPage")}
+                            
+                            style={{
                             height: normalize(70),
                             width: '90%',
                             flexDirection: 'row',
@@ -592,9 +592,11 @@ function favourite(){
 
 </View>
 
-                            </View>
+                            </TouchableOpacity>
 
-                            <View style={{
+                            <TouchableOpacity 
+                            onPress={()=> props.navigation.navigate("ReferAndEarn")}
+                            style={{
                             height: normalize(70),
                             width: '90%',
                             flexDirection: 'row',
@@ -667,12 +669,21 @@ function favourite(){
 
 </View>
 
-                            </View>
+                            </TouchableOpacity >
 
                                 </View>
 
+
+                          
+
+                   
+
+
+
                       
-               <View style={{
+               <TouchableOpacity onPress={()=> props.navigation.navigate("Transaction_history")}
+               
+               style={{
                 height: normalize(110),
                 backgroundColor: '#FFF2F0',
                 borderTopLeftRadius: normalize(25),
@@ -735,7 +746,19 @@ function favourite(){
                 ></Image>
                </View>
 
-                                    </View>
+
+               
+
+
+             
+
+              
+
+
+
+               
+
+                                    </TouchableOpacity>
 
 
                         </ScrollView>

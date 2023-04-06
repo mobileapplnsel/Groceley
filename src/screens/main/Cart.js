@@ -32,7 +32,9 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
+import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import Modal from "react-native-modal";
 
 var status = '';
 export default function Cart(props) {
@@ -48,7 +50,7 @@ export default function Cart(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
-
+    const [isModalFilterVisible, setModalFilterVisible] = useState(false);
 
 
 
@@ -62,9 +64,9 @@ export default function Cart(props) {
         pic: ICONS.milk,
         description: "Amul Moti Homogenized Toned Milk",
         realprice: "40",
-        
-        quantity:2 
-
+        share: ICONS.community_share,
+        quantity:2,
+        info: ICONS.info2
 
     },
 
@@ -74,8 +76,9 @@ export default function Cart(props) {
         pic: ICONS.cornflakes,
         description: "Kellogg's Corn Flakes Cereal",
         realprice: "50",
-       
-        quantity:2
+        share: ICONS.community_share,
+        quantity:2,
+        info: ICONS.info2
 
     },
 
@@ -85,9 +88,9 @@ export default function Cart(props) {
         pic: ICONS.cornflakes2,
         description: "Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits",
         realprice: "80",
-       
-        quantity:2
-
+        share: ICONS.community_share,
+        quantity:2,
+        info: ICONS.info2
     },
    
 
@@ -96,45 +99,7 @@ export default function Cart(props) {
 
     ]
 
-    const DATA2 = [{
-        id: "0",
-        pic: ICONS.bread,
-        description: "Hovis Farmhouse Wholemeal",
-        quantity: '400g',
-        discounted_price: '90',
-        real_price: '80'
-      },
-    
-      {
-        id: "1",
-        pic: ICONS.milk,
-        description: "Hovis Farmhouse Wholemeal",
-        quantity: '450g',
-        discounted_price: '50',
-        real_price: '40'
-      },
-    
-      {
-        id: "2",
-        pic: ICONS.cornflakes,
-        description: "Amul Moti Homogenized Toned Milk",
-        quantity: '400g',
-        discounted_price: '70',
-        real_price: '50'
-      },
-    
-      {
-        id: "3",
-        
-        pic: ICONS.cornflakes2,
-        description: "Kellogg's Corn Flakes Cereal",
-        quantity: '400g',
-        discounted_price: '90',
-        real_price: '80'
-      }
-    
-    
-      ]
+   
 
       
 
@@ -145,11 +110,17 @@ function favourite(){
 
       
 
-
+function toggleModal(){
+    setModalFilterVisible(!isModalFilterVisible);
+}
 
         
         
-    
+function clickshare(){
+   
+    setModalFilterVisible(false)
+    ShareExample()
+    }
 
 
 
@@ -157,6 +128,30 @@ function favourite(){
     props.navigation.navigate("Productdetails")
  }
 
+const ShareExample = async () => {
+        try {
+          const result = await Share.share({
+              message: 'https://www.google.com',
+              url:
+              'https://www.google.com',
+            title:
+              'https://www.google.com',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          Alert.alert(error.message);
+        }
+      
+
+  }
 
 
 
@@ -184,7 +179,7 @@ function favourite(){
     
                 <View style={{
                     flexDirection: 'row',
-                    height: normalize(60),
+                   
                 width: '93%',
                
                 marginVertical: normalize(5),
@@ -196,7 +191,7 @@ function favourite(){
     
     
                     <View style={{
-                        height: normalize(60),
+                        height: normalize(70),
                         width: normalize(50),
                         backgroundColor: 'white',
                         justifyContent: 'center',
@@ -208,12 +203,12 @@ function favourite(){
                         <Image
                             source={item.pic}
                             style={{
-                                height: normalize(80),
-                                width: normalize(40),
+                                height: normalize(85),
+                                width: normalize(45),
                                 alignSelf: 'center',
                               
-                                marginRight: normalize(5),
-                                borderRadius: normalize(25)
+                                
+                                
                             }}
                             resizeMode={'contain'}
                         ></Image>
@@ -229,7 +224,7 @@ function favourite(){
                             style={{
                                 fontSize: normalize(11),
                                 color: "black",
-                                marginTop: normalize(10),
+                                
                                 
                             }}
                         >{item.description}</Text>
@@ -243,10 +238,44 @@ function favourite(){
                             }}
                         >{'\u20B9'}{item.realprice} x {item.quantity}</Text>
     
-                      
+    <TouchableOpacity onPress={()=>toggleModal()}
     
-    
-                  
+    style={{
+        flexDirection: 'row',
+      
+        alignItems: 'center',
+        marginTop: normalize(5)
+    }}>
+    <Image
+                  source={item.share}
+                  style={{
+                    height: normalize(15),
+                    width: normalize(15),
+                    
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+     <Text style={{
+                        color: 'black',
+                        fontSize: normalize(12),
+                        fontWeight: '700',
+                        fontFamily: FONTS.Hind,
+                        marginLeft: normalize(5)
+                    }}
+                    >Buy Together</Text>
+    <Image
+                  source={item.info}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    tintColor: '#F36E35',
+                    marginTop: normalize(-8),
+                    marginLeft: normalize(2)
+                  }}
+                  resizeMode={'contain'}
+                  tintColor={'#F36E35'}
+                ></Image>
+    </TouchableOpacity>    
     
                     </View>
 
@@ -365,20 +394,25 @@ function favourite(){
     flexDirection: 'row',
     justifyContent: 'space-between'
 }}>
-      <TouchableOpacity onPress={()=>props.navigation.goBack()}
-                                    style={{
-                                        height: normalize(30),
-                                        width: normalize(30),
-                                       
-                                        
-                                        alignSelf: 'flex-start',
-                                       
-                                        marginTop: normalize(5),
-                                        marginLeft: normalize(10)
-                                    }}
-                                    
-                                    />
-   
+      
+      <TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(15),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
                                     
@@ -398,6 +432,8 @@ function favourite(){
                                     }}
                                     
                                     >
+
+
                 
                 
                 <Image
@@ -436,7 +472,7 @@ function favourite(){
                                             fontFamily: FONTS.Hind,
                                             marginLeft: normalize(20),
                                             color: 'black',
-                                            
+                                            marginTop: normalize(10)
                                         }}
                                         >
                                             My
@@ -459,6 +495,7 @@ function favourite(){
               <FlatList
                 data={DATA}
                 renderItem={renderItem1}
+                scrollEnabled={true}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
 
@@ -470,7 +507,7 @@ function favourite(){
 
                   marginTop: normalize(10),
                  
-
+                
 
                 }}
 
@@ -479,10 +516,19 @@ function favourite(){
 
             </View> 
 
-             <View style={{
+             <TouchableOpacity onPress={()=> props.navigation.navigate("Coupon")}
+             
+             style={{
                 flexDirection: 'row',
                 marginTop: normalize(10),
-                marginLeft: normalize(30)
+                marginLeft: normalize(30),
+                height: normalize(40),
+                borderRadius: normalize(10),
+                backgroundColor: 'white',
+                width: '70%',
+                justifyContent: 'center',
+                alignItems: 'center',
+              
              }}>                 
             <Image
                 source={ICONS.discount}
@@ -492,20 +538,28 @@ function favourite(){
                     
                    
                     marginRight: normalize(10),
-                    borderRadius: normalize(25)
+                   
                 }}
                 resizeMode={'contain'}
             ></Image>
+
 
             <Text style={{
                 fontFamily: FONTS.Hind,
                 fontSize: normalize(12),
                 color: '#515151',
-                marginLeft: normalize(-5)
+                
 
             }}>Do you have any discount code?</Text>
+
+
+
             
-</View>   
+</TouchableOpacity>   
+
+
+
+
 <View style={{
     height: normalize(1),
     width: '90%',
@@ -529,13 +583,12 @@ function favourite(){
                 backgroundColor: 'white',
                 borderTopLeftRadius: normalize(25),
                 borderTopRightRadius: normalize(25),
-                marginTop: normalize(-30)
                 
                }}>
 
                <View style={{
                 flexDirection: 'row',
-                marginTop: normalize(30),
+                marginTop: normalize(10),
                 marginLeft: normalize(30),
                 justifyContent: 'space-between',
                 alignItems: 'center'
@@ -721,7 +774,7 @@ function favourite(){
 
 
 
-                <TouchableOpacity onPress={()=> props.navigation.navigate("Orderlist")}
+                <TouchableOpacity onPress={()=> props.navigation.navigate("Select_delivery_address")}
                 
                 style={{
                                         height: normalize(40),
@@ -757,7 +810,275 @@ function favourite(){
                         </ScrollView>
 
 
+                        <Modal isVisible={isModalFilterVisible}
+         
+         style={{
+             justifyContent: 'center',
+             alignItems: 'center'
+         }}
+          animationType={"slide"}
+   
+       onBackdropPress = { () => setModalFilterVisible(false)}
+          >
+          <View style={{
+ 
+ height: normalize(380),
+ width: '95%',
+ backgroundColor: 'white',
+ 
+ borderRadius: normalize(10),
+ 
+ }}>
+ 
+    
+ 
+ 
+ 
+ 
+ <TouchableOpacity
+                                 style={{
+                                     width: '12%',
+                                     height: '10%',
+                                     backgroundColor: 'orange',
+                                     borderRadius: normalize(5),
+                                     alignSelf: 'flex-end',
+                                     justifyContent: 'center',
+                                    
+                                 }}
+ 
+                                 onPress={() => {
+                                     console.log("kshbfhwb")
+                                     setModalFilterVisible(false)
+ 
+                                 }}>
+                                 <Image
+                                     source={ICONS.cross}
+                                     style={{
+                                         height: normalize(11),
+                                         width: normalize(10),
+                                         
+                                         alignSelf: 'center'
+                                     }}
+                                     resizeMode={'contain'}
+                                     tintColor={'white'}
+                                 ></Image>
+                             </TouchableOpacity>
+ 
+ 
+ <Text
+     style={{
+         color: 'black',
+         fontSize: normalize(14),
+         fontWeight: '600',
+         fontFamily: FONTS.Hind,
+         alignSelf: 'flex-start',
+         marginLeft: normalize(15),
+ 
+     }}
+ >Buy Together</Text>
 
+ <View style={{
+    height: normalize(1),
+    width:'100%',
+    backgroundColor: '#69BE53',
+    marginTop: normalize(10)
+ }}/>
+
+<Image
+                        source={ICONS.logo}
+                        style={{
+                            height: normalize(80),
+                            width: normalize(80),
+                            alignSelf: 'flex-start',
+                            marginLeft: normalize(20),
+                            marginTop: normalize(-15)
+                            
+                        }}
+                        resizeMode={'contain'}
+                    ></Image>
+ <Text
+     style={{
+         color: 'black',
+         fontSize: normalize(10),
+         
+         fontFamily: FONTS.Hind,
+         alignSelf: 'flex-start',
+         paddingHorizontal: normalize(15),
+         marginTop: normalize(-10)
+     }}
+ > If the customer chooses for Buy Together option, He/She shares the deal through whats app.Those who chooses the link and jumps on the team buy option the customer gets extra discount.The link would be valid for sixty minutes only and the team discount would be applicable only if members within the time line only buys the product.
+ </Text>
+
+<Text
+     style={{
+         color: '#A9A9A9',
+         fontSize: normalize(10),
+         fontWeight: '600',
+         fontFamily: FONTS.Hind,
+         alignSelf: 'flex-start',
+         marginLeft: normalize(15),
+ 
+     }}
+ ></Text>
+
+
+
+
+
+
+
+<View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+   
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(10),
+                                            marginRight: normalize(15),
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                     We offer 1 coin against each new member.
+                                        </Text>
+
+
+
+                                        </View>
+
+
+
+                                        <View style={{
+    flexDirection: 'row',
+    marginLeft: normalize(10),
+   
+}}>
+<Image
+                        source={ICONS.dot}
+                        style={{
+                            height: normalize(20),
+                            width: normalize(20),
+                            alignSelf: 'center',
+                            
+                            
+                            tintColor: '#69BE53'
+                        }}
+                        resizeMode={'contain'}
+                        tintColor= {'#69BE53'}
+                    ></Image>
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(10),
+                                            paddingRight: normalize(15),
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                     Members can be invited through Whatsapp. 
+                                        </Text>
+
+
+
+                                        </View>
+
+
+                         <View style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-evenly'
+                         }}     >        
+                                        <TouchableOpacity onPress={()=>clickshare()}
+                
+                style={{
+                                        height: normalize(40),
+                                        width: '25%',
+                                        backgroundColor: '#69BE53',
+                                        borderRadius: normalize(5),
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        
+                                        marginTop: normalize(10),
+                                        flexDirection: 'row'
+
+                                    }}>
+                                        <Image
+                            source={ICONS.community_share}
+                            style={{
+                                height: normalize(15),
+                                width: normalize(15),
+                                alignSelf: 'center',
+                               tintColor: 'white'
+                                
+                                
+                            }}
+                            resizeMode={'contain'}
+                            tintColor={'white'}
+                        ></Image>  
+
+                                        <Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            fontWeight: '700',
+                                            color: 'white',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                        Share
+                                        </Text>
+
+                                    </TouchableOpacity>
+
+                                       
+                                    <TouchableOpacity onPress={()=>setModalFilterVisible(false)}
+                
+                style={{
+                                        height: normalize(40),
+                                        width: '25%',
+                                        backgroundColor: 'white',
+                                        borderRadius: normalize(5),
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        borderWidth: normalize(1),
+                                        borderColor: '#A0A0A0',
+                                        marginTop: normalize(10),
+                                        flexDirection: 'row'
+
+                                    }}>
+                                         
+
+                                        <Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            fontWeight: '700',
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                        Cancel
+                                        </Text>
+
+                                    </TouchableOpacity>
+</View>
+                                    
+ </View>
+        </Modal>
 
                         {/* </ScrollView> */}
 
@@ -780,6 +1101,7 @@ function favourite(){
                     </KeyboardAvoidingView>
 
                 </SafeAreaView>
+                <CarouselCards3/>
             </Layout>
 
         </Fragment>

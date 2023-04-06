@@ -32,10 +32,12 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
+import CarouselCards2 from '../../components/CarouselCards2'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
+import Membership from './Membership';
 
 var status = '';
 export default function Home(props) {
@@ -52,6 +54,8 @@ export default function Home(props) {
   const [longitude, setLongitude] = useState('');
   const [address, setAddress] = useState('');
   const [dropdownpressed, setDropdownpressed] = useState(0);
+  const [membership_clicked, setMembership_clicked] = useState(false);
+
 
   useEffect(() => {
 
@@ -61,7 +65,7 @@ export default function Home(props) {
 
 
     
-    //getLocation();
+    getLocation();
    
     
 
@@ -222,6 +226,11 @@ console.log("adkhbhkad")
   }
 
 
+  
+    
+   
+  
+
   const requestLocationPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -249,7 +258,7 @@ console.log("adkhbhkad")
 
  function selectItem(item){
   
-props.navigation.navigate("Subcategorylist" , {
+props.navigation.navigate("Productlist" , {
   img: item.pic
 })
  }
@@ -262,9 +271,14 @@ props.navigation.navigate("Subcategorylist" , {
   })
    }
 
- 
+   function selectItem3(item){
+  
+    props.navigation.navigate("Subcategorylist")
+     }
 
-
+ function membership(){
+  setMembership_clicked(!membership_clicked)
+ }
 
 
   const regex =
@@ -326,7 +340,7 @@ props.navigation.navigate("Subcategorylist" , {
 
   const renderItem2 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem(item)}
+      onPress={(item) => selectItem3(item)}
       style={{
 
         height: normalize(110),
@@ -365,92 +379,7 @@ props.navigation.navigate("Subcategorylist" , {
       </Text> 
 
 
-      {/* <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-                }}
-      >{item.quantity}
-      </Text> */}
-
-    {/* <View style={{
-  flexDirection: 'row',
-  alignSelf: 'flex-start',
-  marginLeft: normalize(10),
-  marginTop: normalize(10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#A9A9A9',
-          
-          
-                }}
-      >{'\u20B9'} {item.discounted_price}
-      </Text>
-    <View style={{
-  height: normalize(1),
-  width: '20%',
-  backgroundColor: '#A9A9A9',
-  marginTop: normalize(7),
-  position: 'absolute'
-}}/>
-     </View> */}
-
-     {/* <View style={{
-  flexDirection: 'row',
- justifyContent: 'center',
-  marginLeft: normalize(10),
-}}>
-  <View>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: 'black',
-          fontWeight: '600'
-          
-                }}
-      >{'\u20B9'} {item.real_price}
-      </Text>
-      </View>
-
-
-
-<TouchableOpacity style={{
-  height: normalize(30),
-  width: normalize(50),
-  backgroundColor: 'white',
-  borderWidth: normalize(2),
-  borderColor: '#69BE53',
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: normalize(5),
-  marginLeft: normalize(30),
-  marginEnd: normalize(10),
-  marginTop: normalize(-10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#69BE53',
-          alignSelf: 'center'
-          
-                }}
-      >ADD
-      </Text>
-      </TouchableOpacity>
-
-
-
-
-     </View> */}
-
+     
      
 
 
@@ -458,7 +387,7 @@ props.navigation.navigate("Subcategorylist" , {
   );
   const renderItem3 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem(item)}
+      onPress={(item) => selectItem3(item)}
       style={{
 
         height: normalize(110),
@@ -496,92 +425,7 @@ props.navigation.navigate("Subcategorylist" , {
       </Text>
 
 
-      {/* <Text
-        style={{
-          color: 'black',
-          fontSize: normalize(10),
-          marginLeft: normalize(10),
-          marginTop: normalize(5),
-          alignSelf: 'flex-start'
-                }}
-      >{item.quantity}
-      </Text> */}
-
-    {/* <View style={{
-  flexDirection: 'row',
-  alignSelf: 'flex-start',
-  marginLeft: normalize(10),
-  marginTop: normalize(10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#A9A9A9',
-          
-          
-                }}
-      >{'\u20B9'} {item.discounted_price}
-      </Text>
-    <View style={{
-  height: normalize(1),
-  width: '20%',
-  backgroundColor: '#A9A9A9',
-  marginTop: normalize(7),
-  position: 'absolute'
-}}/>
-     </View> */}
-{/* 
-     <View style={{
-  flexDirection: 'row',
- justifyContent: 'center',
-  marginLeft: normalize(10),
-}}>
-  <View>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: 'black',
-          fontWeight: '600'
-          
-                }}
-      >{'\u20B9'} {item.real_price}
-      </Text>
-      </View>
-
-
-
-<TouchableOpacity style={{
-  height: normalize(30),
-  width: normalize(50),
-  backgroundColor: 'white',
-  borderWidth: normalize(2),
-  borderColor: '#69BE53',
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: normalize(5),
-  marginLeft: normalize(30),
-  marginEnd: normalize(10),
-  marginTop: normalize(-10)
-}}>
-      <Text
-        style={{
-          
-          fontSize: normalize(10),
-          color: '#69BE53',
-          alignSelf: 'center'
-          
-                }}
-      >ADD
-      </Text>
-      </TouchableOpacity>
-
-
-
-
-     </View> */}
-
+     
      
 
 
@@ -593,6 +437,7 @@ props.navigation.navigate("Subcategorylist" , {
     <Fragment>
 
       <Layout Home={true} {...props}>
+     
         <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
 
@@ -603,6 +448,11 @@ props.navigation.navigate("Subcategorylist" , {
 
 
             <ScrollView showsVerticalScrollIndicator={false} bounces={false} keyboardShouldPersistTaps="handled" >
+
+
+
+
+
 
             <View style={{
               flexDirection: 'row',
@@ -698,7 +548,6 @@ style={{
   marginTop: normalize(-20)
 }}
 
-onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
 >
   <View style={{
     marginTop: normalize(3),
@@ -847,8 +696,201 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
            }}>
 
             <CarouselCards />
+            
 
             </View>
+
+            <View style={{
+              backgroundColor: '#F36E35',
+              height: normalize(20),
+              width: '90%',
+              alignSelf: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: normalize(5),
+            }}>
+              <Text style={{
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(10),
+              alignSelf: 'center',
+              
+              color: 'white'
+            }}
+              >
+                Attractive discounts and cashbacks for Members
+              </Text>
+            </View>  
+
+            <TouchableOpacity 
+            onPress={()=> membership()}
+            
+            style={{
+
+height: normalize(40),
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: '#F0F0F0',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
+flexDirection: 'row',
+justifyContent: 'space-evenly',
+alignItems: 'center',
+marginTop: normalize(5)
+            }}>
+           
+
+<Text style={{color: "black",
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+             
+             
+              }}>
+                Membership details
+              </Text>
+              <Image
+                  source={ICONS.downward_arrow}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    marginLeft: normalize(70)
+                    
+                  }}
+                  resizeMode={'contain'}
+                ></Image>
+
+            </TouchableOpacity>
+
+
+
+   {membership_clicked == 1 ? (     <View 
+           
+            
+            style={{
+
+
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: 'white',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
+
+marginTop: normalize(5),
+            }}>
+           
+
+     
+
+<View style = {{
+  marginLeft: normalize(10)
+}}
+>
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind,
+                                            marginTop: normalize(10),
+                                            
+                                        }}
+                                        >
+                                     Minimum 7% discount on all products.
+                                        </Text>
+
+
+
+                                       
+
+
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      200 INR instant discount through coins.
+                                        </Text>
+
+
+
+                                      
+
+
+
+
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind
+                                        }}
+                                        >
+                                      300 INR cashback for all Club Members.
+                                        </Text>
+
+
+
+
+                                   
+
+
+<Text
+                                        style={{
+                                            fontSize: normalize(12),
+                                            
+                                            color: 'black',
+                                            fontFamily: FONTS.Hind,
+                                            marginBottom: normalize(10)
+                                        }}
+                                        >
+                                       150 INR in three instalments as coins in Wallet.
+                                        </Text>
+
+
+                                        <TouchableOpacity 
+                                        onPress={()=>props.navigation.navigate("Membership")}
+                                        style={{
+                                          height: normalize(30),
+                                          width: '70%',
+                                          backgroundColor: '#69BE53',
+                                          borderRadius: normalize(5),
+                                          justifyContent: 'center',
+                                          alignItems: 'center',
+                                          marginBottom: normalize(10)
+                                        }}>
+                                          <Text
+                                          
+                                          style={{
+                                            fontSize: normalize(12),
+                                            fontFamily: FONTS.Hind,
+                                            color: 'white'
+                                          }}
+                                          > Go to Membership page</Text>
+                                           </TouchableOpacity>
+
+                                        </View>
+
+                                        
+                                        
+              
+
+            </View>
+         
+   ) : (null)}
+
               <FlatList
                 data={DATA}
                 renderItem={renderItem1}
@@ -860,7 +902,7 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
 
 
                   marginLeft: normalize(12),
-
+                  marginTop: normalize(20)
                   
 
 
@@ -962,7 +1004,7 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
                 }}
 
 
-              />
+              /> 
 
 
 
@@ -987,6 +1029,7 @@ onPress ={()=>  props.navigation.navigate("Add_delivery_address")}
           </KeyboardAvoidingView>
 
         </SafeAreaView>
+        <CarouselCards2 />
       </Layout>
 
     </Fragment>

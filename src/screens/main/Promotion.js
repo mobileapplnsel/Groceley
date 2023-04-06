@@ -100,10 +100,26 @@ export default function Promotion(props) {
 
       
 
-             <View style={{backgroundColor:'#69BE53',width:'100%',flexDirection:'row'}}>
+             <View style={{backgroundColor:'#69BE53',flexDirection:'row'}}>
+             <TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(30),
+                    marginLeft: normalize(20),
+                    tintColor: 'white'
+                  }}
+                  resizeMode={'contain'}
+                  tintColor= {'white'}
+                ></Image>
+</TouchableOpacity>
               <Text
                 style={{
-                  fontSize: normalize(19),
+                  fontSize: normalize(16),
                   letterSpacing: 1,
                   fontWeight: '700',
                   marginLeft:normalize(20),
@@ -114,16 +130,16 @@ export default function Promotion(props) {
                   
 
                 }}>
-             Earn upto {'\u20B9'}200 on every invite
+            Attractive discounts and cashbacks for Members
               </Text>
            
               <Image
                 source={ICONS.giftbox}
                 style={{
-                  height: normalize(60),
-                  width: normalize(60),
+                  height: normalize(50),
+                  width: normalize(50),
                  marginTop:normalize(20),
-                 marginBottom:normalize(20)
+                 marginBottom:normalize(30)
                 
                 }}
                 resizeMode={'contain'}
@@ -138,110 +154,182 @@ export default function Promotion(props) {
 <View
             style={{
                 height:normalize(120),
-                width: '90%',
-                marginTop:20,
-               
-                        
+                width: '92%',
+                marginTop: normalize(20),
+                alignItems: 'center',
+               marginLeft: normalize(10)
             }}
             >
                 <View  style={{flexDirection:'row',
                 borderRadius:normalize(10),
                 
-                justifyContent:'space-between',backgroundColor:'#FFD580', marginLeft:20,height:'62%',alignItems:'center'}}>
-                <View style={{marginLeft:20}}>
-                <Text style={{color:'black'}}>
-                    Your Code
+                justifyContent:'space-between',backgroundColor:'#FFD580', height:'62%',alignItems:'center'}}>
+               
+                <Text style={{
+                    color:'black',
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    marginLeft: normalize(10)
+                    }}>
+                   Avail Membership
                 </Text>
-                <Text style={{height:normalize(20),fontSize:18, fontWeight:'700',color:'black'}}>
-                    759s8v
-                </Text>
-                </View>
-                <TouchableOpacity onPress={onShare}>
-                <View style={{width:normalize(80),marginRight:15,height:35,borderRadius:normalize(10),alignItems:'center', backgroundColor:'black'}}>
-                    <Text style={{color:'white',alignSelf:'center',marginTop:6}}>Invite Now</Text>
-                </View>
-                </TouchableOpacity>
+               
+                <TouchableOpacity 
+                                        onPress={()=>props.navigation.navigate("Membership")}
+                                        style={{
+                                          height: normalize(30),
+                                          width: '60%',
+                                          backgroundColor: '#69BE53',
+                                          borderRadius: normalize(5),
+                                          justifyContent: 'center',
+                                          alignItems: 'center',
+                                          marginBottom: normalize(10),
+                                          marginLeft: normalize(10),
+                                          marginTop: normalize(5)
+                                        }}>
+                                          <Text
+                                          
+                                          style={{
+                                            fontSize: normalize(12),
+                                            fontFamily: FONTS.Hind,
+                                            color: 'white'
+                                          }}
+                                          > Go to Membership page</Text>
+                                           </TouchableOpacity>
                 </View>
                
 
 
             </View>
-            <View style={{marginLeft:20}}>
-                <Text style={{fontWeight:'700',color:'black',fontSize:normalize(14)}}>How it Works</Text>
 
-                <View style={{flexDirection:'row'}}>
 
-                    
-              <Image
-                source={ICONS.whatsapp}
-                style={{
-                  height: normalize(25),
-                  width: normalize(25),
-                 marginTop:normalize(10)
+
+            <View style={{marginLeft:20 }}>
+                <Text style={{fontWeight:'700',
+                color:'black',
+                fontSize:normalize(14),
+                marginTop: normalize(-20),
+                color: '#69BE53'
+                }}>How It Works</Text>
+
                 
-                }}
-                resizeMode={'contain'}
-               
-              ></Image>
-              <Text style={{ marginTop:normalize(10),marginLeft:10,fontSize:normalize(13),color:'gray',}}>
-                Invite your friends to Groceley
-              </Text>
-
-                </View>
-                <View style={{marginTop:13}}>
-                    <Text style={{fontSize:normalize(14),fontWeight:'600',color:'black'}}> Rules</Text>
+                <View style={{marginTop:normalize(15),
+                paddingHorizontal: normalize(15)
+                
+                }}>
+                  
                          
-               
+             
               
               <View style={{flexDirection:'row'}}>
 
-                    <Text style={{fontWeight:'700',marginTop:normalize(7),color:'gray',}}>1.</Text>
-                  <Text style={{color:'gray', marginTop:normalize(7),marginLeft:10,fontSize:normalize(13),marginRight:10,}}>
+                    <Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>1.</Text>
+                  <Text style={{
+                    color:'gray',
+                    
+                    marginLeft: normalize(10),
+                    fontSize:normalize(12),
+                    marginRight:normalize(10),
+                    fontFamily: FONTS.Hind
+                    }}>
                   A cashback offers along with extra 2% discount on MRP for our Members for all new customers if they enrolled for a new membership. As such we offer minimum 5% discount in MRP but for our members discount would be minimum 7% discount for members.
                      </Text>
                     
 
                        </View>
+<View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>
+
                        <View style={{flexDirection:'row'}}>
 
-                       <Text style={{fontWeight:'700',marginTop:normalize(7),color:'gray',}}>2.</Text>
-                      <Text style={{color:'gray', marginTop:normalize(7),marginLeft:10,fontSize:normalize(13),marginRight:10,}}>
+                       <Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>2.</Text>
+                      <Text style={{ color:'gray',
+                    marginTop:normalize(7),
+                    marginLeft: normalize(10),
+                    fontSize:normalize(12),
+                    marginRight:normalize(10),
+                    fontFamily: FONTS.Hind}}>
                        All customer will get Rs.200 instant discount through coins which can be reimbursed from the app purchases.
                         </Text>
 
 
-                           </View>              
+                           </View>     
+                           <View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>         
                       
                       <View style={{flexDirection:'row'}}>
 
-                          <Text style={{color:'gray',color:'gray',fontWeight:'700',marginTop:normalize(7)}}>3.</Text>
-                        <Text style={{color:'gray', marginTop:normalize(7),marginLeft:10,fontSize:normalize(13),marginRight:10,}}>
-                         Additionally, Rs.300 cashback will be given to all Club Members through in-built Wallet as coins which can be used on their next visit.
+                          <Text style={{color:'gray',color:'black',fontWeight:'700',marginTop:normalize(7)}}>3.</Text>
+                        <Text style={{ color:'gray',
+                    marginTop:normalize(7),
+                    marginLeft: normalize(10),
+                    fontSize:normalize(12),
+                    marginRight:normalize(10),
+                    fontFamily: FONTS.Hind}}>
+                         Additionally, Rs.300 cashback will be given to all Club Members through in-built Wallet as coins which can be used on their next visit.
                            </Text>
 
 
                        </View>
 
+                       <View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>  
+
                        <View style={{flexDirection:'row'}}>
 
-<Text style={{fontWeight:'700',marginTop:normalize(7),color:'gray',}}>4.</Text>
-<Text style={{ color:'gray',marginTop:normalize(7),marginLeft:10,fontSize:normalize(13),marginRight:10,}}>
+<Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>4.</Text>
+<Text style={{  color:'gray',
+                    marginTop:normalize(7),
+                    marginLeft: normalize(10),
+                    fontSize:normalize(12),
+                    marginRight:normalize(10),
+                    fontFamily: FONTS.Hind}}>
 Rs.150 each in three instalments through in-built wallet as coins wallet which would be credited on 1st of second month on the registered mobile number or registered card. For Instance if someone buys the membership on 1st January the first 150 Rs coins would be credited on the app on 1st February the second 150 Rs coins would be credited on 1st March and third 150rs coins would be credited on 1st April 2023.
  </Text>
 
 
 </View>
+
+<View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>  
+
 <View style={{flexDirection:'row',marginRight:10,marginBottom:10}}>
 
-<Text style={{fontWeight:'700',marginTop:normalize(7),color:'gray',}}>5.</Text>
-<Text style={{ marginTop:normalize(7),marginLeft:10,fontSize:normalize(13),color:'gray',}}>
+<Text style={{fontWeight:'700',marginTop:normalize(7),color:'black',}}>5.</Text>
+<Text style={{  color:'gray',
+                    marginTop:normalize(7),
+                    marginLeft: normalize(10),
+                    fontSize:normalize(12),
+                    marginRight:normalize(10),
+                    fontFamily: FONTS.Hind}}>
 The Instant coupon code of Rs 200 should be redeemed on the same day of enrolment/ renewal in a single transaction. The differential amount above Rs 200 to be paid by the customer at the time of billing.
  </Text>
 
 
 </View>
                      
-
+<View style={{
+ height: normalize(1),
+ width: '98%',
+marginTop: normalize(5),
+ backgroundColor: '#69BE53'   
+}}/>  
                 </View>
             </View>
           

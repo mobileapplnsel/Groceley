@@ -43,7 +43,7 @@ export default function EditAddressPage(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
-
+  const [delivery, setDelivery] = useState(0);
   const isFocused = useIsFocused();
 
 
@@ -51,7 +51,9 @@ export default function EditAddressPage(props) {
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-
+   function add_delivery_instructions_clicked(){
+        setDelivery(1)
+   }
 
   return (
 
@@ -83,6 +85,30 @@ export default function EditAddressPage(props) {
 
 
 
+<View style={{
+  flexDirection: 'row'
+}}>
+          
+
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
+
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    marginTop: normalize(20),
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
+
 
 
 
@@ -92,15 +118,20 @@ export default function EditAddressPage(props) {
                   fontSize: normalize(14),
                   letterSpacing: 1,
                   fontWeight: '700',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   fontFamily: FONTS.Hind,
                   marginTop: normalize(20),
                   color: 'black',
-                  
+                  marginLeft: normalize(20)
 
                 }}>
              Edit Delivery Address
               </Text>
+
+              </View>
+
+
+             
 
 
 
@@ -146,10 +177,11 @@ export default function EditAddressPage(props) {
                 onChangeText={_ => setName(_)}
                 marginTop={normalize(10)}
                 keyboardType={'email-address'}
-                fontSize={normalize(14)}
+                fontSize={normalize(12)}
                 width={'90%'}
                 placeholder={'Awantika Maurya'}
                 placeholderTextColor={'black'}
+                
                 secureTextEntry={false}
                 borderRadius={normalize(10)}
                 backgroundColor={'#E8E8E8'}
@@ -177,7 +209,7 @@ export default function EditAddressPage(props) {
                
                 fontSize={normalize(14)}
                 width={'90%'}
-                placeholder={'Floor 4th, SDF building, near mio amore sector 5'}
+                placeholder={'Floor 4th, SDF building'}
                 borderRadius={normalize(10)}
                 backgroundColor={'#E8E8E8'}
                 placeholderTextColor={'black'}
@@ -199,7 +231,7 @@ export default function EditAddressPage(props) {
 
 <TextInputItem
                 value={landmark}
-                onChangeText={_ => setStreet(_)}
+                onChangeText={_ => setLandmark(_)}
                 marginTop={normalize(10)}
 
                 fontSize={normalize(14)}
@@ -290,7 +322,204 @@ export default function EditAddressPage(props) {
               />
 
 
-            <TouchableOpacity
+<TouchableOpacity onPress={()=> add_delivery_instructions_clicked()}
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: 'white',
+            borderColor: '#D3D3D3'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'black'
+    }}
+        >
+            Edit Delivery Instructions(optional)
+            </Text>
+            
+            </TouchableOpacity>
+
+
+            {delivery == 1 ? (     <View 
+           
+            
+           style={{
+
+
+width: '90%',
+
+
+alignSelf: 'center',
+borderRadius: normalize(10),
+backgroundColor: 'white',
+borderColor: '#B8B8B8',
+borderWidth: normalize(1),
+
+marginTop: normalize(5),
+           }}>
+          
+
+    
+
+<View style = {{
+ marginLeft: normalize(10)
+}}
+>
+<Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                    Landmark - RDB, Sector 5, Saltlake
+                                       </Text>
+
+                                       <Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           fontWeight: '700',
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                  Open to Deliver on Weekends?
+                                       </Text>
+
+                                       <Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                   Saturday - No , Sunday -  Yes
+                                       </Text>
+
+
+                                       <Text
+                                       style={{
+                                           fontSize: normalize(12),
+                                           
+                                           color: 'black',
+                                           fontFamily: FONTS.Hind,
+                                           marginTop: normalize(10),
+                                           
+                                       }}
+                                       >
+                                  Preferred time - 8.00 AM to 10.00 AM
+                                       </Text>
+
+
+
+                                      
+
+
+
+
+
+
+
+
+                                     
+
+
+
+
+
+
+
+
+
+
+                                  
+
+
+<View style={{
+  flexDirection: 'row',
+  marginTop: normalize(10)
+}}>
+
+                                       <TouchableOpacity 
+                                       onPress={()=>props.navigation.navigate("Edit_Delivery_Instructions")}
+                                       style={{
+                                         height: normalize(30),
+                                         width: '30%',
+                                         backgroundColor: '#69BE53',
+                                         borderRadius: normalize(5),
+                                         justifyContent: 'center',
+                                         alignItems: 'center',
+                                         marginBottom: normalize(10)
+                                       }}>
+                                         <Text
+                                         
+                                         style={{
+                                           fontSize: normalize(12),
+                                           fontFamily: FONTS.Hind,
+                                           color: 'white'
+                                         }}
+                                         >Edit</Text>
+                                          </TouchableOpacity>
+
+
+                                          <TouchableOpacity 
+                                       onPress={()=>setDelivery(0)}
+                                       style={{
+                                         height: normalize(30),
+                                         width: '30%',
+                                         backgroundColor: 'white',
+                                         borderRadius: normalize(5),
+                                         borderWidth: normalize(1),
+                                         justifyContent: 'center',
+                                         alignItems: 'center',
+                                         marginBottom: normalize(10),
+                                         marginLeft: normalize(10)
+                                       }}>
+                                         <Text
+                                         
+                                         style={{
+                                           fontSize: normalize(12),
+                                           fontFamily: FONTS.Hind,
+                                           color: 'black'
+                                         }}
+                                         > Cancel</Text>
+                                          </TouchableOpacity>
+
+
+</View>
+                                       </View>
+
+
+                                       
+
+                                       
+                                       
+             
+
+           </View>
+        
+  ) : (null)}
+
+
+            <TouchableOpacity onPress={()=> props.navigation.navigate("Select_delivery_address")}
           style={{
             height: normalize(40),
             width: '90%',

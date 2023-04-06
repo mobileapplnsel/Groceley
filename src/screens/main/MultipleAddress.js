@@ -473,11 +473,10 @@ onChangeText={text => {
 
                 onPress={() => {
 
-                  setModalVisible(!modalVisible)
-
+                  props.navigation.goBack()
                 }}>
                 <Image
-                  source={ICONS.menu}
+                  source={ICONS.previous}
                   style={{
                     height: normalize(20),
                     width: normalize(20),
