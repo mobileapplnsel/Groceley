@@ -837,7 +837,7 @@ marginTop: normalize(5),
   ) : (null)}
 
 
-            <TouchableOpacity onPress={()=> props.navigation.navigate("Orderlist")}
+            <TouchableOpacity onPress={()=> props.navigation.navigate("RazorpayCheckout2")}
           style={{
             height: normalize(40),
             width: '90%',

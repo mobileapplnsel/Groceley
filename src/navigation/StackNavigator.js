@@ -44,6 +44,7 @@ import ReferAndEarn from '../screens/main/ReferAndEarn';
 import Edit_Delivery_Instructions from '../screens/main/Edit_Delivery_Instructions';
 import Leaderboard from '../screens/main/Leaderboard';
 import VerifyOTP from '../screens/main/VerifyOTP';
+import RazorpayCheckout2 from '../screens/main/RazorpayCheckout2';
 
 const Stack = createStackNavigator();
 
@@ -97,6 +98,7 @@ export default function StackNavigator() {
         Edit_Delivery_Instructions: Edit_Delivery_Instructions,
         Leaderboard : Leaderboard,
         VerifyOTP: VerifyOTP,
+        RazorpayCheckout2: RazorpayCheckout2
       }
      
 
