@@ -26,7 +26,7 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
-
+import RazorpayCheckout from 'react-native-razorpay';
 
 
 
@@ -432,7 +432,7 @@ style={{
 
 
 
-            <Text style={{
+            {/* <Text style={{
                      fontSize: normalize(12),
                      marginLeft:20,
                      fontFamily: FONTS.Hind,
@@ -440,265 +440,13 @@ style={{
                      color: 'black',
                 }}>
                      More Ways To Pay  
-                </Text>
+                </Text> */}
 
            
 
-<View style={{
-    
-}}>
-           
-           <View style={{
-                flexDirection: 'row',
-                height: normalize(50),
-                width: '93%',
-                backgroundColor:'#F5F5F5',
-                marginVertical: normalize(5),
-                marginLeft: normalize(10),
-                borderRadius: normalize(12),
-                borderColor:"gray",
-                borderWidth:1
-
-            }}
-            >
-
-              {/* {this.state.show ? <Modal /> : null} */}
-               
-              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> NetBanking()}>
-
-{netbanking==1 ?
- <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
- <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
-</View> 
- :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-}
- </TouchableOpacity>
-                          
-                
-                  
-                    <Text
-                    
-                        style={{
-                            fontSize: normalize(12),
-                            color: "black",
-                           marginLeft:normalize(10),
-                            fontWeight:'600',
-                            alignSelf:'center'
-                        }}
-                    >Net Banking</Text>
-
-                
-
-            </View>
-
-                  
-                   
-           <View style={{
-                flexDirection: 'row',
-                height: normalize(50),
-                width: '93%',
-                backgroundColor:'#F5F5F5',
-                marginVertical: normalize(5),
-                marginLeft: normalize(10),
-                borderRadius: normalize(12),
-                borderColor:"gray",
-                borderWidth:1
-
-            }}
-            >
-
-              {/* {this.state.show ? <Modal /> : null} */}
-               
-              
-              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> CardPay()}>
-
-{card==1 ?
- <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
- <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
-</View> 
- :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-}
- </TouchableOpacity>
-                          
-                
-                  
-                    <Text
-                    
-                        style={{
-                            fontSize: normalize(12),
-                            color: "black",
-                           marginLeft:normalize(10),
-                            fontWeight:'600',
-                            alignSelf:'center'
-                        }}
-                    >Pay with Debit/Credit/ATM Cards</Text>
-
-                
-
-            </View>
-
-              
-           <View style={{
-                flexDirection: 'row',
-                height: normalize(50),
-                width: '93%',
-                backgroundColor:'#F5F5F5',
-                marginVertical: normalize(5),
-                marginLeft: normalize(10),
-                borderRadius: normalize(12),
-                borderColor:"gray",
-                borderWidth:1
-
-            }}
-            >
-
-              {/* {this.state.show ? <Modal /> : null} */}
-               
-              
-              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> EmiPay()}>
-
-{emi==1 ?
- <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
- <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
-</View> 
- :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-}
- </TouchableOpacity>
-                          
-                
-                  
-                    <Text
-                    
-                        style={{
-                            fontSize: normalize(12),
-                            color: "black",
-                           marginLeft:normalize(10),
-                            fontWeight:'600',
-                            alignSelf:'center'
-                        }}
-                    >EMI</Text>
-
-                
-
-            </View>
-
-
-             
-           <View style={{
-                flexDirection: 'row',
-                height: normalize(50),
-                width: '93%',
-                backgroundColor:'#F5F5F5',
-                marginVertical: normalize(5),
-                marginLeft: normalize(10),
-                borderRadius: normalize(12),
-                borderColor:"gray",
-                borderWidth:1
-
-            }}
-            >
-
-              {/* {this.state.show ? <Modal /> : null} */}
-               
-              
-              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> UpiPay()}>
-
-{upi==1 ?
- <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
- <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
-</View> 
- :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-}
- </TouchableOpacity>
-                          
-                
-                  
-                    <Text
-                    
-                        style={{
-                            fontSize: normalize(12),
-                            color: "black",
-                           marginLeft:normalize(10),
-                            fontWeight:'600',
-                            alignSelf:'center'
-                        }}
-                    >Other UPI Apps</Text>
-
-                
-
-            </View>
-
-             
-           <View style={{
-                flexDirection: 'row',
-                height: normalize(50),
-                width: '93%',
-                backgroundColor:'#F5F5F5',
-                marginVertical: normalize(5),
-                marginLeft: normalize(10),
-                borderRadius: normalize(12),
-                borderColor:"gray",
-                borderWidth:1
-
-            }}
-            >
-
-              {/* {this.state.show ? <Modal /> : null} */}
-               
-              <TouchableOpacity style={{alignSelf:'center',marginLeft:10}} onPress ={()=> CashPay()}>
-
-{cash==1 ?
- <View style={{ alignSelf:'center',borderColor:'#69BE53',width:18,height:18,borderRadius:10,borderWidth:2,backgroundColor:'#69BE53'}}>
- <View style={{ alignSelf:'center',borderRadius:10,padding:5,backgroundColor:'white',marginTop:normalize(1.2)}}></View>
-</View> 
- :  <View style={{ alignSelf:'center',borderColor:'gray',width:18,height:18,borderRadius:10,borderWidth:1,}}></View> 
-}
- </TouchableOpacity>
-                          
-                
-                  
-                    <Text
-                    
-                        style={{
-                            fontSize: normalize(12),
-                            color: "black",
-                           marginLeft:normalize(10),
-                            fontWeight:'600',
-                            alignSelf:'center'
-                        }}
-                    >Cash on Delivery/Pay On Delivery</Text>
-
-                
-
-            </View>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-        
 
           
-           
-           
-</View>
-
-          
-<TouchableOpacity onPress={()=> coupon()}
+{/* <TouchableOpacity onPress={()=> coupon()}
           style={{
             height: normalize(40),
             width: '90%',
@@ -834,10 +582,10 @@ marginTop: normalize(5),
         
   
   
-  ) : (null)}
+  ) : (null)} */}
 
 
-            <TouchableOpacity onPress={()=> props.navigation.navigate("RazorpayCheckout2")}
+            {/* <TouchableOpacity onPress={()=> props.navigation.navigate("RazorpayCheckout2")}
           style={{
             height: normalize(40),
             width: '90%',
@@ -848,6 +596,8 @@ marginTop: normalize(5),
             backgroundColor: '#F36E35',
             borderColor: '#D3D3D3'
           }}
+
+
           
         > 
         
@@ -859,10 +609,63 @@ marginTop: normalize(5),
         color: 'white'
     }}
         >
-           Continue
+           Continue to Payment Gateway
             </Text>
             
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+ <TouchableOpacity 
+           style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: '#F36E35',
+            borderColor: '#D3D3D3'
+          }}
+          
+          onPress={() => {
+    var options = {
+    description: 'Credits towards consultation',
+    //image: 'https://i.imgur.com/3g7nmJC.jpg',
+    currency: 'INR',
+    key: 'rzp_test_0s2czqBDNUnnff',
+    amount: '5000',
+    name: 'Grocley',
+    
+    order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
+    prefill: {
+      email: 'gaurav.kumar@example.com',
+      contact: '9191919191',
+      name: 'Gaurav Kumar'
+    },
+    
+    theme: {color: '#69BE53'}
+  }
+  RazorpayCheckout.open(options).then((data) => {
+    // handle success
+    alert(`Success: ${data.razorpay_payment_id}`);
+  }).catch((error) => {
+    // handle failure
+   // alert(`Error: ${error.code} | ${error.description}`);
+   alert(`Payment gateway closed`);
+  });
+}}>
+ <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'white'
+    }}
+        >
+           Continue to Payment Gateway
+            </Text>
+
+   </TouchableOpacity>
+
+
 
             <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
           style={{

@@ -192,7 +192,8 @@ function coupon(){
     alert(`Success: ${data.razorpay_payment_id}`);
   }).catch((error) => {
     // handle failure
-    alert(`Error: ${error.code} | ${error.description}`);
+   // alert(`Error: ${error.code} | ${error.description}`);
+   alert(`Payment gateway closed`);
   });
 }}>
 
