@@ -78,6 +78,7 @@ PODS:
   - hermes-engine (0.70.6)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
+  - razorpay-pod (1.3.1)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -310,6 +311,9 @@ PODS:
     - React
   - react-native-netinfo (9.3.7):
     - React-Core
+  - react-native-razorpay (2.3.0):
+    - razorpay-pod
+    - React
   - react-native-safe-area-context (4.4.1):
     - RCT-Folly
     - RCTRequired
@@ -463,6 +467,7 @@ DEPENDENCIES:
   - react-native-fetch-blob (from `../node_modules/react-native-fetch-blob`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
+  - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-simple-toast (from `../node_modules/react-native-simple-toast`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -500,6 +505,7 @@ SPEC REPOS:
     - fmt
     - libevent
     - OpenSSL-Universal
+    - razorpay-pod
     - SocketRocket
     - Toast
     - TOCropViewController
@@ -556,6 +562,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geolocation-service"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
+  react-native-razorpay:
+    :path: "../node_modules/react-native-razorpay"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-simple-toast:
@@ -620,6 +628,7 @@ SPEC CHECKSUMS:
   hermes-engine: 2af7b7a59128f250adfd86f15aa1d5a2ecd39995
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
+  razorpay-pod: 1ca021af16022084c1b368be9f030a4931f1e5f8
   RCT-Folly: 0080d0a6ebf2577475bda044aa59e2ca1f909cda
   RCTRequired: e1866f61af7049eb3d8e08e8b133abd38bc1ca7a
   RCTTypeSafety: 27c2ac1b00609a432ced1ae701247593f07f901e
@@ -638,6 +647,7 @@ SPEC CHECKSUMS:
   react-native-fetch-blob: 0cbdf9764c75d9438c162427395f4bc35a857d5a
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-netinfo: 85f4311a8272324a2bf56583248f0a0bba5315a8
+  react-native-razorpay: ca1aa3960facc92824227fac18a7aad2c40fb546
   react-native-safe-area-context: ec0d85aca8110dae9327430a9541fec165352dab
   react-native-simple-toast: a1c218715995be658b123a5cafc860b7bfca15c5
   React-perflogger: 8c79399b0500a30ee8152d0f9f11beae7fc36595
