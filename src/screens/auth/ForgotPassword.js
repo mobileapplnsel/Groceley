@@ -222,7 +222,7 @@ export default function ForgotPassword(props) {
 
                     {/* </ScrollView> */}
              
-
+{/* <Loader/>   */}
             </SafeAreaView>
 
 

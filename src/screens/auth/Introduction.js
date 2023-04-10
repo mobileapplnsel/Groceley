@@ -254,6 +254,7 @@ export default function Introduction(props) {
 
                     </ScrollView>
                 </KeyboardAvoidingView>
+                {/* <Loader/>   */}
 
             </SafeAreaView>
 

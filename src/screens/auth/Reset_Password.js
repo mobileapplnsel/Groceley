@@ -247,7 +247,7 @@ export default function Reset_Password(props) {
 
           {/* </ScrollView> */}
         </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
       </SafeAreaView>
 
 

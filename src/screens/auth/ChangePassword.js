@@ -258,7 +258,7 @@ export default function ChangePassword(props) {
 
                     </ScrollView>
              
-
+{/* <Loader/>   */}
             </SafeAreaView>
 
 

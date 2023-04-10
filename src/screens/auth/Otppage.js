@@ -243,7 +243,7 @@ export default function Otppage(props) {
 
                     {/* </ScrollView> */}
              
-
+{/* <Loader/>   */}
             </SafeAreaView>
 
 

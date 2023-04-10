@@ -402,7 +402,7 @@ export default function Registration(props) {
 
           </ScrollView>
         </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
       </SafeAreaView>
 
 
