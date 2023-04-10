@@ -253,7 +253,7 @@ export default function ReferAndEarn(props)
 
 
     function createTwoButtonAlert() {
-    Alert.alert('Successful Coppied', 'You can paste this link.', [
+    Alert.alert('Successfully Copied', 'You can paste this link.', [
       {
         text: 'Cancel',
         onPress: () => console.log('Cancel Pressed'),
