@@ -1287,7 +1287,7 @@ function favourite1(){
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

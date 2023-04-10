@@ -808,7 +808,7 @@ The reward for the referred could be an extra 2% discount on their first purchas
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

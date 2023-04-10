@@ -1031,7 +1031,7 @@ marginTop: normalize(5),
         </SafeAreaView>
         <CarouselCards2 />
       </Layout>
-
+ {/* <Loader/>   */}
     </Fragment>
 
 

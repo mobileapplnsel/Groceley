@@ -120,7 +120,8 @@ export default function Productdetails(props) {
     
     
       ]
-
+   
+      
       
 
 function favourite(){
@@ -135,7 +136,6 @@ function favourite1(){
 
 
 
-        
         
         
   
@@ -823,7 +823,7 @@ style={{
                             }}
                         />
                     </KeyboardAvoidingView>
-
+                    {/* <Loader/> */}
                 </SafeAreaView>
             </Layout>
 

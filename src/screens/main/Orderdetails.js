@@ -956,7 +956,7 @@ const getFileExtention = fileUrl => {
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

@@ -763,7 +763,7 @@ You have reached the end of your orders
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

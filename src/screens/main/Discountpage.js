@@ -729,7 +729,7 @@ Special Offers              </Text>
               }}
             />
           </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

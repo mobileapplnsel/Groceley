@@ -777,7 +777,7 @@ numberOfLines={3}
 
 
         </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
       </SafeAreaView>
 
 

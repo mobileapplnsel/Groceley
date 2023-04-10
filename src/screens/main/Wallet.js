@@ -939,7 +939,7 @@ onBackdropPress={() => setModalFilterVisible(false)}
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

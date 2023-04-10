@@ -220,7 +220,7 @@ export default function VerifyOTP(props) {
 
 
 
-                    {/* </ScrollView> */}
+                    {/* <Loader/>   */}
              
 
             </SafeAreaView>

@@ -885,7 +885,7 @@ Favourities
               }}
             />
           </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

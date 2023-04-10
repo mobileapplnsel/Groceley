@@ -1430,7 +1430,7 @@ Available coupons
                             }}
                         />
                     </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

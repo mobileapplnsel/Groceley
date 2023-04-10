@@ -1025,7 +1025,7 @@ Filters
                         />
                         </ScrollView>
                     </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

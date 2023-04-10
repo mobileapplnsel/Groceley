@@ -204,7 +204,7 @@ function coupon(){
 
           </ScrollView>
         </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
       </SafeAreaView>
 
 

@@ -960,7 +960,7 @@ style={{
 
           </ScrollView>
         </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
       </SafeAreaView>
 
 

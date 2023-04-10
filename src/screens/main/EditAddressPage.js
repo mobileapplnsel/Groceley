@@ -593,7 +593,7 @@ marginTop: normalize(5),
 
           </ScrollView>
         </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
       </SafeAreaView>
 
 

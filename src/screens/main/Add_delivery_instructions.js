@@ -833,7 +833,7 @@ Sun
 
           </ScrollView>
         </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
       </SafeAreaView>
 
 

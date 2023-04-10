@@ -385,7 +385,7 @@ export default function DepositCoinsPage(props) {
 
           </ScrollView>
         </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
       </SafeAreaView>
 
 

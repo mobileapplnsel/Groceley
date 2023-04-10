@@ -1116,7 +1116,7 @@ export default function Transaction_history(props) {
 
                     </ScrollView>
                 </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
             </SafeAreaView>
 
 

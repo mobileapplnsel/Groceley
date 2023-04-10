@@ -739,7 +739,7 @@ Breads
               }}
             />
           </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

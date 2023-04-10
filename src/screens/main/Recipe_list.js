@@ -605,7 +605,7 @@ Recipe list
               }}
             />
           </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

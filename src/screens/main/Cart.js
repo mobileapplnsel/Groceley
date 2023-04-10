@@ -1099,7 +1099,7 @@ const ShareExample = async () => {
                             }}
                         />
                     </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
                 </SafeAreaView>
                 <CarouselCards3/>
             </Layout>

@@ -619,7 +619,7 @@ export default function Leaderboard(props)
                             }}
                         />
                     </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

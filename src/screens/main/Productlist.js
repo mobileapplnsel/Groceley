@@ -739,7 +739,7 @@ Breakfast & Bakery
               }}
             />
           </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

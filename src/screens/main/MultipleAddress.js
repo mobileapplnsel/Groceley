@@ -569,7 +569,7 @@ onChangeText={text => {
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             
 
