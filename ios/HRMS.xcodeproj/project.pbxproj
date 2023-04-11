@@ -20,6 +20,7 @@
 		39BD2FD83DAE421EBBBB99EA /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3243769219A45C9AA5EC994 /* OpenSans-ExtraBold.ttf */; };
 		3E88E848F11143DFB16CD32A /* Hind-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92060155E1F7425DAB820850 /* Hind-Light.ttf */; };
 		4237DBAE75094CE1A44D15D4 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60D9528637694088BDC457AE /* Rubik-Bold.ttf */; };
+		50B8A22929E5376C0042CD7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50B8A22829E5376C0042CD7F /* GoogleService-Info.plist */; };
 		54D5B923C1244B76B6C0927E /* PlayfairDisplay-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39880A17922B4321A4FFA379 /* PlayfairDisplay-ExtraBoldItalic.ttf */; };
 		5D848866499A41FEA11B7BCF /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1566E00308544A519E6E27FA /* Rubik-SemiBold.ttf */; };
 		669A91FF53D24CB48B1B6529 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 206384B1C9414A238A15CBBE /* Rubik-Italic.ttf */; };
@@ -81,6 +82,7 @@
 		3A671F7E22604B389E8A7F29 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-MediumItalic.ttf"; path = "../src/themes/fonts/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HRMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRMS.debug.xcconfig"; path = "Target Support Files/Pods-HRMS/Pods-HRMS.debug.xcconfig"; sourceTree = "<group>"; };
 		42558F032C9E4C00BC00B086 /* PlayfairDisplay-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-BoldItalic.ttf"; path = "../src/themes/fonts/PlayfairDisplay-BoldItalic.ttf"; sourceTree = "<group>"; };
+		50B8A22829E5376C0042CD7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54E9CCD118624A028A75EB01 /* PlayfairDisplay-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-MediumItalic.ttf"; path = "../src/themes/fonts/PlayfairDisplay-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HRMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRMS.release.xcconfig"; path = "Target Support Files/Pods-HRMS/Pods-HRMS.release.xcconfig"; sourceTree = "<group>"; };
 		5A99D4D56AA84330841F2AFA /* PlayfairDisplay-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Italic.ttf"; path = "../src/themes/fonts/PlayfairDisplay-Italic.ttf"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		13B07FAE1A68108700A75B9A /* HRMS */ = {
 			isa = PBXGroup;
 			children = (
+				50B8A22829E5376C0042CD7F /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -378,6 +381,7 @@
 				F6A757BACE7748D284659C6A /* Rubik-MediumItalic.ttf in Resources */,
 				77D7A219762F41EF9C378823 /* Rubik-Regular.ttf in Resources */,
 				5D848866499A41FEA11B7BCF /* Rubik-SemiBold.ttf in Resources */,
+				50B8A22929E5376C0042CD7F /* GoogleService-Info.plist in Resources */,
 				393FDD9814F84EE29E46FC81 /* Rubik-SemiBoldItalic.ttf in Resources */,
 				DF1C5BB51AB24341A7F8792B /* Hind-Bold.ttf in Resources */,
 				3E88E848F11143DFB16CD32A /* Hind-Light.ttf in Resources */,
