@@ -522,24 +522,7 @@ export default function Transaction_history(props) {
                                 </View>
                            )
                             
-                            // <View style={{ alignItems: 'flex-end' }}>
-
-                            //     <Text style={{ color: '#69BE53', marginRight: normalize(5), fontWeight: '700',  textAlign: 'right' }}>{item.coins}</Text>
-                            //     <View style={{ flexDirection: 'row', alignItems: 'flex-end' , marginRight: -normalize(10)}}>
-                            //         <Image
-                            //             source={ICONS.deposit}
-                            //             style={{
-                            //                 height: normalize(15),
-                            //                 width: normalize(15),
-                            //                // marginRight: -normalize(10)
-                            //             }}
-                            //             resizeMode={'contain'}
-                            //             tintColor={'#69BE53'}
-                            //         ></Image>
-                            //         <Text style={{ color: '#69BE53', fontSize: normalize(10), alignSelf: 'flex-end' }}>{item.coinstype}</Text>
-                            //     </View>
-
-                            // </View>
+                           
                             
                             
                             

@@ -237,48 +237,7 @@ export default function Filters(props)
 
          console.log(selected);
               
-    //     if(item == "Last 30 days")
-    //     {
-
-    //           setFlagmonth("true"),
-    //         setFlagdays("false"),
-    //         setFlagCurrentyear("false"),
-    //         setFlagpreviousyear("false")
-    //         console.log("log",item)
-    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
-
-    //     }else if(item == "Last 3 days")
-    //     {
-    //         setFlagmonth("false"),
-    //         setFlagdays("true"),
-    //         setFlagCurrentyear("false"),
-    //         setFlagpreviousyear("false")
-    //         console.log("log",item)
-    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
-
-
-    //     }else if(item == "2023")
-    //     {
-           
-    //         setFlagmonth("false"),
-    //         setFlagdays("false"),
-    //         setFlagCurrentyear("true"),
-    //         setFlagpreviousyear("false")
-    //         console.log("log",item)
-    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
-
-    //     }
-    //     else if(item == "2022")
-      
-    //     {
-    //         setFlagmonth("false"),
-    //         setFlagdays("false"),
-    //         setFlagCurrentyear("false"),
-    //         setFlagpreviousyear("true")
-    //         console.log("log",item)
-    //         console.log("log",flagmonth+""+flagpreviousyear+""+flagdays+""+flagcurrentyear)
-
-    //     }
+    
        
          
         

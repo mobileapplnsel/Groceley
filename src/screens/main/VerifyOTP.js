@@ -128,26 +128,7 @@ export default function VerifyOTP(props) {
                         </Text>
 
                        
-                        {/* <OTPInputView
-    style={{width: '80%', height: 200}}
-    pinCount={4}
-    
-    autoFocusOnLoad
-    codeInputFieldStyle={{ 
-      color: 'red',
-      borderColor: 'black',
-      borderRadius: normalize(5),
-      marginLeft: normalize(15),
-     marginTop: normalize(10)
-    }}
-    codeInputHighlightStyle={{
-      color: 'red',
-      borderColor: 'red',
-    }}
-    onCodeFilled = {(value) => {
-        console.log(`Code is ${value}, you are good to go!`)
-    }}
-/> */}
+                        
 
 <OTPInputView
     style={{width: '80%', height: 200}}

@@ -517,41 +517,7 @@ function verifyEmail(){
               </TouchableOpacity>
               </View>
 
-{/* <TextInput
-numberOfLines={3}
-                value={address}
-                onChangeText={_ => setAddress(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(245)}
-                paddingLeft={normalize(10)}
-                placeholder={'Salt Lake Sector 5, SDF Building'}
-                borderRadius={normalize(10)}
-                backgroundColor={'#D3D3D3'}
 
-              /> */}
-
-{/* <TextInput
-                multiline={true}
-                numberOfLines={5}
-                maxLength={150}
-                height={normalize(100)}
-                style={{
-                    borderRadius : normalize(15),
-                    padding: normalize(10)
-                }}
-                value={address}
-                onChangeText={_ => setAddress(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'Lee & Nee Software Exports Limited, SDF Building, Salt Lake Sector 5'}
-              //  borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              /> */}
 
 
 </View>
@@ -693,26 +659,7 @@ numberOfLines={3}
                         </Text>
 
                        
-                        {/* <OTPInputView
-    style={{width: '80%', height: 200}}
-    pinCount={4}
-    
-    autoFocusOnLoad
-    codeInputFieldStyle={{ 
-      color: 'red',
-      borderColor: 'black',
-      borderRadius: normalize(5),
-      marginLeft: normalize(15),
-     marginTop: normalize(10)
-    }}
-    codeInputHighlightStyle={{
-      color: 'red',
-      borderColor: 'red',
-    }}
-    onCodeFilled = {(value) => {
-        console.log(`Code is ${value}, you are good to go!`)
-    }}
-/> */}
+                        
 
 <OTPInputView
     style={{width: '80%', height: 200}}

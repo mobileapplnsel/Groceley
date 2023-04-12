@@ -490,18 +490,7 @@ function favourite1(){
 
 
                                     
-                                    {/* <Image
-                                        source={ICONS.cornflakes}
-                                        style={{
-                                            height: normalize(160),
-                                            width: normalize(140),
-                                            alignSelf: 'center',
-                                            
-                                            marginLeft: normalize(10),
-                                            borderRadius: normalize(25)
-                                        }}
-                                        resizeMode={'contain'}
-                                    ></Image> */}
+                                    
                                     <View>
               <FlatList
                 data={DATA}

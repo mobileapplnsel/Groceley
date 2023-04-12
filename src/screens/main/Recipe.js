@@ -596,15 +596,7 @@ style={{
               marginTop: normalize(10)
             }}>Buy Ingredients</Text>
 
-{/* <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.Hind,
-              fontSize: normalize(14),
-              marginRight: normalize(10),
-              marginTop: normalize(10)
-            }}>See All</Text>
-</TouchableOpacity> */}
+
 
 
 
