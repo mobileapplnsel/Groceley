@@ -11,7 +11,8 @@ import {
   ImageBackground,
   StatusBar,
   Alert,
-  TextInput
+  TextInput,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -44,9 +45,16 @@ export default function EditAddressPage(props) {
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
   const [delivery, setDelivery] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
+
   const isFocused = useIsFocused();
 
-
+const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -70,7 +78,12 @@ export default function EditAddressPage(props) {
 
 
 
-          <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+          <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+           refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+          
+          >
 
 
 

@@ -14,7 +14,8 @@ import {
     Alert,
     TextInput,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -48,8 +49,7 @@ export default function Orderlist(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
-
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -281,7 +281,12 @@ style={{
 
 
         
-        
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []); 
     
 
 
@@ -474,7 +479,11 @@ style={{
 
                         <ScrollView showsVerticalScrollIndicator={false} bounces={false} style={{
                             backgroundColor: 'white'
-                        }} >
+                        }}
+                        refreshControl={
+                          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                        }
+                        >
 
 
 

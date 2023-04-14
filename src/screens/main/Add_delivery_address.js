@@ -12,8 +12,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  PermissionsAndroid
-
+  PermissionsAndroid,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -53,6 +53,8 @@ export default function Add_delivery_address(props) {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [dropdownpressed, setDropdownpressed] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
+
   const isFocused = useIsFocused();
 
 
@@ -83,7 +85,12 @@ export default function Add_delivery_address(props) {
   };
 
 
-
+const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
 
   function currentlocation(){
@@ -157,7 +164,11 @@ console.log("adkhbhkad")
 
 
 
-          <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+          <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+           refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+          >
 
 
 

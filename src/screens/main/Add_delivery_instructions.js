@@ -11,7 +11,8 @@ import {
   ImageBackground,
   StatusBar,
   Alert,
-  TextInput
+  TextInput,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -51,7 +52,7 @@ export default function Add_delivery_instructions(props) {
   const [yessaturday, setYessaturday] = useState(0);
   const [nosunday, setNosunday] = useState(0);
   const [yessunday, setYessunday] = useState(0);
-
+  const [refreshing, setRefreshing] = useState(false);
 
   const isFocused = useIsFocused();
 
@@ -116,7 +117,12 @@ function othersclicked(){
 }
 
 
-
+const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -148,7 +154,12 @@ function recent_address_clicked(){
 
 
 
-          <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+          <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+           refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+          
+          >
 
 
 

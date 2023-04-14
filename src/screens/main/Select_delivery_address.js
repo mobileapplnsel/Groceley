@@ -11,7 +11,8 @@ import {
   ImageBackground,
   StatusBar,
   Alert,
-  TextInput
+  TextInput,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -36,7 +37,7 @@ export default function Select_delivery_address(props) {
 
   const [default_address, setDefault_address] = useState(0);
   const [recent_address, setRecent_address] = useState(0);
-
+  const [refreshing, setRefreshing] = useState(false);
   const isFocused = useIsFocused();
 
 
@@ -44,7 +45,12 @@ export default function Select_delivery_address(props) {
 
 
 
-
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
 
 
@@ -81,7 +87,11 @@ function recent_address_clicked(){
 
 
 
-          <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+          <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+           refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+          >
 
 
 

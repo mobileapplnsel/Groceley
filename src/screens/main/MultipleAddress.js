@@ -14,6 +14,7 @@ import {
     Alert,
     TextInput,
     FlatList,
+    RefreshControl,
 } from 'react-native';
 import TextInputItem from '../../components/TextInputItem';
 import { COLORS, ICONS, FONTS, IMAGES } from '../../themes/Themes';
@@ -39,7 +40,7 @@ export default function MultipleAddress(props)
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [house, setHouse] = useState([]);
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -144,7 +145,12 @@ export default function MultipleAddress(props)
     ]
 
 
-
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+          setRefreshing(false);
+        }, 2000);
+      }, []);
 
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -508,7 +514,9 @@ onChangeText={text => {
 
 
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false}  refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
 
 
                           
