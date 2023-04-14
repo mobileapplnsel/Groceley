@@ -14,7 +14,8 @@ import {
     Alert,
    TextInput ,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -48,7 +49,7 @@ export default function Recipe(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -163,7 +164,12 @@ function favourite1(){
 
 
 
-
+const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
         
         
         
@@ -472,7 +478,9 @@ function favourite1(){
 
 
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            } >
 
 
 
