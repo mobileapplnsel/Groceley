@@ -13,7 +13,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList
+  FlatList,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -44,7 +45,7 @@ export default function Productlist(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -174,7 +175,12 @@ props.navigation.navigate("Productdetails")
 
 
 
-
+ const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
 
 
 
@@ -403,7 +409,9 @@ style={{
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false} refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
 
 
 

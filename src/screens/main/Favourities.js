@@ -13,7 +13,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList
+  FlatList,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -44,7 +45,7 @@ export default function Favourites(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -154,7 +155,12 @@ export default function Favourites(props) {
 
   ]
 
-
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
 
  function selectItem(item){
@@ -555,7 +561,12 @@ props.navigation.navigate("Productdetails")
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+            
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
+            >
 
 
 

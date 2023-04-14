@@ -52,17 +52,7 @@ export async function putApi(url, payload, header) {
   });
 }
 
-// export async function deleteApi(url, payload, header) {
-//   console.log('DeleteApi: ', `${constants.BASE_URL}/${url}`);
 
-//   return await axios.delete(`${constants.BASE_URL}/${url}`, payload, {
-//     headers: {
-//       Accept: header.Accept,
-//       'Content-Type': header.contenttype,
-//       'x-access-token': header.accesstoken,
-//     },
-//   });
-// }
 
 export async function deleteApi(url, header) {
   console.log('DeleteApi: ', `${constants.BASE_URL}/${url}`);

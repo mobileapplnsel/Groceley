@@ -14,7 +14,8 @@ import {
   Alert,
   TextInput,
   FlatList,
-  PermissionsAndroid
+  PermissionsAndroid,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -55,7 +56,7 @@ export default function Home(props) {
   const [address, setAddress] = useState('');
   const [dropdownpressed, setDropdownpressed] = useState(0);
   const [membership_clicked, setMembership_clicked] = useState(false);
-
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
 
@@ -179,6 +180,15 @@ export default function Home(props) {
 
 
   ]
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
+  
 
   const getLocation = () => {
     const result = requestLocationPermission();
@@ -447,7 +457,13 @@ props.navigation.navigate("Productlist" , {
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} keyboardShouldPersistTaps="handled" >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false} keyboardShouldPersistTaps="handled"
+            
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
+            
+            >
 
 
 

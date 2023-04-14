@@ -13,7 +13,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList
+  FlatList,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -44,7 +45,7 @@ export default function Discountpage(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -173,7 +174,12 @@ props.navigation.navigate("Productlisting")
  }
 
 
-
+ const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
 
 
 
@@ -401,7 +407,9 @@ props.navigation.navigate("Productlisting")
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false}  refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
 
 
 
