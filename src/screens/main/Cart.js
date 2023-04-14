@@ -14,7 +14,8 @@ import {
     Alert,
     TextInput,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -51,7 +52,7 @@ export default function Cart(props) {
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
     const [isModalFilterVisible, setModalFilterVisible] = useState(false);
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -153,7 +154,12 @@ const ShareExample = async () => {
 
   }
 
-
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
 
 
@@ -376,7 +382,12 @@ const ShareExample = async () => {
 
                         <ScrollView showsVerticalScrollIndicator={false} bounces={false} style={{
                             backgroundColor: '#FFF2F0'
-                        }} >
+                        }} 
+                        
+                        refreshControl={
+                            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                          }
+                        >
 
 
 

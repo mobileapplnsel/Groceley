@@ -14,6 +14,7 @@ import {
     Alert,
     TextInput,
     FlatList,
+    RefreshControl,
 } from 'react-native';
 import TextInputItem from '../../components/TextInputItem';
 import { COLORS, ICONS, FONTS, IMAGES } from '../../themes/Themes';
@@ -37,7 +38,7 @@ export default function Membership(props)
     const [choosepassword, setChoosepassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
-
+    const [refreshing, setRefreshing] = useState(false);
 
     const DATA = [{
         id: "0",
@@ -138,7 +139,12 @@ export default function Membership(props)
 
 
 
-
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+          setRefreshing(false);
+        }, 2000);
+      }, []);
 
 
 
@@ -485,7 +491,9 @@ export default function Membership(props)
            
             </View>
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false}  refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
                    
         <ImageBackground
           resizeMode={'contain'} // or cover

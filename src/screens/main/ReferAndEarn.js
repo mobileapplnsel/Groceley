@@ -14,7 +14,8 @@ import {
     Alert,
     TextInput,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 import TextInputItem from '../../components/TextInputItem';
 import { COLORS, ICONS, FONTS, IMAGES } from '../../themes/Themes';
@@ -39,7 +40,7 @@ export default function ReferAndEarn(props)
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [referalCode, setReferCode] = useState(false);
-
+    const [refreshing, setRefreshing] = useState(false);
 
     const DATA = [{
         id: "0",
@@ -136,7 +137,12 @@ export default function ReferAndEarn(props)
 
 
     ]
-
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+          setRefreshing(false);
+        }, 2000);
+      }, []);
 
 
     const ShareExample = async () => {
@@ -402,7 +408,11 @@ export default function ReferAndEarn(props)
 
                         {/* <ScrollView showsVerticalScrollIndicator={false} bounces={false} > */}
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+                         refreshControl={
+                            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                          }
+                        >
 
 
 

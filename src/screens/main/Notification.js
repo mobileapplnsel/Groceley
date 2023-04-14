@@ -14,6 +14,7 @@ import {
     Alert,
     TextInput,
     FlatList,
+    RefreshControl,
 } from 'react-native';
 import TextInputItem from '../../components/TextInputItem';
 import { COLORS, ICONS, FONTS, IMAGES } from '../../themes/Themes';
@@ -37,7 +38,7 @@ export default function Notification(props)
     const [choosepassword, setChoosepassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -142,7 +143,12 @@ export default function Notification(props)
 
 
 
-
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+          setRefreshing(false);
+        }, 2000);
+      }, []);
 
 
 
@@ -490,7 +496,9 @@ Notifications
 
 
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
 
 
                           

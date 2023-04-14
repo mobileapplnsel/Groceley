@@ -12,7 +12,8 @@ import {
     StatusBar,
     Alert,
     TextInput,
-    FlatList
+    FlatList,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -48,6 +49,8 @@ export default function Transaction_history(props) {
     const [all, setAll] = useState(1);
     const [credit, setCredit] = useState(0);
     const [debit, setDebit] = useState(0);
+    const [refreshing, setRefreshing] = useState(false);
+
     const isFocused = useIsFocused();
 
     const regex =
@@ -267,7 +270,12 @@ export default function Transaction_history(props) {
     ]
 
 
-
+const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
     const renderItem1 = ({ item, index }) => (
         <>
@@ -722,7 +730,11 @@ export default function Transaction_history(props) {
 
 
 
-                    <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                    <ScrollView showsVerticalScrollIndicator={false} bounces={false} 
+                    refreshControl={
+                        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                      }
+                    >
 
 
 

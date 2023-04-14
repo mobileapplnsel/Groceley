@@ -13,6 +13,7 @@ import {
   Alert,
   TextInput,
   Share,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -44,7 +45,7 @@ export default function Promotion(props) {
   const [states, setStates] = useState('');
   const [country, setCountry] = useState('');
   const [pincode, setPincode] = useState('');
-
+  const [refreshing, setRefreshing] = useState(false);
   const isFocused = useIsFocused();
 
 
@@ -52,7 +53,12 @@ export default function Promotion(props) {
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-
+    const onRefresh = React.useCallback(() => {
+      setRefreshing(true);
+      setTimeout(() => {
+        setRefreshing(false);
+      }, 2000);
+    }, []);
 
     const onShare = async () => {
         try {
@@ -92,7 +98,12 @@ export default function Promotion(props) {
           
 
    
-<ScrollView showsVerticalScrollIndicator={true} bounces={false} >
+<ScrollView showsVerticalScrollIndicator={true} bounces={false} 
+
+refreshControl={
+  <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+}
+>
 
     
 
