@@ -5,7 +5,7 @@ const initialState = {
   isLoading: true,
   personaldetailsResponse: {},
   homeResponse: {},
-  punchinResponse: {},
+  productResponse: {},
   punchoutResponse: {},
   calendarResponse: {},
   attendanceResponse:{},
@@ -55,15 +55,16 @@ const ProfileSlice = createSlice({
       state.status = action.type;
     },
 
-    //Punch in
-    punchinRequest(state, action) {
+    //Product
+
+    productRequest(state, action) {
       state.status = action.type;
     },
-    punchinSuccess(state, action) {
-      state.punchinResponse = action.payload;
+    productSuccess(state, action) {
+      state.productResponse = action.payload;
       state.status = action.type;
     },
-    punchinFailure(state, action) {
+    productFailure(state, action) {
       state.error = action.payload;
       state.status = action.type;
     },
@@ -273,9 +274,9 @@ export const {
   homeSuccess,
   homeFailure,
 
-  punchinRequest,
-  punchinSuccess,
-  punchinFailure,
+  productRequest,
+  productSuccess,
+  productFailure,
 
 
   punchoutRequest,

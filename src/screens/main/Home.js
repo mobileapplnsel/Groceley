@@ -406,7 +406,8 @@ props.navigation.navigate("Productlist" , {
    }
 
    function selectItem3(item){
-  
+    console.log("Id====", item.id)
+    console.log("Subcategory Id====", item.category_id)
     props.navigation.navigate("Subcategorylist")
      }
 
@@ -516,7 +517,7 @@ props.navigation.navigate("Productlist" , {
 
   const renderItem2 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem3(item)}
+      onPress={()=>selectItem3(item)}
       style={{
 
         height: normalize(110),

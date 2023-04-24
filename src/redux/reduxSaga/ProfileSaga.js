@@ -10,8 +10,8 @@ import ProfileReducer, {
   personaldetailsSuccess,
   personaldetailsFailure,
 
-  punchinSuccess,
-  punchinFailure,
+  productSuccess,
+  productFailure,
 
   punchoutSuccess,
   punchoutFailure,
@@ -178,37 +178,32 @@ export function* homeSaga(action) {
   }
 }
 
-export function* punchinSaga(action) {
+export function* productSaga(action) {
   const header = {
     Accept: 'application/json',
     contenttype: 'application/json',
-    authorization: constants.Token
+   // authorization: constants.Token
   };
   try {
     let response = yield call(
       postApi,
-      'punch-in',
+      'product',
       action.payload,
       header,
     );
     console.log('Data==', response);
     
     if (response.status == 200) {
-      yield put(punchinSuccess(response.data.response));
-      yield call(
-        AsyncStorage.setItem,
-        constants.PUNCHIN,
-        JSON.stringify({token: response}),
-        
-      );
+      yield put(productSuccess(response.data));
+     
       
     } else {
-      yield put(punchinFailure(response.data.response));
+      yield put(productFailure(response.data));
       
     }
   } catch (error) {
     console.log(error);
-    yield put(punchinFailure(error));
+    yield put(productFailure(error));
   }
 }
 
@@ -614,7 +609,7 @@ const watchFunction = [
     yield takeLatest('Profile/homeRequest', homeSaga);
   })(),
   (function* () {
-    yield takeLatest('Profile/punchinRequest', punchinSaga);
+    yield takeLatest('Profile/punchinRequest', productSaga);
   })(),
   (function* () {
     yield takeLatest('Profile/punchoutRequest', punchoutSaga);

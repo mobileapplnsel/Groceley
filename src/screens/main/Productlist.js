@@ -33,7 +33,8 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { productRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productlist(props) {
@@ -46,9 +47,11 @@ export default function Productlist(props) {
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [data2, setData2] = useState('');
 
 
-
+  const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
 
   const DATA = [{
     id: "0",
@@ -181,6 +184,49 @@ props.navigation.navigate("Productdetails")
     setRefreshing(false);
   }, 2000);
 }, []);
+
+if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      case 'Profile/productRequest':
+          status = ProfileReducer.status;
+          break;
+
+      case 'Profile/productSuccess':
+          status = ProfileReducer.status;
+          console.log("Response === ", ProfileReducer?.productResponse?.respData?.subCategory)
+          
+          setCarouseldata(ProfileReducer?.productResponse?.respData?.banner)
+          setData2(ProfileReducer?.productResponse?.respData?.subCategory)
+          break;
+
+      case 'Profile/productFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+      
+          
+
+   
+          
+
+
+
+        
+
+    
+
+
+
+
+        
+
+
+
+       
+  }
+}
+
 
 
 
