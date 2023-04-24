@@ -4,7 +4,7 @@ const initialState = {
   status: '',
   isLoading: true,
   personaldetailsResponse: {},
-  dashboardResponse: {},
+  homeResponse: {},
   punchinResponse: {},
   punchoutResponse: {},
   calendarResponse: {},
@@ -43,14 +43,14 @@ const ProfileSlice = createSlice({
 
 
     //Dashboard
-    dashboardRequest(state, action) {
+    homeRequest(state, action) {
       state.status = action.type;
     },
-    dashboardSuccess(state, action) {
-      state.dashboardResponse = action.payload;
+    homeSuccess(state, action) {
+      state.homeResponse = action.payload;
       state.status = action.type;
     },
-    dashboardFailure(state, action) {
+    homeFailure(state, action) {
       state.error = action.payload;
       state.status = action.type;
     },
@@ -269,9 +269,9 @@ export const {
   personaldetailsSuccess,
   personaldetailsFailure,
   
-  dashboardRequest,
-  dashboardSuccess,
-  dashboardFailure,
+  homeRequest,
+  homeSuccess,
+  homeFailure,
 
   punchinRequest,
   punchinSuccess,

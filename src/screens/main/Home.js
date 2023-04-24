@@ -29,7 +29,7 @@ import isInternetConnected from '../../utils/helpers/NetInfo';
 import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import constants from '../../utils/helpers/constants';
+
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
@@ -39,6 +39,11 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import Membership from './Membership';
+
+
+import constants from '../../utils/helpers/constants';
+import { useDispatch, useSelector } from 'react-redux';
+import { homeRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Home(props) {
@@ -57,6 +62,11 @@ export default function Home(props) {
   const [dropdownpressed, setDropdownpressed] = useState(0);
   const [membership_clicked, setMembership_clicked] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [data2, setData2] = useState('');
+
+
+    const dispatch = useDispatch();
+    const ProfileReducer = useSelector(state => state.ProfileReducer);
 
   useEffect(() => {
 
@@ -67,7 +77,8 @@ export default function Home(props) {
 
     
     getLocation();
-   
+    
+    homedetails()
     
 
 
@@ -188,6 +199,25 @@ export default function Home(props) {
     }, 2000);
   }, []);
 
+
+  function homedetails() {
+
+       
+
+    
+  
+    isInternetConnected()
+        .then(() => {
+            dispatch(homeRequest());
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+
+
+}
+
   
 
   const getLocation = () => {
@@ -290,6 +320,48 @@ props.navigation.navigate("Productlist" , {
   setMembership_clicked(!membership_clicked)
  }
 
+ if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      case 'Profile/homeRequest':
+          status = ProfileReducer.status;
+          break;
+
+      case 'Profile/homeSuccess':
+          status = ProfileReducer.status;
+          console.log("Response === ", ProfileReducer?.homeResponse?.respData?.subCategory)
+          
+         
+          setData2(ProfileReducer?.homeResponse?.respData?.subCategory)
+          break;
+
+      case 'Profile/homeFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+      
+          
+
+   
+          
+
+
+
+        
+
+    
+
+
+
+
+        
+
+
+
+       
+  }
+}
+
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -385,7 +457,7 @@ props.navigation.navigate("Productlist" , {
           marginTop: normalize(5),
           textAlign: 'center'
         }}
-      >{item.description}
+      >{item?.name}
       </Text> 
 
 
@@ -958,7 +1030,7 @@ marginTop: normalize(5),
 
 
 <FlatList
-                data={DATA2}
+                data={data2}
                 renderItem={renderItem2}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}

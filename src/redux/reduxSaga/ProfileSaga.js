@@ -4,8 +4,8 @@ import constants from '../../utils/helpers/constants';
 
 import ProfileReducer, {
 
-  dashboardSuccess,
-  dashboardFailure,
+  homeSuccess,
+  homeFailure,
 
   personaldetailsSuccess,
   personaldetailsFailure,
@@ -150,31 +150,31 @@ export function* attendanceSaga(action) {
 }
 
 
-export function* dashboardSaga(action) {
+export function* homeSaga(action) {
   const header = {
     Accept: 'application/json',
     contenttype: 'application/json',
-    authorization: constants.Token
+   // authorization: constants.Token
   };
   try {
     let response = yield call(
       postApi,
-      'dashboard',
+      'home',
       action.payload,
       header,
     );
-    console.log('Data==', response);
-    console.log('Token==========',constants.Token);
+   console.log('Data==', response);
+   // console.log('Token==========',constants.Token);
     if (response.status == 200) {
-      yield put(dashboardSuccess(response.data.response));
+      yield put(homeSuccess(response.data));
       
     } else {
-      yield put(dashboardFailure(response.data.response));
+      yield put(homeFailure(response.data));
       
     }
   } catch (error) {
     console.log(error);
-    yield put(dashboardFailure(error));
+    yield put(homeFailure(error));
   }
 }
 
@@ -611,7 +611,7 @@ const watchFunction = [
   })(),
 
   (function* () {
-    yield takeLatest('Profile/dashboardRequest', dashboardSaga);
+    yield takeLatest('Profile/homeRequest', homeSaga);
   })(),
   (function* () {
     yield takeLatest('Profile/punchinRequest', punchinSaga);
