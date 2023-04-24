@@ -16,6 +16,8 @@ import {
   FlatList,
   PermissionsAndroid,
   RefreshControl,
+  Dimensions,
+  StyleSheet
 } from 'react-native';
 
 
@@ -32,18 +34,20 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
-import CarouselCards from '../../components/CarouselCards'
+
 import CarouselCards2 from '../../components/CarouselCards2'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import Membership from './Membership';
-
+import Carousel, { Pagination } from 'react-native-snap-carousel'
 
 import constants from '../../utils/helpers/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { homeRequest} from '../../redux/reducer/ProfileReducer'
+export const SLIDER_WIDTH = Dimensions.get('window').width 
+export const ITEM_WIDTH = Math.round(SLIDER_WIDTH) * 1.05
 
 var status = '';
 export default function Home(props) {
@@ -62,6 +66,9 @@ export default function Home(props) {
   const [dropdownpressed, setDropdownpressed] = useState(0);
   const [membership_clicked, setMembership_clicked] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+
+  const [carouseldata, setCarouseldata] = useState('');
+
   const [data2, setData2] = useState('');
 
 
@@ -192,12 +199,99 @@ export default function Home(props) {
 
   ]
 
+  const data = [
+    {
+        img: ICONS.carouselone,
+      
+
+    },
+   
+    {
+        img: ICONS.carouseltwo,
+       
+    },
+    {
+        img: ICONS.carouselone,
+       
+    },
+]
+
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
     }, 2000);
   }, []);
+
+  const CarouselCardItem = ({ item, index }) => {
+    return (
+      
+        <ImageBackground
+        source={{
+          uri: item.image
+
+
+      }}
+          style={styles.image}
+          resizeMode={"contain"}
+          
+        />
+        
+  
+    )
+  }
+
+
+  const CarouselCards = () => {
+    const [index, setIndex] = React.useState(0)
+    const isCarousel = React.useRef(null)
+  
+    return (
+      <View style={{
+          marginTop: normalize(20)
+      }} >
+        <Carousel
+          autoplay={true}
+          enableMomentum= {false}
+          lockScrollWhileSnapping ={false}
+          layout="default"
+         // layoutCardOffset={9}
+          ref={isCarousel}
+          data={carouseldata}
+          renderItem={CarouselCardItem}
+          sliderWidth={SLIDER_WIDTH}
+          itemWidth={ITEM_WIDTH}
+          onSnapToItem={(index) => setIndex(index)}
+          useScrollView={true}
+  />      
+        <Pagination 
+          dotsLength={data.length}
+          activeDotIndex={index}
+          carouselRef={isCarousel}
+          dotStyle={{
+            width: normalize(10),
+            height: normalize(10),
+            borderRadius: normalize(5),
+            marginHorizontal: -5,
+            marginTop: normalize(-8),
+            backgroundColor:"#F36E35",
+            justifyContent: 'center',
+            //marginHorizontal: normalize(-5)
+          }}
+          inactiveDotOpacity={0.4}
+          inactiveDotStyle={{
+  
+            backgroundColor: "#515151",
+  
+          }}
+        
+          inactiveDotScale={0.6}
+          tappableDots={true}
+        />
+        
+      </View>
+    )
+  }
 
 
   function homedetails() {
@@ -330,7 +424,7 @@ props.navigation.navigate("Productlist" , {
           status = ProfileReducer.status;
           console.log("Response === ", ProfileReducer?.homeResponse?.respData?.subCategory)
           
-         
+          setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
           setData2(ProfileReducer?.homeResponse?.respData?.subCategory)
           break;
 
@@ -436,7 +530,11 @@ props.navigation.navigate("Productlist" , {
       }}>
         
         <Image
-                  source={item.pic}
+                   source={{
+                    uri: item.image
+
+
+                }}
                   style={{
                     height: normalize(60),
                     width: normalize(60),
@@ -1119,9 +1217,25 @@ marginTop: normalize(5),
         </SafeAreaView>
         <CarouselCards2 />
       </Layout>
- {/* <Loader/>   */}
+ <Loader visible={ProfileReducer?.status == 'Profile/homeRequest'}/>  
     </Fragment>
 
 
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+   
+    height: normalize(140),
+    width: ITEM_WIDTH,
+   
+    
+  },
+  image: {
+    width: ITEM_WIDTH,
+    height: normalize(120),
+  },
+  
+
+})
