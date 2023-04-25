@@ -9,7 +9,9 @@ const initialState = {
   homeResponse: {},
   productResponse: {},
   productdetailsResponse: {},
-
+  favouritesResponse: {},
+  addfavouritesResponse: {},
+  deletefavouritesResponse: {},
 
 
   punchoutResponse: {},
@@ -89,6 +91,51 @@ const ProfileSlice = createSlice({
       state.error = action.payload;
       state.status = action.type;
     },
+
+
+     //Favourites
+
+     favouritesRequest(state, action) {
+      state.status = action.type;
+    },
+     favouritesSuccess(state, action) {
+      state.favouritesResponse = action.payload;
+      state.status = action.type;
+    },
+    favouritesFailure(state, action) {
+      state.error = action.payload;
+      state.status = action.type;
+    },
+
+
+         // Add Favourites
+
+         addfavouritesRequest(state, action) {
+          state.status = action.type;
+        },
+         addfavouritesSuccess(state, action) {
+          state.addfavouritesResponse = action.payload;
+          state.status = action.type;
+        },
+        addfavouritesFailure(state, action) {
+          state.error = action.payload;
+          state.status = action.type;
+        },
+
+
+          // Delete Favourites
+
+          deletefavouritesRequest(state, action) {
+            state.status = action.type;
+          },
+          deletefavouritesSuccess(state, action) {
+            state.deletefavouritesResponse = action.payload;
+            state.status = action.type;
+          },
+          deletefavouritesFailure(state, action) {
+            state.error = action.payload;
+            state.status = action.type;
+          },
 
     
 
@@ -300,6 +347,23 @@ export const {
   productRequest,
   productSuccess,
   productFailure,
+
+
+  productdetailsRequest,
+  productdetailsSuccess,
+  productdetailsFailure,
+
+  favouritesRequest,
+  favouritesSuccess,
+  favouritesFailure,
+
+  addfavouritesRequest,
+  addfavouritesSuccess,
+  addfavouritesFailure,
+
+  deletefavouritesRequest,
+  deletefavouritesSuccess,
+  deletefavouritesFailure,
 
 
   punchoutRequest,

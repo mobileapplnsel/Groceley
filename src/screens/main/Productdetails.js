@@ -34,6 +34,8 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import { useDispatch, useSelector } from 'react-redux';
+import { productRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productdetails(props) {
@@ -52,13 +54,24 @@ export default function Productdetails(props) {
     const [refreshing, setRefreshing] = useState(false);
     const [num, setNum] = useState(0);
     const [totalprice, setTotalprice] = useState(0);
+    const [data2, setData2] = useState(false);
+
+    const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
 
    console.log("Discounted price === ", props?.route?.params?.price)
+   console.log("Front page 2 === ", props?.route?.params?.Front_image)
+   console.log("Back page 2 === ", props?.route?.params?.Back_image)
+   console.log("Side page 2 === ", props?.route?.params?.Side_image)
+   console.log("Expiry date 2 === ", props?.route?.params?.Expiry_date)
+   console.log("Manufactured by 2 === ", props?.route?.params?.Manufactured_by)
+   console.log("Name 2 === ", props?.route?.params?.Name)
+   console.log("Description 2 === ", props?.route?.params?.Description)
 
     const DATA = [{
         id: "0",
         
-        pic: ICONS.cornflakes2,
+        pic: props?.route?.params?.Front_image,
         
 
     },
@@ -66,7 +79,7 @@ export default function Productdetails(props) {
     {
         id: "1",
         
-        pic: ICONS.cornflakes_backside,
+        pic: props?.route?.params?.Back_image,
         
 
 
@@ -74,7 +87,7 @@ export default function Productdetails(props) {
 {
     id: "2",
         
-        pic: ICONS.cornflakes2,
+    pic: props?.route?.params?.Side_image,
         
 
     },
@@ -122,6 +135,32 @@ export default function Productdetails(props) {
     
       ]
    
+      useEffect(() => {
+
+        
+        console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+            
+        top_products_listing()
+        
+            
+        
+        
+        
+        }, []);
+
+        function top_products_listing(){
+
+         
+          isInternetConnected()
+              .then(() => {
+                  dispatch(productRequest());
+              })
+              .catch(err => {
+                  console.log(err);
+                  Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+              });
+      
+        }
       
       const onRefresh = React.useCallback(() => {
         setRefreshing(true);
@@ -160,11 +199,38 @@ console.log("Number === ", num )
 
 
  function selectItem(item){
-    props.navigation.navigate("Productdetails")
+    props.navigation.navigate("Home")
  }
 
 
+ if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      case 'Profile/productRequest':
+          status = ProfileReducer.status;
+          break;
 
+      case 'Profile/productSuccess':
+          status = ProfileReducer.status;
+          console.log("Top product list response === ", ProfileReducer?.productResponse?.respData)
+          
+         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+         setData2(ProfileReducer?.productResponse?.respData)
+          break;
+
+      case 'Profile/productFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+      
+          
+
+   
+      
+
+       
+  }
+}
 
 
 
@@ -187,7 +253,11 @@ console.log("Number === ", num )
 
 
 <Image
-                                        source={item.pic}
+                                        source={{
+                  uri: item.pic
+
+
+              }}
                                         style={{
                                             height: normalize(130),
                                            
@@ -223,13 +293,17 @@ console.log("Number === ", num )
             
             <View >
             <Image
-                      source={item.pic}
+                       source={{
+                        uri: item.image
+      
+      
+                    }}
                       style={{
                         height: normalize(60),
                         width: normalize(60),
                         alignSelf: 'center',
                         marginTop: normalize(5),
-                        //marginLeft: normalize(20)
+                        
                       }}
                       resizeMode={'contain'}
                     ></Image>
@@ -245,7 +319,7 @@ console.log("Number === ", num )
               marginTop: normalize(5),
               alignSelf: 'flex-start'
             }}
-          >{item.description}
+          >{item.name}
           </Text>
     
     
@@ -257,7 +331,7 @@ console.log("Number === ", num )
               marginTop: normalize(5),
               alignSelf: 'flex-start'
                     }}
-          >{item.quantity}
+          >{item.qty} packet
           </Text>
     
         <View style={{
@@ -274,7 +348,7 @@ console.log("Number === ", num )
               
               
                     }}
-          >{'\u20B9'} {item.discounted_price}
+          >{'\u20B9'} {item.price}
           </Text>
         <View style={{
       height: normalize(1),
@@ -299,7 +373,7 @@ console.log("Number === ", num )
               fontWeight: '600'
               
                     }}
-          >{'\u20B9'} {item.real_price}
+          >{'\u20B9'} {item.discount_amount}
           </Text>
           </View>
     
@@ -316,7 +390,7 @@ console.log("Number === ", num )
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: normalize(5),
-      marginLeft: normalize(30),
+      marginLeft: normalize(10),
       marginEnd: normalize(10),
       marginTop: normalize(-10)
     }}>
@@ -535,6 +609,45 @@ console.log("Number === ", num )
 
               />
 
+{/* <TouchableOpacity 
+         
+        
+        style={{
+           
+           height: normalize(100),
+            width: normalize(100),
+            backgroundColor: 'red'
+        }}>
+
+
+
+
+
+<Image
+                                        source={{
+                  uri: props?.route?.params?.Front_image
+
+
+              }}
+                                        style={{
+                                            height: normalize(130),
+                                           
+                                            alignSelf: 'center',
+                                            
+                                           
+                                        }}
+                                        resizeMode={'contain'}
+                                    ></Image>
+
+
+
+
+
+
+        </TouchableOpacity> */}
+
+
+
             </View>
 
                                     
@@ -630,7 +743,7 @@ console.log("Number === ", num )
                                         textAlign: 'left',
 
                                     }}
-                                >Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits
+                                >{props?.route?.params?.Name}
                                 </Text>
 
 
@@ -646,7 +759,7 @@ style={{
                                            fontStyle: FONTS.Hind
 }}
 
->Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum diam neque, sed vehicula turpis vestibulum quis.</Text>
+>{props?.route?.params?.Description}</Text>
                             </View>
 
                             <View style={{
@@ -677,7 +790,7 @@ style={{
                                            fontStyle: FONTS.Hind,
                                           
                                            fontWeight: '700'
-}}>ABC Company</Text>
+}}>{props?.route?.params?.Manufactured_by}</Text>
 
 </View>           
 
@@ -711,7 +824,7 @@ style={{
                                            fontStyle: FONTS.Hind,
                                           
                                            fontWeight: '700'
-}}>15/04/2023</Text>
+}}>{(props?.route?.params?.Expiry_date)?.split("-")?.reverse()?.join("-")}</Text>
 
 </View>           
 
@@ -797,7 +910,7 @@ style={{
 
 <View>
               <FlatList
-                data={DATA2}
+                data={data2}
                 renderItem={renderItem2}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
@@ -854,10 +967,10 @@ style={{
                             }}
                         />
                     </KeyboardAvoidingView>
-                    {/* <Loader/> */}
+                    {/* <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/> */}
                 </SafeAreaView>
             </Layout>
-
+            <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/>
         </Fragment>
 
 

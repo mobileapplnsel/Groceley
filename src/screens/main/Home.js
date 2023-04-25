@@ -408,8 +408,11 @@ props.navigation.navigate("Productlist" , {
    function selectItem3(item){
     console.log("Id====", item.id)
     console.log("Subcategory Id====", item.category_id)
+    console.log("Name====", item.name)
+
     props.navigation.navigate("Subcategorylist", {
-      subcategoryid: item.id
+      subcategoryid: item.id,
+      name: item.name,
     })
      }
 

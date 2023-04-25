@@ -56,6 +56,7 @@ export default function Subcategorylist(props) {
 
         
 console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+console.log("Name === ", props?.route?.params?.name)
     
 subcategory_listing()
 
@@ -210,8 +211,22 @@ const decNum = () => {
 
  function selectItem(item){
 console.log("Price === ", item.discount_amount)
+console.log("Front image === ", item.image)
+console.log("Back image === ", item.back_image)
+console.log("Side image === ", item.side_image)
+console.log("Description === ", item.description)
+console.log("Expiry date=== ", item.expiry_date)
+console.log("Expiry date=== ", item.name)
+
 props.navigation.navigate("Productdetails", {
-  price: item.discount_amount
+  price: item.discount_amount,
+  Front_image: item.image,
+  Back_image: item.back_image,
+  Side_image: item.side_image,
+  Manufactured_by: item.manufacture_by,
+  Expiry_date: item.expiry_date,
+  Name: item.name,
+  Description: item.description
 })
  }
 
@@ -550,7 +565,7 @@ style={{
                
 
               }}>
-Breads
+{props?.route?.params?.name}
               </Text>
 
 
@@ -601,13 +616,13 @@ Breads
     width: '40%',
     marginTop: normalize(-15)
 }}>
-<Text style={{
+{/* <Text style={{
               color: "#515151",
               
               fontSize: normalize(10),
               
               
-            }}>530 Products</Text>
+            }}>530 Products</Text> */}
 
 </View>
 

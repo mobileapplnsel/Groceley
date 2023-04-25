@@ -16,6 +16,17 @@ import ProfileReducer, {
   productdetailsSuccess,
   productdetailsFailure,
 
+  favouritesSuccess,
+  favouritesFailure,
+
+
+  addfavouritesSuccess,
+  addfavouritesFailure,
+
+  deletefavouritesSuccess,
+  deletefavouritesFailure,
+
+
   punchoutSuccess,
   punchoutFailure,
 
@@ -209,6 +220,97 @@ export function* productSaga(action) {
     yield put(productFailure(error));
   }
 }
+
+export function* favouritesSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'favourites',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(favouritesSuccess(response.data));
+     
+      
+    } else {
+      yield put(favouritesFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(favouritesFailure(error));
+  }
+}
+
+
+export function* addfavouritesSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'addfavourites',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(addfavouritesSuccess(response.data));
+     
+      
+    } else {
+      yield put(addfavouritesFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(addfavouritesFailure(error));
+  }
+}
+
+
+
+export function* deletefavouritesSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'addfavourites',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(deletefavouritesSuccess(response.data));
+     
+      
+    } else {
+      yield put(deletefavouritesFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(addfavouritesFailure(error));
+  }
+}
+
 
 
 
@@ -648,7 +750,19 @@ const watchFunction = [
   })(),
 
   (function* () {
-    yield takeLatest('Profile/productdetailsRequest', productSaga);
+    yield takeLatest('Profile/favouritesRequest', favouritesSaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/addfavouritesRequest', addfavouritesSaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/deletefavouritesRequest', deletefavouritesSaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/productdetailsRequest', productdetailsSaga);
   })(),
 
   (function* () {
