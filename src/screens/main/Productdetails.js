@@ -33,7 +33,7 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
-import { tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 
 var status = '';
 export default function Productdetails(props) {
@@ -50,7 +50,7 @@ export default function Productdetails(props) {
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
     const [refreshing, setRefreshing] = useState(false);
-
+    const [num, setNum] = useState(0);
 
 
 
@@ -139,11 +139,20 @@ function favourite1(){
 }
       
 
+const incNum = () => {
+  setNum(num + 1)
+}
 
 
+const decNum = () => {
+  if(num > 0) {
+  setNum(num - 1)
+  } else {
+    setNum(0)
+  }
+}        
 
-        
-        
+console.log("Number === ", num )
   
 
 
@@ -549,15 +558,25 @@ function favourite1(){
                                         right: 10
 
                                     }}>
- <Text
+                                      <TouchableOpacity onPress={()=> decNum()}
+                                      style={{
+                                        height: normalize(20),
+                                        width: '25%',
+                                        
+                                        alignSelf: 'center'
+                                      }}
+                                      >
+ <Text 
                                         style={{
                                             fontSize: normalize(12),
-                                            
-                                            color: 'white'
+                                            textAlign: 'center',
+                                            color: 'white',
+                                            marginTop: normalize(1)
                                         }}
                                         >
                                             -
                                         </Text>
+                                        </TouchableOpacity>
 
                                         <Text
                                         style={{
@@ -566,19 +585,29 @@ function favourite1(){
                                             color: 'white'
                                         }}
                                         >
-                                            02
+                                          {num}
                                         </Text>
+
+
+                                        <TouchableOpacity onPress={()=> incNum()}
+                                      style={{
+                                        height: normalize(20),
+                                        width: '25%',
+                                        
+                                        alignSelf: 'center'
+                                      }}
+                                      >
 
                                         <Text
                                         style={{
                                             fontSize: normalize(12),
-                                            
+                                            textAlign: 'center',
                                             color: 'white'
                                         }}
                                         >
                                             +
                                         </Text>
-
+                                        </TouchableOpacity>
                                     </View>
                                 </View>
 

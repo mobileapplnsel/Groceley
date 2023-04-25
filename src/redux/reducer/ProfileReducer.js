@@ -4,8 +4,14 @@ const initialState = {
   status: '',
   isLoading: true,
   personaldetailsResponse: {},
+
+
   homeResponse: {},
   productResponse: {},
+  productdetailsResponse: {},
+
+
+
   punchoutResponse: {},
   calendarResponse: {},
   attendanceResponse:{},
@@ -55,7 +61,7 @@ const ProfileSlice = createSlice({
       state.status = action.type;
     },
 
-    //Product
+    //Product 
 
     productRequest(state, action) {
       state.status = action.type;
@@ -68,6 +74,23 @@ const ProfileSlice = createSlice({
       state.error = action.payload;
       state.status = action.type;
     },
+
+
+    //Product details
+
+    productdetailsRequest(state, action) {
+      state.status = action.type;
+    },
+    productdetailsSuccess(state, action) {
+      state.productdetailsResponse = action.payload;
+      state.status = action.type;
+    },
+    productdetailsFailure(state, action) {
+      state.error = action.payload;
+      state.status = action.type;
+    },
+
+    
 
     //Punch out
     punchoutRequest(state, action) {

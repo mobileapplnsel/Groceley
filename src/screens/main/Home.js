@@ -408,7 +408,9 @@ props.navigation.navigate("Productlist" , {
    function selectItem3(item){
     console.log("Id====", item.id)
     console.log("Subcategory Id====", item.category_id)
-    props.navigation.navigate("Subcategorylist")
+    props.navigation.navigate("Subcategorylist", {
+      subcategoryid: item.id
+    })
      }
 
  function membership(){

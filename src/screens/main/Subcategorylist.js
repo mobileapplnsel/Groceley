@@ -32,21 +32,46 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { productRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Subcategorylist(props) {
 
-
+  const [subcategory, setSubcategory] = useState(props?.route?.params?.subcategoryid);
   const [name, setName] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [emailaddress, setEmailaddress] = useState('');
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [data2, setData2] = useState(false);
+  const [num, setNum] = useState(0);
+
+
+  const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
+
+  useEffect(() => {
+
+        
+console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+    
+subcategory_listing()
+
+    
 
 
 
+}, []);
+
+const incNum = () => {
+  setNum(num + 1)
+}
+
+const decNum = () => {
+  setNum(num - 1)
+}
 
 
   const DATA = [{
@@ -164,6 +189,22 @@ export default function Subcategorylist(props) {
 
   ]
 
+  function subcategory_listing(){
+
+    let obj = {
+      sub_category_id: props?.route?.params?.subcategoryid
+    }
+    isInternetConnected()
+        .then(() => {
+            dispatch(productRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+
+  }
+
 
 
 
@@ -251,7 +292,9 @@ props.navigation.navigate("Productdetails")
         marginBottom: normalize(10)
       }}>
         
-       {item.discountrate !== '0' ? ( <View style={{
+       {/* {item.discountrate !== '0' ? (  */}
+       
+       <View style={{
             height: normalize(20),
             width: normalize(50),
             backgroundColor: '#F36E35',
@@ -268,7 +311,7 @@ props.navigation.navigate("Productdetails")
 
             }}>{item.discountrate} OFF</Text>
         </View>
-       ) : (null)}
+       {/* ) : (null)} */}
        
         <Image
                   source={item.pic}
@@ -290,7 +333,7 @@ props.navigation.navigate("Productdetails")
           marginTop: normalize(5),
           alignSelf: 'flex-start'
         }}
-      >{item.description}
+      >{item.name}
       </Text>
 
 
@@ -387,6 +430,50 @@ style={{
 
     </TouchableOpacity>
   );
+
+
+  if (status == '' || ProfileReducer.status != status) {
+    switch (ProfileReducer.status) {
+        case 'Profile/productRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/productSuccess':
+            status = ProfileReducer.status;
+            console.log("Subcategory response === ", ProfileReducer?.productResponse)
+            
+           // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+           setData2(ProfileReducer?.productResponse?.respData)
+            break;
+  
+        case 'Profile/productFailure':
+  
+            status = ProfileReducer.status;
+            break;
+  
+        
+            
+  
+     
+            
+  
+  
+  
+          
+  
+      
+  
+  
+  
+  
+          
+  
+  
+  
+         
+    }
+  }
+  
 
   return (
 
@@ -585,7 +672,7 @@ Breads
                                
                             }}>
                                 <FlatList
-                                    data={DATA2}
+                                    data={data2}
                                     renderItem={renderItem2}
                                     keyExtractor={item => item.id}
                                     showsHorizontalScrollIndicator={false}
@@ -605,7 +692,7 @@ Breads
 
                                 />
                                 <FlatList
-                                    data={DATA2}
+                                    data={data2}
                                     renderItem={renderItem2}
                                     keyExtractor={item => item.id}
                                     showsHorizontalScrollIndicator={false}

@@ -13,6 +13,9 @@ import ProfileReducer, {
   productSuccess,
   productFailure,
 
+  productdetailsSuccess,
+  productdetailsFailure,
+
   punchoutSuccess,
   punchoutFailure,
 
@@ -187,7 +190,7 @@ export function* productSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'product',
+      'products',
       action.payload,
       header,
     );
@@ -206,6 +209,38 @@ export function* productSaga(action) {
     yield put(productFailure(error));
   }
 }
+
+
+
+export function* productdetailsSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'productdetails',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(productdetailsSuccess(response.data));
+     
+      
+    } else {
+      yield put(productdetailsFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(productdetailsFailure(error));
+  }
+}
+
 
 
 export function* punchoutSaga(action) {
@@ -609,8 +644,13 @@ const watchFunction = [
     yield takeLatest('Profile/homeRequest', homeSaga);
   })(),
   (function* () {
-    yield takeLatest('Profile/punchinRequest', productSaga);
+    yield takeLatest('Profile/productRequest', productSaga);
   })(),
+
+  (function* () {
+    yield takeLatest('Profile/productdetailsRequest', productSaga);
+  })(),
+
   (function* () {
     yield takeLatest('Profile/punchoutRequest', punchoutSaga);
   })(),
