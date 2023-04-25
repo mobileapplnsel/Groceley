@@ -53,7 +53,7 @@ export default function Productdetails(props) {
     const [num, setNum] = useState(0);
     const [totalprice, setTotalprice] = useState(0);
 
-
+   console.log("Discounted price === ", props?.route?.params?.price)
 
     const DATA = [{
         id: "0",
@@ -141,16 +141,14 @@ function favourite1(){
 
 const incNum = () => {
   setNum(num + 1)
-  if (num > 0){
-    setTotalprice(totalprice * num)
-  } 
+ 
 }
 
 
 const decNum = () => {
   if(num > 0) {
   setNum(num - 1)
-  setTotalprice(totalprice * num)
+  
   } else {
     setNum(0)
   }
@@ -724,7 +722,7 @@ style={{
                             fontSize: normalize(10),
                             marginLeft: normalize(20),
                             marginTop: normalize(10)
-                        }}> TOTAL PRICE</Text>
+                        }}> PRICE PER ITEM</Text>
      <Text style={{
                             fontFamily: FONTS.Hind,
                             color: 'black',
@@ -732,7 +730,7 @@ style={{
                             marginLeft: normalize(25),
                             fontWeight: '700',
                             marginTop: normalize(5)
-                        }}>{'\u20B9'}160</Text>
+                        }}>{'\u20B9'}{props?.route?.params?.price}</Text>
 
 
 

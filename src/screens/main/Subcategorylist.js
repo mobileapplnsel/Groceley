@@ -209,8 +209,10 @@ const decNum = () => {
 
 
  function selectItem(item){
-  
-props.navigation.navigate("Productdetails")
+console.log("Price === ", item.discount_amount)
+props.navigation.navigate("Productdetails", {
+  price: item.discount_amount
+})
  }
 
 
@@ -278,7 +280,7 @@ props.navigation.navigate("Productdetails")
 
   const renderItem2 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem(item)}
+      onPress={() => selectItem(item)}
       style={{
 
         height: normalize(220),
@@ -349,7 +351,7 @@ props.navigation.navigate("Productdetails")
           marginTop: normalize(5),
           alignSelf: 'flex-start'
                 }}
-      >{item.quantity}
+      >{item.qty} packet
       </Text>
 
     <View style={{
@@ -366,7 +368,7 @@ props.navigation.navigate("Productdetails")
           
           
                 }}
-      >{'\u20B9'} {item.discount_amount}
+      >{'\u20B9'} {item.price}
       </Text>
     <View style={{
   height: normalize(1),
@@ -391,7 +393,7 @@ props.navigation.navigate("Productdetails")
           fontWeight: '600'
           
                 }}
-      >{'\u20B9'} {item.price}
+      >{'\u20B9'} {item.discount_amount}
       </Text>
       </View>
 
@@ -739,10 +741,10 @@ Breads
               }}
             />
           </KeyboardAvoidingView>
-{/* <Loader/>   */}
+
         </SafeAreaView>
       </Layout>
-
+      <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/> 
     </Fragment>
 
 
