@@ -309,12 +309,16 @@ props.navigation.navigate("Productdetails")
                 color: 'white',
                 fontSize: normalize(10)
 
-            }}>{item.discountrate} OFF</Text>
+            }}>{item.discount}% OFF</Text>
         </View>
        {/* ) : (null)} */}
        
         <Image
-                  source={item.pic}
+                 source={{
+                  uri: item.image
+
+
+              }}
                   style={{
                     height: normalize(80),
                     width: normalize(80),
@@ -362,7 +366,7 @@ props.navigation.navigate("Productdetails")
           
           
                 }}
-      >{'\u20B9'} {item.discounted_price}
+      >{'\u20B9'} {item.discount_amount}
       </Text>
     <View style={{
   height: normalize(1),
@@ -376,7 +380,7 @@ props.navigation.navigate("Productdetails")
      <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
-  marginLeft: normalize(-10),
+  marginLeft: normalize(10),
 }}>
   <View>
       <Text
@@ -387,7 +391,7 @@ props.navigation.navigate("Productdetails")
           fontWeight: '600'
           
                 }}
-      >{'\u20B9'} {item.real_price}
+      >{'\u20B9'} {item.price}
       </Text>
       </View>
 

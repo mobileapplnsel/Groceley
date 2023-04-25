@@ -51,7 +51,7 @@ export default function Productdetails(props) {
     const [itemselected, setItemselected] = useState(0);
     const [refreshing, setRefreshing] = useState(false);
     const [num, setNum] = useState(0);
-
+    const [totalprice, setTotalprice] = useState(0);
 
 
 
@@ -141,12 +141,16 @@ function favourite1(){
 
 const incNum = () => {
   setNum(num + 1)
+  if (num > 0){
+    setTotalprice(totalprice * num)
+  } 
 }
 
 
 const decNum = () => {
   if(num > 0) {
   setNum(num - 1)
+  setTotalprice(totalprice * num)
   } else {
     setNum(0)
   }
