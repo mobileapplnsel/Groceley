@@ -179,19 +179,19 @@ props.navigation.navigate("Productdetails")
 
     const renderItem = ({ item, index }) => (
         <>
-       
+    
 
 
         <TouchableOpacity
           onPress={(item) => selectItem(item)}
           style={{
     
-            height: normalize(235),
-            width: normalize(140),
+            height: normalize(150),
+            width: '100%',
             backgroundColor: '#F0F0F0' ,
            
             marginLeft: normalize(7),
-            borderRadius: normalize(15),
+            borderRadius: normalize(10),
             justifyContent: 'center',
             alignItems: 'center',
             marginBottom: normalize(10)
@@ -216,6 +216,12 @@ props.navigation.navigate("Productdetails")
             </View>
            ) : (null)}
 
+
+<View style={{
+  flexDirection: 'row'
+}}
+>
+  <View>
             <Image
                       source={item.pic}
                       style={{
@@ -227,7 +233,8 @@ props.navigation.navigate("Productdetails")
                       resizeMode={'contain'}
                     ></Image>
     
-    
+    </View>
+    <View>
           <Text
             style={{
               color: 'black',
@@ -263,11 +270,25 @@ props.navigation.navigate("Productdetails")
               
               fontSize: normalize(10),
               color: '#A9A9A9',
+               
               
               
                     }}
           >{'\u20B9'} {item.discounted_price}
           </Text>
+
+          <Text
+            style={{
+              
+              fontSize: normalize(10),
+              color: 'black',
+              fontWeight: '600',
+              marginLeft: normalize(10)
+              
+                    }}
+          >{'\u20B9'} {item.real_price}
+          </Text>
+          
         <View style={{
       height: normalize(1),
       width: '20%',
@@ -280,20 +301,10 @@ props.navigation.navigate("Productdetails")
          <View style={{
       flexDirection: 'row',
      justifyContent: 'center',
-      marginLeft: normalize(-10),
+
+      
     }}>
-      <View>
-          <Text
-            style={{
-              
-              fontSize: normalize(10),
-              color: 'black',
-              fontWeight: '600'
-              
-                    }}
-          >{'\u20B9'} {item.real_price}
-          </Text>
-          </View>
+      
     
     <View>
     
@@ -308,7 +319,7 @@ props.navigation.navigate("Productdetails")
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: normalize(5),
-      marginLeft: normalize(30),
+      marginLeft: normalize(60),
       marginEnd: normalize(10),
       marginTop: normalize(-35)
     }}>
@@ -336,7 +347,7 @@ props.navigation.navigate("Productdetails")
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: normalize(5),
-      marginLeft: normalize(30),
+      marginLeft: normalize(60),
       marginEnd: normalize(10),
       marginTop: normalize(5)
     }}>
@@ -355,196 +366,196 @@ props.navigation.navigate("Productdetails")
           </View>
     
          </View>
-    
+         </View>
          
-    
+         </View>
     
         </TouchableOpacity>
         </>
       );
       
 
-  const renderItem2 = ({ item, index }) => (
-    <TouchableOpacity
-          onPress={(item) => selectItem(item)}
-          style={{
+  // const renderItem2 = ({ item, index }) => (
+  //   <TouchableOpacity
+  //         onPress={(item) => selectItem(item)}
+  //         style={{
     
-            height: normalize(235),
-            width: normalize(140),
-            backgroundColor: '#F0F0F0' ,
+  //           height: normalize(235),
+  //           width: normalize(140),
+  //           backgroundColor: '#F0F0F0' ,
            
-            marginLeft: normalize(7),
-            borderRadius: normalize(15),
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: normalize(10)
-          }}>
+  //           marginLeft: normalize(7),
+  //           borderRadius: normalize(15),
+  //           justifyContent: 'center',
+  //           alignItems: 'center',
+  //           marginBottom: normalize(10)
+  //         }}>
             
-           {item.discountrate !== '0' ? ( <View style={{
-                height: normalize(20),
-                width: normalize(50),
-                backgroundColor: '#F36E35',
-                alignSelf: 'flex-start',
-                marginLeft: normalize(10),
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: normalize(5),
-                //marginTop: normalize(-5)
-            }}>
-                <Text
-                style={{
-                    color: 'white',
-                    fontSize: normalize(10)
+  //          {item.discountrate !== '0' ? ( <View style={{
+  //               height: normalize(20),
+  //               width: normalize(50),
+  //               backgroundColor: '#F36E35',
+  //               alignSelf: 'flex-start',
+  //               marginLeft: normalize(10),
+  //               justifyContent: 'center',
+  //               alignItems: 'center',
+  //               borderRadius: normalize(5),
+  //               //marginTop: normalize(-5)
+  //           }}>
+  //               <Text
+  //               style={{
+  //                   color: 'white',
+  //                   fontSize: normalize(10)
     
-                }}>{item.discountrate} OFF</Text>
-            </View>
-           ) : (null)}
+  //               }}>{item.discountrate} OFF</Text>
+  //           </View>
+  //          ) : (null)}
 
-            <Image
-                      source={item.pic}
-                      style={{
-                        height: normalize(80),
-                        width: normalize(80),
-                        marginTop: normalize(5),
+  //           <Image
+  //                     source={item.pic}
+  //                     style={{
+  //                       height: normalize(80),
+  //                       width: normalize(80),
+  //                       marginTop: normalize(5),
                         
-                      }}
-                      resizeMode={'contain'}
-                    ></Image>
+  //                     }}
+  //                     resizeMode={'contain'}
+  //                   ></Image>
     
     
-          <Text
-            style={{
-              color: 'black',
-              fontSize: normalize(10),
-              marginLeft: normalize(10),
-              marginTop: normalize(10),
-              alignSelf: 'flex-start',
+  //         <Text
+  //           style={{
+  //             color: 'black',
+  //             fontSize: normalize(10),
+  //             marginLeft: normalize(10),
+  //             marginTop: normalize(10),
+  //             alignSelf: 'flex-start',
               
-            }}
-          >{item.description}
-          </Text>
+  //           }}
+  //         >{item.description}
+  //         </Text>
     
     
-          <Text
-            style={{
-              color: 'black',
-              fontSize: normalize(10),
-              marginLeft: normalize(10),
-              marginTop: normalize(5),
-              alignSelf: 'flex-start'
-                    }}
-          >{item.quantity}
-          </Text>
+  //         <Text
+  //           style={{
+  //             color: 'black',
+  //             fontSize: normalize(10),
+  //             marginLeft: normalize(10),
+  //             marginTop: normalize(5),
+  //             alignSelf: 'flex-start'
+  //                   }}
+  //         >{item.quantity}
+  //         </Text>
     
-        <View style={{
-      flexDirection: 'row',
-      alignSelf: 'flex-start',
-      marginLeft: normalize(10),
-      marginTop: normalize(10)
-    }}>
-          <Text
-            style={{
+  //       <View style={{
+  //     flexDirection: 'row',
+  //     alignSelf: 'flex-start',
+  //     marginLeft: normalize(10),
+  //     marginTop: normalize(10)
+  //   }}>
+  //         <Text
+  //           style={{
               
-              fontSize: normalize(10),
-              color: '#A9A9A9',
+  //             fontSize: normalize(10),
+  //             color: '#A9A9A9',
               
               
-                    }}
-          >{'\u20B9'} {item.discounted_price}
-          </Text>
-        <View style={{
-      height: normalize(1),
-      width: '20%',
-      backgroundColor: '#A9A9A9',
-      marginTop: normalize(7),
-      position: 'absolute'
-    }}/>
-         </View>
+  //                   }}
+  //         >{'\u20B9'} {item.discounted_price}
+  //         </Text>
+  //       <View style={{
+  //     height: normalize(1),
+  //     width: '20%',
+  //     backgroundColor: '#A9A9A9',
+  //     marginTop: normalize(7),
+  //     position: 'absolute'
+  //   }}/>
+  //        </View>
     
-         <View style={{
-      flexDirection: 'row',
-     justifyContent: 'center',
-      marginLeft: normalize(-10),
-    }}>
-      <View>
-          <Text
-            style={{
+  //        <View style={{
+  //     flexDirection: 'row',
+  //    justifyContent: 'center',
+  //     marginLeft: normalize(-10),
+  //   }}>
+  //     <View>
+  //         <Text
+  //           style={{
               
-              fontSize: normalize(10),
-              color: 'black',
-              fontWeight: '600'
+  //             fontSize: normalize(10),
+  //             color: 'black',
+  //             fontWeight: '600'
               
-                    }}
-          >{'\u20B9'} {item.real_price}
-          </Text>
-          </View>
+  //                   }}
+  //         >{'\u20B9'} {item.real_price}
+  //         </Text>
+  //         </View>
     
-    <View>
+  //   <View>
     
-    <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+  //   <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
     
-    style={{
-      height: normalize(30),
-      width: normalize(50),
-      backgroundColor: 'white',
-      borderWidth: normalize(1),
-      borderColor: '#69BE53',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: normalize(5),
-      marginLeft: normalize(30),
-      marginEnd: normalize(10),
-      marginTop: normalize(-35)
-    }}>
-           <Image
-                  source={ICONS.cart2}
-                  style={{
-                    height: normalize(18),
-                    width: normalize(18),
-                    tintColor: '#69BE53'
+  //   style={{
+  //     height: normalize(30),
+  //     width: normalize(50),
+  //     backgroundColor: 'white',
+  //     borderWidth: normalize(1),
+  //     borderColor: '#69BE53',
+  //     justifyContent: 'center',
+  //     alignItems: 'center',
+  //     borderRadius: normalize(5),
+  //     marginLeft: normalize(30),
+  //     marginEnd: normalize(10),
+  //     marginTop: normalize(-35)
+  //   }}>
+  //          <Image
+  //                 source={ICONS.cart2}
+  //                 style={{
+  //                   height: normalize(18),
+  //                   width: normalize(18),
+  //                   tintColor: '#69BE53'
                    
-                  }}
-                  resizeMode={'contain'}
-                  tintColor= {'#69BE53'}
-                ></Image>
-          </TouchableOpacity>
+  //                 }}
+  //                 resizeMode={'contain'}
+  //                 tintColor= {'#69BE53'}
+  //               ></Image>
+  //         </TouchableOpacity>
     
-          <TouchableOpacity 
+  //         <TouchableOpacity 
     
-    style={{
-      height: normalize(30),
-      width: normalize(50),
-      backgroundColor: 'white',
-      borderWidth: normalize(1),
-      borderColor: '#69BE53',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: normalize(5),
-      marginLeft: normalize(30),
-      marginEnd: normalize(10),
-      marginTop: normalize(5)
-    }}>
-           <Image
-                  source={ICONS.delete}
-                  style={{
-                    height: normalize(15),
-                    width: normalize(15),
-                    tintColor: '#69BE53'
+  //   style={{
+  //     height: normalize(30),
+  //     width: normalize(50),
+  //     backgroundColor: 'white',
+  //     borderWidth: normalize(1),
+  //     borderColor: '#69BE53',
+  //     justifyContent: 'center',
+  //     alignItems: 'center',
+  //     borderRadius: normalize(5),
+  //     marginLeft: normalize(30),
+  //     marginEnd: normalize(10),
+  //     marginTop: normalize(5)
+  //   }}>
+  //          <Image
+  //                 source={ICONS.delete}
+  //                 style={{
+  //                   height: normalize(15),
+  //                   width: normalize(15),
+  //                   tintColor: '#69BE53'
                    
-                  }}
-                  resizeMode={'contain'}
-                  tintColor= {'#69BE53'}
-                ></Image>
-          </TouchableOpacity>
-          </View>
+  //                 }}
+  //                 resizeMode={'contain'}
+  //                 tintColor= {'#69BE53'}
+  //               ></Image>
+  //         </TouchableOpacity>
+  //         </View>
     
-         </View>
+  //        </View>
     
          
     
     
-        </TouchableOpacity>
-  );
+  //       </TouchableOpacity>
+  // );
 
   return (
 
@@ -735,8 +746,8 @@ Favourities
 
 
 <View style={{
-                                flexDirection: 'row',
-                                flex: 1,
+                               
+                                
                                 
                                 justifyContent: 'center',
                                 alignItems: 'center',
@@ -748,21 +759,21 @@ Favourities
                                     keyExtractor={item => item.id}
                                     showsHorizontalScrollIndicator={false}
 
-
+                                  
                                     style={{
 
 
-                                        marginLeft: normalize(10),
+                                        
 
                                         marginTop: normalize(20),
 
-                                        width: '50%'
+                                       
 
                                     }}
 
 
                                 />
-                                <FlatList
+                                {/* <FlatList
                                     data={DATA2}
                                     renderItem={renderItem2}
                                     keyExtractor={item => item.id}
@@ -782,7 +793,7 @@ Favourities
                                     }}
 
 
-                                />
+                                /> */}
                             </View>
 
 
