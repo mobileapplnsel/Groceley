@@ -195,7 +195,7 @@ if (status == '' || ProfileReducer.status != status) {
           status = ProfileReducer.status;
           console.log("Response === ", ProfileReducer?.productResponse?.respData?.subCategory)
           
-          setCarouseldata(ProfileReducer?.productResponse?.respData?.banner)
+         // setCarouseldata(ProfileReducer?.productResponse?.respData?.banner)
           setData2(ProfileReducer?.productResponse?.respData?.subCategory)
           break;
 

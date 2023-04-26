@@ -35,7 +35,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 import { useDispatch, useSelector } from 'react-redux';
-import { productRequest} from '../../redux/reducer/ProfileReducer'
+import { productRequest, addfavouritesRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productdetails(props) {
@@ -185,7 +185,26 @@ console.log("Number === ", num )
           break;
 
       
+          case 'Profile/addfavouritesRequest':
+          status = ProfileReducer.status;
+          break;
+
+
           
+
+      case 'Profile/addfavouritesSuccess':
+          status = ProfileReducer.status;
+          console.log("Favourites response === ", ProfileReducer?.addfavouritesResponse)
+          
+         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+        // setData2(ProfileReducer?.productResponse?.respData)
+          break;
+
+      case 'Profile/addfavouritesFailure':
+
+          status = ProfileReducer.status;
+          break;
+
 
    
       

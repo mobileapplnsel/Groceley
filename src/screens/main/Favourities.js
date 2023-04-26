@@ -34,6 +34,8 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 
+import { useDispatch, useSelector } from 'react-redux';
+import { favouritesRequest, addfavouritesRequest, deletefavouritesRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Favourites(props) {
@@ -46,7 +48,10 @@ export default function Favourites(props) {
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [data2, setData2] = useState(false);
 
+  const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
 
 
 
@@ -170,7 +175,70 @@ props.navigation.navigate("Productdetails")
 
 
 
+ if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      case 'Profile/favouritesRequest':
+          status = ProfileReducer.status;
+          break;
 
+      case 'Profile/favouritesSuccess':
+          status = ProfileReducer.status;
+          console.log("Favourites response === ", ProfileReducer?.favouritesResponse)
+          
+         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+        // setData2(ProfileReducer?.productResponse?.respData)
+          break;
+
+        case 'Profile/favouritesFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+
+
+
+          case 'Profile/addfavouritesRequest':
+          status = ProfileReducer.status;
+          break;
+
+
+          
+
+      case 'Profile/addfavouritesSuccess':
+          status = ProfileReducer.status;
+          console.log("Favourites response === ", ProfileReducer?.addfavouritesResponse)
+          
+         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+        // setData2(ProfileReducer?.productResponse?.respData)
+          break;
+
+      case 'Profile/addfavouritesFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+
+
+          case 'Profile/deletefavouritesRequest':
+          status = ProfileReducer.status;
+          break;
+
+      case 'Profile/deletefavouritesSuccess':
+          status = ProfileReducer.status;
+          console.log("Favourites response === ", ProfileReducer?.deletefavouritesResponse)
+          
+         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+        // setData2(ProfileReducer?.productResponse?.respData)
+          break;
+
+      case 'Profile/deletefavouritesFailure':
+
+          status = ProfileReducer.status;
+          break;
+  
+       
+  }
+}
 
 
 
