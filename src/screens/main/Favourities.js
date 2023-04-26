@@ -182,8 +182,8 @@ props.navigation.navigate("Productdetails")
     
 
 
-        <TouchableOpacity
-          onPress={(item) => selectItem(item)}
+        <View
+          //onPress={(item) => selectItem(item)}
           style={{
     
             height: normalize(150),
@@ -370,7 +370,7 @@ props.navigation.navigate("Productdetails")
          
          </View>
     
-        </TouchableOpacity>
+        </View>
         </>
       );
       
@@ -682,13 +682,7 @@ Favourities
     width: '40%',
     marginTop: normalize(-15)
 }}>
-<Text style={{
-              color: "#515151",
-              
-              fontSize: normalize(10),
-              
-              
-            }}>6 Products</Text>
+
 
 </View>
 

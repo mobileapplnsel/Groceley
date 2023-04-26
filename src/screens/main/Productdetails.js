@@ -71,7 +71,7 @@ export default function Productdetails(props) {
     const DATA = [{
         id: "0",
         
-        pic: props?.route?.params?.Front_image,
+        pic: ICONS.cornflakes2,
         
 
     },
@@ -79,7 +79,7 @@ export default function Productdetails(props) {
     {
         id: "1",
         
-        pic: props?.route?.params?.Back_image,
+        pic: ICONS.cornflakes_backside,
         
 
 
@@ -87,7 +87,7 @@ export default function Productdetails(props) {
 {
     id: "2",
         
-    pic: props?.route?.params?.Side_image,
+    pic: ICONS.cornflakes2,
         
 
     },
@@ -95,45 +95,7 @@ export default function Productdetails(props) {
 
     ]
 
-    const DATA2 = [{
-        id: "0",
-        pic: ICONS.bread,
-        description: "Hovis Farmhouse Wholemeal",
-        quantity: '400g',
-        discounted_price: '90',
-        real_price: '80'
-      },
-    
-      {
-        id: "1",
-        pic: ICONS.milk,
-        description: "Hovis Farmhouse Wholemeal",
-        quantity: '450g',
-        discounted_price: '50',
-        real_price: '40'
-      },
-    
-      {
-        id: "2",
-        pic: ICONS.cornflakes,
-        description: "Amul Moti Homogenized Toned Milk",
-        quantity: '400g',
-        discounted_price: '70',
-        real_price: '50'
-      },
-    
-      {
-        id: "3",
-        
-        pic: ICONS.cornflakes2,
-        description: "Kellogg's Corn Flakes Cereal",
-        quantity: '400g',
-        discounted_price: '90',
-        real_price: '80'
-      }
-    
-    
-      ]
+   
    
       useEffect(() => {
 
@@ -253,11 +215,7 @@ console.log("Number === ", num )
 
 
 <Image
-                                        source={{
-                  uri: item.pic
-
-
-              }}
+                                        source={item.pic}
                                         style={{
                                             height: normalize(130),
                                            
@@ -581,6 +539,8 @@ console.log("Number === ", num )
 
                                     )}
 
+                                   
+
 
 </View>
 
@@ -588,7 +548,7 @@ console.log("Number === ", num )
                                     
                                     
                                     <View>
-              <FlatList
+              {/* <FlatList
                 data={DATA}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
@@ -607,44 +567,68 @@ console.log("Number === ", num )
                 }}
 
 
-              />
-
-{/* <TouchableOpacity 
-         
-        
-        style={{
-           
-           height: normalize(100),
-            width: normalize(100),
-            backgroundColor: 'red'
-        }}>
+              /> */}
 
 
 
+
+<ScrollView horizontal={true} showsHorizontalScrollIndicator={false} 
+style={{
+  marginTop: normalize(10)
+
+}}>
+
+<Image
+                  source={{
+                    uri: props?.route?.params?.Front_image
+                  }}
+                  style={{
+                    height: normalize(140),
+                    width: normalize(150),
+                    marginLeft: normalize(10),
+                    borderRadius: normalize(15)
+                  }}
+                  resizeMode={'cover'}
+                  
+                ></Image>
 
 
 <Image
-                                        source={{
-                  uri: props?.route?.params?.Front_image
+                  source={{
+                    uri: props?.route?.params?.Back_image
+                  }}
+                  style={{
+                    height: normalize(140),
+                    width: normalize(150),
+                    marginLeft: normalize(10),
+                    borderRadius: normalize(15)
+                  }}
+                  resizeMode={'cover'}
+                  
+                ></Image>
 
 
-              }}
-                                        style={{
-                                            height: normalize(130),
-                                           
-                                            alignSelf: 'center',
-                                            
-                                           
-                                        }}
-                                        resizeMode={'contain'}
-                                    ></Image>
+<Image
+                  source={{
+                    uri: props?.route?.params?.Side_image
+                  }}
+                  style={{
+                    height: normalize(140),
+                    width: normalize(150),
+                    borderRadius: normalize(15),
+                    marginLeft: normalize(10)
+                  }}
+                  resizeMode={'cover'}
+                  
+                ></Image>
+
+
+</ScrollView>
 
 
 
 
-
-
-        </TouchableOpacity> */}
+       
 
 
 
