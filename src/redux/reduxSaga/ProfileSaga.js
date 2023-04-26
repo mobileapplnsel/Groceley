@@ -41,6 +41,28 @@ import ProfileReducer, {
   orderlistFailure,
 
 
+  addDeliverySuccess,
+  addDeliveryFailure,
+
+  selectDeliverySuccess,
+  selectDeliveryFailure,
+
+
+  editDeliverySuccess,
+  editDeliveryFailure,
+
+  addDeliveryInstructionsSuccess,
+  addDeliveryInstructionsFailure,
+
+
+  transactionhistorySuccess,
+  transactionhistoryFailure,
+
+
+  leaderboardSuccess,
+  leaderboardFailure,
+
+
   
   
 } from '../reducer/ProfileReducer';
@@ -389,15 +411,181 @@ export function* orderlistSaga(action) {
 }
 
 
+export function* addDeliverySaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'adddelivery',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(addDeliverySuccess(response.data));
+     
+      
+    } else {
+      yield put(addDeliveryFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(addDeliveryFailure(error));
+  }
+}
 
 
+export function* selectDeliverySaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'selectdelivery',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(selectDeliverySuccess(response.data));
+     
+      
+    } else {
+      yield put(selectDeliveryFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(selectDeliveryFailure(error));
+  }
+}
+
+export function* editDeliverySaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'editdelivery',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(editDeliverySuccess(response.data));
+     
+      
+    } else {
+      yield put(editDeliveryFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(editDeliveryFailure(error));
+  }
+}
+
+export function* addDeliveryInstructionsSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'addDeliveryInstructions',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(addDeliveryInstructionsSuccess(response.data));
+     
+      
+    } else {
+      yield put(addDeliveryInstructionsFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(addDeliveryInstructionsFailure(error));
+  }
+}
+
+export function* transactionhistorySaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'transactionhistory',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(transactionhistorySuccess(response.data));
+     
+      
+    } else {
+      yield put(transactionhistoryFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(transactionhistoryFailure(error));
+  }
+}
 
 
-
-
-
-
-
+export function* leaderboardSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'leaderboard',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(leaderboardSuccess(response.data));
+     
+      
+    } else {
+      yield put(leaderboardFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(leaderboardFailure(error));
+  }
+}
 
 
 
@@ -450,7 +638,32 @@ const watchFunction = [
   (function* () {
     yield takeLatest('Profile/orderlistRequest',  orderlistSaga);
   })(),
- 
+
+  (function* () {
+    yield takeLatest('Profile/addDeliveryRequest', addDeliverySaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/selectDelivery', selectDeliverySaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/editDelivery', editDeliverySaga);
+  })(),
+
+
+  (function* () {
+    yield takeLatest('Profile/addDeliveryInstructions', addDeliveryInstructionsSaga);
+  })(),
+
+
+  (function* () {
+    yield takeLatest('Profile/transactionhistory', transactionhistorySaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/leaderboard', leaderboardSaga);
+  })(),
 ];
 
 export default watchFunction;

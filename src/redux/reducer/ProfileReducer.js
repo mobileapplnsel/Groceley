@@ -20,8 +20,15 @@ const initialState = {
 
 
   orderlistResponse: {},
+  addDeliveryResponse: {},
+  selectDeliveryResponse: {},
+  editDeliveryResponse: {},
+  addDeliveryInstructionsResponse: {},
+  
 
-
+  transactionhistoryResponse :{},
+  leaderboardResponse :{},
+ 
   
 };
 
@@ -195,29 +202,104 @@ const ProfileSlice = createSlice({
 
         
 
+//Add Delivery Address
 
+   
+addDeliveryRequest(state, action) {
+  state.status = action.type;
+},
+addDeliverySuccess(state, action) {
+  state.addDeliveryResponse = action.payload;
+  state.status = action.type;
+},
+addDeliveryFailure(state, action) {
+  state.error = action.payload;
+  state.status = action.type;
+},
        
 
-    
 
-
-
-
-    
+//Select Delivery Address
 
    
+selectDeliveryRequest(state, action) {
+  state.status = action.type;
+},
+selectDeliverySuccess(state, action) {
+  state.selectDeliveryResponse = action.payload;
+  state.status = action.type;
+},
+selectDeliveryFailure(state, action) {
+  state.error = action.payload;
+  state.status = action.type;
+},
 
-    
+
+//Edit Delivery Address
+
    
+editDeliveryRequest(state, action) {
+  state.status = action.type;
+},
+editDeliverySuccess(state, action) {
+  state.editDeliveryResponse = action.payload;
+  state.status = action.type;
+},
+editDeliveryFailure(state, action) {
+  state.error = action.payload;
+  state.status = action.type;
+},
 
     
+//Add Delivery Instruction
 
    
+addDeliveryInstructionsRequest(state, action) {
+  state.status = action.type;
+},
+addDeliveryInstructionsSuccess(state, action) {
+  state.addDeliveryInstructionsResponse = action.payload;
+  state.status = action.type;
+},
+addDeliveryInstructionsFailure(state, action) {
+  state.error = action.payload;
+  state.status = action.type;
+},
 
-    
 
 
-    
+  //Transaction history
+
+   
+transactionhistoryRequest(state, action) {
+  state.status = action.type;
+},
+transactionhistorySuccess(state, action) {
+  state.transactionhistoryResponse = action.payload;
+  state.status = action.type;
+},
+transactionhistoryFailure(state, action) {
+  state.error = action.payload;
+  state.status = action.type;
+},
+
+
+
+
+  //Leaderboard
+
+   
+  leaderboardRequest(state, action) {
+    state.status = action.type;
+  },
+  leaderboardSuccess(state, action) {
+    state.leaderboardResponse = action.payload;
+    state.status = action.type;
+  },
+  leaderboardFailure(state, action) {
+    state.error = action.payload;
+    state.status = action.type;
+  },
     
    
    
@@ -276,8 +358,31 @@ export const {
   orderlistSuccess,
   orderlistFailure,
 
-
+  addDeliveryRequest,
+  addDeliverySuccess,
+  addDeliveryFailure,
   
+
+  selectDeliveryRequest,
+  selectDeliverySuccess,
+  selectDeliveryFailure,
+
+  editDeliveryRequest,
+  editDeliverySuccess,
+  editDeliveryFailure,
+
+  addDeliveryInstructionsRequest,
+  addDeliveryInstructionsSuccess,
+  addDeliveryInstructionsFailure,
+
+  transactionhistoryRequest,
+  transactionhistorySuccess,
+  transactionhistoryFailure,
+
+  leaderboardRequest,
+  leaderboardSuccess,
+  leaderboardFailure,
+
 
 } = ProfileSlice.actions;
 

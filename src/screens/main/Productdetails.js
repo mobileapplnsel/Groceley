@@ -35,7 +35,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 import { useDispatch, useSelector } from 'react-redux';
-import { productRequest, addfavouritesRequest} from '../../redux/reducer/ProfileReducer'
+import { productRequest, addfavouritesRequest, deletefavouritesRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productdetails(props) {
@@ -194,10 +194,9 @@ console.log("Number === ", num )
 
       case 'Profile/addfavouritesSuccess':
           status = ProfileReducer.status;
-          console.log("Favourites response === ", ProfileReducer?.addfavouritesResponse)
+          console.log("Add Favourites response === ", ProfileReducer?.addfavouritesResponse)
           
-         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
-        // setData2(ProfileReducer?.productResponse?.respData)
+        
           break;
 
       case 'Profile/addfavouritesFailure':
@@ -205,6 +204,26 @@ console.log("Number === ", num )
           status = ProfileReducer.status;
           break;
 
+
+
+          case 'Profile/deletefavouritesRequest':
+            status = ProfileReducer.status;
+            break;
+  
+  
+            
+  
+        case 'Profile/deletefavouritesSuccess':
+            status = ProfileReducer.status;
+            console.log("Delete Favourites response === ", ProfileReducer?.deletefavouritesResponse)
+            
+           
+            break;
+  
+        case 'Profile/deletefavouritesFailure':
+  
+            status = ProfileReducer.status;
+            break;
 
    
       
@@ -450,7 +469,7 @@ console.log("Number === ", num )
     flexDirection: 'row',
     justifyContent: 'space-between'
 }}>
-      <TouchableOpacity onPress={()=>props.navigation.goBack()}
+      <TouchableOpacity onPress={()=>props.navigation.navigate("Home")}
                                     style={{
                                         height: normalize(30),
                                         width: normalize(30),
