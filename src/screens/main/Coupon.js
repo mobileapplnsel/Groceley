@@ -663,7 +663,7 @@ Available coupons
                                     </View>
 
                                     
-                                <FlatList
+                                {/* <FlatList
                                     data={DATA}
                                     renderItem={renderItem1}
                                     keyExtractor={item => item.id}
@@ -682,7 +682,7 @@ Available coupons
                                     }}
 
                 
-                                />
+                                /> */}
 
 
 

@@ -226,7 +226,8 @@ props.navigation.navigate("Productdetails", {
   Manufactured_by: item.manufacture_by,
   Expiry_date: item.expiry_date,
   Name: item.name,
-  Description: item.description
+  Description: item.description,
+  Product_id: item.id
 })
  }
 

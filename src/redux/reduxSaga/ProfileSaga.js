@@ -203,7 +203,7 @@ export function* addfavouritesSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'addfavourites',
+      'add_to_favourite',
       action.payload,
       header,
     );

@@ -67,6 +67,7 @@ export default function Productdetails(props) {
    console.log("Manufactured by 2 === ", props?.route?.params?.Manufactured_by)
    console.log("Name 2 === ", props?.route?.params?.Name)
    console.log("Description 2 === ", props?.route?.params?.Description)
+   console.log("Product Id === ", props?.route?.params?.Product_id)
 
     const DATA = [{
         id: "0",
@@ -133,10 +134,40 @@ export default function Productdetails(props) {
 
 function favourite(){
     setItemselected(1)
+    let obj ={
+      product_id: props?.route?.params?.Product_id,
+      user_id: 1,
+      status: 1,
+
+    }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(addfavouritesRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
 }
 
 function favourite1(){
     setItemselected(0)
+    let obj ={
+      product_id: props?.route?.params?.Product_id,
+      user_id: 1,
+      status: 0,
+
+    }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(deletefavouritesRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
 }
       
 

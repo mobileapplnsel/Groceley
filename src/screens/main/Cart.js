@@ -132,11 +132,13 @@ function clickshare(){
 const ShareExample = async () => {
         try {
           const result = await Share.share({
-              message: 'https://www.google.com',
+              message: 'https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en',
               url:
               'https://www.google.com',
             title:
               'https://www.google.com',
+
+              
           });
           if (result.action === Share.sharedAction) {
             if (result.activityType) {

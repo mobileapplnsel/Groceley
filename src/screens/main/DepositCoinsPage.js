@@ -84,7 +84,10 @@ export default function DepositCoinsPage(props) {
       setAmount("1000")
      }
 
-    
+    function getTotal()
+    {
+      return amount
+    }
 
   return (
 
@@ -324,19 +327,20 @@ export default function DepositCoinsPage(props) {
             borderColor: '#D3D3D3'
           }}
           onPress={() => {
-            var options = {
+            let options = {
             description: 'Credits towards consultation',
             //image: 'https://i.imgur.com/3g7nmJC.jpg',
             currency: 'INR',
             key: 'rzp_test_0s2czqBDNUnnff',
-            amount: '5000',
+            amount: '20000',
             name: 'Grocley',
             
             order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
             prefill: {
               email: 'gaurav.kumar@example.com',
               contact: '9191919191',
-              name: 'Gaurav Kumar'
+              name: 'Gaurav Kumar',
+              
             },
             
             theme: {color: '#69BE53'}
