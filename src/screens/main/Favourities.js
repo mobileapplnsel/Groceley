@@ -866,7 +866,7 @@ Favourities
 
 
 
-                                <FlatList
+        {  ProfileReducer?.favouritesResponse?.respData?.length !== 0? (                      <FlatList
                                     data={data2}
                                     renderItem={renderItem}
                                     keyExtractor={item => item.id}
@@ -885,7 +885,15 @@ Favourities
                                     }}
 
 
-                                />
+                                /> ) : (
+
+<Text style={{
+  fontSize: normalize(14),
+  textAlign: 'center',
+  marginTop: normalize(200)
+}}>No data found</Text>
+                                )}
+
                                 {/* <FlatList
                                     data={DATA2}
                                     renderItem={renderItem2}

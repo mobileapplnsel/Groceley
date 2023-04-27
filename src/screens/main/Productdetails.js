@@ -1024,6 +1024,8 @@ style={{
                 </SafeAreaView>
             </Layout>
             <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/>
+            <Loader visible={ProfileReducer?.status == 'Profile/addfavouritesRequest'}/>
+            <Loader visible={ProfileReducer?.status == 'Profile/deletefavouritesRequest'}/>
         </Fragment>
 
 
