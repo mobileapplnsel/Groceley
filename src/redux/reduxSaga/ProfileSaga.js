@@ -234,7 +234,7 @@ export function* deletefavouritesSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'addfavourites',
+      'removefrom_favouritelist',
       action.payload,
       header,
     );

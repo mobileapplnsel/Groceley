@@ -202,9 +202,12 @@ function favourites_list() {
   });
 }
 
-function delete1(){
+function delete1(item){
+
+  console.log('Favourites list Product Id ==== ', item.product_id)
+
   let obj ={
-    product_id: props?.route?.params?.Product_id,
+    product_id:item.product_id ,
     user_id: 1,
     status: 0,
 
@@ -278,8 +281,7 @@ props.navigation.navigate("Productdetails")
           status = ProfileReducer.status;
           console.log("Favourites response === ", ProfileReducer?.deletefavouritesResponse)
           
-         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
-        // setData2(ProfileReducer?.productResponse?.respData)
+         favourites_list()
           break;
 
       case 'Profile/deletefavouritesFailure':
@@ -460,7 +462,7 @@ props.navigation.navigate("Productdetails")
                 ></Image>
           </TouchableOpacity>
     
-          <TouchableOpacity onPress = {() => delete1()}
+          <TouchableOpacity onPress = {() => delete1(item)}
     
     style={{
       height: normalize(30),
@@ -932,6 +934,7 @@ Favourities
         </SafeAreaView>
       </Layout>
       <Loader visible={ProfileReducer?.status == 'Profile/favouritesRequest'}/> 
+      <Loader visible={ProfileReducer?.status == 'Profile/deletefavouritesRequest'}/> 
     </Fragment>
 
 
