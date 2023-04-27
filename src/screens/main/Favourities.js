@@ -928,10 +928,10 @@ Favourities
               }}
             />
           </KeyboardAvoidingView>
- {/* <Loader/>   */}
+
         </SafeAreaView>
       </Layout>
-
+      <Loader visible={ProfileReducer?.status == 'Profile/favouritesRequest'}/> 
     </Fragment>
 
 
