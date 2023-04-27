@@ -26,7 +26,8 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest} from '../../redux/reducer/ProfileReducer'
 
 
 
@@ -41,11 +42,41 @@ export default function Login(props) {
   const [confirmpassword, setConfirmpassword] = useState('');
   const isFocused = useIsFocused();
 
+  const dispatch = useDispatch();
+  const AuthReducer = useSelector(state => state.AuthReducer);
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+    if (status == '' || AuthReducer.status != status) {
+      switch (AuthReducer.status) {
+          case 'Auth/loginRequest':
+              status = ProfileReducer.status;
+              break;
+    
+          case 'Auth/loginSuccess':
+              status = ProfileReducer.status;
+              console.log("Subcategory response === ", ProfileReducer?.loginResponse)
+              
+             // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+             setData2(ProfileReducer?.loginResponse?.respData)
+              break;
+    
+          case 'Auth/loginFailure':
+    
+              status = ProfileReducer.status;
+              break;  
+    
+    
+    
+           
+      }
+    }
 
+    function login(){
+      props.navigation.navigate("VerifyOTP")
+
+    }
 
   return (
 
@@ -159,7 +190,7 @@ export default function Login(props) {
              
 
 
-              <TouchableOpacity onPress={()=> props.navigation.navigate("VerifyOTP")}
+              <TouchableOpacity onPress={()=> login()}
 
                 style={{
                   height: normalize(35),
@@ -223,7 +254,7 @@ export default function Login(props) {
               marginBottom: normalize(20),
             }}>
 
-<Text
+{/* <Text
                 style={{
 
                   fontSize: normalize(11),
@@ -234,10 +265,10 @@ export default function Login(props) {
                  
                   fontWeight: '700'
                 }}
-              >Forgot Your Password ?</Text>
+              >Forgot Your Password ?</Text> */}
             
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword") }>
+{/* <TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword") }>
             <Text
                 style={{
 
@@ -250,7 +281,7 @@ export default function Login(props) {
                 }}
               >Click Here</Text>
 
-</TouchableOpacity>
+</TouchableOpacity> */}
              
 
 

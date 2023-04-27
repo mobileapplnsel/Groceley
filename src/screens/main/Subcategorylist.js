@@ -47,7 +47,7 @@ export default function Subcategorylist(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [data2, setData2] = useState(false);
   const [num, setNum] = useState(0);
-
+  const [subcategoryid, setSubcategoryid] = useState(props?.route?.params?.subcategoryid);
 
   const dispatch = useDispatch();
   const ProfileReducer = useSelector(state => state.ProfileReducer);
@@ -193,7 +193,7 @@ const decNum = () => {
   function subcategory_listing(){
 
     let obj = {
-      sub_category_id: props?.route?.params?.subcategoryid
+      sub_category_id: subcategoryid,
     }
     isInternetConnected()
         .then(() => {

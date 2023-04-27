@@ -45,7 +45,19 @@ export default function VerifyOTP(props) {
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+        // useEffect(() => {
 
+        
+        //     console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+        //     console.log("Name === ", props?.route?.params?.name)
+                
+        //     favourites_list()
+            
+                
+            
+            
+            
+        //     }, []);
 
     return (
 
@@ -147,9 +159,10 @@ export default function VerifyOTP(props) {
       color: '#69BE53',
       borderColor: '#69BE53',
     }}
-    // onCodeFilled = {(value) => {
-    //    props.navigation.navigate("Login")
-    // }}
+    onCodeFilled = {(value) => {
+      // props.navigation.navigate("Login")
+      
+    }}
 />
 
 
