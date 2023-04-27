@@ -168,6 +168,57 @@ export default function Favourites(props) {
   }, []);
 
 
+  useEffect(() => {
+
+        
+    console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+    console.log("Name === ", props?.route?.params?.name)
+        
+    favourites_list()
+    
+        
+    
+    
+    
+    }, []);
+
+
+
+function favourites_list() {
+  let obj ={
+    
+    user_id: 1,
+    
+
+  }
+
+  isInternetConnected()
+  .then(() => {
+      dispatch(favouritesRequest(obj));
+  })
+  .catch(err => {
+      console.log(err);
+      Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+  });
+}
+
+function delete1(){
+  let obj ={
+    product_id: props?.route?.params?.Product_id,
+    user_id: 1,
+    status: 0,
+
+  }
+
+  isInternetConnected()
+  .then(() => {
+      dispatch(deletefavouritesRequest(obj));
+  })
+  .catch(err => {
+      console.log(err);
+      Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+  });
+}
  function selectItem(item){
   
 props.navigation.navigate("Productdetails")
@@ -186,7 +237,7 @@ props.navigation.navigate("Productdetails")
           console.log("Favourites response === ", ProfileReducer?.favouritesResponse)
           
          // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
-        // setData2(ProfileReducer?.productResponse?.respData)
+        setData2(ProfileReducer?.favouritesResponse?.respData)
           break;
 
         case 'Profile/favouritesFailure':
@@ -255,7 +306,7 @@ props.navigation.navigate("Productdetails")
           style={{
     
             height: normalize(150),
-            width: '100%',
+            width: '90%',
             backgroundColor: '#F0F0F0' ,
            
             marginLeft: normalize(7),
@@ -265,12 +316,12 @@ props.navigation.navigate("Productdetails")
             marginBottom: normalize(10)
           }}>
             
-           {item.discountrate !== '0' ? ( <View style={{
+           {item.discount !== 0 ? ( <View style={{
                 height: normalize(20),
                 width: normalize(50),
                 backgroundColor: '#F36E35',
                 alignSelf: 'flex-start',
-                marginLeft: normalize(10),
+                marginLeft: normalize(30),
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: normalize(5)
@@ -280,28 +331,32 @@ props.navigation.navigate("Productdetails")
                     color: 'white',
                     fontSize: normalize(10)
     
-                }}>{item.discountrate} OFF</Text>
+                }}>{item.discount} % OFF</Text>
             </View>
            ) : (null)}
 
 
 <View style={{
-  flexDirection: 'row'
+  flexDirection: 'row',
+  justifyContent: 'flex-start'
 }}
 >
-  <View>
+
             <Image
-                      source={item.pic}
+                      source={{
+                        uri: item.image
+                      }}
                       style={{
-                        height: normalize(80),
-                        width: normalize(80),
+                        height: normalize(100),
+                        width: normalize(100),
                         marginTop: normalize(5),
+                        borderRadius: normalize(5),
                         
                       }}
                       resizeMode={'contain'}
                     ></Image>
     
-    </View>
+  
     <View>
           <Text
             style={{
@@ -312,7 +367,7 @@ props.navigation.navigate("Productdetails")
               alignSelf: 'flex-start',
               
             }}
-          >{item.description}
+          >{item.name}
           </Text>
     
     
@@ -324,7 +379,7 @@ props.navigation.navigate("Productdetails")
               marginTop: normalize(5),
               alignSelf: 'flex-start'
                     }}
-          >{item.quantity}
+          >{item.qty} packet
           </Text>
     
         <View style={{
@@ -333,6 +388,7 @@ props.navigation.navigate("Productdetails")
       marginLeft: normalize(10),
       marginTop: normalize(10)
     }}>
+      
           <Text
             style={{
               
@@ -342,7 +398,7 @@ props.navigation.navigate("Productdetails")
               
               
                     }}
-          >{'\u20B9'} {item.discounted_price}
+          >{'\u20B9'} {(item.price)?.slice(0 , 2)}
           </Text>
 
           <Text
@@ -351,10 +407,10 @@ props.navigation.navigate("Productdetails")
               fontSize: normalize(10),
               color: 'black',
               fontWeight: '600',
-              marginLeft: normalize(10)
+              marginLeft: normalize(5)
               
                     }}
-          >{'\u20B9'} {item.real_price}
+          >{'\u20B9'} {(item.discount_amount)?.slice(0 , 2)}
           </Text>
           
         <View style={{
@@ -404,7 +460,7 @@ props.navigation.navigate("Productdetails")
                 ></Image>
           </TouchableOpacity>
     
-          <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+          <TouchableOpacity onPress = {() => delete1()}
     
     style={{
       height: normalize(30),
@@ -807,16 +863,9 @@ Favourities
 
 
 
-<View style={{
-                               
-                                
-                                
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                               
-                            }}>
+
                                 <FlatList
-                                    data={DATA}
+                                    data={data2}
                                     renderItem={renderItem}
                                     keyExtractor={item => item.id}
                                     showsHorizontalScrollIndicator={false}
@@ -825,7 +874,7 @@ Favourities
                                     style={{
 
 
-                                        
+                                        marginLeft: normalize(10),
 
                                         marginTop: normalize(20),
 
@@ -856,7 +905,7 @@ Favourities
 
 
                                 /> */}
-                            </View>
+                          
 
 
 

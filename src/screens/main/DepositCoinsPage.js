@@ -332,10 +332,10 @@ export default function DepositCoinsPage(props) {
             //image: 'https://i.imgur.com/3g7nmJC.jpg',
             currency: 'INR',
             key: 'rzp_test_0s2czqBDNUnnff',
-            amount: '20000',
+            amount: amount * 100,
             name: 'Grocley',
             
-            order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
+          //  order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
             prefill: {
               email: 'gaurav.kumar@example.com',
               contact: '9191919191',

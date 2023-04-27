@@ -214,7 +214,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
              
 
-<View
+{/* <View
                 style={{
                   width: normalize(30),
                   height: normalize(30),
@@ -239,9 +239,9 @@ export default function DrawerMenuAdminexpanded(props) {
                 ></Image>
 
 
-              </View>
+              </View> */}
 
-              <View>
+              {/* <View>
 
 
                 <Text style={{
@@ -253,7 +253,7 @@ export default function DrawerMenuAdminexpanded(props) {
                 }}>Welcome, User Name</Text>
                 
               
-              </View>
+              </View> */}
 
 
 
@@ -270,7 +270,7 @@ export default function DrawerMenuAdminexpanded(props) {
 
 
             </View>
-            <Text 
+            {/* <Text 
             numberOfLines={1}
             
             style={{
@@ -281,7 +281,7 @@ export default function DrawerMenuAdminexpanded(props) {
                   marginTop: normalize(-30),
                   //marginLeft: normalize(-20)
                   
-                }}>USERNAME: userv12345@#</Text>
+                }}>USERNAME: userv12345@#</Text> */}
                 
 
             

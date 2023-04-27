@@ -173,7 +173,7 @@ export function* favouritesSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'favourites',
+      'favouritelist_userwise',
       action.payload,
       header,
     );
