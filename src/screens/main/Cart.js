@@ -37,6 +37,8 @@ import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 import Modal from "react-native-modal";
 
+
+
 var status = '';
 export default function Cart(props) {
 
@@ -53,20 +55,21 @@ export default function Cart(props) {
     const [itemselected, setItemselected] = useState(0);
     const [isModalFilterVisible, setModalFilterVisible] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
+    
+    const [data,setData] = useState([{
 
 
 
+    
 
-    const DATA = [
 
-    {
         id: "1",
         categories: "Bedsheets",
         pic: ICONS.milk,
         description: "Amul Moti Homogenized Toned Milk",
         realprice: "40",
         share: ICONS.community_share,
-        quantity:2,
+        quantity: 1,
         info: ICONS.info2
 
     },
@@ -78,7 +81,7 @@ export default function Cart(props) {
         description: "Kellogg's Corn Flakes Cereal",
         realprice: "50",
         share: ICONS.community_share,
-        quantity:2,
+        quantity: 1,
         info: ICONS.info2
 
     },
@@ -90,15 +93,15 @@ export default function Cart(props) {
         description: "Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits",
         realprice: "80",
         share: ICONS.community_share,
-        quantity:2,
+        quantity: 1,
         info: ICONS.info2
-    },
+    
    
 
 
 
 
-    ]
+}])
 
    
 
@@ -164,9 +167,44 @@ const ShareExample = async () => {
   }, []);
 
 
-
     const regex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+        const handleQuantityIncrease = (index) => {
+            const newItems = [...data];
+
+            newItems[index].quantity++;
+        
+            setData(newItems);
+
+            console.log("Data ======= ", newItems)
+            console.log("Data2 ======= ", newItems[index].quantity)
+            console.log("Data3 ======= ", index)
+            console.log("Data4 ======= ", newItems[index].description)
+     };
+
+        const handleQuantityDecrease = (index) => {
+            const newItems = [...data];
+
+            if (newItems[index].quantity > 1) {
+        
+            newItems[index].quantity--;
+
+        
+            setData(newItems);
+
+            } 
+
+            console.log("Data5 ======= ", newItems)
+            console.log("Data6 ======= ", newItems[index].quantity)
+            console.log("Data7 ======= ", newItems)
+            console.log("Data8 ======= ", newItems[index].quantity)
+            console.log("Data9 ======= ", index)
+            console.log("Data10 ======= ", newItems[index].description)
+            
+        };
+
 
         const renderItem1 = ({ item, index }) => (
             <>
@@ -245,6 +283,11 @@ const ShareExample = async () => {
                                 fontWeight: '700'
                             }}
                         >{'\u20B9'}{item.realprice} x {item.quantity}</Text>
+
+
+                        <View style={{
+                            flexDirection: 'row'
+                        }}>
     
     <TouchableOpacity onPress={()=>toggleModal()}
     
@@ -283,17 +326,39 @@ const ShareExample = async () => {
                   resizeMode={'contain'}
                   tintColor={'#F36E35'}
                 ></Image>
-    </TouchableOpacity>    
-    
+
+
+
+    </TouchableOpacity>   
+
+<TouchableOpacity>
+    <Image
+                  source={ICONS.delete}
+                  style={{
+                    height: normalize(10),
+                    width: normalize(10),
+                    tintColor: '#F36E35',
+                    marginTop: normalize(6),
+                    marginLeft: normalize(10)
+                  }}
+                  resizeMode={'contain'}
+                  tintColor={'black'}
+                ></Image> 
+    </TouchableOpacity>
                     </View>
 
-
+                    </View>
                     <View style={{
                         marginTop: normalize(8),
                         marginLeft: normalize(-5)
                     }}>
 
-                    <TouchableOpacity style={{
+                    <TouchableOpacity onPress = {()=>{
+             handleQuantityIncrease(index)
+            }}
+                    
+                    
+                    style={{
                         backgroundColor: '#E76229',
                         height: normalize(20),
                         width: normalize(20),
@@ -310,7 +375,12 @@ const ShareExample = async () => {
                     >+</Text>
                  
                     </TouchableOpacity>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity 
+                    onPress = {()=>{
+                      handleQuantityDecrease(index)
+                    }}
+                    
+                    style={{
                         backgroundColor: '#F36E35',
                         height: normalize(20),
                         width: normalize(20),
@@ -449,23 +519,7 @@ const ShareExample = async () => {
 
                 
                 
-                <Image
-                                        source={ICONS.delete}
-                                        style={{
-                                            height: normalize(15),
-                                            width: normalize(15),
-                                            alignSelf: 'center',
-                                            
-                                            position: 'absolute',
-                                            top:20,
-                                           
-                                            tintColor: 'black',
-                                           
-                                            
-                                        }}
-                                        resizeMode={'contain'}
-                                        tintColor= {'black'}
-                                    ></Image> 
+            
                                     
                                     </TouchableOpacity>
                                    
@@ -506,7 +560,7 @@ const ShareExample = async () => {
                                     
                                         <View>
               <FlatList
-                data={DATA}
+                data={data}
                 renderItem={renderItem1}
                 scrollEnabled={true}
                 keyExtractor={item => item.id}
@@ -909,6 +963,8 @@ const ShareExample = async () => {
                         }}
                         resizeMode={'contain'}
                     ></Image>
+
+                    
  <Text
      style={{
          color: 'black',

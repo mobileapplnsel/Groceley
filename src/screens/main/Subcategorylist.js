@@ -33,7 +33,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 import { useDispatch, useSelector } from 'react-redux';
-import { productRequest} from '../../redux/reducer/ProfileReducer'
+import { productRequest, addcartRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Subcategorylist(props) {
@@ -464,7 +464,7 @@ style={{
             status = ProfileReducer.status;
             console.log("Subcategory response === ", ProfileReducer?.productResponse)
             
-           // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+           
            setData2(ProfileReducer?.productResponse?.respData)
             break;
   
@@ -473,6 +473,22 @@ style={{
             status = ProfileReducer.status;
             break;
   
+            case 'Profile/addcartRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/addcartSuccess':
+            status = ProfileReducer.status;
+            console.log("Subcategory response === ", ProfileReducer?.addcartResponse)
+            
+           
+           setData2(ProfileReducer?.addcartResponse?.respData)
+            break;
+  
+        case 'Profile/addcartFailure':
+  
+            status = ProfileReducer.status;
+            break;
         
             
   
