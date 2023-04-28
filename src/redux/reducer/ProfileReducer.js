@@ -17,7 +17,7 @@ const initialState = {
   cartlistingResponse: {},
   deletecartResponse: {},
   addcartResponse: {},
-
+  
 
   orderlistResponse: {},
   addDeliveryResponse: {},
@@ -30,6 +30,10 @@ const initialState = {
   leaderboardResponse :{},
   addmembershipResponse :{},
   membershipdetailsResponse :{},
+
+
+  walletResponse: {},
+
 };
 
 const ProfileSlice = createSlice({
@@ -317,6 +321,39 @@ transactionhistoryFailure(state, action) {
     state.error = action.payload;
     state.status = action.type;
   },
+
+
+    //Membership details
+
+   
+    membershipdetailsRequest(state, action) {
+      state.status = action.type;
+    },
+    membershipdetailsSuccess(state, action) {
+      state.membershipdetailsResponse = action.payload;
+      state.status = action.type;
+    },
+    membershipdetailsFailure(state, action) {
+      state.error = action.payload;
+      state.status = action.type;
+    },
+
+
+  //Wallet 
+
+   
+  walletRequest(state, action) {
+    state.status = action.type;
+  },
+  walletSuccess(state, action) {
+    state.walletResponse = action.payload;
+    state.status = action.type;
+  },
+  walletFailure(state, action) {
+    state.error = action.payload;
+    state.status = action.type;
+  },
+    
     
    
    
@@ -407,6 +444,10 @@ export const {
   membershipdetailsRequest,
   membershipdetailsSuccess,
   membershipdetailsFailure,
+
+  walletRequest,
+  walletSuccess,
+  walletFailure,
 
 
 } = ProfileSlice.actions;

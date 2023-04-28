@@ -35,6 +35,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import {addcartRequest, cartlistingRequest, deletecartRequest} from '../../redux/reducer/ProfileReducer'
 import Modal from "react-native-modal";
 
 
@@ -165,6 +166,70 @@ const ShareExample = async () => {
       setRefreshing(false);
     }, 2000);
   }, []);
+
+
+  if (status == '' || ProfileReducer.status != status) {
+    switch (ProfileReducer.status) {
+        case 'Profile/addcartRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/addcartSuccess':
+            status = ProfileReducer.status;
+            console.log("Subcategory response === ", ProfileReducer?.addcartResponse)
+            
+           
+           //setData2(ProfileReducer?.addcartResponse?.respData)
+            break;
+  
+        case 'Profile/addcartFailure':
+  
+            status = ProfileReducer.status;
+            break;
+
+
+  
+            case 'Profile/cartlistingRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/cartlistingSuccess':
+            status = ProfileReducer.status;
+            console.log("Subcategory response === ", ProfileReducer?.cartlistingResponse)
+            
+           
+          // setData2(ProfileReducer?.cartlistingResponse?.respData)
+            break;
+  
+        case 'Profile/cartlistingFailure':
+  
+            status = ProfileReducer.status;
+            break;
+
+            
+
+
+            case 'Profile/deletecartRequest':
+                status = ProfileReducer.status;
+                break;
+      
+            case 'Profile/deletecartSuccess':
+                status = ProfileReducer.status;
+                console.log("Subcategory response === ", ProfileReducer?.cartlistingResponse)
+                
+               
+              // setData2(ProfileReducer?.cartlistingResponse?.respData)
+                break;
+      
+            case 'Profile/deletecartFailure':
+      
+                status = ProfileReducer.status;
+                break;
+        
+  
+         
+    }
+  }
 
 
     const regex =

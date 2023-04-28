@@ -30,7 +30,11 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import RazorpayCheckout from 'react-native-razorpay';
+import { useDispatch, useSelector } from 'react-redux';
+import {addmembershipRequest, membershipdetailsRequest} from '../../redux/reducer/ProfileReducer'
 
+
+var status = '';
 export default function Membership(props)
 {
     const [name, setName] = useState('');
@@ -40,6 +44,22 @@ export default function Membership(props)
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
+
+    const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
+
+  useEffect(() => {
+
+        
+    
+        
+    membershipdetails()
+    
+        
+    
+    
+    
+    }, []);
 
     const DATA = [{
         id: "0",
@@ -137,6 +157,36 @@ export default function Membership(props)
 
     ]
 
+    function membershipdetails(){
+        let obj = {
+            user_id: 11,
+            
+          }
+          isInternetConnected()
+              .then(() => {
+                  dispatch(membershipdetailsRequest(obj));
+              })
+              .catch(err => {
+                  console.log(err);
+                  Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+              });
+    }
+
+    function addmember1(){
+        let obj = {
+            user_id: 11,
+            charges: 999
+          }
+          isInternetConnected()
+              .then(() => {
+                  dispatch(addmembershipRequest(obj));
+              })
+              .catch(err => {
+                  console.log(err);
+                  Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+              });
+      
+    }
 
 
 
@@ -148,7 +198,55 @@ export default function Membership(props)
       }, []);
 
 
-
+      if (status == '' || ProfileReducer.status != status) {
+        switch (ProfileReducer.status) {
+            case 'Profile/addmembershipRequest':
+                status = ProfileReducer.status;
+                break;
+      
+            case 'Profile/addmembershipSuccess':
+                status = ProfileReducer.status;
+                console.log("Add membership response === ", ProfileReducer?.addmembershipResponse)
+                
+                Platform.OS == 'android' ? Toast('Membership charges added to the cart') : Alert.alert("'Membership charges added to the cart");
+               
+                break;
+      
+            case 'Profile/addmembershipFailure':
+      
+                status = ProfileReducer.status;
+                break;
+    
+    
+      
+                case 'Profile/membershipdetailsRequest':
+                status = ProfileReducer.status;
+                break;
+      
+            case 'Profile/membershipdetailsSuccess':
+                status = ProfileReducer.status;
+                console.log("Membership details response === ", ProfileReducer?.membershipdetailsResponse)
+                console.log("Status === ", ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.card_number)
+               
+             
+                break;
+      
+            case 'Profile/membershipdetailsFailure':
+      
+                status = ProfileReducer.status;
+                break;
+    
+                
+    
+    
+               
+          
+                   
+            
+      
+             
+        }
+      }
 
 
 
@@ -447,16 +545,7 @@ export default function Membership(props)
               </Text>
 
 
-              <Text style={{
-                color: 'gray',
-                fontSize: normalize(10),
-                fontWeight: '600',
-                marginLeft:18,
-
-              }}>
-       Expired On 30 March, 2023
-              </Text>
-
+    
               </View>
               </View>
 
@@ -496,7 +585,13 @@ export default function Membership(props)
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }>
                    
-        <ImageBackground
+    { ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '0' ? (
+     <Text style={{fontSize:normalize(10),
+        color:'grey',
+        fontWeight:'400', 
+        marginTop: normalize(2)
+        }}>No card found</Text>   
+    ):   <ImageBackground
           resizeMode={'contain'} // or cover
           style={{
             height:normalize(186),
@@ -527,10 +622,10 @@ export default function Membership(props)
           </View>
            
           <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:normalize(55),marginLeft:normalize(32),marginRight: normalize(50)}}>
-            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>1234</Text>
-            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>5678</Text>
-            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>9101</Text>
-            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>5684</Text>
+            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>{(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.card_number)?.toString()?.substring(0, 4)}</Text>
+            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>{(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.card_number)?.toString()?.substring(4, 8)}</Text>
+            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>{(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.card_number)?.toString()?.substring(8, 12)}</Text>
+            <Text style={{fontSize:normalize(14),color:'white',fontWeight:'700'}}>{(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.card_number)?.toString()?.substring(12, 16)}</Text>
           </View>
 
           <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:10,marginLeft:35,marginRight:50}}>
@@ -547,7 +642,7 @@ export default function Membership(props)
                 resizeMode={'contain'}
                 tintColor= {'white'}
               ></Image>
-               <Text style={{fontSize:normalize(9),color:'white',fontWeight:'500',alignSelf:'center'}}>06/22</Text>
+               <Text style={{fontSize:normalize(9),color:'white',fontWeight:'500',alignSelf:'center'}}>{(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.start_time)?.toString()?.split("-")?.reverse()?.join("-")}</Text>
             </View>
             <View>
             <View style={{flexDirection:'row',marginLeft:normalize(20)}}>
@@ -563,14 +658,14 @@ export default function Membership(props)
                 resizeMode={'contain'}
                 tintColor= {'white'}
               ></Image>
-               <Text style={{fontSize:normalize(9),color:'white',fontWeight:'500',alignSelf:'center'}}>06/23</Text>
+               <Text style={{fontSize:normalize(9),color:'white',fontWeight:'500',alignSelf:'center'}}>{(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.end_time)?.toString()?.split("-")?.reverse()?.join("-")}</Text>
             </View>
             </View>
              
           </View>
         
           <Text style={{fontSize:normalize(12),color:'white',fontWeight:'700',marginLeft:normalize(28),marginTop:normalize(7)}}>Nick Thomas</Text>
-        </ImageBackground>
+        </ImageBackground>}
 
         <View style={{ width:'95%',
             marginLeft: normalize(20),}}>
@@ -578,72 +673,53 @@ export default function Membership(props)
             <Text style={{fontSize:normalize(10),
                 color:'gray',
                 marginTop: normalize(2),
-                fontWeight:'400'}}>Last Recharge on 30 March, 2022
+                fontWeight:'400'}}>Last Recharge on {(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.start_time)?.toString()?.split("-")?.reverse()?.join("-")}
                      </Text>
-            <Text style={{fontSize:normalize(10),color:'red',fontWeight:'400', marginTop: normalize(2)}}>Expired on 30 March, 2023</Text>
+
+
+ {ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '2' ? (           <Text style={{fontSize:normalize(10),
+                color:'red',
+                fontWeight:'400', 
+                marginTop: normalize(2)
+                }}>Expired on {ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.end_time?.toString()?.split("-")?.reverse()?.join("-")}</Text>
+
+ ): (null)}
+
+ { ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '1' ?  (      
+    
+   null
+ ):( <TouchableOpacity onPress={()=> addmember1()}
+ style={{
+   height: normalize(35),
+   width: '80%',
+   marginTop: normalize(15),
+  
+   borderWidth: normalize(1),
+   borderRadius: normalize(20),
+   backgroundColor: '#3F3F3F',
+   borderColor: '#D3D3D3',
+   justifyContent: 'center',
+   alignItems: 'center',
+   marginLeft: normalize(20)
+ }}
+ 
+> 
 
 
 
-           <TouchableOpacity onPress={()=> {
-        //     let options = {
-        //     description: 'Credits towards consultation',
-        //     //image: 'https://i.imgur.com/3g7nmJC.jpg',
-        //     currency: 'INR',
-        //     key: 'rzp_test_0s2czqBDNUnnff',
-        //     amount: 99900,
-        //     name: 'Grocley',
-            
-        //   //  order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
-        //     prefill: {
-        //       email: 'gaurav.kumar@example.com',
-        //       contact: '9191919191',
-        //       name: 'Gaurav Kumar',
-              
-        //     },
-            
-        //     theme: {color: '#69BE53'}
-        //   }
-        //   RazorpayCheckout.open(options).then((data) => {
-        //     // handle success
-        //     alert(`Success: ${data.razorpay_payment_id}`);
-        //   }).catch((error) => {
-        //     // handle failure
-        //    // alert(`Error: ${error.code} | ${error.description}`);
-        //    alert(`Payment gateway closed`);
-        //   });
-        }}
-          style={{
-            height: normalize(35),
-            width: '80%',
-            marginTop: normalize(15),
-           
-            borderWidth: normalize(1),
-            borderRadius: normalize(20),
-            backgroundColor: '#3F3F3F',
-            borderColor: '#D3D3D3',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginLeft: normalize(20)
-          }}
-          
-        > 
 
+<Text style={{
+fontSize: normalize(12),           
+textAlign: 'center',
+fontFamily: FONTS.Hind,
 
-        
-        
-        <Text style={{
-        fontSize: normalize(12),           
-        textAlign: 'center',
-        fontFamily: FONTS.Hind,
-       
-        color: 'white'
-    }}
-        >
-           RENEW MEMBERSHIP
-            </Text>
-            
-            </TouchableOpacity>
-
+color: 'white'
+}}
+>
+  RENEW MEMBERSHIP
+   </Text>
+   
+   </TouchableOpacity>)}
 
             <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:normalize(15)}}>How Does It Work?</Text>
            
@@ -795,7 +871,7 @@ style={{
                             }}
                         />
                     </KeyboardAvoidingView>
-{/* <Loader/>   */}
+                    <Loader visible={ProfileReducer?.status == 'Profile/addmembershipRequest'}/> 
                 </SafeAreaView>
             </Layout>
 

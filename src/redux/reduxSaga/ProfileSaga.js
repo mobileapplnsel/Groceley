@@ -68,6 +68,9 @@ import ProfileReducer, {
 
   membershipdetailsSuccess,
   membershipdetailsFailure,
+
+  walletSuccess,
+  walletFailure,
   
   
 } from '../reducer/ProfileReducer';
@@ -601,9 +604,9 @@ export function* addmembershipSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'addmembership',
+      'add_membership',
       action.payload,
-      header,
+      header
     );
     console.log('Data==', response);
     
@@ -630,7 +633,7 @@ export function* membershipdetailsSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'membershipdetails',
+      'membership_details',
       action.payload,
       header,
     );
@@ -649,6 +652,36 @@ export function* membershipdetailsSaga(action) {
     yield put(membershipdetailsFailure(error));
   }
 }
+
+export function* walletSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'wallet',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(walletSuccess(response.data));
+     
+      
+    } else {
+      yield put(walletFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(walletFailure(error));
+  }
+}
+
 
 
 
@@ -707,36 +740,40 @@ const watchFunction = [
   })(),
 
   (function* () {
-    yield takeLatest('Profile/selectDelivery', selectDeliverySaga);
+    yield takeLatest('Profile/selectDeliveryRequest', selectDeliverySaga);
   })(),
 
   (function* () {
-    yield takeLatest('Profile/editDelivery', editDeliverySaga);
-  })(),
-
-
-  (function* () {
-    yield takeLatest('Profile/addDeliveryInstructions', addDeliveryInstructionsSaga);
+    yield takeLatest('Profile/editDeliveryRequest', editDeliverySaga);
   })(),
 
 
   (function* () {
-    yield takeLatest('Profile/transactionhistory', transactionhistorySaga);
+    yield takeLatest('Profile/addDeliveryInstructionsRequest', addDeliveryInstructionsSaga);
+  })(),
+
+
+  (function* () {
+    yield takeLatest('Profile/transactionhistoryRequest', transactionhistorySaga);
   })(),
 
   (function* () {
-    yield takeLatest('Profile/leaderboard', leaderboardSaga);
+    yield takeLatest('Profile/leaderboardRequest', leaderboardSaga);
   })(),
 
   (function* () {
-    yield takeLatest('Profile/addmembership', addmembershipSaga);
+    yield takeLatest('Profile/addmembershipRequest', addmembershipSaga);
   })(),
 
 
 (function* () {
-  yield takeLatest('Profile/membershipdetails', membershipdetailsSaga);
+  yield takeLatest('Profile/membershipdetailsRequest', membershipdetailsSaga);
 })(),
 
+
+(function* () {
+  yield takeLatest('Profile/wallet', walletSaga);
+})(),
 ];
 
 export default watchFunction;
