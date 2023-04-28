@@ -28,8 +28,8 @@ const initialState = {
 
   transactionhistoryResponse :{},
   leaderboardResponse :{},
- 
-  
+  addmembershipResponse :{},
+  membershipdetailsResponse :{},
 };
 
 const ProfileSlice = createSlice({
@@ -300,6 +300,23 @@ transactionhistoryFailure(state, action) {
     state.error = action.payload;
     state.status = action.type;
   },
+
+
+
+  //Add Membership 
+
+   
+  addmembershipRequest(state, action) {
+    state.status = action.type;
+  },
+  addmembershipSuccess(state, action) {
+    state.addmembershipResponse = action.payload;
+    state.status = action.type;
+  },
+  addmembershipFailure(state, action) {
+    state.error = action.payload;
+    state.status = action.type;
+  },
     
    
    
@@ -382,6 +399,14 @@ export const {
   leaderboardRequest,
   leaderboardSuccess,
   leaderboardFailure,
+
+  addmembershipRequest,
+  addmembershipSuccess,
+  addmembershipFailure,
+
+  membershipdetailsRequest,
+  membershipdetailsSuccess,
+  membershipdetailsFailure,
 
 
 } = ProfileSlice.actions;

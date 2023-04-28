@@ -29,6 +29,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
+import RazorpayCheckout from 'react-native-razorpay';
 
 export default function Membership(props)
 {
@@ -583,7 +584,34 @@ export default function Membership(props)
 
 
 
-           <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+           <TouchableOpacity onPress={()=> {
+        //     let options = {
+        //     description: 'Credits towards consultation',
+        //     //image: 'https://i.imgur.com/3g7nmJC.jpg',
+        //     currency: 'INR',
+        //     key: 'rzp_test_0s2czqBDNUnnff',
+        //     amount: 99900,
+        //     name: 'Grocley',
+            
+        //   //  order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
+        //     prefill: {
+        //       email: 'gaurav.kumar@example.com',
+        //       contact: '9191919191',
+        //       name: 'Gaurav Kumar',
+              
+        //     },
+            
+        //     theme: {color: '#69BE53'}
+        //   }
+        //   RazorpayCheckout.open(options).then((data) => {
+        //     // handle success
+        //     alert(`Success: ${data.razorpay_payment_id}`);
+        //   }).catch((error) => {
+        //     // handle failure
+        //    // alert(`Error: ${error.code} | ${error.description}`);
+        //    alert(`Payment gateway closed`);
+        //   });
+        }}
           style={{
             height: normalize(35),
             width: '80%',
@@ -599,6 +627,9 @@ export default function Membership(props)
           }}
           
         > 
+
+
+        
         
         <Text style={{
         fontSize: normalize(12),           

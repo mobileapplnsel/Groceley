@@ -63,6 +63,11 @@ import ProfileReducer, {
   leaderboardFailure,
 
 
+  addmembershipSuccess,
+  addmembershipFailure,
+
+  membershipdetailsSuccess,
+  membershipdetailsFailure,
   
   
 } from '../reducer/ProfileReducer';
@@ -587,6 +592,64 @@ export function* leaderboardSaga(action) {
   }
 }
 
+export function* addmembershipSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'addmembership',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(addmembershipSuccess(response.data));
+     
+      
+    } else {
+      yield put(addmembershipFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(addmembershipFailure(error));
+  }
+}
+
+export function* membershipdetailsSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'membershipdetails',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(membershipdetailsSuccess(response.data));
+     
+      
+    } else {
+      yield put(membershipdetailsFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(membershipdetailsFailure(error));
+  }
+}
+
 
 
 
@@ -664,6 +727,16 @@ const watchFunction = [
   (function* () {
     yield takeLatest('Profile/leaderboard', leaderboardSaga);
   })(),
+
+  (function* () {
+    yield takeLatest('Profile/addmembership', addmembershipSaga);
+  })(),
+
+
+(function* () {
+  yield takeLatest('Profile/membershipdetails', membershipdetailsSaga);
+})(),
+
 ];
 
 export default watchFunction;
