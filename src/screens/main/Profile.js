@@ -402,7 +402,7 @@ function verifyEmail(){
                   color: 'black',
 
                 }}>
-                EDIT PROFILE
+               PROFILE
               </Text>
             
 <View style={{

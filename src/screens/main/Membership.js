@@ -31,7 +31,7 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import RazorpayCheckout from 'react-native-razorpay';
 import { useDispatch, useSelector } from 'react-redux';
-import {addmembershipRequest, membershipdetailsRequest} from '../../redux/reducer/ProfileReducer'
+import {addmembershipRequest, membershipdetailsRequest, renewmembershipRequest} from '../../redux/reducer/ProfileReducer'
 
 
 var status = '';
@@ -157,6 +157,22 @@ export default function Membership(props)
 
     ]
 
+
+    // function renewmembership(){
+    //     let obj = {
+    //         user_id: 11,
+            
+    //       }
+    //       isInternetConnected()
+    //           .then(() => {
+    //               dispatch(membershipdetailsRequest(obj));
+    //           })
+    //           .catch(err => {
+    //               console.log(err);
+    //               Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    //           });
+    // }
+
     function membershipdetails(){
         let obj = {
             user_id: 11,
@@ -237,7 +253,22 @@ export default function Membership(props)
                 break;
     
                 
-    
+                case 'Profile/renewmembershipRequest':
+                    status = ProfileReducer.status;
+                    break;
+          
+                case 'Profile/renewmembershipSuccess':
+                    status = ProfileReducer.status;
+                    console.log("Membership details response === ", ProfileReducer?.renewmembershipResponse)
+                    console.log("Status === ", ProfileReducer?.renewmembershipResponse?.respData?.[0]?.card_number)
+                   
+                 
+                    break;
+          
+                case 'Profile/renewmembershipFailure':
+          
+                    status = ProfileReducer.status;
+                    break;
     
                
           
@@ -664,7 +695,7 @@ export default function Membership(props)
              
           </View>
         
-          <Text style={{fontSize:normalize(12),color:'white',fontWeight:'700',marginLeft:normalize(28),marginTop:normalize(7)}}>Nick Thomas</Text>
+          {/* <Text style={{fontSize:normalize(12),color:'white',fontWeight:'700',marginLeft:normalize(28),marginTop:normalize(7)}}>Nick Thomas</Text> */}
         </ImageBackground>}
 
         <View style={{ width:'95%',
@@ -872,6 +903,7 @@ style={{
                         />
                     </KeyboardAvoidingView>
                     <Loader visible={ProfileReducer?.status == 'Profile/addmembershipRequest'}/> 
+                     <Loader visible={ProfileReducer?.status == 'Profile/membershipdetailsRequest'}/> 
                 </SafeAreaView>
             </Layout>
 

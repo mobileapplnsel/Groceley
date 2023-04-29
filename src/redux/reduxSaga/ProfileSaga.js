@@ -69,6 +69,9 @@ import ProfileReducer, {
   membershipdetailsSuccess,
   membershipdetailsFailure,
 
+  renewmembershipSuccess,
+  renewmembershipFailure,
+
   walletSuccess,
   walletFailure,
   
@@ -653,6 +656,35 @@ export function* membershipdetailsSaga(action) {
   }
 }
 
+export function* renewmembershipSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'renewmembership',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(renewmembershipSuccess(response.data));
+     
+      
+    } else {
+      yield put(renewmembershipFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(renewmembershipFailure(error));
+  }
+}
+
 export function* walletSaga(action) {
   const header = {
     Accept: 'application/json',
@@ -768,6 +800,11 @@ const watchFunction = [
 
 (function* () {
   yield takeLatest('Profile/membershipdetailsRequest', membershipdetailsSaga);
+})(),
+
+
+(function* () {
+  yield takeLatest('Profile/renewmembershipRequest', renewmembershipSaga);
 })(),
 
 

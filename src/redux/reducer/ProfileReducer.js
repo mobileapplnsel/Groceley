@@ -30,7 +30,7 @@ const initialState = {
   leaderboardResponse :{},
   addmembershipResponse :{},
   membershipdetailsResponse :{},
-
+  renewmembershipResponse :{},
 
   walletResponse: {},
 
@@ -339,6 +339,22 @@ transactionhistoryFailure(state, action) {
     },
 
 
+    //Renew Membership
+
+   
+    renewmembershipRequest(state, action) {
+      state.status = action.type;
+    },
+    renewmembershipSuccess(state, action) {
+      state.renewmembershipResponse = action.payload;
+      state.status = action.type;
+    },
+    renewmembershipFailure(state, action) {
+      state.error = action.payload;
+      state.status = action.type;
+    },
+
+
   //Wallet 
 
    
@@ -444,6 +460,11 @@ export const {
   membershipdetailsRequest,
   membershipdetailsSuccess,
   membershipdetailsFailure,
+
+
+  renewmembershipRequest,
+  renewmembershipSuccess,
+  renewmembershipFailure,
 
   walletRequest,
   walletSuccess,
