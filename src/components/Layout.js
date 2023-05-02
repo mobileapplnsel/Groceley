@@ -41,7 +41,7 @@ export default function Layout(props) {
     {
         icon: ICONS.cart,
         name: 'Cart',
-        link: 'Login',
+        link: 'Cart',
       },
    
    

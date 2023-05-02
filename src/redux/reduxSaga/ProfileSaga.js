@@ -37,6 +37,9 @@ import ProfileReducer, {
   addcartFailure,
 
 
+  createcartSuccess,
+  createcartFailure,
+
   orderlistSuccess,
   orderlistFailure,
 
@@ -307,7 +310,7 @@ export function* cartlistingSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'cartlisting',
+      'cart',
       action.payload,
       header,
     );
@@ -388,6 +391,36 @@ export function* addcartSaga(action) {
   } catch (error) {
     console.log(error);
     yield put(addcartFailure(error));
+  }
+}
+
+
+export function* createcartSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'add_cart',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(createcartSuccess(response.data));
+     
+      
+    } else {
+      yield put(createcartFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(createcartFailure(error));
   }
 }
 
@@ -761,6 +794,11 @@ const watchFunction = [
 
   (function* () {
     yield takeLatest('Profile/addcartRequest',  addcartSaga);
+  })(),
+
+
+  (function* () {
+    yield takeLatest('Profile/createcartRequest',  createcartSaga);
   })(),
 
   (function* () {

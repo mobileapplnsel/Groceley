@@ -887,7 +887,7 @@ style={{
            
            }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
             
 
             </View>
@@ -1221,7 +1221,7 @@ marginTop: normalize(5),
           </KeyboardAvoidingView>
 
         </SafeAreaView>
-        <CarouselCards2 />
+        {/* <CarouselCards2 /> */}
       </Layout>
  <Loader visible={ProfileReducer?.status == 'Profile/homeRequest'}/>  
     </Fragment>

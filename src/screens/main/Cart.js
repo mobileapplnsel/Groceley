@@ -35,7 +35,8 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
-import {addcartRequest, cartlistingRequest, deletecartRequest} from '../../redux/reducer/ProfileReducer'
+import {addcartRequest, cartlistingRequest, deletecartRequest, createcartRequest} from '../../redux/reducer/ProfileReducer';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from "react-native-modal";
 
 
@@ -56,6 +57,21 @@ export default function Cart(props) {
     const [itemselected, setItemselected] = useState(0);
     const [isModalFilterVisible, setModalFilterVisible] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
+    const [data2, setData2] = useState(ProfileReducer?.cartlistingResponse?.respData?.cart_details);
+    const dispatch = useDispatch();
+    const ProfileReducer = useSelector(state => state.ProfileReducer);
+
+    useEffect(() => {
+
+        
+    create_cart()
+    
+        
+    
+    
+    
+    }, []);
+    
     
     const [data,setData] = useState([{
 
@@ -105,7 +121,36 @@ export default function Cart(props) {
 }])
 
    
+function create_cart(){
+    let obj ={
+        user_id : 1,
+        status: "Active"
+    }
+    isInternetConnected()
+        .then(() => {
+            dispatch(createcartRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+}
 
+function cart_list(){
+    let obj ={
+        user_id : 1,
+        status: "Active",
+
+    }
+    isInternetConnected()
+        .then(() => {
+            dispatch(cartlistingRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+}
       
 
 function favourite(){
@@ -195,10 +240,11 @@ const ShareExample = async () => {
   
         case 'Profile/cartlistingSuccess':
             status = ProfileReducer.status;
-            console.log("Subcategory response === ", ProfileReducer?.cartlistingResponse)
-            
+           // console.log("Cartlisting response === ", ProfileReducer?.cartlistingResponse?respData?.cart_details);
+        console.log("Cartlisting response === ",ProfileReducer?.cartlistingResponse?.respData?.cart_details)
            
-          // setData2(ProfileReducer?.cartlistingResponse?.respData)
+        setData2(ProfileReducer?.cartlistingResponse?.respData?.cart_details)
+
             break;
   
         case 'Profile/cartlistingFailure':
@@ -226,7 +272,22 @@ const ShareExample = async () => {
                 status = ProfileReducer.status;
                 break;
         
-  
+                case 'Profile/createcartRequest':
+                    status = ProfileReducer.status;
+                    break;
+          
+                case 'Profile/createcartSuccess':
+                    status = ProfileReducer.status;
+                    console.log("Cart response === ", ProfileReducer?.createcartResponse)
+                    
+                    cart_list()
+                
+                    break;
+          
+                case 'Profile/createcartFailure':
+          
+                    status = ProfileReducer.status;
+                    break;
          
     }
   }
@@ -270,6 +331,8 @@ const ShareExample = async () => {
             
         };
 
+
+     
 
         const renderItem1 = ({ item, index }) => (
             <>
@@ -338,7 +401,7 @@ const ShareExample = async () => {
                                 
                                 
                             }}
-                        >{item.description}</Text>
+                        >{item.product_name}</Text>
     <Text
                         
                             style={{
@@ -347,7 +410,7 @@ const ShareExample = async () => {
                                 //marginTop: normalize(10),
                                 fontWeight: '700'
                             }}
-                        >{'\u20B9'}{item.realprice} x {item.quantity}</Text>
+                        >{'\u20B9'}{item.price} x {item.quantity}</Text>
 
 
                         <View style={{
@@ -363,7 +426,7 @@ const ShareExample = async () => {
         marginTop: normalize(5)
     }}>
     <Image
-                  source={item.share}
+                  source={ICONS.share}
                   style={{
                     height: normalize(15),
                     width: normalize(15),
@@ -380,7 +443,7 @@ const ShareExample = async () => {
                     }}
                     >Buy Together</Text>
     <Image
-                  source={item.info}
+                  source={ICONS.info2}
                   style={{
                     height: normalize(10),
                     width: normalize(10),
@@ -484,6 +547,8 @@ const ShareExample = async () => {
         );
 
    
+
+
 
    
     
@@ -625,7 +690,7 @@ const ShareExample = async () => {
                                     
                                         <View>
               <FlatList
-                data={data}
+                data={data2}
                 renderItem={renderItem1}
                 scrollEnabled={true}
                 keyExtractor={item => item.id}
@@ -1235,7 +1300,7 @@ const ShareExample = async () => {
                     </KeyboardAvoidingView>
  {/* <Loader/>   */}
                 </SafeAreaView>
-                <CarouselCards3/>
+                {/* <CarouselCards3/> */}
             </Layout>
 
         </Fragment>

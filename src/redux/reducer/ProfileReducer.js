@@ -12,12 +12,13 @@ const initialState = {
   favouritesResponse: {},
   addfavouritesResponse: {},
   deletefavouritesResponse: {},
+ 
 
 
   cartlistingResponse: {},
   deletecartResponse: {},
   addcartResponse: {},
-  
+  createcartResponse:{},
 
   orderlistResponse: {},
   addDeliveryResponse: {},
@@ -188,6 +189,20 @@ const ProfileSlice = createSlice({
             state.status = action.type;
           },
 
+
+          //Create cart
+
+          createcartRequest(state, action) {
+            state.status = action.type;
+          },
+          createcartSuccess(state, action) {
+            state.createcartResponse = action.payload;
+            state.status = action.type;
+          },
+          createcartFailure(state, action) {
+            state.error = action.payload;
+            state.status = action.type;
+          },
 
     //Order list
 
@@ -424,6 +439,12 @@ export const {
   addcartSuccess,
   addcartFailure,
 
+
+  walletRequest,
+  walletSuccess,
+  walletFailure,
+
+
   orderlistRequest,
   orderlistSuccess,
   orderlistFailure,
@@ -466,9 +487,9 @@ export const {
   renewmembershipSuccess,
   renewmembershipFailure,
 
-  walletRequest,
-  walletSuccess,
-  walletFailure,
+  createcartRequest,
+  createcartSuccess,
+  createcartFailure,
 
 
 } = ProfileSlice.actions;

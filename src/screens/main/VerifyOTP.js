@@ -59,6 +59,15 @@ export default function VerifyOTP(props) {
             
         //     }, []);
 
+        function cart(value){
+          console.log("Value===", value)
+          if(value == "1234") {
+            props.navigation.navigate("Cart")
+          } else {
+            Platform.OS == 'android' ? Toast('OTP did not match') : Alert.alert("OTP matched");
+          }
+        }
+
     return (
 
 
@@ -161,14 +170,15 @@ export default function VerifyOTP(props) {
     }}
     onCodeFilled = {(value) => {
       // props.navigation.navigate("Login")
-      
+      console.log("shjhs", value)
+      cart(value)
     }}
 />
 
 
 
 
-                        <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+                        {/* <TouchableOpacity onPress={()=> cart()}
 
                             style={{
                                 height: normalize(35),
@@ -190,7 +200,7 @@ export default function VerifyOTP(props) {
                             >SUBMIT</Text>
 
 
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
 
 
 
