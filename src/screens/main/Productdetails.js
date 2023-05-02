@@ -112,10 +112,10 @@ export default function Productdetails(props) {
         }, []);
 
 
-        function addtocart()
+        function addtocart3()
       {
        let obj={
-        cart_id: 1,
+        cart_id: 35,
         product_variant_id: props?.route?.params?.Product_id,
         quantity: 1
        }
@@ -936,11 +936,11 @@ style={{
 
                       
                 <TouchableOpacity 
-                // onPress={
-                //   ()=> addtocart()
+                onPress={
+                  addtocart3
                
                
-                // } 
+                } 
                 
                 style={{
                     flexDirection: 'row',
@@ -1065,6 +1065,7 @@ style={{
             <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/>
             <Loader visible={ProfileReducer?.status == 'Profile/addfavouritesRequest'}/>
             <Loader visible={ProfileReducer?.status == 'Profile/deletefavouritesRequest'}/>
+            
         </Fragment>
 
 

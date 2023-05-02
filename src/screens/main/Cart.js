@@ -226,7 +226,7 @@ const ShareExample = async () => {
             status = ProfileReducer.status;
             console.log("Subcategory response === ", ProfileReducer?.addcartResponse)
             
-           
+           cart_list()
            //setData2(ProfileReducer?.addcartResponse?.respData)
             break;
   
@@ -300,16 +300,37 @@ const ShareExample = async () => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
-        const handleQuantityIncrease = (item,index) => {
+        const handleQuantityIncrease = (item) => {
+             console.log("Add cart === ", item.product_variant_id)
+
+            let obj={
+                cart_id: 35,
+                product_variant_id: item.product_variant_id,
+                quantity: 1
+               }
+            
+                isInternetConnected()
+                .then(() => {
+                    dispatch(addcartRequest(obj));
+                })
+                .catch(err => {
+                    console.log(err);
+                    Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+                });
 
             // const newItems = [...data2];
 
             // console.log("Data ======= ", newItems)
-            // console.log("Data 2 ======= ", newItems[item]?.quantity)
+            // console.log("Data 2 ======= ", newItems[item].quantity)
 
-            // (newItems[item].quantity)++;
+            // newItems++ ;
 
-           
+            // const quantity1 = newItems[item].quantity
+
+            // quantity1++;
+
+            // console.log("Data ======= ", quantity1)
+            // console.log("QUANTITY ==== ", quantity1)
         
            // setData2(newItems);
 
@@ -319,25 +340,24 @@ const ShareExample = async () => {
             // console.log("Data4 ======= ", newItems[index].description)
      };
 
-        const handleQuantityDecrease = (index) => {
-            const newItems = [...data2];
+        const handleQuantityDecrease = (item) => {
+            console.log("Add cart === ", item.product_variant_id)
 
-            if (newItems[index].quantity > 1) {
-        
-            newItems[index].quantity--;
-
-        
-            setData2(newItems);
-
-            } 
-
-            console.log("Data5 ======= ", newItems)
-            console.log("Data6 ======= ", newItems[index].quantity)
-            console.log("Data7 ======= ", newItems)
-            console.log("Data8 ======= ", newItems[index].quantity)
-            console.log("Data9 ======= ", index)
-            console.log("Data10 ======= ", newItems[index].description)
+            let obj={
+                cart_id: 35,
+                product_variant_id: item.product_variant_id,
+                quantity: 1
+               }
             
+                isInternetConnected()
+                .then(() => {
+                    dispatch(addcartRequest(obj));
+                })
+                .catch(err => {
+                    console.log(err);
+                    Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+                });
+
         };
 
 
@@ -493,7 +513,7 @@ const ShareExample = async () => {
                     }}>
 
                     <TouchableOpacity onPress = {()=>{
-             handleQuantityIncrease(index)
+             handleQuantityIncrease(item)
             }}
                     
                     
@@ -1309,7 +1329,9 @@ const ShareExample = async () => {
                             }}
                         />
                     </KeyboardAvoidingView>
- {/* <Loader/>   */}
+                    <Loader visible={ProfileReducer?.status == 'Profile/cartlistingRequest'}/> 
+                    <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
+                  
                 </SafeAreaView>
                 {/* <CarouselCards3/> */}
             </Layout>

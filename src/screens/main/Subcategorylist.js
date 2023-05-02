@@ -832,6 +832,7 @@ style={{
         </SafeAreaView>
       </Layout>
       <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/> 
+      <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
     </Fragment>
 
 
