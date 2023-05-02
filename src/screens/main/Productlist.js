@@ -620,7 +620,7 @@ Breakfast & Bakery
            
            }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
 
             </View>
               

@@ -374,7 +374,7 @@ export function* addcartSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'addcart',
+      'add_cart_products',
       action.payload,
       header,
     );

@@ -190,6 +190,29 @@ const decNum = () => {
 
   ]
 
+
+  function addtocart1(item){
+  console.log("Product ID ======", item.id)
+  
+   let obj={
+    cart_id: 1,
+    product_variant_id: item.id,
+    quantity: 1
+   }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(addcartRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
+
+  
+  }
+
+
   function subcategory_listing(){
 
     let obj = {
@@ -233,7 +256,35 @@ props.navigation.navigate("Productdetails", {
 
 
 
+ if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      
+      
+          
 
+
+        
+            case 'Profile/addcartRequest':
+              status = ProfileReducer.status;
+              break;
+    
+          case 'Profile/addcartSuccess':
+              status = ProfileReducer.status;
+            //  console.log("Add cart response === ", ProfileReducer?.addcartResponse)
+              props.navigation.navigate("Cart")
+             
+             
+              break;
+    
+          case 'Profile/addcartFailure':
+    
+              status = ProfileReducer.status;
+              break;
+      
+
+       
+  }
+}
 
 
 
@@ -415,7 +466,11 @@ props.navigation.navigate("Productdetails", {
 
 
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+<TouchableOpacity 
+  //()=> props.navigation.navigate("Cart")
+   onPress={()=> addtocart1(item)
+                
+}
 
 style={{
   height: normalize(30),
@@ -691,7 +746,7 @@ style={{
            
            }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
 
             </View>
               

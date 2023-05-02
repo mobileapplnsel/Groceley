@@ -35,7 +35,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
 import { useDispatch, useSelector } from 'react-redux';
-import { productRequest, addfavouritesRequest, deletefavouritesRequest} from '../../redux/reducer/ProfileReducer'
+import { productRequest, addfavouritesRequest, deletefavouritesRequest, addcartRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productdetails(props) {
@@ -111,6 +111,25 @@ export default function Productdetails(props) {
         
         }, []);
 
+
+        function addtocart()
+      {
+       let obj={
+        cart_id: 1,
+        product_variant_id: props?.route?.params?.Product_id,
+        quantity: 1
+       }
+
+        isInternetConnected()
+        .then(() => {
+            dispatch(addcartRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+
+      }
         function top_products_listing(){
 
          
@@ -256,7 +275,22 @@ console.log("Number === ", num )
             status = ProfileReducer.status;
             break;
 
-   
+            case 'Profile/addcartRequest':
+              status = ProfileReducer.status;
+              break;
+    
+          case 'Profile/addcartSuccess':
+              status = ProfileReducer.status;
+            //  console.log("Add cart response === ", ProfileReducer?.addcartResponse)
+              
+             
+             
+              break;
+    
+          case 'Profile/addcartFailure':
+    
+              status = ProfileReducer.status;
+              break;
       
 
        
@@ -901,7 +935,12 @@ style={{
 
 
                       
-                <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")} 
+                <TouchableOpacity 
+                // onPress={
+                //   ()=> addtocart()
+               
+               
+                // } 
                 
                 style={{
                     flexDirection: 'row',
@@ -961,7 +1000,7 @@ style={{
             }}>Toping for you</Text>
 
 
-<View>
+{/* <View>
               <FlatList
                 data={data2}
                 renderItem={renderItem2}
@@ -983,7 +1022,7 @@ style={{
 
               />
 
-            </View>
+            </View> */}
 
 
             <View style={{
@@ -991,7 +1030,7 @@ style={{
             marginTop: normalize(-20)
            }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
 
             </View>
 

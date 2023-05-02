@@ -57,6 +57,7 @@ export default function Cart(props) {
     const [itemselected, setItemselected] = useState(0);
     const [isModalFilterVisible, setModalFilterVisible] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
+    const [isLoading, setLoading] = useState(true);
     const [data2, setData2] = useState(ProfileReducer?.cartlistingResponse?.respData?.cart_details);
     const dispatch = useDispatch();
     const ProfileReducer = useSelector(state => state.ProfileReducer);
@@ -66,7 +67,7 @@ export default function Cart(props) {
         
     create_cart()
     
-        
+    //setLoading(false);
     
     
     
@@ -375,7 +376,9 @@ const ShareExample = async () => {
                         
                     }}>
                         <Image
-                            source={item.pic}
+                      source={{
+                        uri: item.image
+                    }}      
                             style={{
                                 height: normalize(85),
                                 width: normalize(45),
