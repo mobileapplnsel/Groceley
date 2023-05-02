@@ -65,9 +65,11 @@ export default function Cart(props) {
     useEffect(() => {
 
         
-    create_cart()
+   // create_cart()
     
     //setLoading(false);
+
+    cart_list()
     
     
     
@@ -122,20 +124,20 @@ export default function Cart(props) {
 }])
 
    
-function create_cart(){
-    let obj ={
-        user_id : 1,
-        status: "Active"
-    }
-    isInternetConnected()
-        .then(() => {
-            dispatch(createcartRequest(obj));
-        })
-        .catch(err => {
-            console.log(err);
-            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
-        });
-}
+// function create_cart(){
+//     let obj ={
+//         user_id : 1,
+//         status: "Active"
+//     }
+//     isInternetConnected()
+//         .then(() => {
+//             dispatch(createcartRequest(obj));
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+//         });
+// }
 
 function cart_list(){
     let obj ={
@@ -298,28 +300,34 @@ const ShareExample = async () => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
-        const handleQuantityIncrease = (index) => {
-            const newItems = [...data];
+        const handleQuantityIncrease = (item,index) => {
 
-            newItems[index].quantity++;
+            // const newItems = [...data2];
+
+            // console.log("Data ======= ", newItems)
+            // console.log("Data 2 ======= ", newItems[item]?.quantity)
+
+            // (newItems[item].quantity)++;
+
+           
         
-            setData(newItems);
+           // setData2(newItems);
 
-            console.log("Data ======= ", newItems)
-            console.log("Data2 ======= ", newItems[index].quantity)
-            console.log("Data3 ======= ", index)
-            console.log("Data4 ======= ", newItems[index].description)
+            //console.log("Data ======= ", newItems)
+            // console.log("Data2 ======= ", newItems[index].quantity)
+            // console.log("Data3 ======= ", index)
+            // console.log("Data4 ======= ", newItems[index].description)
      };
 
         const handleQuantityDecrease = (index) => {
-            const newItems = [...data];
+            const newItems = [...data2];
 
             if (newItems[index].quantity > 1) {
         
             newItems[index].quantity--;
 
         
-            setData(newItems);
+            setData2(newItems);
 
             } 
 
@@ -366,7 +374,7 @@ const ShareExample = async () => {
     
     
                     <View style={{
-                        height: normalize(70),
+                        height: normalize(60),
                         width: normalize(50),
                         backgroundColor: 'white',
                         justifyContent: 'center',
@@ -377,11 +385,11 @@ const ShareExample = async () => {
                     }}>
                         <Image
                       source={{
-                        uri: item.image
+                        uri: item.product_image
                     }}      
                             style={{
-                                height: normalize(85),
-                                width: normalize(45),
+                                height: normalize(60),
+                                width: normalize(40),
                                 alignSelf: 'center',
                               
                                 
