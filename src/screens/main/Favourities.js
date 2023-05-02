@@ -35,7 +35,7 @@ import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { favouritesRequest, addfavouritesRequest, deletefavouritesRequest} from '../../redux/reducer/ProfileReducer'
+import { favouritesRequest, addfavouritesRequest, deletefavouritesRequest, addcartRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Favourites(props) {
@@ -183,7 +183,23 @@ export default function Favourites(props) {
     }, []);
 
 
+function addtocart4(item){
 
+  let obj={
+    cart_id: 32,
+    product_variant_id: item.product_id,
+    quantity: 1
+   }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(addcartRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
+}
 function favourites_list() {
   let obj ={
     
@@ -288,6 +304,22 @@ props.navigation.navigate("Productdetails")
 
           status = ProfileReducer.status;
           break;
+
+          case 'Profile/addcartRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/addcartSuccess':
+            status = ProfileReducer.status;
+            console.log("Subcategory response === ", ProfileReducer?.addcartResponse)
+            
+           props.navigation.navigate("Cart")
+            break;
+  
+        case 'Profile/addcartFailure':
+  
+            status = ProfileReducer.status;
+            break;
   
        
   }
@@ -434,7 +466,7 @@ props.navigation.navigate("Productdetails")
     
     <View>
     
-    <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+    <TouchableOpacity onPress={()=> addtocart4(item)}
     
     style={{
       height: normalize(30),
@@ -943,6 +975,7 @@ Favourities
       </Layout>
       <Loader visible={ProfileReducer?.status == 'Profile/favouritesRequest'}/> 
       <Loader visible={ProfileReducer?.status == 'Profile/deletefavouritesRequest'}/> 
+      <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
     </Fragment>
 
 

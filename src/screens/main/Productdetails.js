@@ -115,9 +115,9 @@ export default function Productdetails(props) {
         function addtocart3()
       {
        let obj={
-        cart_id: 35,
+        cart_id: 32,
         product_variant_id: props?.route?.params?.Product_id,
-        quantity: 1
+        quantity: num
        }
 
         isInternetConnected()

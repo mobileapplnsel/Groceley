@@ -304,7 +304,7 @@ const ShareExample = async () => {
              console.log("Add cart === ", item.product_variant_id)
 
             let obj={
-                cart_id: 35,
+                cart_id: 32,
                 product_variant_id: item.product_variant_id,
                 quantity: 1
                }

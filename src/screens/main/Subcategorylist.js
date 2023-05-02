@@ -195,7 +195,7 @@ const decNum = () => {
   console.log("Product ID ======", item.id)
   
    let obj={
-    cart_id: 35,
+    cart_id: 32,
     product_variant_id: item.id,
     quantity: 1
    }
