@@ -44,6 +44,8 @@ export default function Membership(props)
     const [confirmpassword, setConfirmpassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
+    const [add_member, setAdd_memeber] = useState(0);
+    const [renew_member, setRenew_memeber] = useState(0);
 
     const dispatch = useDispatch();
   const ProfileReducer = useSelector(state => state.ProfileReducer);
@@ -175,7 +177,7 @@ export default function Membership(props)
 
     function membershipdetails(){
         let obj = {
-            user_id: 11,
+            user_id: 14,
             
           }
           isInternetConnected()
@@ -190,12 +192,106 @@ export default function Membership(props)
 
     function addmember1(){
         let obj = {
-            user_id: 11,
+            user_id: 14,
             charges: 999
           }
           isInternetConnected()
               .then(() => {
                   dispatch(addmembershipRequest(obj));
+              })
+              .catch(err => {
+                  console.log(err);
+                  Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+              });
+      
+    }
+
+
+    function payment(){
+        let options = {
+            description: 'Credits towards consultation',
+            //image: 'https://i.imgur.com/3g7nmJC.jpg',
+            currency: 'INR',
+            key: 'rzp_test_0s2czqBDNUnnff',
+            amount: '99900',
+            name: 'Grocley',
+            
+          //  order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
+            prefill: {
+              email: 'gaurav.kumar@example.com',
+              contact: '9191919191',
+              name: 'Gaurav Kumar',
+              
+            },
+            
+            theme: {color: '#69BE53'}
+          }
+          RazorpayCheckout.open(options).then((data) => {
+           renewmember()
+            // handle success
+            alert(`Success: ${data.razorpay_payment_id}`);
+            
+          }).catch((error) => {
+            // handle failure
+           // alert(`Error: ${error.code} | ${error.description}`);
+           alert(`Payment gateway closed`);
+          });
+
+        //   if(add_member == 1){
+        //     addmember1()
+        //     } else if (renew_member == 1) {
+        //     renewmember()
+        //     }
+        
+    }
+
+
+    function payment1(){
+        let options = {
+            description: 'Credits towards consultation',
+            //image: 'https://i.imgur.com/3g7nmJC.jpg',
+            currency: 'INR',
+            key: 'rzp_test_0s2czqBDNUnnff',
+            amount: '99900',
+            name: 'Grocley',
+            
+          //  order_id: 'order_LbCgLUBUpL8ulJ',//Replace this with an order_id created using Orders API.
+            prefill: {
+              email: 'gaurav.kumar@example.com',
+              contact: '9191919191',
+              name: 'Gaurav Kumar',
+              
+            },
+            
+            theme: {color: '#69BE53'}
+          }
+          RazorpayCheckout.open(options).then((data) => {
+           addmember1()
+            // handle success
+            alert(`Success: ${data.razorpay_payment_id}`);
+            
+          }).catch((error) => {
+            // handle failure
+           // alert(`Error: ${error.code} | ${error.description}`);
+           alert(`Payment gateway closed`);
+          });
+
+        //   if(add_member == 1){
+        //     addmember1()
+        //     } else if (renew_member == 1) {
+        //     renewmember()
+        //     }
+        
+    }
+
+    function renewmember(){
+        let obj = {
+            user_id: 14,
+            
+          }
+          isInternetConnected()
+              .then(() => {
+                  dispatch(renewmembershipRequest(obj));
               })
               .catch(err => {
                   console.log(err);
@@ -223,9 +319,9 @@ export default function Membership(props)
             case 'Profile/addmembershipSuccess':
                 status = ProfileReducer.status;
                 console.log("Add membership response === ", ProfileReducer?.addmembershipResponse)
-                
-                Platform.OS == 'android' ? Toast('Membership charges added to the cart') : Alert.alert("'Membership charges added to the cart");
-               
+            
+                Platform.OS == 'android' ? Toast('Membership added') : Alert.alert("'Membership added");
+                membershipdetails()
                 break;
       
             case 'Profile/addmembershipFailure':
@@ -259,10 +355,10 @@ export default function Membership(props)
           
                 case 'Profile/renewmembershipSuccess':
                     status = ProfileReducer.status;
-                    console.log("Membership details response === ", ProfileReducer?.renewmembershipResponse)
+                    console.log("Renew Membership response === ", ProfileReducer?.renewmembershipResponse)
                     console.log("Status === ", ProfileReducer?.renewmembershipResponse?.respData?.[0]?.card_number)
-                   
-                 
+                    Platform.OS == 'android' ? Toast('Membership renewed') : Alert.alert("'Membership renewed");
+                    membershipdetails()
                     break;
           
                 case 'Profile/renewmembershipFailure':
@@ -616,11 +712,13 @@ export default function Membership(props)
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }>
                    
-    { ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '0' ? (
-     <Text style={{fontSize:normalize(10),
+    { ProfileReducer?.membershipdetailsResponse?.respData?.length == 0? (
+     <Text style={{fontSize:normalize(14),
         color:'grey',
         fontWeight:'400', 
-        marginTop: normalize(2)
+        marginTop: normalize(10),
+        alignSelf: 'center',
+
         }}>No card found</Text>   
     ):   <ImageBackground
           resizeMode={'contain'} // or cover
@@ -704,11 +802,11 @@ export default function Membership(props)
             <Text style={{fontSize:normalize(10),
                 color:'gray',
                 marginTop: normalize(2),
-                fontWeight:'400'}}>Last Recharge on {(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.start_time)?.toString()?.split("-")?.reverse()?.join("-")}
+                fontWeight:'400'}}>Last Recharge on {(ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.last_recharge_date)?.toString()?.split("-")?.reverse()?.join("-")}
                      </Text>
 
 
- {ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '2' ? (           <Text style={{fontSize:normalize(10),
+ {/* {ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '2' ? (           <Text style={{fontSize:normalize(10),
                 color:'red',
                 fontWeight:'400', 
                 marginTop: normalize(2)
@@ -747,10 +845,98 @@ fontFamily: FONTS.Hind,
 color: 'white'
 }}
 >
+  ADD MEMBERSHIP
+   </Text>
+   
+   </TouchableOpacity>
+   
+   )} */}
+
+
+
+
+{ProfileReducer?.membershipdetailsResponse?.respData?.[0]?.status == '2' ? (<TouchableOpacity onPress={
+    ()=> {
+     setRenew_memeber(1)
+     setAdd_memeber(0)
+     payment()
+    }}
+ style={{
+   height: normalize(35),
+   width: '80%',
+   marginTop: normalize(15),
+  
+   borderWidth: normalize(1),
+   borderRadius: normalize(20),
+   backgroundColor: '#3F3F3F',
+   borderColor: '#D3D3D3',
+   justifyContent: 'center',
+   alignItems: 'center',
+   marginLeft: normalize(20)
+ }}
+ 
+> 
+
+
+
+
+<Text style={{
+fontSize: normalize(12),           
+textAlign: 'center',
+fontFamily: FONTS.Hind,
+
+color: 'white'
+}}
+>
   RENEW MEMBERSHIP
    </Text>
    
-   </TouchableOpacity>)}
+   </TouchableOpacity>)
+: ProfileReducer?.membershipdetailsResponse?.respData?.length == 0? (
+    <TouchableOpacity onPress={()=> {
+        setRenew_memeber(0)
+        setAdd_memeber(1)
+        payment1()
+    }
+    }
+ style={{
+   height: normalize(35),
+   width: '80%',
+   marginTop: normalize(15),
+  
+   borderWidth: normalize(1),
+   borderRadius: normalize(20),
+   backgroundColor: '#3F3F3F',
+   borderColor: '#D3D3D3',
+   justifyContent: 'center',
+   alignItems: 'center',
+   marginLeft: normalize(20)
+ }}
+ 
+> 
+
+
+
+
+<Text style={{
+fontSize: normalize(12),           
+textAlign: 'center',
+fontFamily: FONTS.Hind,
+
+color: 'white'
+}}
+>
+  ADD MEMBERSHIP
+   </Text>
+   
+   </TouchableOpacity>
+)
+: (null)}
+
+
+
+
+
 
             <Text style={{fontSize:normalize(14),color:'black',fontWeight:'700',marginTop:normalize(15)}}>How Does It Work?</Text>
            
@@ -904,6 +1090,7 @@ style={{
                     </KeyboardAvoidingView>
                     <Loader visible={ProfileReducer?.status == 'Profile/addmembershipRequest'}/> 
                      <Loader visible={ProfileReducer?.status == 'Profile/membershipdetailsRequest'}/> 
+                     <Loader visible={ProfileReducer?.status == 'Profile/renewmembershipRequest'}/> 
                 </SafeAreaView>
             </Layout>
 

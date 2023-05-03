@@ -698,7 +698,7 @@ export function* renewmembershipSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'renewmembership',
+      'membership_renewal',
       action.payload,
       header,
     );
