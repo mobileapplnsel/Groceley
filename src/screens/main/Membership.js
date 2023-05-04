@@ -276,11 +276,7 @@ export default function Membership(props)
            alert(`Payment gateway closed`);
           });
 
-        //   if(add_member == 1){
-        //     addmember1()
-        //     } else if (renew_member == 1) {
-        //     renewmember()
-        //     }
+
         
     }
 

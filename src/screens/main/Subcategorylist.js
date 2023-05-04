@@ -534,7 +534,7 @@ style={{
   
         case 'Profile/addcartSuccess':
             status = ProfileReducer.status;
-            console.log("Subcategory response === ", ProfileReducer?.addcartResponse)
+            console.log("Add cart response === ", ProfileReducer?.addcartResponse)
             
            
            setData2(ProfileReducer?.addcartResponse?.respData)
@@ -746,7 +746,7 @@ style={{
            
            }}>
 
-            {/* <CarouselCards /> */}
+            <CarouselCards />
 
             </View>
               

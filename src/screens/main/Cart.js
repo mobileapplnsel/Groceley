@@ -154,6 +154,23 @@ function cart_list(){
             Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
         });
 }
+
+function delete_cart(item){
+    console.log("Cart Product Id",item.id)
+    // let obj ={
+    //     cart_product_id : item.id,
+    //     status: "Active",
+
+    // }
+    // isInternetConnected()
+    //     .then(() => {
+    //         dispatch(deletecartRequest(obj));
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //         Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    //     });
+}
       
 
 function favourite(){
@@ -264,9 +281,10 @@ const ShareExample = async () => {
       
             case 'Profile/deletecartSuccess':
                 status = ProfileReducer.status;
-                console.log("Subcategory response === ", ProfileReducer?.cartlistingResponse)
+                console.log("Cart delete response === ", ProfileReducer?.cartlistingResponse)
                 
-               
+               cart_list()
+
               // setData2(ProfileReducer?.cartlistingResponse?.respData)
                 break;
       
@@ -490,7 +508,7 @@ const ShareExample = async () => {
 
     </TouchableOpacity>   
 
-<TouchableOpacity>
+<TouchableOpacity onPress={()=>delete_cart(item)}>
     <Image
                   source={ICONS.delete}
                   style={{

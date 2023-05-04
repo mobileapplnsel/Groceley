@@ -342,7 +342,7 @@ export function* deletecartSaga(action) {
   try {
     let response = yield call(
       postApi,
-      'deletecart',
+      'delete_cart_product',
       action.payload,
       header,
     );
