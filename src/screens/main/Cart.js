@@ -65,7 +65,7 @@ export default function Cart(props) {
     useEffect(() => {
 
         
-   // create_cart()
+   //create_cart()
     
     //setLoading(false);
 
@@ -172,12 +172,13 @@ function delete_cart(item){
         });
 }
 
-function update_cart(item){
-    console.log("Cart Product Id",item.id)
+function update_cart(){
+   // console.log("Cart Product Id",item.id)
     let obj ={
-        cart_product_id : item.id,
-        
-
+        gst : ProfileReducer?.cartlistingResponse?.respData?.gst,
+        delivery: ProfileReducer?.cartlistingResponse?.respData?.delivery,
+        discount:ProfileReducer?.cartlistingResponse?.respData?.discount,
+        user_id: 1
     }
     isInternetConnected()
         .then(() => {
@@ -277,10 +278,14 @@ const ShareExample = async () => {
   
         case 'Profile/cartlistingSuccess':
             status = ProfileReducer.status;
+
            // console.log("Cartlisting response === ", ProfileReducer?.cartlistingResponse?respData?.cart_details);
         console.log("Cartlisting response === ",ProfileReducer?.cartlistingResponse?.respData?.cart_details)
            
         setData2(ProfileReducer?.cartlistingResponse?.respData?.cart_details)
+
+
+        update_cart()
 
             break;
   
@@ -866,7 +871,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}340</Text>
+                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.total}</Text>
                </View>
 
 
@@ -887,7 +892,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}61</Text>
+                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.gst}</Text>
                </View>
 
                <View style={{
@@ -905,9 +910,30 @@ const ShareExample = async () => {
                  <Text style={{
                     fontFamily: FONTS.Hind,
                     fontSize: normalize(12),
-                    color: '#69BE53',
+                    color: 'black',
                     marginRight: normalize(30)
-                }}>FREE</Text>
+                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.delivery}</Text>
+               </View>
+
+
+               <View style={{
+                flexDirection: 'row',
+                marginTop: normalize(10),
+                marginLeft: normalize(30),
+                justifyContent: 'space-between',
+                alignItems: 'center'
+               }}>
+                <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black'
+                }}>Discount</Text>
+                 <Text style={{
+                    fontFamily: FONTS.Hind,
+                    fontSize: normalize(12),
+                    color: 'black',
+                    marginRight: normalize(30)
+                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.discount}</Text>
                </View>
 
               <View style={{
@@ -1367,6 +1393,7 @@ const ShareExample = async () => {
                     <Loader visible={ProfileReducer?.status == 'Profile/deletecartRequest'}/> 
                     <Loader visible={ProfileReducer?.status == 'Profile/cartlistingRequest'}/> 
                     <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
+                    <Loader visible={ProfileReducer?.status == 'Profile/updatecartRequest'}/>
                   
                 </SafeAreaView>
                 {/* <CarouselCards3/> */}
