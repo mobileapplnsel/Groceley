@@ -35,7 +35,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
-import {addcartRequest, cartlistingRequest, deletecartRequest, createcartRequest} from '../../redux/reducer/ProfileReducer';
+import {addcartRequest, cartlistingRequest, deletecartRequest, createcartRequest, updatecartRequest} from '../../redux/reducer/ProfileReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from "react-native-modal";
 
@@ -157,19 +157,36 @@ function cart_list(){
 
 function delete_cart(item){
     console.log("Cart Product Id",item.id)
-    // let obj ={
-    //     cart_product_id : item.id,
-    //     status: "Active",
+    let obj ={
+        cart_product_id : item.id,
+        
 
-    // }
-    // isInternetConnected()
-    //     .then(() => {
-    //         dispatch(deletecartRequest(obj));
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //         Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
-    //     });
+    }
+    isInternetConnected()
+        .then(() => {
+            dispatch(deletecartRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+}
+
+function update_cart(item){
+    console.log("Cart Product Id",item.id)
+    let obj ={
+        cart_product_id : item.id,
+        
+
+    }
+    isInternetConnected()
+        .then(() => {
+            dispatch(updatecartRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
 }
       
 
@@ -1347,6 +1364,7 @@ const ShareExample = async () => {
                             }}
                         />
                     </KeyboardAvoidingView>
+                    <Loader visible={ProfileReducer?.status == 'Profile/deletecartRequest'}/> 
                     <Loader visible={ProfileReducer?.status == 'Profile/cartlistingRequest'}/> 
                     <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
                   

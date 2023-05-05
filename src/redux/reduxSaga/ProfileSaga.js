@@ -40,6 +40,9 @@ import ProfileReducer, {
   createcartSuccess,
   createcartFailure,
 
+  updatecartSuccess,
+  updatecartFailure,
+
   orderlistSuccess,
   orderlistFailure,
 
@@ -425,6 +428,37 @@ export function* createcartSaga(action) {
 }
 
 
+
+export function* updatecartSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'update_cart',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(updatecartSuccess(response.data));
+     
+      
+    } else {
+      yield put(updatecartFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(updatecartFailure(error));
+  }
+}
+
+
 export function* orderlistSaga(action) {
   const header = {
     Accept: 'application/json',
@@ -799,6 +833,10 @@ const watchFunction = [
 
   (function* () {
     yield takeLatest('Profile/createcartRequest',  createcartSaga);
+  })(),
+
+  (function* () {
+    yield takeLatest('Profile/updatecartRequest',  updatecartSaga);
   })(),
 
   (function* () {

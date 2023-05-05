@@ -19,6 +19,7 @@ const initialState = {
   deletecartResponse: {},
   addcartResponse: {},
   createcartResponse:{},
+  updatecartResponse:{},
 
 
   orderlistResponse: {},
@@ -204,6 +205,25 @@ const ProfileSlice = createSlice({
             state.error = action.payload;
             state.status = action.type;
           },
+
+
+
+          //Update cart
+
+          updatecartRequest(state, action) {
+            state.status = action.type;
+          },
+          updatecartSuccess(state, action) {
+            state.updatecartResponse = action.payload;
+            state.status = action.type;
+          },
+          updatecartFailure(state, action) {
+            state.error = action.payload;
+            state.status = action.type;
+          },
+
+
+
 
     //Order list
 
@@ -440,6 +460,10 @@ export const {
   addcartSuccess,
   addcartFailure,
 
+  
+  updatecartRequest,
+  updatecartSuccess,
+  updatecartFailure,
 
   walletRequest,
   walletSuccess,
