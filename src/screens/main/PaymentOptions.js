@@ -665,7 +665,32 @@ marginTop: normalize(5),
 
    </TouchableOpacity>
 
-
+   <TouchableOpacity onPress = {() => props.navigation.navigate("Orderlist")}
+          style={{
+            height: normalize(40),
+            width: '90%',
+            marginTop: normalize(10),
+            alignSelf: 'center',
+            borderWidth: normalize(1),
+            borderRadius: normalize(15),
+            backgroundColor: 'white',
+            borderColor: '#69BE53'
+          }}
+          
+        > 
+        
+        <Text style={{
+        fontSize: normalize(12),           
+        textAlign: 'center',
+        fontFamily: FONTS.Hind,
+        marginTop: normalize(10),
+        color: 'black'
+    }}
+        >
+         Cash on Delivery
+            </Text>
+            
+            </TouchableOpacity>
 
             <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
           style={{
