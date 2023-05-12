@@ -20,7 +20,7 @@ const initialState = {
   addcartResponse: {},
   createcartResponse:{},
   updatecartResponse:{},
-
+  removecartResponse: {},
 
   orderlistResponse: {},
   addDeliveryResponse: {},
@@ -222,6 +222,21 @@ const ProfileSlice = createSlice({
             state.status = action.type;
           },
 
+
+
+          //Remove cart
+
+          removecartRequest(state, action) {
+            state.status = action.type;
+          },
+          removecartSuccess(state, action) {
+            state.removecartResponse = action.payload;
+            state.status = action.type;
+          },
+          removecartFailure(state, action) {
+            state.error = action.payload;
+            state.status = action.type;
+          },
 
 
 
@@ -464,6 +479,10 @@ export const {
   updatecartRequest,
   updatecartSuccess,
   updatecartFailure,
+
+  removecartRequest,
+  removecartSuccess,
+  removecartFailure,
 
   walletRequest,
   walletSuccess,

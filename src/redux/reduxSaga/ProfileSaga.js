@@ -43,6 +43,9 @@ import ProfileReducer, {
   updatecartSuccess,
   updatecartFailure,
 
+  removecartSuccess,
+  removecartFailure,
+
   orderlistSuccess,
   orderlistFailure,
 
@@ -459,6 +462,36 @@ export function* updatecartSaga(action) {
 }
 
 
+export function* removecartSaga(action) {
+  const header = {
+    Accept: 'application/json',
+    contenttype: 'application/json',
+   // authorization: constants.Token
+  };
+  try {
+    let response = yield call(
+      postApi,
+      'delete_product_frm_cart',
+      action.payload,
+      header,
+    );
+    console.log('Data==', response);
+    
+    if (response.status == 200) {
+      yield put(removecartSuccess(response.data));
+     
+      
+    } else {
+      yield put(removecartFailure(response.data));
+      
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(removecartFailure(error));
+  }
+}
+
+
 export function* orderlistSaga(action) {
   const header = {
     Accept: 'application/json',
@@ -837,6 +870,11 @@ const watchFunction = [
 
   (function* () {
     yield takeLatest('Profile/updatecartRequest',  updatecartSaga);
+  })(),
+
+
+  (function* () {
+    yield takeLatest('Profile/removecartRequest',  removecartSaga);
   })(),
 
   (function* () {

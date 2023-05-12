@@ -35,7 +35,7 @@ import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import CarouselCards3 from '../../components/CarouselCards3'
 import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
-import {addcartRequest, cartlistingRequest, deletecartRequest, createcartRequest, updatecartRequest} from '../../redux/reducer/ProfileReducer';
+import {addcartRequest, cartlistingRequest, deletecartRequest, createcartRequest, updatecartRequest, removecartRequest} from '../../redux/reducer/ProfileReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from "react-native-modal";
 
@@ -156,7 +156,8 @@ function cart_list(){
 }
 
 function delete_cart(item){
-    console.log("Cart Product Id",item.id)
+    console.log("Cart Product Id ==== ",item.id)
+
     let obj ={
         cart_product_id : item.id,
         
@@ -314,6 +315,24 @@ const ShareExample = async () => {
       
                 status = ProfileReducer.status;
                 break;
+
+
+                case 'Profile/removecartRequest':
+                status = ProfileReducer.status;
+                break;
+      
+            case 'Profile/removecartSuccess':
+                status = ProfileReducer.status;
+                
+               cart_list()
+
+              // setData2(ProfileReducer?.cartlistingResponse?.respData)
+                break;
+      
+            case 'Profile/removecartFailure':
+      
+                status = ProfileReducer.status;
+                break;
         
                 case 'Profile/createcartRequest':
                     status = ProfileReducer.status;
@@ -384,14 +403,14 @@ const ShareExample = async () => {
             console.log("Add cart === ", item.product_variant_id)
 
             let obj={
-                cart_id: 35,
-                product_variant_id: item.product_variant_id,
-                quantity: 1
+                
+                cart_product_id: item.id,
+                
                }
             
                 isInternetConnected()
                 .then(() => {
-                    dispatch(addcartRequest(obj));
+                    dispatch(removecartRequest(obj));
                 })
                 .catch(err => {
                     console.log(err);
@@ -576,7 +595,7 @@ const ShareExample = async () => {
                     </TouchableOpacity>
                     <TouchableOpacity 
                     onPress = {()=>{
-                      handleQuantityDecrease(index)
+                      handleQuantityDecrease(item)
                     }}
                     
                     style={{
@@ -871,7 +890,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.total}</Text>
+                }}>{'\u20B9'}{ProfileReducer?.updatecartResponse?.respData?.subtotal}</Text>
                </View>
 
 
@@ -892,7 +911,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.gst}</Text>
+                }}>{'\u20B9'}{ProfileReducer?.updatecartResponse?.respData?.gst}</Text>
                </View>
 
                <View style={{
@@ -912,7 +931,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.delivery}</Text>
+                }}>{'\u20B9'}{ProfileReducer?.updatecartResponse?.respData?.delivery}</Text>
                </View>
 
 
@@ -933,7 +952,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}{ProfileReducer?.cartlistingResponse?.respData?.discount}</Text>
+                }}>{'\u20B9'}{ProfileReducer?.updatecartResponse?.respData?.discount}</Text>
                </View>
 
               <View style={{
@@ -1058,7 +1077,7 @@ const ShareExample = async () => {
                     fontSize: normalize(12),
                     color: 'black',
                     marginRight: normalize(30)
-                }}>{'\u20B9'}401</Text>
+                }}>{'\u20B9'}{ProfileReducer?.updatecartResponse?.respData?.total}</Text>
                </View>
 
 
@@ -1394,6 +1413,7 @@ const ShareExample = async () => {
                     <Loader visible={ProfileReducer?.status == 'Profile/cartlistingRequest'}/> 
                     <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
                     <Loader visible={ProfileReducer?.status == 'Profile/updatecartRequest'}/>
+                    <Loader visible={ProfileReducer?.status == 'Profile/removecartRequest'}/>
                   
                 </SafeAreaView>
                 {/* <CarouselCards3/> */}
