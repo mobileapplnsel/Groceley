@@ -14,7 +14,8 @@ import {
     Alert,
     TextInput,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -32,7 +33,9 @@ import constants from '../../utils/helpers/constants';
 import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
-import { tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import { needsOffscreenAlphaCompositing, tintColor } from 'deprecated-react-native-prop-types/DeprecatedImagePropType';
+import { useDispatch, useSelector } from 'react-redux';
+import { productRequest, addfavouritesRequest, deletefavouritesRequest, addcartRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productdetails(props) {
@@ -48,11 +51,23 @@ export default function Productdetails(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
+    const [refreshing, setRefreshing] = useState(false);
+    const [num, setNum] = useState(0);
+    const [totalprice, setTotalprice] = useState(0);
+    const [data2, setData2] = useState(false);
 
+    const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
 
-
-
-
+   console.log("Discounted price === ", props?.route?.params?.price)
+   console.log("Front page 2 === ", props?.route?.params?.Front_image)
+   console.log("Back page 2 === ", props?.route?.params?.Back_image)
+   console.log("Side page 2 === ", props?.route?.params?.Side_image)
+   console.log("Expiry date 2 === ", props?.route?.params?.Expiry_date)
+   console.log("Manufactured by 2 === ", props?.route?.params?.Manufactured_by)
+   console.log("Name 2 === ", props?.route?.params?.Name)
+   console.log("Description 2 === ", props?.route?.params?.Description)
+   console.log("Product Id === ", props?.route?.params?.Product_id)
 
     const DATA = [{
         id: "0",
@@ -73,7 +88,7 @@ export default function Productdetails(props) {
 {
     id: "2",
         
-        pic: ICONS.cornflakes2,
+    pic: ICONS.cornflakes2,
         
 
     },
@@ -81,69 +96,206 @@ export default function Productdetails(props) {
 
     ]
 
-    const DATA2 = [{
-        id: "0",
-        pic: ICONS.bread,
-        description: "Hovis Farmhouse Wholemeal",
-        quantity: '400g',
-        discounted_price: '90',
-        real_price: '80'
-      },
-    
-      {
-        id: "1",
-        pic: ICONS.milk,
-        description: "Hovis Farmhouse Wholemeal",
-        quantity: '450g',
-        discounted_price: '50',
-        real_price: '40'
-      },
-    
-      {
-        id: "2",
-        pic: ICONS.cornflakes,
-        description: "Amul Moti Homogenized Toned Milk",
-        quantity: '400g',
-        discounted_price: '70',
-        real_price: '50'
-      },
-    
-      {
-        id: "3",
-        
-        pic: ICONS.cornflakes2,
-        description: "Kellogg's Corn Flakes Cereal",
-        quantity: '400g',
-        discounted_price: '90',
-        real_price: '80'
-      }
-    
-    
-      ]
+   
+   
+      useEffect(() => {
 
+        
+        console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+            
+        top_products_listing()
+        
+            
+        
+        
+        
+        }, []);
+
+
+        function addtocart3()
+      {
+       let obj={
+        cart_id: 32,
+        product_variant_id: props?.route?.params?.Product_id,
+        quantity: num
+       }
+
+        isInternetConnected()
+        .then(() => {
+            dispatch(addcartRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+
+      }
+        function top_products_listing(){
+
+         
+          isInternetConnected()
+              .then(() => {
+                  dispatch(productRequest());
+              })
+              .catch(err => {
+                  console.log(err);
+                  Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+              });
       
+        }
+      
+      const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+          setRefreshing(false);
+        }, 2000);
+      }, []);
 
 function favourite(){
     setItemselected(1)
+    let obj ={
+      product_id: props?.route?.params?.Product_id,
+      user_id: 1,
+      status: 1,
+
+    }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(addfavouritesRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
 }
 
 function favourite1(){
     setItemselected(0)
+    let obj ={
+      product_id: props?.route?.params?.Product_id,
+      user_id: 1,
+      status: 0,
+
+    }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(deletefavouritesRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
 }
       
 
+const incNum = () => {
+  setNum(num + 1)
+ 
+}
 
 
+const decNum = () => {
+  if(num > 0) {
+  setNum(num - 1)
+  
+  } else {
+    setNum(0)
+  }
+}        
 
-        
-    
+console.log("Number === ", num )
+  
+
+
 
  function selectItem(item){
-    props.navigation.navigate("Productdetails")
+    props.navigation.navigate("Home")
  }
 
 
+ if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      case 'Profile/productRequest':
+          status = ProfileReducer.status;
+          break;
 
+      case 'Profile/productSuccess':
+          status = ProfileReducer.status;
+          console.log("Top product list response === ", ProfileReducer?.productResponse?.respData)
+          
+         // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+         setData2(ProfileReducer?.productResponse?.respData)
+          break;
+
+      case 'Profile/productFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+      
+          case 'Profile/addfavouritesRequest':
+          status = ProfileReducer.status;
+          break;
+
+
+          
+
+      case 'Profile/addfavouritesSuccess':
+          status = ProfileReducer.status;
+          console.log("Add Favourites response === ", ProfileReducer?.addfavouritesResponse)
+          
+        
+          break;
+
+      case 'Profile/addfavouritesFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+
+
+          case 'Profile/deletefavouritesRequest':
+            status = ProfileReducer.status;
+            break;
+  
+  
+            
+  
+        case 'Profile/deletefavouritesSuccess':
+            status = ProfileReducer.status;
+            console.log("Delete Favourites response === ", ProfileReducer?.deletefavouritesResponse)
+            
+           
+            break;
+  
+        case 'Profile/deletefavouritesFailure':
+  
+            status = ProfileReducer.status;
+            break;
+
+            case 'Profile/addcartRequest':
+              status = ProfileReducer.status;
+              break;
+    
+          case 'Profile/addcartSuccess':
+              status = ProfileReducer.status;
+            //  console.log("Add cart response === ", ProfileReducer?.addcartResponse)
+              
+             
+             
+              break;
+    
+          case 'Profile/addcartFailure':
+    
+              status = ProfileReducer.status;
+              break;
+      
+
+       
+  }
+}
 
 
 
@@ -202,13 +354,17 @@ function favourite1(){
             
             <View >
             <Image
-                      source={item.pic}
+                       source={{
+                        uri: item.image
+      
+      
+                    }}
                       style={{
                         height: normalize(60),
                         width: normalize(60),
                         alignSelf: 'center',
                         marginTop: normalize(5),
-                        //marginLeft: normalize(20)
+                        
                       }}
                       resizeMode={'contain'}
                     ></Image>
@@ -224,7 +380,7 @@ function favourite1(){
               marginTop: normalize(5),
               alignSelf: 'flex-start'
             }}
-          >{item.description}
+          >{item.name}
           </Text>
     
     
@@ -236,7 +392,7 @@ function favourite1(){
               marginTop: normalize(5),
               alignSelf: 'flex-start'
                     }}
-          >{item.quantity}
+          >{item.qty} packet
           </Text>
     
         <View style={{
@@ -253,7 +409,7 @@ function favourite1(){
               
               
                     }}
-          >{'\u20B9'} {item.discounted_price}
+          >{'\u20B9'} {item.price}
           </Text>
         <View style={{
       height: normalize(1),
@@ -278,7 +434,7 @@ function favourite1(){
               fontWeight: '600'
               
                     }}
-          >{'\u20B9'} {item.real_price}
+          >{'\u20B9'} {item.discount_amount}
           </Text>
           </View>
     
@@ -295,7 +451,7 @@ function favourite1(){
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: normalize(5),
-      marginLeft: normalize(30),
+      marginLeft: normalize(10),
       marginEnd: normalize(10),
       marginTop: normalize(-10)
     }}>
@@ -354,7 +510,12 @@ function favourite1(){
 
 
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false}
+                        
+                        refreshControl={
+                            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                          }
+                        >
 
 
 
@@ -373,7 +534,7 @@ function favourite1(){
     flexDirection: 'row',
     justifyContent: 'space-between'
 }}>
-      <TouchableOpacity onPress={()=>props.navigation.goBack()}
+      <TouchableOpacity onPress={()=>props.navigation.navigate("Home")}
                                     style={{
                                         height: normalize(30),
                                         width: normalize(30),
@@ -387,8 +548,8 @@ function favourite1(){
                                     
                                     />
    
-   {/* <Image
-                                        source={ICONS.left_arrow}
+   <Image
+                                        source={ICONS.previous}
                                         style={{
                                             height: normalize(15),
                                             width: normalize(15),
@@ -401,7 +562,7 @@ function favourite1(){
                                         }}
                                         resizeMode={'contain'}
                                         tintColor= {'black'}
-                                    ></Image> */}
+                                    ></Image>
 
 
                                     
@@ -481,25 +642,16 @@ function favourite1(){
 
                                     )}
 
+                                   
+
 
 </View>
 
 
                                     
-                                    {/* <Image
-                                        source={ICONS.cornflakes}
-                                        style={{
-                                            height: normalize(160),
-                                            width: normalize(140),
-                                            alignSelf: 'center',
-                                            
-                                            marginLeft: normalize(10),
-                                            borderRadius: normalize(25)
-                                        }}
-                                        resizeMode={'contain'}
-                                    ></Image> */}
+                                    
                                     <View>
-              <FlatList
+              {/* <FlatList
                 data={DATA}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
@@ -518,7 +670,70 @@ function favourite1(){
                 }}
 
 
-              />
+              /> */}
+
+
+
+
+<ScrollView horizontal={true} showsHorizontalScrollIndicator={false} 
+style={{
+  marginTop: normalize(10)
+
+}}>
+
+<Image
+                  source={{
+                    uri: props?.route?.params?.Front_image
+                  }}
+                  style={{
+                    height: normalize(140),
+                    width: normalize(150),
+                    marginLeft: normalize(10),
+                    borderRadius: normalize(15)
+                  }}
+                  resizeMode={'cover'}
+                  
+                ></Image>
+
+
+<Image
+                  source={{
+                    uri: props?.route?.params?.Back_image
+                  }}
+                  style={{
+                    height: normalize(140),
+                    width: normalize(150),
+                    marginLeft: normalize(10),
+                    borderRadius: normalize(15)
+                  }}
+                  resizeMode={'cover'}
+                  
+                ></Image>
+
+
+<Image
+                  source={{
+                    uri: props?.route?.params?.Side_image
+                  }}
+                  style={{
+                    height: normalize(140),
+                    width: normalize(150),
+                    borderRadius: normalize(15),
+                    marginLeft: normalize(10)
+                  }}
+                  resizeMode={'cover'}
+                  
+                ></Image>
+
+
+</ScrollView>
+
+
+
+
+       
+
+
 
             </View>
 
@@ -545,15 +760,25 @@ function favourite1(){
                                         right: 10
 
                                     }}>
- <Text
+                                      <TouchableOpacity onPress={()=> decNum()}
+                                      style={{
+                                        height: normalize(20),
+                                        width: '25%',
+                                        
+                                        alignSelf: 'center'
+                                      }}
+                                      >
+ <Text 
                                         style={{
                                             fontSize: normalize(12),
-                                            
-                                            color: 'white'
+                                            textAlign: 'center',
+                                            color: 'white',
+                                            marginTop: normalize(1)
                                         }}
                                         >
                                             -
                                         </Text>
+                                        </TouchableOpacity>
 
                                         <Text
                                         style={{
@@ -562,19 +787,29 @@ function favourite1(){
                                             color: 'white'
                                         }}
                                         >
-                                            02
+                                          {num}
                                         </Text>
+
+
+                                        <TouchableOpacity onPress={()=> incNum()}
+                                      style={{
+                                        height: normalize(20),
+                                        width: '25%',
+                                        
+                                        alignSelf: 'center'
+                                      }}
+                                      >
 
                                         <Text
                                         style={{
                                             fontSize: normalize(12),
-                                            
+                                            textAlign: 'center',
                                             color: 'white'
                                         }}
                                         >
                                             +
                                         </Text>
-
+                                        </TouchableOpacity>
                                     </View>
                                 </View>
 
@@ -595,7 +830,7 @@ function favourite1(){
                                         textAlign: 'left',
 
                                     }}
-                                >Kellogg's Muesli Cereal Crunchy Nut, cereals & fruits
+                                >{props?.route?.params?.Name}
                                 </Text>
 
 
@@ -611,7 +846,7 @@ style={{
                                            fontStyle: FONTS.Hind
 }}
 
->Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum diam neque, sed vehicula turpis vestibulum quis.</Text>
+>{props?.route?.params?.Description}</Text>
                             </View>
 
                             <View style={{
@@ -642,7 +877,7 @@ style={{
                                            fontStyle: FONTS.Hind,
                                           
                                            fontWeight: '700'
-}}>ABC Company</Text>
+}}>{props?.route?.params?.Manufactured_by}</Text>
 
 </View>           
 
@@ -676,7 +911,7 @@ style={{
                                            fontStyle: FONTS.Hind,
                                           
                                            fontWeight: '700'
-}}>15/04/2023</Text>
+}}>{(props?.route?.params?.Expiry_date)?.split("-")?.reverse()?.join("-")}</Text>
 
 </View>           
 
@@ -687,7 +922,7 @@ style={{
                             fontSize: normalize(10),
                             marginLeft: normalize(20),
                             marginTop: normalize(10)
-                        }}> TOTAL PRICE</Text>
+                        }}> PRICE PER ITEM</Text>
      <Text style={{
                             fontFamily: FONTS.Hind,
                             color: 'black',
@@ -695,12 +930,17 @@ style={{
                             marginLeft: normalize(25),
                             fontWeight: '700',
                             marginTop: normalize(5)
-                        }}>{'\u20B9'}160</Text>
+                        }}>{'\u20B9'}{props?.route?.params?.price}</Text>
 
 
 
                       
-                <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")} 
+                <TouchableOpacity 
+                onPress={
+                  addtocart3
+               
+               
+                } 
                 
                 style={{
                     flexDirection: 'row',
@@ -760,9 +1000,9 @@ style={{
             }}>Toping for you</Text>
 
 
-<View>
+{/* <View>
               <FlatList
-                data={DATA2}
+                data={data2}
                 renderItem={renderItem2}
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
@@ -782,7 +1022,7 @@ style={{
 
               />
 
-            </View>
+            </View> */}
 
 
             <View style={{
@@ -790,7 +1030,7 @@ style={{
             marginTop: normalize(-20)
            }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
 
             </View>
 
@@ -819,10 +1059,13 @@ style={{
                             }}
                         />
                     </KeyboardAvoidingView>
-
+                    {/* <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/> */}
                 </SafeAreaView>
             </Layout>
-
+            <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/>
+            <Loader visible={ProfileReducer?.status == 'Profile/addfavouritesRequest'}/>
+            <Loader visible={ProfileReducer?.status == 'Profile/deletefavouritesRequest'}/>
+            
         </Fragment>
 
 

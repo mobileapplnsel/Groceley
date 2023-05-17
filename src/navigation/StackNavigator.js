@@ -25,13 +25,26 @@ import Helpandsupport from '../screens/main/Helpandsupport';
 import Recipe from '../screens/main/Recipe';
 import Wallet from '../screens/main/Wallet';
 import Recipe_list from '../screens/main/Recipe_list';
-import Filters from '../screens/main/Filters';
-import Subcategorylist from '../screens/main/Subcategorylist';
+import Orderdetails2 from '../screens/main/Orderdetails2';
+import Favourities from '../screens/main/Favourities';
 import Add_delivery_address from '../screens/main/Add_delivery_address';
+import Select_delivery_address from '../screens/main/Select_delivery_address';
+import Subcategorylist from '../screens/main/Subcategorylist';
+import Add_delivery_instructions from '../screens/main/Add_delivery_instructions';
+import Filter from '../screens/main/Filter';
+import Coupon from '../screens/main/Coupon';
+import PaymentOptions from '../screens/main/PaymentOptions';
 import EditAddressPage from '../screens/main/EditAddressPage';
 import MultipleAddress from '../screens/main/MultipleAddress';
-import PaymentOptions from '../screens/main/PaymentOptions';
+import Membership from '../screens/main/Membership';
+import DepositCoinsPage from '../screens/main/DepositCoinsPage';
 import Transaction_history from '../screens/main/Transaction_history';
+import Promotion from '../screens/main/Promotion';
+import ReferAndEarn from '../screens/main/ReferAndEarn';
+import Edit_Delivery_Instructions from '../screens/main/Edit_Delivery_Instructions';
+import Leaderboard from '../screens/main/Leaderboard';
+import VerifyOTP from '../screens/main/VerifyOTP';
+import RazorpayCheckout2 from '../screens/main/RazorpayCheckout2';
 
 
 
@@ -73,8 +86,27 @@ export default function StackNavigator() {
         Recipe: Recipe,
         Wallet: Wallet,
         Recipe_list: Recipe_list,
-        Filters: Filters,
+        Orderdetails2: Orderdetails2,
+        Favourities : Favourities,
+        Add_delivery_address: Add_delivery_address,
+        Filter: Filter,
+        Select_delivery_address: Select_delivery_address,
         Subcategorylist: Subcategorylist,
+        Add_delivery_instructions : Add_delivery_instructions,
+        Coupon: Coupon,
+        PaymentOptions: PaymentOptions,
+        EditAddressPage : EditAddressPage,
+        MultipleAddress: MultipleAddress,
+        Membership: Membership,
+        PaymentOptions: PaymentOptions,
+        DepositCoinsPage: DepositCoinsPage,
+        Transaction_history: Transaction_history,
+        Promotion: Promotion,
+        ReferAndEarn: ReferAndEarn,
+        Edit_Delivery_Instructions: Edit_Delivery_Instructions,
+        Leaderboard : Leaderboard,
+        VerifyOTP: VerifyOTP,
+        RazorpayCheckout2: RazorpayCheckout2
       }
      
 

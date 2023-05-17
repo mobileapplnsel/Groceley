@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: "com.google.gms.google-services"
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -135,7 +136,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.hrms"
+        applicationId "com.grocley"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -161,15 +162,13 @@ android {
         }
     }
 
-     packagingOptions {
+
+  packagingOptions {
     pickFirst 'lib/x86/libc++_shared.so'
     pickFirst 'lib/x86_64/libc++_shared.so'
     pickFirst 'lib/armeabi-v7a/libc++_shared.so'
     pickFirst 'lib/arm64-v8a/libc++_shared.so'
    }
-
-   
-
     if (isNewArchitectureEnabled()) {
         // We configure the NDK build only if you decide to opt-in for the New Architecture.
         externalNativeBuild {
@@ -260,10 +259,13 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation project(':react-native-razorpay')
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
+    implementation 'com.google.firebase:firebase-analytics'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

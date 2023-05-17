@@ -32,21 +32,47 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { productRequest, addcartRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Subcategorylist(props) {
 
-
+  const [subcategory, setSubcategory] = useState(props?.route?.params?.subcategoryid);
   const [name, setName] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [emailaddress, setEmailaddress] = useState('');
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [data2, setData2] = useState(false);
+  const [num, setNum] = useState(0);
+  const [subcategoryid, setSubcategoryid] = useState(props?.route?.params?.subcategoryid);
+
+  const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
+
+  useEffect(() => {
+
+        
+console.log("Sub category id === ", props?.route?.params?.subcategoryid)
+console.log("Name === ", props?.route?.params?.name)
+    
+subcategory_listing()
+
+    
 
 
 
+}, []);
+
+const incNum = () => {
+  setNum(num + 1)
+}
+
+const decNum = () => {
+  setNum(num - 1)
+}
 
 
   const DATA = [{
@@ -92,7 +118,7 @@ export default function Subcategorylist(props) {
 
   {
     id: "1",
-    pic: ICONS.ryebread,
+    pic: ICONS.moreishbread,
     description: "Rye Bread Slicemeal",
     quantity: '450g',
     discounted_price: '50',
@@ -165,16 +191,100 @@ export default function Subcategorylist(props) {
   ]
 
 
+  function addtocart1(item){
+  console.log("Product ID ======", item.id)
+  
+   let obj={
+    cart_id: 32,
+    product_variant_id: item.id,
+    quantity: 1
+   }
+
+    isInternetConnected()
+    .then(() => {
+        dispatch(addcartRequest(obj));
+    })
+    .catch(err => {
+        console.log(err);
+        Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+    });
+
+  
+  }
+
+
+  function subcategory_listing(){
+
+    let obj = {
+      sub_category_id: subcategoryid,
+    }
+    isInternetConnected()
+        .then(() => {
+            dispatch(productRequest(obj));
+        })
+        .catch(err => {
+            console.log(err);
+            Platform.OS == 'android' ? Toast('Please connect to internet') : Alert.alert("Please connect to internet");
+        });
+
+  }
+
+
 
 
  function selectItem(item){
-  
-props.navigation.navigate("Productdetails")
+console.log("Price === ", item.discount_amount)
+console.log("Front image === ", item.image)
+console.log("Back image === ", item.back_image)
+console.log("Side image === ", item.side_image)
+console.log("Description === ", item.description)
+console.log("Expiry date=== ", item.expiry_date)
+console.log("Expiry date=== ", item.name)
+
+props.navigation.navigate("Productdetails", {
+  price: item.discount_amount,
+  Front_image: item.image,
+  Back_image: item.back_image,
+  Side_image: item.side_image,
+  Manufactured_by: item.manufacture_by,
+  Expiry_date: item.expiry_date,
+  Name: item.name,
+  Description: item.description,
+  Product_id: item.id
+})
  }
 
 
 
+ if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      
+      
+          
 
+
+        
+            case 'Profile/addcartRequest':
+              status = ProfileReducer.status;
+              break;
+    
+          case 'Profile/addcartSuccess':
+              status = ProfileReducer.status;
+            //  console.log("Add cart response === ", ProfileReducer?.addcartResponse)
+              props.navigation.navigate("Cart")
+             
+             
+              break;
+    
+          case 'Profile/addcartFailure':
+    
+              status = ProfileReducer.status;
+              break;
+      
+
+       
+  }
+}
 
 
 
@@ -237,10 +347,10 @@ props.navigation.navigate("Productdetails")
 
   const renderItem2 = ({ item, index }) => (
     <TouchableOpacity
-      onPress={(item) => selectItem(item)}
+      onPress={() => selectItem(item)}
       style={{
 
-        height: normalize(195),
+        height: normalize(220),
         width: normalize(140),
         backgroundColor: '#F0F0F0' ,
        
@@ -251,7 +361,9 @@ props.navigation.navigate("Productdetails")
         marginBottom: normalize(10)
       }}>
         
-       {item.discountrate !== '0' ? ( <View style={{
+       {/* {item.discountrate !== '0' ? (  */}
+       
+       <View style={{
             height: normalize(20),
             width: normalize(50),
             backgroundColor: '#F36E35',
@@ -266,15 +378,19 @@ props.navigation.navigate("Productdetails")
                 color: 'white',
                 fontSize: normalize(10)
 
-            }}>{item.discountrate} OFF</Text>
+            }}>{item.discount}% OFF</Text>
         </View>
-       ) : (null)}
+       {/* ) : (null)} */}
        
         <Image
-                  source={item.pic}
+                 source={{
+                  uri: item.image
+
+
+              }}
                   style={{
-                    height: normalize(60),
-                    width: normalize(60),
+                    height: normalize(80),
+                    width: normalize(80),
                     marginTop: normalize(5),
                     
                   }}
@@ -290,7 +406,7 @@ props.navigation.navigate("Productdetails")
           marginTop: normalize(5),
           alignSelf: 'flex-start'
         }}
-      >{item.description}
+      >{item.name}
       </Text>
 
 
@@ -302,7 +418,7 @@ props.navigation.navigate("Productdetails")
           marginTop: normalize(5),
           alignSelf: 'flex-start'
                 }}
-      >{item.quantity}
+      >{item.qty} packet
       </Text>
 
     <View style={{
@@ -319,7 +435,7 @@ props.navigation.navigate("Productdetails")
           
           
                 }}
-      >{'\u20B9'} {item.discounted_price}
+      >{'\u20B9'} {item.price}
       </Text>
     <View style={{
   height: normalize(1),
@@ -333,7 +449,7 @@ props.navigation.navigate("Productdetails")
      <View style={{
   flexDirection: 'row',
  justifyContent: 'center',
-  marginLeft: normalize(-10),
+  marginLeft: normalize(10),
 }}>
   <View>
       <Text
@@ -344,13 +460,17 @@ props.navigation.navigate("Productdetails")
           fontWeight: '600'
           
                 }}
-      >{'\u20B9'} {item.real_price}
+      >{'\u20B9'} {item.discount_amount}
       </Text>
       </View>
 
 
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+<TouchableOpacity 
+  //()=> props.navigation.navigate("Cart")
+   onPress={()=> addtocart1(item)
+                
+}
 
 style={{
   height: normalize(30),
@@ -387,6 +507,66 @@ style={{
 
     </TouchableOpacity>
   );
+
+
+  if (status == '' || ProfileReducer.status != status) {
+    switch (ProfileReducer.status) {
+        case 'Profile/productRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/productSuccess':
+            status = ProfileReducer.status;
+            console.log("Subcategory response === ", ProfileReducer?.productResponse)
+            
+           
+           setData2(ProfileReducer?.productResponse?.respData)
+            break;
+  
+        case 'Profile/productFailure':
+  
+            status = ProfileReducer.status;
+            break;
+  
+            case 'Profile/addcartRequest':
+            status = ProfileReducer.status;
+            break;
+  
+        case 'Profile/addcartSuccess':
+            status = ProfileReducer.status;
+            console.log("Add cart response === ", ProfileReducer?.addcartResponse)
+            
+           
+           setData2(ProfileReducer?.addcartResponse?.respData)
+            break;
+  
+        case 'Profile/addcartFailure':
+  
+            status = ProfileReducer.status;
+            break;
+        
+            
+  
+     
+            
+  
+  
+  
+          
+  
+      
+  
+  
+  
+  
+          
+  
+  
+  
+         
+    }
+  }
+  
 
   return (
 
@@ -457,7 +637,7 @@ style={{
                
 
               }}>
-Breads
+{props?.route?.params?.name}
               </Text>
 
 
@@ -508,13 +688,13 @@ Breads
     width: '40%',
     marginTop: normalize(-15)
 }}>
-<Text style={{
+{/* <Text style={{
               color: "#515151",
               
               fontSize: normalize(10),
               
               
-            }}>530 Products</Text>
+            }}>530 Products</Text> */}
 
 </View>
 
@@ -572,97 +752,6 @@ Breads
               
 
           
-{/* <View style={{
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  marginRight: normalize(10)
-}}>
-            <Text style={{
-              color: "#3F3F3F",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>Breakfast & Bakery</Text>
-
-
-<TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>See All</Text>
-</TouchableOpacity>
-
-</View>
-           
-
-
-<FlatList
-                data={DATA2}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-                  marginTop: normalize(15)
-                  
-
-
-
-                }}
-
-
-              />
-<View style={{
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  marginRight: normalize(10)
-}}>
-            <Text style={{
-              color: "#3F3F3F",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>Dairy & Frozen Foods</Text>
-
-<TouchableOpacity>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>See All</Text>
-            </TouchableOpacity>
-</View>
-
-<FlatList
-                data={DATA3}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-                  marginTop: normalize(15),
-                  marginBottom: normalize(20)
-
-
-
-                }}
-
-              /> */}
 
 
 
@@ -676,7 +765,7 @@ Breads
                                
                             }}>
                                 <FlatList
-                                    data={DATA2}
+                                    data={data2}
                                     renderItem={renderItem2}
                                     keyExtractor={item => item.id}
                                     showsHorizontalScrollIndicator={false}
@@ -696,7 +785,7 @@ Breads
 
                                 />
                                 <FlatList
-                                    data={DATA2}
+                                    data={data2}
                                     renderItem={renderItem2}
                                     keyExtractor={item => item.id}
                                     showsHorizontalScrollIndicator={false}
@@ -742,7 +831,8 @@ Breads
 
         </SafeAreaView>
       </Layout>
-
+      <Loader visible={ProfileReducer?.status == 'Profile/productRequest'}/> 
+      <Loader visible={ProfileReducer?.status == 'Profile/addcartRequest'}/>
     </Fragment>
 
 

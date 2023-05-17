@@ -12,9 +12,10 @@ import {
     ImageBackground,
     StatusBar,
     Alert,
-    TextInput,
+   TextInput ,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -48,7 +49,7 @@ export default function Recipe(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -163,7 +164,12 @@ function favourite1(){
 
 
 
-
+const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
         
         
         
@@ -472,7 +478,9 @@ function favourite1(){
 
 
 
-                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+                        <ScrollView showsVerticalScrollIndicator={false} bounces={false} refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            } >
 
 
 
@@ -596,15 +604,7 @@ style={{
               marginTop: normalize(10)
             }}>Buy Ingredients</Text>
 
-{/* <TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.Hind,
-              fontSize: normalize(14),
-              marginRight: normalize(10),
-              marginTop: normalize(10)
-            }}>See All</Text>
-</TouchableOpacity> */}
+
 
 
 
@@ -706,7 +706,7 @@ style={{
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

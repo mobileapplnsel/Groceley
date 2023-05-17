@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787345543563",
+    "project_id": "grocley-d7f07",
+    "storage_bucket": "grocley-d7f07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787345543563:android:f1c0739ff3027925b95f8e",
+        "android_client_info": {
+          "package_name": "com.grocley"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787345543563-0fi97t311j5063qdgar3kani2p51hobb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjzKgHDgz-1Pu9Xk1LWN0eZ3Xa4Dk4B1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787345543563-0fi97t311j5063qdgar3kani2p51hobb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

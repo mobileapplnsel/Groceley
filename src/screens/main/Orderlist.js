@@ -14,7 +14,8 @@ import {
     Alert,
     TextInput,
     FlatList,
-    Share
+    Share,
+    RefreshControl,
 } from 'react-native';
 
 
@@ -48,8 +49,7 @@ export default function Orderlist(props) {
     const [productselect2, setProductselect2] = useState(0);
     const [productselect3, setProductselect3] = useState(0);
     const [itemselected, setItemselected] = useState(0);
-
-
+    const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -151,7 +151,7 @@ const renderItem2 = ({ item, index }) => (
     style={{
         flexDirection: 'row',
     height: normalize(100),
-    width: normalize(200),
+    width: normalize(210),
     borderRadius: normalize(10),
     backgroundColor: '#F0F0F0',
     marginHorizontal: normalize(5)
@@ -160,8 +160,8 @@ const renderItem2 = ({ item, index }) => (
          <Image
                   source={item.pic}
                   style={{
-                    height: normalize(60),
-                    width: normalize(60),
+                    height: normalize(70),
+                    width: normalize(70),
                     alignSelf: 'center',
                     marginTop: normalize(5),
                     //marginLeft: normalize(20)
@@ -281,7 +281,12 @@ style={{
 
 
         
-        
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []); 
     
 
 
@@ -441,7 +446,11 @@ style={{
 
                         <ScrollView showsVerticalScrollIndicator={false} bounces={false} style={{
                             backgroundColor: 'white'
-                        }} >
+                        }}
+                        refreshControl={
+                          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                        }
+                        >
 
 
 
@@ -455,8 +464,28 @@ style={{
                                 }}>
 
 
+<View style={{
+  flexDirection: 'row'
+}}
+>
+<TouchableOpacity 
+             onPress={()=> props.navigation.goBack()}
+             >
 
-
+          
+<Image
+                  source={ICONS.previous}
+                  style={{
+                   height: normalize(20),
+                    width: normalize(20),
+                    
+                    marginLeft: normalize(20),
+                    
+                  }}
+                  resizeMode={'contain'}
+                 
+                ></ Image>
+</TouchableOpacity>
 
 
                                         <Text
@@ -471,7 +500,7 @@ style={{
                                         >
                                        Your Orders
                                         </Text> 
-
+                                        </View>
                                         <View style={{
                                             flexDirection: 'row',
                                             justifyContent: 'center',
@@ -479,7 +508,9 @@ style={{
                                             marginLeft: normalize(25),
                                         }}>
 
-<TouchableOpacity style={{
+<TouchableOpacity onPress={()=> props.navigation.navigate("Filter")}
+
+style={{
     height: normalize(36),
     width: normalize(36),
     marginTop: normalize(6),
@@ -708,7 +739,7 @@ You have reached the end of your orders
                             }}
                         />
                     </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
                 </SafeAreaView>
             </Layout>
 

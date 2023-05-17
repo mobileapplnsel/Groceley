@@ -13,7 +13,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList
+  FlatList,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -32,7 +33,8 @@ import Layout from '../../components/Layout';
 import DrawerMenuAdminexpanded from '../../components/DrawerMenuAdminexpanded';
 import CarouselCards from '../../components/CarouselCards'
 import {ViewPropTypes} from 'deprecated-react-native-prop-types'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { productRequest} from '../../redux/reducer/ProfileReducer'
 
 var status = '';
 export default function Productlist(props) {
@@ -44,10 +46,12 @@ export default function Productlist(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [data2, setData2] = useState('');
 
 
-
-
+  const dispatch = useDispatch();
+  const ProfileReducer = useSelector(state => state.ProfileReducer);
 
   const DATA = [{
     id: "0",
@@ -174,6 +178,54 @@ props.navigation.navigate("Productdetails")
 
 
 
+ const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
+
+if (status == '' || ProfileReducer.status != status) {
+  switch (ProfileReducer.status) {
+      case 'Profile/productRequest':
+          status = ProfileReducer.status;
+          break;
+
+      case 'Profile/productSuccess':
+          status = ProfileReducer.status;
+          console.log("Response === ", ProfileReducer?.productResponse?.respData?.subCategory)
+          
+         // setCarouseldata(ProfileReducer?.productResponse?.respData?.banner)
+          setData2(ProfileReducer?.productResponse?.respData?.subCategory)
+          break;
+
+      case 'Profile/productFailure':
+
+          status = ProfileReducer.status;
+          break;
+
+      
+          
+
+   
+          
+
+
+
+        
+
+    
+
+
+
+
+        
+
+
+
+       
+  }
+}
 
 
 
@@ -240,7 +292,7 @@ props.navigation.navigate("Productdetails")
       onPress={(item) => selectItem(item)}
       style={{
 
-        height: normalize(195),
+        height: normalize(215),
         width: normalize(140),
         backgroundColor: '#F0F0F0' ,
        
@@ -273,8 +325,8 @@ props.navigation.navigate("Productdetails")
         <Image
                   source={item.pic}
                   style={{
-                    height: normalize(60),
-                    width: normalize(60),
+                    height: normalize(80),
+                    width: normalize(80),
                     marginTop: normalize(5),
                     
                   }}
@@ -403,7 +455,9 @@ style={{
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false} refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
 
 
 
@@ -566,103 +620,13 @@ Breakfast & Bakery
            
            }}>
 
-            <CarouselCards />
+            {/* <CarouselCards /> */}
 
             </View>
               
 
           
-{/* <View style={{
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  marginRight: normalize(10)
-}}>
-            <Text style={{
-              color: "#3F3F3F",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>Breakfast & Bakery</Text>
 
-
-<TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>See All</Text>
-</TouchableOpacity>
-
-</View>
-           
-
-
-<FlatList
-                data={DATA2}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-                  marginTop: normalize(15)
-                  
-
-
-
-                }}
-
-
-              />
-<View style={{
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  marginRight: normalize(10)
-}}>
-            <Text style={{
-              color: "#3F3F3F",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>Dairy & Frozen Foods</Text>
-
-<TouchableOpacity>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>See All</Text>
-            </TouchableOpacity>
-</View>
-
-<FlatList
-                data={DATA3}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-                  marginTop: normalize(15),
-                  marginBottom: normalize(20)
-
-
-
-                }}
-
-              /> */}
 
 
 
@@ -739,7 +703,7 @@ Breakfast & Bakery
               }}
             />
           </KeyboardAvoidingView>
-
+{/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

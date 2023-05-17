@@ -1,8 +1,8 @@
 import {all} from 'redux-saga/effects';
-import AdminSaga from './AdminSaga';
+import AuthSaga from './AuthSaga';
+import ProfileSaga from './ProfileSaga';
 
-
-const combinedSaga = [...AdminSaga];
+const combinedSaga = [...AuthSaga, ...ProfileSaga];
 
 export default function* RootSaga() {
   yield all(combinedSaga);

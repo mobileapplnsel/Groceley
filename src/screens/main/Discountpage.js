@@ -13,7 +13,8 @@ import {
   StatusBar,
   Alert,
   TextInput,
-  FlatList
+  FlatList,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -44,7 +45,7 @@ export default function Discountpage(props) {
   const [choosepassword, setChoosepassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [refreshing, setRefreshing] = useState(false);
 
 
 
@@ -173,7 +174,12 @@ props.navigation.navigate("Productlisting")
  }
 
 
-
+ const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setTimeout(() => {
+    setRefreshing(false);
+  }, 2000);
+}, []);
 
 
 
@@ -401,7 +407,9 @@ props.navigation.navigate("Productlisting")
 
 
 
-            <ScrollView showsVerticalScrollIndicator={false} bounces={false} >
+            <ScrollView showsVerticalScrollIndicator={false} bounces={false}  refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
 
 
 
@@ -562,97 +570,7 @@ Special Offers              </Text>
               
 
           
-{/* <View style={{
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  marginRight: normalize(10)
-}}>
-            <Text style={{
-              color: "#3F3F3F",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>Breakfast & Bakery</Text>
 
-
-<TouchableOpacity onPress={()=> props.navigation.navigate("Productlist")}>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>See All</Text>
-</TouchableOpacity>
-
-</View>
-           
-
-
-<FlatList
-                data={DATA2}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-                  marginTop: normalize(15)
-                  
-
-
-
-                }}
-
-
-              />
-<View style={{
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  marginRight: normalize(10)
-}}>
-            <Text style={{
-              color: "#3F3F3F",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>Dairy & Frozen Foods</Text>
-
-<TouchableOpacity>
-<Text style={{
-              color: "#69BE53",
-              fontFamily: FONTS.RubikBold,
-              fontSize: normalize(14),
-              marginLeft: normalize(30),
-              marginTop: normalize(20)
-            }}>See All</Text>
-            </TouchableOpacity>
-</View>
-
-<FlatList
-                data={DATA3}
-                renderItem={renderItem2}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-
-                horizontal={true}
-                style={{
-
-
-                  marginLeft: normalize(12),
-                  marginTop: normalize(15),
-                  marginBottom: normalize(20)
-
-
-
-                }}
-
-              /> */}
 
 
 
@@ -729,7 +647,7 @@ Special Offers              </Text>
               }}
             />
           </KeyboardAvoidingView>
-
+ {/* <Loader/>   */}
         </SafeAreaView>
       </Layout>
 

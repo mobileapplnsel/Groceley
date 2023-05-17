@@ -29,7 +29,7 @@ import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
 import ImagePicker from 'react-native-image-crop-picker';
-
+import OTPInputView from '@twotalltotems/react-native-otp-input'
 import Modal from 'react-native-modal';
 
 const { width, height } = Dimensions.get('screen');
@@ -45,8 +45,11 @@ export default function Profile(props) {
   const [emailaddress, setEmailaddress] = useState('');
   const [address, setAddress] = useState('');
   const [pickerVisial, setPickerVisial] = useState(false);
+  const [flag, setFlag] = useState(0);
+  const [isVisible, setVisible] = useState(false);
   const [filePath, setFilePath] = useState('');
   const isFocused = useIsFocused();
+ 
 
 
 
@@ -179,6 +182,42 @@ export default function Profile(props) {
     //   }
     });
   }
+
+  function verifyAlert() {
+    Alert.alert('Verification', 'Please verify your email address', [
+      {
+        text: 'Cancel',
+        onPress: () => {console.log('Cancel Pressed') , setFlag(0)},
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => {console.log('OK Pressed') , setFlag(0)}},
+    ]);
+}
+
+
+function otpVarification()
+{
+  return(
+
+    <View>
+     
+    </View>
+  )
+}
+
+
+
+  
+function verifyEmail(){
+  console.log("fgdt"+emailaddress)
+  if(emailaddress == '')
+  {
+    verifyAlert()
+  }
+  else{
+          setVisible(true)
+  }
+}
 
 
 
@@ -363,87 +402,122 @@ export default function Profile(props) {
                   color: 'black',
 
                 }}>
-                EDIT PROFILE
+               PROFILE
               </Text>
             
 <View style={{
     marginVertical: normalize(20)
 }}>
-
-              <TextInputItem
+                  <View style={{flexDirection:'row'}}>
+              <TextInput
                 maxLength={30}
                 value={name}
+               
                 onChangeText={_ => setName(_)}
+                style={{
+                  
+                 
+                  paddingLeft: normalize(15),
+                  paddingRight: normalize(8),
+                  marginTop: normalize(10),
+                  color:'black'
+                }}
                 marginTop={normalize(10)}
                 keyboardType={'email-address'}
                 fontSize={normalize(14)}
-                width={normalize(250)}
+                width={normalize(270)}
                 placeholder={'Lee and Nee Software Exports'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-
-              <TextInputItem
-                value={mobilenumber}
-                onChangeText={_ => setMobileNumber(_)}
-                marginTop={normalize(10)}
-                keyboardType={'numeric'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'8913247247742'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-              <TextInputItem
-                value={emailaddress}
-                onChangeText={_ => setEmailaddress(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'abc@yopmail.com'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-
-<TextInput
-numberOfLines={3}
-                value={address}
-                onChangeText={_ => setAddress(_)}
-                marginTop={normalize(10)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(245)}
-                paddingLeft={normalize(10)}
-                placeholder={'Salt Lake Sector 5, SDF Building'}
+                placeholderTextColor={'gray'}
                 borderRadius={normalize(10)}
                 backgroundColor={'#D3D3D3'}
 
               />
+              <Text style={{color:'red'}}>*</Text>
+              </View> 
 
-{/* <TextInput
-                multiline={true}
-                numberOfLines={5}
-                maxLength={150}
-                height={normalize(100)}
+              <TextInput
+                value={mobilenumber}
+                
+                onChangeText={_ => setMobileNumber(_)}
                 style={{
-                    borderRadius : normalize(15),
-                    padding: normalize(10)
+                  
+                 
+                  paddingLeft: normalize(15),
+                  paddingRight: normalize(8),
+                  marginTop: normalize(10),
+                  color:'black'
                 }}
-                value={address}
-                onChangeText={_ => setAddress(_)}
+                marginTop={normalize(10)}
+                keyboardType={'numeric'}
+                fontSize={normalize(14)}
+                width={normalize(270)}
+                placeholder={'8913247247742'}
+                borderRadius={normalize(10)}
+                placeholderTextColor={'gray'}
+                backgroundColor={'#D3D3D3'}
+                
+              />
+              <View style={{flexDirection:'row',marginTop:normalize(3)}}>
+              <TextInput
+                value={emailaddress}
+                
+                onChangeText={_ => setEmailaddress(_)}
+                style={{
+                  
+                 
+                  paddingLeft: normalize(15),
+                  paddingRight:normalize(8),
+                  marginTop:normalize(10),
+                  color:'black'
+                }}
                 marginTop={normalize(10)}
                 keyboardType={'email-address'}
                 fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'Lee & Nee Software Exports Limited, SDF Building, Salt Lake Sector 5'}
-              //  borderRadius={normalize(30)}
+                width={normalize(200)}
+                placeholder={'abc@yopmail.com'}
+                placeholderTextColor={'gray'}
+                borderRadius={normalize(10)}
                 backgroundColor={'#D3D3D3'}
 
-              /> */}
+              />
+              <Text style={{color:'red'}}>*</Text>
+              <TouchableOpacity style={{backgroundColor: flag==0?'#F36E35':'#69BE53', 
+              width:normalize(60),
+              height:normalize(40),
+              alignSelf:'center',
+              marginLeft:normalize(5),
+              marginTop:normalize(10),
+              justifyContent:'center',
+              alignItems: 'center',
+              borderRadius:normalize(10)}} onPress={()=> verifyEmail()
+              }>
+
+
+
+{flag==0?  (     <Text style={{
+              fontFamily: FONTS.Hind,
+              fontSize: normalize(12),
+              color: 'white'
+              }}>Verify</Text>
+) : (
+<Image
+                                     source={ICONS.tick}
+                                     style={{
+                                         height: normalize(20),
+                                         width: normalize(20),
+                                         
+                                         
+                                     }}
+                                     resizeMode={'contain'}
+                                     tintColor={'white'}
+                                 ></Image>
+)}
+
+
+              </TouchableOpacity>
+              </View>
+
+
 
 
 </View>
@@ -515,14 +589,142 @@ numberOfLines={3}
 
             
 
+          
+            <Modal isVisible={isVisible}
+         
+         style={{
+             justifyContent: 'center',
+             alignItems: 'center'
+         }}
+          animationType={"slide"}
+   
+       onBackdropPress = { () => setVisible(false)}
+          >
+          <View style={{
+ 
+ height: normalize(380),
+ width: '95%',
+ backgroundColor: 'white',
+ 
+ borderRadius: normalize(10),
+ 
+ }}>
+ 
+ <TouchableOpacity
+                                 style={{
+                                     width: '12%',
+                                     height: '10%',
+                                     backgroundColor: '#F36E35',
+                                     borderRadius: normalize(5),
+                                     alignSelf: 'flex-end',
+                                     justifyContent: 'center',
+                                    
+                                 }}
+ 
+                                 onPress={() => {
+                                     console.log("kshbfhwb")
+                                     setVisible(false)
+                                     setFlag(0)
+ 
+                                 }}>
+                                 <Image
+                                     source={ICONS.cross}
+                                     style={{
+                                         height: normalize(11),
+                                         width: normalize(10),
+                                         
+                                         alignSelf: 'center'
+                                     }}
+                                     resizeMode={'contain'}
+                                     tintColor={'white'}
+                                 ></Image>
+                             </TouchableOpacity>
+ 
+ 
+ 
+ 
+ 
+ 
+ <Text
+                            style={{
+                                fontSize: normalize(14),
+                                letterSpacing: 3,
+                                fontWeight: '700',
+                                textAlign: 'center',
+                                marginTop: normalize(10),
+                                color: 'black',
+
+                            }}>
+                            ENTER OTP
+                        </Text>
+
+                       
+                        
+
+<OTPInputView
+    style={{width: '80%', height: 200}}
+   pinCount={4}
+    // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+   // onCodeChanged = {setValue}
+    autoFocusOnLoad
+    codeInputFieldStyle={{ 
+      color: '#69BE53',
+      borderColor: 'black',
+      borderRadius: normalize(5),
+      marginLeft: normalize(25),
+     marginTop: normalize(10)
+    }}
+    codeInputHighlightStyle={{
+      color: '#69BE53',
+      borderColor: '#69BE53',
+    }}
+    // onCodeFilled = {(value) => {
+    //    props.navigation.navigate("Login")
+    // }}
+/>
 
 
 
+
+                        <TouchableOpacity onPress={()=> {setVisible(false), setFlag(1)}}
+
+                            style={{
+                                height: normalize(35),
+                                width: normalize(100),
+                                marginTop: normalize(20),
+                                backgroundColor: '#69BE53',
+                                alignSelf: 'center',
+                                borderRadius: normalize(20)
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    color: 'white',
+                                    textAlign: 'center',
+                                    marginTop: normalize(9),
+                                    fontSize: normalize(10),
+                                    fontWeight: '800'
+                                }}
+                            >SUBMIT</Text>
+
+
+                        </TouchableOpacity>
+
+
+
+ </View>
+        </Modal>
 
 
           </ScrollView>
-        </KeyboardAvoidingView>
 
+
+          
+         
+
+
+        </KeyboardAvoidingView>
+{/* <Loader/>   */}
       </SafeAreaView>
 
 

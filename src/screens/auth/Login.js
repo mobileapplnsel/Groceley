@@ -26,7 +26,8 @@ import Loader from '../../utils/helpers/Loader';
 import MyStatusBar from '../../utils/helpers/MyStatusBar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constants from '../../utils/helpers/constants';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest} from '../../redux/reducer/ProfileReducer'
 
 
 
@@ -37,26 +38,45 @@ export default function Login(props) {
   const [name, setName] = useState('');
   const [mobilenumber, setMobileNumber] = useState('');
   const [emailaddress, setEmailaddress] = useState('');
-  const [choosepassword, setChoosepassword] = useState('');
+  const [phoneno, setPhoneNo] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const isFocused = useIsFocused();
 
-
-
-
-
-
-
-
-
-
-
-
+  const dispatch = useDispatch();
+  const AuthReducer = useSelector(state => state.AuthReducer);
 
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+    if (status == '' || AuthReducer.status != status) {
+      switch (AuthReducer.status) {
+          case 'Auth/loginRequest':
+              status = ProfileReducer.status;
+              break;
+    
+          case 'Auth/loginSuccess':
+              status = ProfileReducer.status;
+              console.log("Subcategory response === ", ProfileReducer?.loginResponse)
+              
+             // setCarouseldata(ProfileReducer?.homeResponse?.respData?.banner)
+             setData2(ProfileReducer?.loginResponse?.respData)
+              break;
+    
+          case 'Auth/loginFailure':
+    
+              status = ProfileReducer.status;
+              break;  
+    
+    
+    
+           
+      }
+    }
 
+    function login(){
+      props.navigation.navigate("VerifyOTP")
+
+    }
 
   return (
 
@@ -146,45 +166,31 @@ export default function Login(props) {
               </Text>
 
 
-              <TextInputItem
-                value={name}
-                onChangeText={_ => setName(_)}
-                marginTop={normalize(30)}
-                keyboardType={'email-address'}
-                fontSize={normalize(14)}
-                width={normalize(250)}
-                placeholder={'Enter Username / Mobile number'}
-                borderRadius={normalize(30)}
-                backgroundColor={'#D3D3D3'}
-
-              />
-
+   
              
              
 
 <TextInput
-                value={choosepassword}
-                secureTextEntry={true}
-                placeholder={'Choose Password'}
-                onChangeText={_ => setChoosepassword(_)}
+                value={phoneno}
+              
+                placeholder={'Enter mobile no.'}
+                onChangeText={_ => setPhoneNo()}
                 style={{
-                marginTop: normalize(10),
-                
+                marginTop: normalize(20),
                 fontSize: normalize(14),
+                color:'black',
                 width: normalize(250),
-               
-                
-                borderRadius : normalize(30),
+                 borderRadius : normalize(30),
                 backgroundColor: '#D3D3D3',
-                paddingLeft: normalize(10)
+                paddingLeft: normalize(20)
                 }}
-                keyboardType={"default"}
+                keyboardType={"numeric"}
               />
 
              
 
 
-              <TouchableOpacity onPress={()=> props.navigation.navigate("Cart")}
+              <TouchableOpacity onPress={()=> login()}
 
                 style={{
                   height: normalize(35),
@@ -220,44 +226,9 @@ export default function Login(props) {
               alignItems: 'center'
             }}>
 
-              <View
-                style={{
-                  width: '25%',
-                  height: normalize(1),
-                  backgroundColor: '#D9D9D9',
+             
 
-                  marginLeft: normalize(30),
-                  marginTop: normalize(30)
-                }}
-
-              />
-
-              <Text
-                style={{
-
-                  fontSize: normalize(11),
-                  color: '#1D1D1B',
-
-                  marginLeft: normalize(5),
-                  marginTop: normalize(25),
-                  fontWeight: '700'
-                }}
-              >Or Login with</Text>
-
-              <View
-                style={{
-                  width: '25%',
-                  height: normalize(1),
-                  backgroundColor: '#D9D9D9',
-
-                  marginRight: normalize(30),
-                  marginLeft: normalize(5),
-                  marginTop: normalize(30)
-                }}
-
-              />
-
-
+              
 
             </View>
 
@@ -268,40 +239,8 @@ export default function Login(props) {
               alignItems: 'center'
             }}>
 
-              <Image
-                source={ICONS.facebook}
-                style={{
-                  height: normalize(40),
-                  width: normalize(40),
-                  alignSelf: 'center',
-                }}
-                resizeMode={'contain'}
-              ></Image>
 
-              <View
-
-                style={{
-                  height: normalize(40),
-                  width: normalize(40),
-                  borderRadius: normalize(20),
-                  backgroundColor: '#E31C23',
-                  justifyContent: 'center',
-                  marginLeft: normalize(10)
-                }}>
-
-
-                <Image
-                  source={ICONS.google}
-                  style={{
-                    height: normalize(20),
-                    width: normalize(20),
-                    alignSelf: 'center',
-                  }}
-                  resizeMode={'contain'}
-                ></Image>
-
-
-              </View>
+            
 
 
 
@@ -311,25 +250,25 @@ export default function Login(props) {
             <View style={{
               //marginTop: normalize(5),
               flexDirection: 'row',
-              marginLeft: normalize(50),
+              alignSelf: 'center',
               marginBottom: normalize(20),
             }}>
 
-<Text
+{/* <Text
                 style={{
 
                   fontSize: normalize(11),
                   color: '#1D1D1B',
 
-                  textAlign: 'left',
-                  marginTop: normalize(15),
+                 
+                  marginTop: normalize(5),
                  
                   fontWeight: '700'
                 }}
-              >Forgot Your Password ?</Text>
+              >Forgot Your Password ?</Text> */}
             
 
-<TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword")}>
+{/* <TouchableOpacity onPress={()=> props.navigation.navigate("ForgotPassword") }>
             <Text
                 style={{
 
@@ -337,12 +276,12 @@ export default function Login(props) {
                   color: '#FF6205',
 
                   marginLeft: normalize(2),
-                  marginTop: normalize(15),
+                  marginTop: normalize(5),
                   fontWeight: '700'
                 }}
               >Click Here</Text>
 
-</TouchableOpacity>
+</TouchableOpacity> */}
              
 
 
@@ -358,35 +297,7 @@ export default function Login(props) {
               marginBottom: normalize(10),
             }}>
 
-<Text
-                style={{
 
-                  fontSize: normalize(11),
-                  color: '#1D1D1B',
-
-                  
-                 
-                 
-                  fontWeight: '700'
-                }}
-              >Don’t have an account ? </Text>
-            
-
-<TouchableOpacity onPress={()=> props.navigation.navigate("Registration")}>
-            <Text
-                style={{
-
-                  fontSize: normalize(11),
-                  color: '#FF6205',
-
-                  
-                  
-                  fontWeight: '700'
-                }}
-              > Click Here To Register</Text>
-
-</TouchableOpacity>
-             
 
 
 
